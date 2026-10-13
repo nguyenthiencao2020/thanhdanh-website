@@ -50,7 +50,7 @@ export default async function ProductPage({ params }: { params: Params }) {
       </nav>
 
       <div className="mt-6 grid gap-10 lg:grid-cols-2">
-        <div className="aspect-square overflow-hidden rounded-xl border border-slate-200 bg-white p-6">
+        <div className="aspect-[4/3] self-start overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
           <ProductImage product={product} />
         </div>
 

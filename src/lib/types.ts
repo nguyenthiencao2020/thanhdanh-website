@@ -19,6 +19,7 @@ export type Category = {
   name: string;
   description: string | null;
   icon: string | null;
+  image_url: string | null;
   sort_order: number;
 };
 

@@ -27,7 +27,10 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    Dùng tài khoản nào cũng được, không cần trùng tài khoản GitHub.
 2. **SQL Editor** → chạy lần lượt:
    - `supabase/migrations/0001_init.sql` (bảng, phân quyền RLS, bucket ảnh `media`) — chỉ chạy một lần
+   - `supabase/migrations/0002_demo_images.sql` (cột ảnh danh mục + gắn ảnh minh họa cho dữ liệu mẫu)
    - `supabase/seed.sql` (dữ liệu ban đầu: thông tin công ty, danh mục, thương hiệu, sản phẩm mẫu)
+
+   > Đã chạy `0001` và `seed.sql` từ trước? Chỉ cần chạy thêm `0002_demo_images.sql`.
 3. **Authentication → Sign In / Providers → Email**: tắt *Allow new users to sign up* (không cho người lạ tự tạo tài khoản).
 4. Copy 2 giá trị để dán vào Vercel (hoặc bấm nút **Connect** ở thanh trên cùng):
    - **Project Settings → Data API**: `Project URL`
@@ -78,13 +81,10 @@ Lệnh khác: `npm run build`, `npm run typecheck`, `npm run seed:sql` (tạo l�
 - **Danh mục / Thương hiệu**: thêm/sửa/xóa, tải logo
 - **Cài đặt**: tên công ty, hotline, Zalo, email, địa chỉ, giờ làm việc, bản đồ, giới thiệu
 
-## Cần xác nhận trước khi chạy chính thức
+## Nội dung cần bổ sung
 
-- **Tên công ty**: logo ghi “TM DV Thiết bị Nhà máy **Thành Danh**”, còn giấy tờ (`Ref/info.jpg`, bảng quảng cáo) ghi
-  “Thương mại Vật tư Nhà máy **Đạt Danh**”. Website đang dùng tên trên logo; sửa trong *Cài đặt*.
-- **Email** liên hệ chưa có.
-- **10 sản phẩm mẫu** chỉ để minh họa bố cục; hãy thay bằng sản phẩm thật và ảnh thật.
-- Logo **IDEC** trong file Excel bị dính khung chọn nên đang hiển thị dạng chữ; tải logo chuẩn trong *Thương hiệu*.
+Website đang dùng một số nội dung tạm (sản phẩm mẫu, ảnh minh họa, cam kết dịch vụ…).
+Danh sách chi tiết những gì cần thay bằng thông tin thật: **[NOI-DUNG-CAN-BO-SUNG.md](NOI-DUNG-CAN-BO-SUNG.md)**.
 
 ## Thư mục
 
@@ -95,6 +95,6 @@ src/components/      Giao diện dùng chung
 src/lib/data.ts      Truy vấn dữ liệu (Supabase hoặc dữ liệu mặc định)
 src/data/catalog.json Dữ liệu ban đầu
 supabase/            Schema SQL + seed
-public/              Logo công ty, logo thương hiệu
+public/              Logo công ty, logo thương hiệu, ảnh minh họa (public/demo)
 Ref/                 Tài liệu tham khảo gốc
 ```

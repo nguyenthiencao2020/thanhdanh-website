@@ -19,51 +19,121 @@
       "name": "Thiết bị điện công nghiệp",
       "description": "Aptomat, contactor, relay, khởi động từ, nguồn tổ ong, cầu đấu và phụ kiện tủ điện.",
       "icon": "bolt",
-      "sort_order": 1
+      "sort_order": 1,
+      "image_url": "/demo/aptomat.svg"
     },
     {
       "slug": "tu-dong-hoa",
       "name": "Tự động hóa",
       "description": "PLC, HMI, biến tần, servo, cảm biến và bộ điều khiển cho dây chuyền sản xuất.",
       "icon": "cpu",
-      "sort_order": 2
+      "sort_order": 2,
+      "image_url": "/demo/plc.svg"
     },
     {
       "slug": "khi-nen-thuy-luc",
       "name": "Khí nén – Thủy lực",
       "description": "Xi lanh, van điện từ, bộ lọc khí, đầu nối, ống hơi và thiết bị thủy lực.",
       "icon": "wind",
-      "sort_order": 3
+      "sort_order": 3,
+      "image_url": "/demo/xi-lanh-khi-nen.svg"
     },
     {
       "slug": "motor-hop-giam-toc",
       "name": "Motor – Hộp giảm tốc",
       "description": "Động cơ điện, motor giảm tốc, hộp số và phụ kiện truyền động.",
       "icon": "cog",
-      "sort_order": 4
+      "sort_order": 4,
+      "image_url": "/demo/motor-giam-toc.svg"
     },
     {
       "slug": "phu-kien-duong-ong-van",
       "name": "Phụ kiện đường ống – Van",
       "description": "Co, tê, rắc co, mặt bích, van bi, van bướm, van một chiều các loại.",
       "icon": "pipe",
-      "sort_order": 5
+      "sort_order": 5,
+      "image_url": "/demo/van-bi-inox.svg"
     }
   ],
   "brands": [
-    { "slug": "siemens", "name": "Siemens", "logo_url": "/brands/siemens.png", "sort_order": 1 },
-    { "slug": "schneider-electric", "name": "Schneider Electric", "logo_url": "/brands/schneider-electric.png", "sort_order": 2 },
-    { "slug": "mitsubishi-electric", "name": "Mitsubishi Electric", "logo_url": "/brands/mitsubishi-electric.png", "sort_order": 3 },
-    { "slug": "omron", "name": "Omron", "logo_url": "/brands/omron.png", "sort_order": 4 },
-    { "slug": "abb", "name": "ABB", "logo_url": "/brands/abb.png", "sort_order": 5 },
-    { "slug": "festo", "name": "Festo", "logo_url": "/brands/festo.png", "sort_order": 6 },
-    { "slug": "smc", "name": "SMC", "logo_url": "/brands/smc.png", "sort_order": 7 },
-    { "slug": "sick", "name": "SICK", "logo_url": "/brands/sick.png", "sort_order": 8 },
-    { "slug": "ifm", "name": "ifm electronic", "logo_url": "/brands/ifm.png", "sort_order": 9 },
-    { "slug": "phoenix-contact", "name": "Phoenix Contact", "logo_url": "/brands/phoenix-contact.png", "sort_order": 10 },
-    { "slug": "autonics", "name": "Autonics", "logo_url": "/brands/autonics.png", "sort_order": 11 },
-    { "slug": "hanyoung-nux", "name": "Hanyoung Nux", "logo_url": "/brands/hanyoung-nux.png", "sort_order": 12 },
-    { "slug": "idec", "name": "IDEC", "logo_url": null, "sort_order": 13 }
+    {
+      "slug": "siemens",
+      "name": "Siemens",
+      "logo_url": "/brands/siemens.png",
+      "sort_order": 1
+    },
+    {
+      "slug": "schneider-electric",
+      "name": "Schneider Electric",
+      "logo_url": "/brands/schneider-electric.png",
+      "sort_order": 2
+    },
+    {
+      "slug": "mitsubishi-electric",
+      "name": "Mitsubishi Electric",
+      "logo_url": "/brands/mitsubishi-electric.png",
+      "sort_order": 3
+    },
+    {
+      "slug": "omron",
+      "name": "Omron",
+      "logo_url": "/brands/omron.png",
+      "sort_order": 4
+    },
+    {
+      "slug": "abb",
+      "name": "ABB",
+      "logo_url": "/brands/abb.png",
+      "sort_order": 5
+    },
+    {
+      "slug": "festo",
+      "name": "Festo",
+      "logo_url": "/brands/festo.png",
+      "sort_order": 6
+    },
+    {
+      "slug": "smc",
+      "name": "SMC",
+      "logo_url": "/brands/smc.png",
+      "sort_order": 7
+    },
+    {
+      "slug": "sick",
+      "name": "SICK",
+      "logo_url": "/brands/sick.png",
+      "sort_order": 8
+    },
+    {
+      "slug": "ifm",
+      "name": "ifm electronic",
+      "logo_url": "/brands/ifm.png",
+      "sort_order": 9
+    },
+    {
+      "slug": "phoenix-contact",
+      "name": "Phoenix Contact",
+      "logo_url": "/brands/phoenix-contact.png",
+      "sort_order": 10
+    },
+    {
+      "slug": "autonics",
+      "name": "Autonics",
+      "logo_url": "/brands/autonics.png",
+      "sort_order": 11
+    },
+    {
+      "slug": "hanyoung-nux",
+      "name": "Hanyoung Nux",
+      "logo_url": "/brands/hanyoung-nux.png",
+      "sort_order": 12
+    },
+    {
+      "slug": "idec",
+      "name": "IDEC",
+      "logo_url": null,
+      "sort_order": 13
+    }
   ],
   "products": [
     {
@@ -73,7 +143,8 @@
       "brand": "siemens",
       "summary": "PLC nhỏ gọn cho các ứng dụng điều khiển máy và dây chuyền vừa và nhỏ.",
       "description": "Dòng PLC S7-1200 tích hợp cổng PROFINET, lập trình bằng TIA Portal. Liên hệ để được tư vấn chọn CPU, module mở rộng và báo giá.",
-      "featured": true
+      "featured": true,
+      "image_url": "/demo/plc.svg"
     },
     {
       "slug": "bien-tan-mitsubishi-fr-e800",
@@ -82,7 +153,8 @@
       "brand": "mitsubishi-electric",
       "summary": "Biến tần đa năng cho bơm, quạt, băng tải.",
       "description": "Biến tần FR-E800 hỗ trợ nhiều chuẩn truyền thông công nghiệp. Liên hệ để được tư vấn công suất phù hợp.",
-      "featured": true
+      "featured": true,
+      "image_url": "/demo/bien-tan.svg"
     },
     {
       "slug": "cam-bien-tiem-can-omron",
@@ -91,7 +163,8 @@
       "brand": "omron",
       "summary": "Cảm biến tiệm cận điện cảm, nhiều kích thước M8 – M30.",
       "description": "Phát hiện vật thể kim loại không tiếp xúc, dùng trong máy đóng gói, băng tải, máy CNC.",
-      "featured": true
+      "featured": true,
+      "image_url": "/demo/cam-bien-tiem-can.svg"
     },
     {
       "slug": "aptomat-schneider-easy9",
@@ -100,7 +173,8 @@
       "brand": "schneider-electric",
       "summary": "Cầu dao tự động bảo vệ quá tải và ngắn mạch.",
       "description": "Đầy đủ dòng định mức và số cực. Liên hệ để nhận báo giá theo số lượng.",
-      "featured": true
+      "featured": true,
+      "image_url": "/demo/aptomat.svg"
     },
     {
       "slug": "contactor-abb-af",
@@ -109,7 +183,8 @@
       "brand": "abb",
       "summary": "Khởi động từ cho động cơ và tải công nghiệp.",
       "description": "Cuộn coil dải điện áp rộng, độ bền cao. Liên hệ để được tư vấn chọn mã.",
-      "featured": false
+      "featured": false,
+      "image_url": "/demo/contactor.svg"
     },
     {
       "slug": "xi-lanh-khi-nen-festo",
@@ -118,7 +193,8 @@
       "brand": "festo",
       "summary": "Xi lanh tiêu chuẩn ISO, nhiều đường kính và hành trình.",
       "description": "Phù hợp cho các ứng dụng gá kẹp, đẩy, nâng hạ trong dây chuyền tự động.",
-      "featured": true
+      "featured": true,
+      "image_url": "/demo/xi-lanh-khi-nen.svg"
     },
     {
       "slug": "van-dien-tu-smc",
@@ -127,7 +203,8 @@
       "brand": "smc",
       "summary": "Van điện từ 5/2, 5/3 điều khiển xi lanh khí nén.",
       "description": "Đa dạng điện áp coil và kiểu kết nối. Liên hệ để được báo giá nhanh.",
-      "featured": true
+      "featured": true,
+      "image_url": "/demo/van-dien-tu.svg"
     },
     {
       "slug": "cam-bien-quang-sick",
@@ -136,7 +213,8 @@
       "brand": "sick",
       "summary": "Cảm biến quang thu phát, phản xạ gương và phản xạ khuếch tán.",
       "description": "Độ chính xác cao, phù hợp cho môi trường công nghiệp khắc nghiệt.",
-      "featured": false
+      "featured": false,
+      "image_url": "/demo/cam-bien-quang.svg"
     },
     {
       "slug": "motor-giam-toc",
@@ -145,7 +223,8 @@
       "brand": null,
       "summary": "Motor giảm tốc cốt thẳng, cốt vuông góc nhiều tỉ số truyền.",
       "description": "Tư vấn chọn công suất, tỉ số truyền và kiểu lắp đặt theo yêu cầu thực tế.",
-      "featured": true
+      "featured": true,
+      "image_url": "/demo/motor-giam-toc.svg"
     },
     {
       "slug": "van-bi-inox",
@@ -154,7 +233,8 @@
       "brand": null,
       "summary": "Van bi inox nối ren, mặt bích các cỡ.",
       "description": "Dùng cho hệ thống nước, khí, hóa chất nhẹ. Cung cấp kèm co, tê, rắc co đồng bộ.",
-      "featured": false
+      "featured": false,
+      "image_url": "/demo/van-bi-inox.svg"
     }
   ]
 }

@@ -14,21 +14,21 @@ const lines = [
   `insert into public.settings (id, ${settingsCols.join(", ")}) values (1, ${settingsCols.map((k) => q(s[k])).join(", ")})`,
   "on conflict (id) do nothing;",
   "",
-  "insert into public.categories (slug, name, description, icon, sort_order) values",
-  data.categories.map((c) => `  (${q(c.slug)}, ${q(c.name)}, ${q(c.description)}, ${q(c.icon)}, ${c.sort_order})`).join(",\n"),
+  "insert into public.categories (slug, name, description, icon, image_url, sort_order) values",
+  data.categories.map((c) => `  (${q(c.slug)}, ${q(c.name)}, ${q(c.description)}, ${q(c.icon)}, ${q(c.image_url)}, ${c.sort_order})`).join(",\n"),
   "on conflict (slug) do nothing;",
   "",
   "insert into public.brands (slug, name, logo_url, sort_order) values",
   data.brands.map((x) => `  (${q(x.slug)}, ${q(x.name)}, ${q(x.logo_url)}, ${x.sort_order})`).join(",\n"),
   "on conflict (slug) do nothing;",
   "",
-  "insert into public.products (slug, name, category_id, brand_id, summary, description, featured, published) values",
+  "insert into public.products (slug, name, category_id, brand_id, summary, description, image_url, featured, published) values",
   data.products
     .map(
       (p) =>
         `  (${q(p.slug)}, ${q(p.name)}, (select id from public.categories where slug = ${q(p.category)}), ` +
         `${p.brand ? `(select id from public.brands where slug = ${q(p.brand)})` : "null"}, ` +
-        `${q(p.summary)}, ${q(p.description)}, ${b(p.featured)}, true)`,
+        `${q(p.summary)}, ${q(p.description)}, ${q(p.image_url)}, ${b(p.featured)}, true)`,
     )
     .join(",\n"),
   "on conflict (slug) do nothing;",
