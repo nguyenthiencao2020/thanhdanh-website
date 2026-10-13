@@ -26,11 +26,13 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
 1. Tạo project tại [supabase.com](https://supabase.com) (region gần nhất: Singapore).
    Dùng tài khoản nào cũng được, không cần trùng tài khoản GitHub.
 2. **SQL Editor** → chạy lần lượt:
-   - `supabase/migrations/0001_init.sql` (bảng, phân quyền RLS, bucket ảnh `media`) — chỉ chạy một lần
+   - `supabase/migrations/0001_init.sql` (bảng, phân quyền RLS, bucket ảnh `media`) — chỉ chạy một lần khi cài mới
    - `supabase/migrations/0002_demo_images.sql` (cột ảnh danh mục + gắn ảnh minh họa cho dữ liệu mẫu)
    - `supabase/seed.sql` (dữ liệu ban đầu: thông tin công ty, danh mục, thương hiệu, sản phẩm mẫu)
+   - `supabase/migrations/0003_security_fixes.sql` (sửa cảnh báo của Security Advisor)
 
-   > Đã chạy `0001` và `seed.sql` từ trước? Chỉ cần chạy thêm `0002_demo_images.sql`.
+   > Đã chạy `0001` và `seed.sql` từ trước? Chỉ cần chạy thêm `0002_demo_images.sql` và `0003_security_fixes.sql`.
+   > Các file migration đều chạy lại nhiều lần được, không gây lỗi.
 3. **Authentication → Sign In / Providers → Email**: tắt *Allow new users to sign up* (không cho người lạ tự tạo tài khoản).
 4. Copy 2 giá trị để dán vào Vercel (hoặc bấm nút **Connect** ở thanh trên cùng):
    - **Project Settings → Data API**: `Project URL`

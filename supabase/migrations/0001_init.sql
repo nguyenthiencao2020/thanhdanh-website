@@ -15,7 +15,7 @@ create or replace function public.is_admin()
 returns boolean
 language sql
 stable
-security definer
+security invoker
 set search_path = public
 as $$
   select exists (select 1 from public.admins where user_id = auth.uid());
@@ -108,9 +108,8 @@ alter table public.brands enable row level security;
 alter table public.products enable row level security;
 alter table public.inquiries enable row level security;
 
--- admins: a user can see whether they are an admin; only admins manage the list
-create policy "admins self read" on public.admins for select using (user_id = auth.uid() or public.is_admin());
-create policy "admins manage" on public.admins for all using (public.is_admin()) with check (public.is_admin());
+-- admins: a user can only see their own row (is_admin() relies on this); the list is managed in the SQL Editor
+create policy "admins self read" on public.admins for select using (user_id = auth.uid());
 
 -- public read
 create policy "settings public read" on public.settings for select using (true);
@@ -132,12 +131,12 @@ create policy "inquiries admin delete" on public.inquiries for delete using (pub
 
 -- ---------------------------------------------------------------------------
 -- Storage bucket for uploaded images
+-- (public bucket: files are readable by URL; no SELECT policy so nobody can list the bucket)
 -- ---------------------------------------------------------------------------
 insert into storage.buckets (id, name, public)
 values ('media', 'media', true)
 on conflict (id) do nothing;
 
-create policy "media public read" on storage.objects for select using (bucket_id = 'media');
 create policy "media admin insert" on storage.objects for insert with check (bucket_id = 'media' and public.is_admin());
 create policy "media admin update" on storage.objects for update using (bucket_id = 'media' and public.is_admin());
 create policy "media admin delete" on storage.objects for delete using (bucket_id = 'media' and public.is_admin());
