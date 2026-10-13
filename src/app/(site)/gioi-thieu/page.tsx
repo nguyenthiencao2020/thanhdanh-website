@@ -22,7 +22,7 @@ export default async function AboutPage() {
           <Link href="/lien-he" className="btn-primary mt-4">Liên hệ với chúng tôi</Link>
         </div>
         <div className="rounded-2xl bg-cream p-6">
-          <Image src="/logo.png" alt={settings.company_name} width={1200} height={593} className="h-auto w-full" />
+          <Image src="/logo.png" alt={settings.company_name} width={1000} height={547} className="h-auto w-full" />
         </div>
       </div>
 

@@ -50,7 +50,7 @@ export default async function HomePage() {
           </div>
           <div className="relative">
             <div className="rounded-2xl bg-white/70 p-4 shadow-xl ring-1 ring-black/5">
-              <Image src="/logo.png" alt={settings.company_name} width={1200} height={593} priority className="h-auto w-full" />
+              <Image src="/logo.png" alt={settings.company_name} width={1000} height={547} priority className="h-auto w-full" />
             </div>
           </div>
         </div>
