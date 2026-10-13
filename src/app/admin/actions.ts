@@ -127,11 +127,19 @@ export async function saveCategory(form: FormData) {
   const name = text(form, "name");
   if (!name) fail("/admin/danh-muc", "Vui lòng nhập tên danh mục.");
 
+  let imageUrl = text(form, "image_url");
+  try {
+    imageUrl = (await uploadImage(supabase, form.get("image"), "categories")) ?? imageUrl;
+  } catch (e) {
+    fail("/admin/danh-muc", (e as Error).message);
+  }
+
   const row = {
     name,
     slug: slugify(text(form, "slug") ?? name),
     description: text(form, "description"),
     icon: text(form, "icon"),
+    image_url: imageUrl,
     sort_order: int(form, "sort_order"),
   };
   const { error } = id

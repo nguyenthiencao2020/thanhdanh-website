@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Icon } from "@/components/Icon";
+import { PageHeader } from "@/components/PageHeader";
 import { QuoteForm } from "@/components/QuoteForm";
 import { getSettings } from "@/lib/data";
 import { phoneDigits } from "@/lib/utils";
@@ -11,20 +12,21 @@ export default async function ContactPage() {
   const phones = [s.phone, s.phone2].filter((p): p is string => Boolean(p));
 
   return (
+    <>
+    <PageHeader
+      title="Liên hệ – Báo giá"
+      description="Gửi danh sách mã hàng, số lượng cần mua. Chúng tôi sẽ liên hệ lại với báo giá tốt nhất."
+      crumbs={[{ label: "Liên hệ" }]}
+    />
     <div className="container-page py-10">
-      <h1 className="text-2xl font-bold text-steel-900 sm:text-3xl">Liên hệ – Báo giá</h1>
-      <p className="mt-2 max-w-2xl text-slate-500">
-        Gửi danh sách mã hàng, số lượng cần mua. Chúng tôi sẽ liên hệ lại với báo giá tốt nhất.
-      </p>
-
-      <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_380px]">
-        <div className="rounded-xl border border-slate-200 bg-white p-6">
+      <div className="grid gap-10 lg:grid-cols-[1fr_380px]">
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <h2 className="text-lg font-semibold text-slate-900">Gửi yêu cầu</h2>
           <QuoteForm />
         </div>
 
         <aside className="space-y-6">
-          <div className="rounded-xl bg-steel-900 p-6 text-steel-100">
+          <div className="rounded-3xl bg-gradient-to-br from-steel-700 to-steel-900 p-6 text-steel-100 shadow-lg">
             <p className="font-bold text-white uppercase">{s.company_name}</p>
             <ul className="mt-4 space-y-4 text-sm">
               {s.address && (
@@ -51,7 +53,7 @@ export default async function ContactPage() {
             <iframe
               src={s.map_embed_url}
               title="Bản đồ"
-              className="h-72 w-full rounded-xl border-0"
+              className="h-72 w-full rounded-3xl border-0 shadow-sm"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
@@ -59,5 +61,6 @@ export default async function ContactPage() {
         </aside>
       </div>
     </div>
+    </>
   );
 }

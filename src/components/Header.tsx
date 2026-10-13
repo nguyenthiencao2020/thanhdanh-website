@@ -42,7 +42,7 @@ export function Header({ shortName, tagline, phone, phoneHref, categories }: Pro
 
       <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
         <Link href="/" className="flex shrink-0 items-center" aria-label={`${shortName} – Trang chủ`}>
-          <Image src="/logo.png" alt={shortName} width={1200} height={593} priority className="h-12 w-auto lg:h-16" />
+          <Image src="/logo.png" alt={shortName} width={1000} height={547} priority className="h-12 w-auto lg:h-16" />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Chính">

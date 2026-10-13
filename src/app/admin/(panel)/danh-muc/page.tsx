@@ -10,6 +10,7 @@ function CategoryFields({ c }: { c?: Category }) {
   return (
     <>
       {c && <input type="hidden" name="id" value={c.id} />}
+      <input type="hidden" name="image_url" value={c?.image_url ?? ""} />
       <div className="grid gap-3 sm:grid-cols-[1fr_1fr_120px_90px]">
         <input name="name" required defaultValue={c?.name} placeholder="Tên danh mục *" className="input" aria-label="Tên" />
         <input name="slug" defaultValue={c?.slug} placeholder="slug (tự tạo)" className="input" aria-label="Slug" />
@@ -19,6 +20,15 @@ function CategoryFields({ c }: { c?: Category }) {
         <input name="sort_order" type="number" defaultValue={c?.sort_order ?? 0} className="input" aria-label="Thứ tự" title="Thứ tự" />
       </div>
       <textarea name="description" rows={2} defaultValue={c?.description ?? ""} placeholder="Mô tả" className="input mt-3" aria-label="Mô tả" />
+      <div className="mt-3 flex items-center gap-3 text-sm text-slate-600">
+        {c?.image_url && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={c.image_url} alt="" className="h-12 w-16 rounded border border-slate-200 object-cover" />
+        )}
+        <label>
+          Ảnh: <input type="file" name="image" accept="image/jpeg,image/png,image/webp,image/svg+xml" className="ml-2 text-sm" />
+        </label>
+      </div>
     </>
   );
 }

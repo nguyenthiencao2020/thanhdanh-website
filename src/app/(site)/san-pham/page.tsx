@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
+import { PageHeader } from "@/components/PageHeader";
 import { ProductCard } from "@/components/ProductCard";
 import { getBrands, getCategories, getProducts } from "@/lib/data";
 
@@ -37,14 +38,14 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
   const title = activeCategory?.name ?? (activeBrand ? `Sản phẩm ${activeBrand.name}` : "Tất cả sản phẩm");
 
   return (
+    <>
+    <PageHeader
+      title={title}
+      description={activeCategory?.description}
+      crumbs={activeCategory || activeBrand ? [{ href: "/san-pham", label: "Sản phẩm" }, { label: title }] : [{ label: "Sản phẩm" }]}
+    />
     <div className="container-page py-10">
-      <nav className="text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-brand-600">Trang chủ</Link> / <span>Sản phẩm</span>
-      </nav>
-      <h1 className="mt-2 text-2xl font-bold text-steel-900 sm:text-3xl">{title}</h1>
-      {activeCategory?.description && <p className="mt-2 max-w-3xl text-slate-500">{activeCategory.description}</p>}
-
-      <div className="mt-8 grid gap-8 lg:grid-cols-[260px_1fr]">
+      <div className="grid gap-8 lg:grid-cols-[260px_1fr]">
         <aside className="space-y-6">
           <form action="/san-pham" className="relative">
             {category && <input type="hidden" name="danh-muc" value={category} />}
@@ -117,5 +118,6 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
         </div>
       </div>
     </div>
+    </>
   );
 }
