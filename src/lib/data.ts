@@ -23,7 +23,7 @@ const fallbackProducts: ProductWithRelations[] = catalog.products.map((p) => {
     brand_id: brand?.id ?? null,
     summary: p.summary,
     description: p.description,
-    image_url: null,
+    image_url: p.image_url,
     price: null,
     featured: p.featured,
     published: true,
