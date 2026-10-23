@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
-import { CategoryMenu } from "@/components/CategoryMenu";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Gear } from "@/components/Gear";
 import { HeroSlider } from "@/components/HeroSlider";
@@ -54,12 +53,9 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* ------------------------------------------- Category menu + hero slider */}
-      <section className="bg-gradient-to-b from-slate-100 to-white pt-4 pb-2 lg:pt-6">
-        <div className="container-page grid gap-4 lg:grid-cols-[280px_1fr]">
-          <CategoryMenu tree={tree} />
-          <HeroSlider
-            boxed
+      {/* ------------------------------------------------------------- Hero slider */}
+      {/* Full-width slider; the owner asked to remove the category side menu beside it. */}
+      <HeroSlider
         banners={banners}
         tagline={settings.tagline}
         phone={settings.phone}
@@ -69,9 +65,7 @@ export default async function HomePage() {
           { value: `${tree.length}`, label: "Nhóm sản phẩm" },
           { value: "Miễn phí", label: "Tư vấn chọn mã" },
         ]}
-          />
-        </div>
-      </section>
+      />
 
       {/* ------------------------------------------------------------ Brand marquee */}
       {/* Keep this section: the owner asked for the full-colour scrolling brand strip on the home page. */}
