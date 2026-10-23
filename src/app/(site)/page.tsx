@@ -142,6 +142,7 @@ export default async function HomePage() {
       </section>
 
       {/* ------------------------------------------------------------ Brand marquee */}
+      {/* Keep this section: the owner asked for the full-colour scrolling brand strip on the home page. */}
       <section className="border-b border-slate-200 bg-white py-6" aria-label="Thương hiệu phân phối">
         <div className="group relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
           <div className="animate-marquee flex w-max items-center gap-6 group-hover:[animation-play-state:paused]">
@@ -154,7 +155,7 @@ export default async function HomePage() {
                 tabIndex={i >= brands.length ? -1 : undefined}
                 aria-hidden={i >= brands.length || undefined}
               >
-                <BrandLogo brand={b} className="max-h-10" />
+                <BrandLogo brand={b} className="max-h-10" eager />
               </Link>
             ))}
           </div>
