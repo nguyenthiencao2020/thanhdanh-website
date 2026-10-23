@@ -15,10 +15,16 @@ const fields: { name: keyof Settings; label: string; type?: "textarea"; hint?: s
   { name: "zalo", label: "Số Zalo" },
   { name: "email", label: "Email" },
   { name: "facebook", label: "Facebook (URL)" },
+  { name: "messenger_url", label: "Link Messenger", hint: "VD: https://m.me/ten-fanpage — hiện nút Messenger nổi ở góc màn hình" },
   { name: "address", label: "Địa chỉ" },
   { name: "business_hours", label: "Giờ làm việc" },
   { name: "map_embed_url", label: "Link nhúng Google Maps", hint: "Google Maps → Chia sẻ → Nhúng bản đồ → copy giá trị src=\"…\"" },
   { name: "about", label: "Giới thiệu công ty", type: "textarea" },
+  { name: "mission", label: "Sứ mệnh (trang Giới thiệu)", type: "textarea" },
+  { name: "vision", label: "Tầm nhìn (trang Giới thiệu)", type: "textarea" },
+  { name: "core_values", label: "Giá trị cốt lõi", type: "textarea", hint: "Mỗi dòng một giá trị, dạng “Tên | Mô tả”" },
+  { name: "announcement", label: "Thanh thông báo đầu trang", hint: "Để trống để ẩn thanh thông báo" },
+  { name: "announcement_url", label: "Link của thanh thông báo", hint: "VD: /lien-he hoặc /tin-tuc/ten-bai-viet" },
 ];
 
 export default async function AdminSettings({ searchParams }: { searchParams: Promise<{ error?: string; saved?: string }> }) {

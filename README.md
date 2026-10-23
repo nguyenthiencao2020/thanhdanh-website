@@ -12,12 +12,18 @@ GitHub (source code)  →  Vercel (build/host/CDN)  →  Supabase (Postgres + St
 
 ## Cấu trúc trang
 
+Chi tiết từng section: **[SITE-AUDIT.md](SITE-AUDIT.md)** (theo mẫu cấu trúc của lqe.com.vn).
+
 | Đường dẫn | Nội dung |
 |---|---|
-| `/` | Trang chủ: banner, danh mục, sản phẩm nổi bật, thương hiệu |
-| `/san-pham` | Danh sách sản phẩm, lọc theo `?danh-muc=`, `?thuong-hieu=`, tìm kiếm `?q=` |
-| `/san-pham/[slug]` | Chi tiết sản phẩm + form yêu cầu báo giá |
-| `/thuong-hieu`, `/gioi-thieu`, `/lien-he` | Thương hiệu, giới thiệu, liên hệ/báo giá |
+| `/` | Trang chủ |
+| `/gioi-thieu` | Giới thiệu, sứ mệnh, tầm nhìn, giá trị cốt lõi |
+| `/san-pham`, `/danh-muc-san-pham/[slug]` | Danh sách sản phẩm: lọc thương hiệu, tìm kiếm, sắp xếp, phân trang |
+| `/san-pham/[slug]` | Chi tiết sản phẩm: gallery, thông số, datasheet, form báo giá |
+| `/thuong-hieu`, `/dich-vu`, `/lien-he` | Thương hiệu, dịch vụ, liên hệ – báo giá |
+| `/tin-tuc`, `/tin-tuc/[slug]` | Tin tức / kiến thức kỹ thuật |
+| `/chinh-sach-...` | Trang chính sách (bảo hành, vận chuyển, đổi trả, bảo mật) |
+| `/tim-kiem` | Tìm kiếm sản phẩm + bài viết |
 | `/admin` | Trang quản trị (CMS) – cần đăng nhập |
 
 Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi sửa nội dung trong `/admin`.
@@ -33,9 +39,11 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    - `supabase/seed.sql` (dữ liệu ban đầu: thông tin công ty, danh mục, thương hiệu, sản phẩm mẫu)
    - `supabase/migrations/0003_security_fixes.sql` (sửa cảnh báo của Security Advisor)
    - `supabase/migrations/0004_dat_danh.sql` (đổi tên công ty theo giấy phép, thêm MST / tên tiếng Anh)
+   - `supabase/migrations/0005_site_structure.sql` (tin tức, dịch vụ, trang chính sách, gallery/thông số sản phẩm)
 
-   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `seed.sql`.
-   > Đã chạy `0001` và `seed.sql` từ trước? Chỉ cần chạy thêm các file `0002`, `0003`, `0004` còn thiếu.
+   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `0005` → `seed.sql`.
+   > Đã chạy `0001` và `seed.sql` từ trước? Chạy thêm các file migration còn thiếu, **rồi chạy lại `seed.sql`**
+   > để có bài viết, dịch vụ, chính sách mẫu (dữ liệu đã có được giữ nguyên).
    > Các file migration đều chạy lại nhiều lần được, không gây lỗi.
 3. **Authentication → Sign In / Providers → Email**: tắt *Allow new users to sign up* (không cho người lạ tự tạo tài khoản).
 4. Copy 2 giá trị để dán vào Vercel (hoặc bấm nút **Connect** ở thanh trên cùng):
@@ -91,9 +99,11 @@ Lệnh khác: `npm run build`, `npm run typecheck`, `npm run seed:sql` (tạo l�
 ## Quản trị nội dung (`/admin`)
 
 - **Yêu cầu báo giá**: xem khách gửi form, đánh dấu đã xử lý
-- **Sản phẩm**: thêm/sửa/xóa, tải ảnh, ẩn/hiện, đánh dấu nổi bật
+- **Sản phẩm**: thêm/sửa/xóa, ảnh chính + ảnh phụ, thông số kỹ thuật, datasheet PDF, tình trạng hàng, nổi bật
 - **Danh mục / Thương hiệu**: thêm/sửa/xóa, tải logo
-- **Cài đặt**: tên công ty, hotline, Zalo, email, địa chỉ, giờ làm việc, bản đồ, giới thiệu
+- **Tin tức**: viết bài, ảnh đại diện, danh mục tin, thẻ, bài nổi bật
+- **Dịch vụ / Trang chính sách**: thêm/sửa/xóa nội dung
+- **Cài đặt**: tên công ty, MST, hotline, Zalo, Messenger, email, địa chỉ, giờ làm việc, bản đồ, giới thiệu, sứ mệnh, tầm nhìn, giá trị cốt lõi, thanh thông báo
 
 ## Nội dung cần bổ sung
 

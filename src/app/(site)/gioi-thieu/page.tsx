@@ -1,12 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
+import { CtaBanner } from "@/components/CtaBanner";
 import { Icon } from "@/components/Icon";
 import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
+import { RichText } from "@/components/RichText";
+import { SectionHeading } from "@/components/SectionHeading";
 import { getBrands, getCategories, getSettings } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Giới thiệu" };
+
+const valueIcons = ["shield", "check", "chat", "clock", "cog", "box"];
+
+/** "Title | description" per line */
+const parseValues = (text: string | null) =>
+  (text ?? "")
+    .split("\n")
+    .map((l) => l.split("|").map((x) => x.trim()))
+    .filter((r) => r[0]);
 
 export default async function AboutPage() {
   const [settings, categories, brands] = await Promise.all([getSettings(), getCategories(), getBrands()]);
@@ -19,11 +31,7 @@ export default async function AboutPage() {
           <Reveal>
             <p className="text-sm font-semibold tracking-wider text-brand-600 uppercase">{settings.company_name}</p>
             <h2 className="mt-2 text-3xl font-bold text-steel-900">Đồng hành cùng nhà máy của bạn</h2>
-            <div className="prose-content mt-6 text-slate-700">
-              {(settings.about ?? "").split(/\n{2,}/).map((para, i) => (
-                <p key={i} className="whitespace-pre-line">{para}</p>
-              ))}
-            </div>
+            <RichText text={settings.about} className="mt-6" />
             <dl className="mt-8 grid grid-cols-2 gap-4 sm:max-w-md">
               <div className="rounded-2xl bg-slate-50 p-5">
                 <dd className="text-3xl font-extrabold text-brand-600">{brands.length}+</dd>
@@ -48,6 +56,44 @@ export default async function AboutPage() {
           </Reveal>
         </div>
 
+        {(settings.mission || settings.vision) && (
+          <section className="mt-20 grid gap-6 lg:grid-cols-2">
+            {settings.mission && (
+              <Reveal className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-steel-700 to-steel-900 p-8 text-white shadow-xl">
+                <Icon name="shield" className="absolute -right-6 -bottom-6 h-40 w-40 text-white/10" />
+                <p className="text-sm font-semibold tracking-wider text-brand-100 uppercase">Sứ mệnh</p>
+                <RichText text={settings.mission} className="mt-4 text-steel-100 [&_p]:text-steel-100" />
+              </Reveal>
+            )}
+            {settings.vision && (
+              <Reveal delay={120} className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 to-brand-700 p-8 text-white shadow-xl">
+                <Icon name="search" className="absolute -right-6 -bottom-6 h-40 w-40 text-white/10" />
+                <p className="text-sm font-semibold tracking-wider text-brand-100 uppercase">Tầm nhìn</p>
+                <p className="mt-4 text-xl leading-relaxed font-semibold">{settings.vision}</p>
+              </Reveal>
+            )}
+          </section>
+        )}
+
+        {parseValues(settings.core_values).length > 0 && (
+          <section className="mt-20">
+            <SectionHeading eyebrow="Giá trị cốt lõi" title="Những giá trị chúng tôi theo đuổi" center />
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {parseValues(settings.core_values).map(([title, text], i) => (
+                <Reveal key={title} delay={i * 90}>
+                  <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 text-center transition hover:-translate-y-1 hover:border-brand-500 hover:shadow-lg">
+                    <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+                      <Icon name={valueIcons[i % valueIcons.length]} className="h-7 w-7" />
+                    </span>
+                    <h3 className="mt-4 text-lg font-bold text-slate-900">{title}</h3>
+                    {text && <p className="mt-2 text-sm text-slate-500">{text}</p>}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="mt-20">
           <Reveal>
             <p className="text-sm font-semibold tracking-wider text-brand-600 uppercase">Lĩnh vực</p>
@@ -58,7 +104,7 @@ export default async function AboutPage() {
               <li key={c.slug}>
                 <Reveal delay={i * 80}>
                   <Link
-                    href={`/san-pham?danh-muc=${c.slug}`}
+                    href={`/danh-muc-san-pham/${c.slug}`}
                     className="group flex h-full gap-4 overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 transition hover:-translate-y-1 hover:border-brand-500 hover:shadow-lg"
                   >
                     {c.image_url ? (
@@ -78,6 +124,15 @@ export default async function AboutPage() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="mt-20">
+          <CtaBanner
+            title={`Hợp tác cùng ${settings.short_name}`}
+            text="Trở thành đối tác cung ứng vật tư lâu dài cho nhà máy của bạn."
+            phone={settings.phone}
+            zalo={settings.zalo}
+          />
         </section>
       </div>
     </>
