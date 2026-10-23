@@ -46,8 +46,6 @@ export default async function HomePage() {
   ]);
   const tree = buildCategoryTree(categories);
   const subNames = tree.flatMap((g) => g.children.map((c) => c.name));
-  // Second marquee row: sub-categories, or the groups if there are none yet.
-  const keywords = subNames.length ? subNames : tree.map((g) => g.name);
 
   // Featured products, with one tab per group that has any (featured first, then newest).
   const groupOf = new Map<string, string>();
@@ -182,32 +180,14 @@ export default async function HomePage() {
         <div className="absolute top-1/3 -left-40 -z-10 h-[480px] w-[480px] rounded-full bg-steel-500/30 blur-3xl" />
         <div className="absolute -right-40 bottom-0 -z-10 h-[520px] w-[520px] rounded-full bg-brand-600/30 blur-3xl" />
 
-        {/* Kinetic keyword strip */}
-        <div aria-hidden="true" className="space-y-2 [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
-          <div className="animate-marquee flex w-max gap-8 text-5xl font-black whitespace-nowrap uppercase lg:text-7xl">
-            {[...tree, ...tree].map((g, i) => (
-              <span key={`a${i}`} className="text-outline flex items-center gap-8">
-                {g.name} <span className="text-brand-500 [-webkit-text-stroke:0]">✦</span>
-              </span>
-            ))}
-          </div>
-          <div className="animate-marquee-reverse flex w-max gap-6 text-lg font-bold whitespace-nowrap text-steel-100/30 uppercase lg:text-2xl">
-            {[...keywords, ...keywords].map((n, i) => (
-              <span key={`b${i}`} className="flex items-center gap-6">
-                {n} <span className="text-steel-100/20">/</span>
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="container-page mt-14 grid items-center gap-14 lg:mt-20 lg:grid-cols-2">
+        <div className="container-page grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold tracking-wider uppercase backdrop-blur">
               <span className="h-2 w-2 animate-pulse rounded-full bg-green-400" /> Về chúng tôi
             </span>
             <h2 className="mt-5 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl">
               Đối tác vật tư{" "}
-              <span className="bg-gradient-to-r from-brand-500 via-orange-400 to-amber-300 bg-clip-text text-transparent">tin cậy</span>
+              <span className="bg-gradient-to-r from-brand-500 via-orange-400 to-amber-300 bg-clip-text whitespace-nowrap text-transparent">tin cậy</span>
               <br />
               cho mọi nhà máy
             </h2>
