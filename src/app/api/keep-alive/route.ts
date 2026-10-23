@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "Supabase is not configured" }, { status: 503 });
   }
 
-  const { error } = await createPublicClient().from("settings").select("id").eq("id", 1).maybeSingle();
+  const { error } = await createPublicClient({ cache: false }).from("settings").select("id").eq("id", 1).maybeSingle();
   if (error) {
     console.error("keep-alive", error.message);
     return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
