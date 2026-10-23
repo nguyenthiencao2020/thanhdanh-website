@@ -43,6 +43,8 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    - `supabase/migrations/0006_banners.sql` (slider banner trang chủ)
 
    > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `0005` → `0006` → `seed.sql`.
+   > `seed.sql` không bao giờ dừng giữa chừng: bảng/cột nào chưa có sẽ được bỏ qua kèm thông báo
+   > *“Bỏ qua dữ liệu mẫu … hãy chạy 000x_… trước”* — chạy file đó rồi chạy lại `seed.sql`.
    > Đã chạy `0001` và `seed.sql` từ trước? Chạy thêm các file migration còn thiếu, **rồi chạy lại `seed.sql`**
    > để có bài viết, dịch vụ, chính sách mẫu (dữ liệu đã có được giữ nguyên).
    > Các file migration đều chạy lại nhiều lần được, không gây lỗi.
