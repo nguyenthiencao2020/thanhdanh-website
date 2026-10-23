@@ -83,7 +83,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
 
       <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
         <Link href="/" className="flex shrink-0 items-center" aria-label={`${shortName} – Trang chủ`}>
-          <BrandMark name={shortName} subtitle="Factory Supplies" priority />
+          <BrandMark name={shortName} priority />
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Chính">

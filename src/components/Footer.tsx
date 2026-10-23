@@ -16,7 +16,7 @@ export function Footer({ settings, categories, pages }: { settings: Settings; ca
         {/* Company */}
         <div className="pb-6 lg:col-span-4 lg:pb-0">
           <div className="inline-flex rounded-2xl bg-white px-4 py-3">
-            <BrandMark name={settings.short_name} subtitle="Factory Supplies" />
+            <BrandMark name={settings.short_name} />
           </div>
           <p className="mt-5 font-bold text-white uppercase">{settings.company_name}</p>
           {settings.english_name && <p className="mt-1 text-xs tracking-wide text-steel-100/70 uppercase">{settings.english_name}</p>}
