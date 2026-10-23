@@ -20,7 +20,6 @@
   --animate-spin-slow-reverse: spin-reverse 20s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-marquee: marquee 40s linear infinite;
-  --animate-marquee-reverse: marquee-reverse 50s linear infinite;
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 
   @keyframes spin-reverse {
@@ -32,10 +31,6 @@
   }
   @keyframes marquee {
     to { transform: translateX(-50%); }
-  }
-  @keyframes marquee-reverse {
-    from { transform: translateX(-50%); }
-    to { transform: translateX(0); }
   }
   @keyframes fade-up {
     from { opacity: 0; transform: translateY(24px); }
@@ -132,10 +127,4 @@ body {
 }
 .rich-text ol {
   @apply list-decimal space-y-1.5 pl-6 marker:font-semibold marker:text-steel-600;
-}
-
-/* Outlined display text for the kinetic keyword strip */
-.text-outline {
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgb(255 255 255 / 0.28);
 }
