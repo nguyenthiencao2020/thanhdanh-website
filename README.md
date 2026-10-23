@@ -70,6 +70,14 @@ Website và form báo giá chạy được mà không cần bước này. Chỉ 
    ```
 3. Đăng nhập tại `https://<domain>/admin`.
 
+### 4. Giữ Supabase không bị tạm dừng (gói miễn phí)
+Supabase gói Free tự **pause** project nếu 7 ngày không có hoạt động. Website đã có sẵn cron:
+`vercel.json` cho Vercel gọi `/api/keep-alive` **mỗi ngày lúc 01:00 UTC (08:00 giờ VN)**, route này đọc 1 dòng từ Supabase.
+
+- Không cần cấu hình thêm: cron tự bật sau khi deploy (xem tại Vercel → *Settings → Cron Jobs*).
+- Nên thêm biến môi trường `CRON_SECRET` (chuỗi ngẫu nhiên dài) trên Vercel rồi Redeploy, để người ngoài không gọi được route này.
+- Kiểm tra: Vercel → *Settings → Cron Jobs* → **Run** → xem *Logs*, kết quả `{"ok":true,...}` là được.
+
 ## Chạy trên máy
 
 ```bash
