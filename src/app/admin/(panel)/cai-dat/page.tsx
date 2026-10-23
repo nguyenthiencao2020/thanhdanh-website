@@ -23,7 +23,7 @@ const fields: { name: keyof Settings; label: string; type?: "textarea"; hint?: s
   { name: "mission", label: "Sứ mệnh (trang Giới thiệu)", type: "textarea" },
   { name: "vision", label: "Tầm nhìn (trang Giới thiệu)", type: "textarea" },
   { name: "core_values", label: "Giá trị cốt lõi", type: "textarea", hint: "Mỗi dòng một giá trị, dạng “Tên | Mô tả”" },
-  { name: "announcement", label: "Thanh thông báo đầu trang", hint: "Để trống để ẩn thanh thông báo" },
+  { name: "announcement", label: "Câu thông báo trên thanh đầu trang", hint: "Hiện ở góc trái thanh xanh trên cùng. Để trống thì hiện khẩu hiệu." },
   { name: "announcement_url", label: "Link của thanh thông báo", hint: "VD: /lien-he hoặc /tin-tuc/ten-bai-viet" },
 ];
 

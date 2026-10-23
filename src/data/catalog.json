@@ -24,44 +24,733 @@
   },
   "categories": [
     {
-      "slug": "thiet-bi-dien-cong-nghiep",
-      "name": "Thiết bị điện công nghiệp",
-      "description": "Aptomat, contactor, relay, khởi động từ, nguồn tổ ong, cầu đấu và phụ kiện tủ điện.",
+      "slug": "thiet-bi-dong-cat",
+      "name": "Thiết bị đóng cắt",
+      "description": "Aptomat MCB, Aptomat khối MCCB, Máy cắt không khí ACB, Chống giật RCCB – RCBO, Cầu dao cách ly – LIS, Cầu dao đảo chiều MTS.",
       "icon": "bolt",
+      "image_url": "/demo/aptomat.svg",
       "sort_order": 1,
-      "image_url": "/demo/aptomat.svg"
+      "parent": null
+    },
+    {
+      "slug": "mcb",
+      "name": "Aptomat MCB",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "thiet-bi-dong-cat"
+    },
+    {
+      "slug": "mccb",
+      "name": "Aptomat khối MCCB",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "thiet-bi-dong-cat"
+    },
+    {
+      "slug": "acb",
+      "name": "Máy cắt không khí ACB",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "thiet-bi-dong-cat"
+    },
+    {
+      "slug": "rccb-rcbo",
+      "name": "Chống giật RCCB – RCBO",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 4,
+      "parent": "thiet-bi-dong-cat"
+    },
+    {
+      "slug": "cau-dao-cach-ly",
+      "name": "Cầu dao cách ly – LIS",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 5,
+      "parent": "thiet-bi-dong-cat"
+    },
+    {
+      "slug": "cau-dao-dao-chieu",
+      "name": "Cầu dao đảo chiều MTS",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 6,
+      "parent": "thiet-bi-dong-cat"
+    },
+    {
+      "slug": "contactor-khoi-dong-tu",
+      "name": "Contactor – Khởi động từ",
+      "description": "Contactor, Khởi động từ, Rơ le nhiệt, Contactor tụ bù.",
+      "icon": "bolt",
+      "image_url": "/demo/contactor.svg",
+      "sort_order": 2,
+      "parent": null
+    },
+    {
+      "slug": "contactor",
+      "name": "Contactor",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "contactor-khoi-dong-tu"
+    },
+    {
+      "slug": "khoi-dong-tu",
+      "name": "Khởi động từ",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "contactor-khoi-dong-tu"
+    },
+    {
+      "slug": "ro-le-nhiet",
+      "name": "Rơ le nhiệt",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "contactor-khoi-dong-tu"
+    },
+    {
+      "slug": "contactor-tu-bu",
+      "name": "Contactor tụ bù",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 4,
+      "parent": "contactor-khoi-dong-tu"
+    },
+    {
+      "slug": "relay-timer",
+      "name": "Relay – Timer",
+      "description": "Relay trung gian, Relay bảo vệ (dòng, áp, pha), Timer – Bộ định thời, Relay bán dẫn SSR.",
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": null
+    },
+    {
+      "slug": "relay-trung-gian",
+      "name": "Relay trung gian",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "relay-timer"
+    },
+    {
+      "slug": "relay-bao-ve",
+      "name": "Relay bảo vệ (dòng, áp, pha)",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "relay-timer"
+    },
+    {
+      "slug": "timer",
+      "name": "Timer – Bộ định thời",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "relay-timer"
+    },
+    {
+      "slug": "relay-ban-dan",
+      "name": "Relay bán dẫn SSR",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 4,
+      "parent": "relay-timer"
+    },
+    {
+      "slug": "bien-tan-khoi-dong-mem",
+      "name": "Biến tần – Khởi động mềm",
+      "description": "Biến tần, Khởi động mềm, Phụ kiện biến tần.",
+      "icon": "cpu",
+      "image_url": "/demo/bien-tan.svg",
+      "sort_order": 4,
+      "parent": null
+    },
+    {
+      "slug": "bien-tan",
+      "name": "Biến tần",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "bien-tan-khoi-dong-mem"
+    },
+    {
+      "slug": "khoi-dong-mem",
+      "name": "Khởi động mềm",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "bien-tan-khoi-dong-mem"
+    },
+    {
+      "slug": "phu-kien-bien-tan",
+      "name": "Phụ kiện biến tần",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "bien-tan-khoi-dong-mem"
     },
     {
       "slug": "tu-dong-hoa",
-      "name": "Tự động hóa",
-      "description": "PLC, HMI, biến tần, servo, cảm biến và bộ điều khiển cho dây chuyền sản xuất.",
+      "name": "Thiết bị tự động hóa (PLC)",
+      "description": "PLC, Màn hình HMI, Servo – Bộ điều khiển chuyển động, Module mở rộng – Truyền thông.",
       "icon": "cpu",
+      "image_url": "/demo/plc.svg",
+      "sort_order": 5,
+      "parent": null
+    },
+    {
+      "slug": "plc",
+      "name": "PLC",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "tu-dong-hoa"
+    },
+    {
+      "slug": "hmi",
+      "name": "Màn hình HMI",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
       "sort_order": 2,
-      "image_url": "/demo/plc.svg"
+      "parent": "tu-dong-hoa"
+    },
+    {
+      "slug": "servo",
+      "name": "Servo – Bộ điều khiển chuyển động",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "tu-dong-hoa"
+    },
+    {
+      "slug": "module-mo-rong",
+      "name": "Module mở rộng – Truyền thông",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 4,
+      "parent": "tu-dong-hoa"
+    },
+    {
+      "slug": "cam-bien-dieu-khien-nhiet",
+      "name": "Cảm biến – Điều khiển nhiệt độ",
+      "description": "Cảm biến tiệm cận, Cảm biến quang, Bộ điều khiển nhiệt độ – độ ẩm, Can nhiệt – Cảm biến nhiệt, Encoder.",
+      "icon": "cpu",
+      "image_url": "/demo/cam-bien-tiem-can.svg",
+      "sort_order": 6,
+      "parent": null
+    },
+    {
+      "slug": "cam-bien-tiem-can",
+      "name": "Cảm biến tiệm cận",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "cam-bien-dieu-khien-nhiet"
+    },
+    {
+      "slug": "cam-bien-quang",
+      "name": "Cảm biến quang",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "cam-bien-dieu-khien-nhiet"
+    },
+    {
+      "slug": "bo-dieu-khien-nhiet-do",
+      "name": "Bộ điều khiển nhiệt độ – độ ẩm",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "cam-bien-dieu-khien-nhiet"
+    },
+    {
+      "slug": "can-nhiet",
+      "name": "Can nhiệt – Cảm biến nhiệt",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 4,
+      "parent": "cam-bien-dieu-khien-nhiet"
+    },
+    {
+      "slug": "encoder",
+      "name": "Encoder",
+      "description": null,
+      "icon": "cpu",
+      "image_url": null,
+      "sort_order": 5,
+      "parent": "cam-bien-dieu-khien-nhiet"
+    },
+    {
+      "slug": "bo-chuyen-nguon-ats",
+      "name": "Bộ chuyển nguồn ATS",
+      "description": "Bộ chuyển nguồn tự động ATS, Bộ điều khiển ATS.",
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 7,
+      "parent": null
+    },
+    {
+      "slug": "ats",
+      "name": "Bộ chuyển nguồn tự động ATS",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "bo-chuyen-nguon-ats"
+    },
+    {
+      "slug": "bo-dieu-khien-ats",
+      "name": "Bộ điều khiển ATS",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "bo-chuyen-nguon-ats"
+    },
+    {
+      "slug": "tu-bu-cuon-khang",
+      "name": "Tụ bù – Cuộn kháng",
+      "description": "Tụ bù, Cuộn kháng, Bộ điều khiển tụ bù.",
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 8,
+      "parent": null
+    },
+    {
+      "slug": "tu-bu",
+      "name": "Tụ bù",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "tu-bu-cuon-khang"
+    },
+    {
+      "slug": "cuon-khang",
+      "name": "Cuộn kháng",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "tu-bu-cuon-khang"
+    },
+    {
+      "slug": "bo-dieu-khien-tu-bu",
+      "name": "Bộ điều khiển tụ bù",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "tu-bu-cuon-khang"
+    },
+    {
+      "slug": "bien-dong-dong-ho-do",
+      "name": "Biến dòng – Đồng hồ đo",
+      "description": "Biến dòng, Đồng hồ đo đa năng, Đồng hồ Ampe – Vôn, Công tơ điện.",
+      "icon": "clock",
+      "image_url": null,
+      "sort_order": 9,
+      "parent": null
+    },
+    {
+      "slug": "bien-dong",
+      "name": "Biến dòng",
+      "description": null,
+      "icon": "clock",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "bien-dong-dong-ho-do"
+    },
+    {
+      "slug": "dong-ho-da-nang",
+      "name": "Đồng hồ đo đa năng",
+      "description": null,
+      "icon": "clock",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "bien-dong-dong-ho-do"
+    },
+    {
+      "slug": "dong-ho-ampe-von",
+      "name": "Đồng hồ Ampe – Vôn",
+      "description": null,
+      "icon": "clock",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "bien-dong-dong-ho-do"
+    },
+    {
+      "slug": "cong-to-dien",
+      "name": "Công tơ điện",
+      "description": null,
+      "icon": "clock",
+      "image_url": null,
+      "sort_order": 4,
+      "parent": "bien-dong-dong-ho-do"
+    },
+    {
+      "slug": "cau-chi",
+      "name": "Cầu chì",
+      "description": "Cầu chì hạ thế, Cầu chì trung thế, Đế – Phụ kiện cầu chì.",
+      "icon": "shield",
+      "image_url": null,
+      "sort_order": 10,
+      "parent": null
+    },
+    {
+      "slug": "cau-chi-ha-the",
+      "name": "Cầu chì hạ thế",
+      "description": null,
+      "icon": "shield",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "cau-chi"
+    },
+    {
+      "slug": "cau-chi-trung-the",
+      "name": "Cầu chì trung thế",
+      "description": null,
+      "icon": "shield",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "cau-chi"
+    },
+    {
+      "slug": "de-cau-chi",
+      "name": "Đế – Phụ kiện cầu chì",
+      "description": null,
+      "icon": "shield",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "cau-chi"
+    },
+    {
+      "slug": "chong-set",
+      "name": "Chống sét",
+      "description": "Chống sét lan truyền, Kim thu sét – Phụ kiện.",
+      "icon": "shield",
+      "image_url": null,
+      "sort_order": 11,
+      "parent": null
+    },
+    {
+      "slug": "chong-set-lan-truyen",
+      "name": "Chống sét lan truyền",
+      "description": null,
+      "icon": "shield",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "chong-set"
+    },
+    {
+      "slug": "kim-thu-set",
+      "name": "Kim thu sét – Phụ kiện",
+      "description": null,
+      "icon": "shield",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "chong-set"
+    },
+    {
+      "slug": "bo-nguon-ups",
+      "name": "Bộ nguồn – UPS",
+      "description": "Bộ nguồn – Nguồn tổ ong, Bộ lưu điện UPS.",
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 12,
+      "parent": null
+    },
+    {
+      "slug": "bo-nguon",
+      "name": "Bộ nguồn – Nguồn tổ ong",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "bo-nguon-ups"
+    },
+    {
+      "slug": "ups",
+      "name": "Bộ lưu điện UPS",
+      "description": null,
+      "icon": "bolt",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "bo-nguon-ups"
+    },
+    {
+      "slug": "phu-kien-tu-dien",
+      "name": "Phụ kiện tủ điện",
+      "description": "Cầu đấu – Domino, Máng nhựa – Thanh ray, Busbar – Gối đỡ, Co nhiệt – Đầu cos, Đèn báo – Nút nhấn.",
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 13,
+      "parent": null
+    },
+    {
+      "slug": "cau-dau",
+      "name": "Cầu đấu – Domino",
+      "description": null,
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "phu-kien-tu-dien"
+    },
+    {
+      "slug": "mang-nhua-thanh-ray",
+      "name": "Máng nhựa – Thanh ray",
+      "description": null,
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "phu-kien-tu-dien"
+    },
+    {
+      "slug": "busbar-goi-do",
+      "name": "Busbar – Gối đỡ",
+      "description": null,
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "phu-kien-tu-dien"
+    },
+    {
+      "slug": "co-nhiet-dau-cos",
+      "name": "Co nhiệt – Đầu cos",
+      "description": null,
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 4,
+      "parent": "phu-kien-tu-dien"
+    },
+    {
+      "slug": "den-bao-nut-nhan",
+      "name": "Đèn báo – Nút nhấn",
+      "description": null,
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 5,
+      "parent": "phu-kien-tu-dien"
+    },
+    {
+      "slug": "tu-dien",
+      "name": "Tủ điện",
+      "description": "Tủ điện công nghiệp, Vỏ tủ điện, Vật tư tủ điện.",
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 14,
+      "parent": null
+    },
+    {
+      "slug": "tu-dien-cong-nghiep",
+      "name": "Tủ điện công nghiệp",
+      "description": null,
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "tu-dien"
+    },
+    {
+      "slug": "vo-tu-dien",
+      "name": "Vỏ tủ điện",
+      "description": null,
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "tu-dien"
+    },
+    {
+      "slug": "vat-tu-tu-dien",
+      "name": "Vật tư tủ điện",
+      "description": null,
+      "icon": "box",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "tu-dien"
     },
     {
       "slug": "khi-nen-thuy-luc",
       "name": "Khí nén – Thủy lực",
-      "description": "Xi lanh, van điện từ, bộ lọc khí, đầu nối, ống hơi và thiết bị thủy lực.",
+      "description": "Xi lanh khí nén, Van điện từ khí nén, Bộ lọc – Điều áp, Đầu nối – Ống hơi, Thiết bị thủy lực.",
       "icon": "wind",
+      "image_url": "/demo/xi-lanh-khi-nen.svg",
+      "sort_order": 15,
+      "parent": null
+    },
+    {
+      "slug": "xi-lanh-khi-nen",
+      "name": "Xi lanh khí nén",
+      "description": null,
+      "icon": "wind",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "khi-nen-thuy-luc"
+    },
+    {
+      "slug": "van-dien-tu-khi-nen",
+      "name": "Van điện từ khí nén",
+      "description": null,
+      "icon": "wind",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "khi-nen-thuy-luc"
+    },
+    {
+      "slug": "bo-loc-dieu-ap",
+      "name": "Bộ lọc – Điều áp",
+      "description": null,
+      "icon": "wind",
+      "image_url": null,
       "sort_order": 3,
-      "image_url": "/demo/xi-lanh-khi-nen.svg"
+      "parent": "khi-nen-thuy-luc"
+    },
+    {
+      "slug": "dau-noi-ong-hoi",
+      "name": "Đầu nối – Ống hơi",
+      "description": null,
+      "icon": "wind",
+      "image_url": null,
+      "sort_order": 4,
+      "parent": "khi-nen-thuy-luc"
+    },
+    {
+      "slug": "thiet-bi-thuy-luc",
+      "name": "Thiết bị thủy lực",
+      "description": null,
+      "icon": "wind",
+      "image_url": null,
+      "sort_order": 5,
+      "parent": "khi-nen-thuy-luc"
     },
     {
       "slug": "motor-hop-giam-toc",
       "name": "Motor – Hộp giảm tốc",
-      "description": "Động cơ điện, motor giảm tốc, hộp số và phụ kiện truyền động.",
+      "description": "Động cơ điện, Motor giảm tốc, Hộp số – Hộp giảm tốc, Quạt hút công nghiệp.",
       "icon": "cog",
+      "image_url": "/demo/motor-giam-toc.svg",
+      "sort_order": 16,
+      "parent": null
+    },
+    {
+      "slug": "dong-co-dien",
+      "name": "Động cơ điện",
+      "description": null,
+      "icon": "cog",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "motor-hop-giam-toc"
+    },
+    {
+      "slug": "motor-giam-toc",
+      "name": "Motor giảm tốc",
+      "description": null,
+      "icon": "cog",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "motor-hop-giam-toc"
+    },
+    {
+      "slug": "hop-so",
+      "name": "Hộp số – Hộp giảm tốc",
+      "description": null,
+      "icon": "cog",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "motor-hop-giam-toc"
+    },
+    {
+      "slug": "quat-hut",
+      "name": "Quạt hút công nghiệp",
+      "description": null,
+      "icon": "cog",
+      "image_url": null,
       "sort_order": 4,
-      "image_url": "/demo/motor-giam-toc.svg"
+      "parent": "motor-hop-giam-toc"
     },
     {
       "slug": "phu-kien-duong-ong-van",
       "name": "Phụ kiện đường ống – Van",
-      "description": "Co, tê, rắc co, mặt bích, van bi, van bướm, van một chiều các loại.",
+      "description": "Van bi, Van bướm, Van một chiều, Co – Tê – Rắc co, Mặt bích.",
       "icon": "pipe",
+      "image_url": "/demo/van-bi-inox.svg",
+      "sort_order": 17,
+      "parent": null
+    },
+    {
+      "slug": "van-bi",
+      "name": "Van bi",
+      "description": null,
+      "icon": "pipe",
+      "image_url": null,
+      "sort_order": 1,
+      "parent": "phu-kien-duong-ong-van"
+    },
+    {
+      "slug": "van-buom",
+      "name": "Van bướm",
+      "description": null,
+      "icon": "pipe",
+      "image_url": null,
+      "sort_order": 2,
+      "parent": "phu-kien-duong-ong-van"
+    },
+    {
+      "slug": "van-mot-chieu",
+      "name": "Van một chiều",
+      "description": null,
+      "icon": "pipe",
+      "image_url": null,
+      "sort_order": 3,
+      "parent": "phu-kien-duong-ong-van"
+    },
+    {
+      "slug": "co-te-rac-co",
+      "name": "Co – Tê – Rắc co",
+      "description": null,
+      "icon": "pipe",
+      "image_url": null,
+      "sort_order": 4,
+      "parent": "phu-kien-duong-ong-van"
+    },
+    {
+      "slug": "mat-bich",
+      "name": "Mặt bích",
+      "description": null,
+      "icon": "pipe",
+      "image_url": null,
       "sort_order": 5,
-      "image_url": "/demo/van-bi-inox.svg"
+      "parent": "phu-kien-duong-ong-van"
     }
   ],
   "brands": [
@@ -148,7 +837,7 @@
     {
       "slug": "plc-siemens-s7-1200",
       "name": "Bộ lập trình PLC Siemens S7-1200",
-      "category": "tu-dong-hoa",
+      "category": "plc",
       "brand": "siemens",
       "summary": "PLC nhỏ gọn cho các ứng dụng điều khiển máy và dây chuyền vừa và nhỏ.",
       "description": "Dòng PLC S7-1200 tích hợp cổng PROFINET, lập trình bằng TIA Portal. Liên hệ để được tư vấn chọn CPU, module mở rộng và báo giá.",
@@ -159,7 +848,7 @@
     {
       "slug": "bien-tan-mitsubishi-fr-e800",
       "name": "Biến tần Mitsubishi FR-E800",
-      "category": "tu-dong-hoa",
+      "category": "bien-tan",
       "brand": "mitsubishi-electric",
       "summary": "Biến tần đa năng cho bơm, quạt, băng tải.",
       "description": "Biến tần FR-E800 hỗ trợ nhiều chuẩn truyền thông công nghiệp. Liên hệ để được tư vấn công suất phù hợp.",
@@ -170,7 +859,7 @@
     {
       "slug": "cam-bien-tiem-can-omron",
       "name": "Cảm biến tiệm cận Omron",
-      "category": "tu-dong-hoa",
+      "category": "cam-bien-tiem-can",
       "brand": "omron",
       "summary": "Cảm biến tiệm cận điện cảm, nhiều kích thước M8 – M30.",
       "description": "Phát hiện vật thể kim loại không tiếp xúc, dùng trong máy đóng gói, băng tải, máy CNC.",
@@ -181,7 +870,7 @@
     {
       "slug": "aptomat-schneider-easy9",
       "name": "Aptomat (MCB) Schneider Easy9",
-      "category": "thiet-bi-dien-cong-nghiep",
+      "category": "mcb",
       "brand": "schneider-electric",
       "summary": "Cầu dao tự động bảo vệ quá tải và ngắn mạch.",
       "description": "Đầy đủ dòng định mức và số cực. Liên hệ để nhận báo giá theo số lượng.",
@@ -192,7 +881,7 @@
     {
       "slug": "contactor-abb-af",
       "name": "Contactor ABB dòng AF",
-      "category": "thiet-bi-dien-cong-nghiep",
+      "category": "contactor",
       "brand": "abb",
       "summary": "Khởi động từ cho động cơ và tải công nghiệp.",
       "description": "Cuộn coil dải điện áp rộng, độ bền cao. Liên hệ để được tư vấn chọn mã.",
@@ -203,7 +892,7 @@
     {
       "slug": "xi-lanh-khi-nen-festo",
       "name": "Xi lanh khí nén Festo",
-      "category": "khi-nen-thuy-luc",
+      "category": "xi-lanh-khi-nen",
       "brand": "festo",
       "summary": "Xi lanh tiêu chuẩn ISO, nhiều đường kính và hành trình.",
       "description": "Phù hợp cho các ứng dụng gá kẹp, đẩy, nâng hạ trong dây chuyền tự động.",
@@ -214,7 +903,7 @@
     {
       "slug": "van-dien-tu-smc",
       "name": "Van điện từ khí nén SMC",
-      "category": "khi-nen-thuy-luc",
+      "category": "van-dien-tu-khi-nen",
       "brand": "smc",
       "summary": "Van điện từ 5/2, 5/3 điều khiển xi lanh khí nén.",
       "description": "Đa dạng điện áp coil và kiểu kết nối. Liên hệ để được báo giá nhanh.",
@@ -225,7 +914,7 @@
     {
       "slug": "cam-bien-quang-sick",
       "name": "Cảm biến quang SICK",
-      "category": "tu-dong-hoa",
+      "category": "cam-bien-quang",
       "brand": "sick",
       "summary": "Cảm biến quang thu phát, phản xạ gương và phản xạ khuếch tán.",
       "description": "Độ chính xác cao, phù hợp cho môi trường công nghiệp khắc nghiệt.",
@@ -236,7 +925,7 @@
     {
       "slug": "motor-giam-toc",
       "name": "Motor giảm tốc công nghiệp",
-      "category": "motor-hop-giam-toc",
+      "category": "motor-giam-toc",
       "brand": null,
       "summary": "Motor giảm tốc cốt thẳng, cốt vuông góc nhiều tỉ số truyền.",
       "description": "Tư vấn chọn công suất, tỉ số truyền và kiểu lắp đặt theo yêu cầu thực tế.",
@@ -247,7 +936,7 @@
     {
       "slug": "van-bi-inox",
       "name": "Van bi inox",
-      "category": "phu-kien-duong-ong-van",
+      "category": "van-bi",
       "brand": null,
       "summary": "Van bi inox nối ren, mặt bích các cỡ.",
       "description": "Dùng cho hệ thống nước, khí, hóa chất nhẹ. Cung cấp kèm co, tê, rắc co đồng bộ.",

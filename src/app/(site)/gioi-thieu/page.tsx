@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
 import { RichText } from "@/components/RichText";
 import { SectionHeading } from "@/components/SectionHeading";
-import { getBrands, getCategories, getSettings } from "@/lib/data";
+import { getBrands, getCategoryTree, getSettings } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Giới thiệu" };
 
@@ -21,7 +21,7 @@ const parseValues = (text: string | null) =>
     .filter((r) => r[0]);
 
 export default async function AboutPage() {
-  const [settings, categories, brands] = await Promise.all([getSettings(), getCategories(), getBrands()]);
+  const [settings, categories, brands] = await Promise.all([getSettings(), getCategoryTree(), getBrands()]);
   return (
     <>
       <PageHeader title={`Về ${settings.short_name}`} description={settings.tagline} crumbs={[{ label: "Giới thiệu" }]} />

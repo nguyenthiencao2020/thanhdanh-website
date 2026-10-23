@@ -41,8 +41,9 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    - `supabase/migrations/0004_dat_danh.sql` (đổi tên công ty theo giấy phép, thêm MST / tên tiếng Anh)
    - `supabase/migrations/0005_site_structure.sql` (tin tức, dịch vụ, trang chính sách, gallery/thông số sản phẩm)
    - `supabase/migrations/0006_banners.sql` (slider banner trang chủ)
+   - `supabase/migrations/0007_category_tree.sql` (danh mục 2 cấp: 17 nhóm, 64 danh mục con)
 
-   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `0005` → `0006` → `seed.sql`.
+   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `0005` → `0006` → `0007` → `seed.sql`.
    > `seed.sql` không bao giờ dừng giữa chừng: bảng/cột nào chưa có sẽ được bỏ qua kèm thông báo
    > *“Bỏ qua dữ liệu mẫu … hãy chạy 000x_… trước”* — chạy file đó rồi chạy lại `seed.sql`.
    > Đã chạy `0001` và `seed.sql` từ trước? Chạy thêm các file migration còn thiếu, **rồi chạy lại `seed.sql`**

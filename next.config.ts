@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ protocol: "https", hostname: supabaseHost, pathname: "/storage/v1/object/public/**" }],
   },
+  // Categories replaced by the two-level tree (migration 0007) keep working for old links.
+  async redirects() {
+    return [
+      { source: "/danh-muc-san-pham/thiet-bi-dien-cong-nghiep", destination: "/danh-muc-san-pham/thiet-bi-dong-cat", permanent: true },
+    ];
+  },
   experimental: {
     serverActions: { bodySizeLimit: "5mb" },
   },

@@ -75,11 +75,14 @@ export function Footer({ settings, categories, pages }: { settings: Settings; ca
         <div className="lg:col-span-2">
           <p className={heading}>Sản phẩm</p>
           <ul className="mt-4 space-y-2 text-sm">
-            {categories.map((c) => (
+            {categories.slice(0, 8).map((c) => (
               <li key={c.slug}>
                 <Link href={`/danh-muc-san-pham/${c.slug}`} className="hover:text-white">{c.name}</Link>
               </li>
             ))}
+            {categories.length > 8 && (
+              <li><Link href="/san-pham" className="font-semibold text-white hover:text-brand-100">Xem tất cả danh mục →</Link></li>
+            )}
             <li><Link href="/thuong-hieu" className="hover:text-white">Thương hiệu</Link></li>
           </ul>
         </div>

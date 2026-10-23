@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { saveProduct } from "@/app/admin/actions";
+import { buildCategoryTree } from "@/lib/data";
 import type { Brand, Category, Product } from "@/lib/types";
 
 type Props = { product?: Product; categories: Category[]; brands: Brand[] };
@@ -29,7 +30,12 @@ export function ProductForm({ product, categories, brands }: Props) {
             <label className="label" htmlFor="category_id">Danh mục</label>
             <select id="category_id" name="category_id" defaultValue={product?.category_id ?? ""} className="input">
               <option value="">— Không —</option>
-              {categories.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+              {buildCategoryTree(categories).map((g) => (
+                <optgroup key={g.id} label={g.name}>
+                  <option value={g.id}>{g.name} (chung)</option>
+                  {g.children.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+                </optgroup>
+              ))}
             </select>
           </div>
           <div>
