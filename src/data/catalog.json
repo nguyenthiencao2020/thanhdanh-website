@@ -370,5 +370,49 @@
       "sort_order": 4,
       "content": "## Thông tin chúng tôi thu thập\nKhi bạn gửi yêu cầu báo giá hoặc liên hệ, chúng tôi thu thập: họ tên, số điện thoại, email, tên công ty và nội dung yêu cầu.\n\n## Mục đích sử dụng\n- Liên hệ tư vấn, gửi báo giá và xử lý đơn hàng theo yêu cầu của bạn.\n- Chăm sóc khách hàng và hỗ trợ sau bán hàng.\n\n## Bảo mật thông tin\nThông tin của bạn được lưu trữ an toàn và chỉ người có thẩm quyền của công ty mới được truy cập. Chúng tôi không bán hoặc chia sẻ thông tin cá nhân cho bên thứ ba, trừ khi có yêu cầu của cơ quan nhà nước có thẩm quyền theo quy định pháp luật.\n\n## Quyền của bạn\nBạn có quyền yêu cầu xem, chỉnh sửa hoặc xóa thông tin cá nhân của mình bằng cách liên hệ với chúng tôi qua hotline hoặc email."
     }
+  ],
+  "banners": [
+    {
+      "title": "Vật tư & thiết bị cho nhà máy của bạn",
+      "subtitle": "Thiết bị điện công nghiệp, tự động hóa, khí nén – thủy lực, motor – hộp giảm tốc và phụ kiện đường ống từ các thương hiệu hàng đầu thế giới.",
+      "image_url": null,
+      "collage": [
+        "/demo/plc.svg",
+        "/demo/bien-tan.svg",
+        "/demo/cam-bien-tiem-can.svg"
+      ],
+      "cta_label": "Yêu cầu báo giá",
+      "cta_url": "/lien-he",
+      "sort_order": 1,
+      "published": true
+    },
+    {
+      "title": "Thiết bị tự động hóa từ các hãng uy tín",
+      "subtitle": "PLC, biến tần, cảm biến, HMI từ Siemens, Mitsubishi Electric, Omron, SICK… Tư vấn chọn mã và tìm mã thay thế tương đương.",
+      "image_url": null,
+      "collage": [
+        "/demo/bien-tan.svg",
+        "/demo/cam-bien-quang.svg",
+        "/demo/plc.svg"
+      ],
+      "cta_label": "Xem thiết bị tự động hóa",
+      "cta_url": "/danh-muc-san-pham/tu-dong-hoa",
+      "sort_order": 2,
+      "published": true
+    },
+    {
+      "title": "Khí nén – thủy lực, van & phụ kiện đường ống",
+      "subtitle": "Xi lanh, van điện từ, đầu nối, van bi inox và phụ kiện đồng bộ — báo giá nhanh theo danh sách vật tư của nhà máy.",
+      "image_url": null,
+      "collage": [
+        "/demo/xi-lanh-khi-nen.svg",
+        "/demo/van-dien-tu.svg",
+        "/demo/van-bi-inox.svg"
+      ],
+      "cta_label": "Xem khí nén – thủy lực",
+      "cta_url": "/danh-muc-san-pham/khi-nen-thuy-luc",
+      "sort_order": 3,
+      "published": true
+    }
   ]
 }

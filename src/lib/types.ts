@@ -110,3 +110,16 @@ export type Inquiry = {
   handled: boolean;
   created_at: string;
 };
+
+export type Banner = {
+  id: string;
+  title: string;
+  subtitle: string | null;
+  /** Photo for the slide. Without one the slide shows `collage` illustrations. */
+  image_url: string | null;
+  collage: string[] | null;
+  cta_label: string | null;
+  cta_url: string | null;
+  sort_order: number;
+  published: boolean;
+};
