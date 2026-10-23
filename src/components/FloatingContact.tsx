@@ -6,7 +6,7 @@ export function FloatingContact({ phone, zalo, messenger }: { phone: string | nu
   if (!phone && !zalo && !messenger) return null;
   const base = "flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg ring-4 ring-white transition hover:scale-110";
   return (
-    <div className="fixed right-4 bottom-4 z-50 flex flex-col gap-3">
+    <div className="fixed right-4 bottom-4 z-50 hidden flex-col gap-3 lg:flex">
       {messenger && (
         <a href={messenger} target="_blank" rel="noopener noreferrer" className={`${base} bg-gradient-to-br from-[#00b2ff] to-[#a033ff]`} aria-label="Chat Messenger">
           <Icon name="chat" className="h-5 w-5" />

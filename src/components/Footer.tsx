@@ -2,19 +2,19 @@ import Link from "next/link";
 import type { Category, Page, Settings } from "@/lib/types";
 import { phoneDigits } from "@/lib/utils";
 import { BrandMark } from "./BrandMark";
+import { FooterCol } from "./FooterCol";
 import { Icon } from "./Icon";
 
 export function Footer({ settings, categories, pages }: { settings: Settings; categories: Category[]; pages: Page[] }) {
   const year = new Date().getFullYear();
   const phones = [settings.phone, settings.phone2].filter((p): p is string => Boolean(p));
-  const heading = "text-sm font-bold tracking-wider text-white uppercase";
 
   return (
     <footer className="relative mt-16 overflow-hidden bg-steel-900 text-steel-100">
       <div className="bg-blueprint absolute inset-0 opacity-50" />
-      <div className="relative container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-12">
+      <div className="relative container-page grid gap-x-10 py-12 lg:grid-cols-12 lg:gap-y-10 lg:py-14">
         {/* Company */}
-        <div className="lg:col-span-4">
+        <div className="pb-6 lg:col-span-4 lg:pb-0">
           <div className="inline-flex rounded-2xl bg-white px-4 py-3">
             <BrandMark name={settings.short_name} subtitle="Factory Supplies" />
           </div>
@@ -37,9 +37,8 @@ export function Footer({ settings, categories, pages }: { settings: Settings; ca
         </div>
 
         {/* Contact */}
-        <div className="lg:col-span-3">
-          <p className={heading}>Liên hệ</p>
-          <ul className="mt-4 space-y-3 text-sm">
+        <FooterCol title="Liên hệ" className="lg:col-span-3">
+          <ul className="space-y-3 text-sm">
             {phones.map((p) => (
               <li key={p}>
                 <a href={`tel:${phoneDigits(p)}`} className="flex items-center gap-3 text-base font-bold text-white hover:text-brand-100">
@@ -69,40 +68,37 @@ export function Footer({ settings, categories, pages }: { settings: Settings; ca
               </li>
             )}
           </ul>
-        </div>
+        </FooterCol>
 
         {/* Categories */}
-        <div className="lg:col-span-2">
-          <p className={heading}>Sản phẩm</p>
-          <ul className="mt-4 space-y-2 text-sm">
-            {categories.slice(0, 8).map((c) => (
+        <FooterCol title="Sản phẩm" className="lg:col-span-2">
+          <ul className="space-y-2 text-sm">
+            {categories.slice(0, 6).map((c) => (
               <li key={c.slug}>
                 <Link href={`/danh-muc-san-pham/${c.slug}`} className="hover:text-white">{c.name}</Link>
               </li>
             ))}
-            {categories.length > 8 && (
+            {categories.length > 6 && (
               <li><Link href="/san-pham" className="font-semibold text-white hover:text-brand-100">Xem tất cả danh mục →</Link></li>
             )}
             <li><Link href="/thuong-hieu" className="hover:text-white">Thương hiệu</Link></li>
           </ul>
-        </div>
+        </FooterCol>
 
         {/* Policies & info */}
-        <div className="lg:col-span-3">
-          <p className={heading}>Chính sách</p>
-          <ul className="mt-4 space-y-2 text-sm">
+        <FooterCol title="Chính sách & thông tin" className="lg:col-span-3">
+          <ul className="space-y-2 text-sm">
             {pages.map((p) => (
               <li key={p.slug}><Link href={`/${p.slug}`} className="hover:text-white">{p.title}</Link></li>
             ))}
           </ul>
-          <p className={`${heading} mt-6`}>Thông tin</p>
-          <ul className="mt-4 space-y-2 text-sm">
+          <ul className="mt-4 space-y-2 border-t border-white/10 pt-4 text-sm">
             <li><Link href="/gioi-thieu" className="hover:text-white">Giới thiệu</Link></li>
             <li><Link href="/dich-vu" className="hover:text-white">Dịch vụ</Link></li>
             <li><Link href="/tin-tuc" className="hover:text-white">Tin tức</Link></li>
             <li><Link href="/lien-he" className="hover:text-white">Liên hệ – Báo giá</Link></li>
           </ul>
-        </div>
+        </FooterCol>
       </div>
 
       {settings.map_embed_url && (
@@ -118,7 +114,7 @@ export function Footer({ settings, categories, pages }: { settings: Settings; ca
       )}
 
       <div className="relative border-t border-white/10">
-        <div className="container-page flex flex-col gap-2 py-5 text-xs text-steel-100/70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-page flex flex-col gap-2 pt-5 pb-24 text-xs lg:pb-5 text-steel-100/70 sm:flex-row sm:items-center sm:justify-between">
           <span>© {year} {settings.company_name}. Bảo lưu mọi quyền.</span>
           <span>{settings.address}</span>
         </div>

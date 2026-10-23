@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { buildCategoryTree, getBrands, getCategories, getProductsPage, getSettings, PRODUCT_SORTS, type ProductSort } from "@/lib/data";
+import { BrandSelect } from "./BrandSelect";
 import { CtaBanner } from "./CtaBanner";
+import { FilterDrawer } from "./FilterDrawer";
 import { Icon } from "./Icon";
 import { PageHeader } from "./PageHeader";
 import { Pagination } from "./Pagination";
@@ -44,7 +46,7 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
   };
 
   const chip = (active: boolean) =>
-    `rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+    `shrink-0 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
       active ? "border-steel-600 bg-steel-600 text-white" : "border-slate-200 bg-white text-slate-600 hover:border-steel-500"
     }`;
 
@@ -70,7 +72,8 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
       <div className="container-page py-10">
         <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
           {/* Sidebar */}
-          <aside className="order-2 space-y-5 lg:order-none lg:sticky lg:top-28 lg:self-start">
+          <FilterDrawer summary={[category?.name, brand?.name].filter(Boolean).join(" · ") || "Danh mục, thương hiệu"}>
+            <div className="space-y-5">
             <form action={basePath} className="relative">
               {params.brand && <input type="hidden" name="thuong-hieu" value={params.brand} />}
               <input name="q" type="search" defaultValue={params.q} placeholder="Tên, mã sản phẩm…" className="input h-11 rounded-xl pr-10" aria-label="Tìm kiếm" />
@@ -123,19 +126,21 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
 
             <div className="rounded-2xl border border-slate-200 bg-white p-4">
               <h2 className="mb-3 px-1 text-xs font-bold tracking-wider text-slate-500 uppercase">Thương hiệu</h2>
-              <div className="flex flex-wrap gap-2">
-                <Link href={href({ brand: undefined })} className={chip(!params.brand)}>Tất cả</Link>
-                {brands.map((b) => (
-                  <Link key={b.slug} href={href({ brand: b.slug })} className={chip(params.brand === b.slug)}>{b.name}</Link>
-                ))}
-              </div>
+              <BrandSelect
+                value={params.brand ?? ""}
+                options={[
+                  { label: "Tất cả thương hiệu", value: "", href: href({ brand: undefined }) },
+                  ...brands.map((b) => ({ label: b.name, value: b.slug, href: href({ brand: b.slug }) })),
+                ]}
+              />
             </div>
-          </aside>
+            </div>
+          </FilterDrawer>
 
           {/* Results */}
           <div>
             {group && group.children.length > 0 && (
-              <div className="mb-4 flex flex-wrap gap-2">
+              <div className="-mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
                 <Link href={href({}, `/danh-muc-san-pham/${group.slug}`)} className={chip(category?.slug === group.slug)}>
                   Tất cả {group.name}
                 </Link>
@@ -151,8 +156,8 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
                 {params.q && <>Kết quả cho “<span className="font-semibold text-slate-800">{params.q}</span>” · </>}
                 <span className="font-semibold text-slate-800">{total}</span> sản phẩm
               </p>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold text-slate-500">Sắp xếp:</span>
+              <div className="-mx-1 flex items-center gap-2 overflow-x-auto px-1">
+                <span className="shrink-0 text-xs font-semibold text-slate-500">Sắp xếp:</span>
                 {(Object.keys(PRODUCT_SORTS) as ProductSort[]).map((s) => (
                   <Link key={s} href={href({ sort: s })} className={chip(sort === s)}>{PRODUCT_SORTS[s]}</Link>
                 ))}

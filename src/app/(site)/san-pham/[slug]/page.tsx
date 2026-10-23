@@ -97,7 +97,7 @@ export default async function ProductPage({ params }: { params: Params }) {
         <p className="text-slate-500">Chưa có tài liệu trên website. Liên hệ để nhận catalogue / datasheet của sản phẩm.</p>
       ),
     },
-  ];
+  ].filter((t) => t.id === "mo-ta" || (t.id === "thong-so" ? specs.length > 0 : Boolean(product.datasheet_url)));
 
   return (
     <div className="bg-gradient-to-b from-slate-50 to-white">

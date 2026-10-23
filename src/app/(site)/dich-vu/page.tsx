@@ -71,7 +71,7 @@ export default async function ServicesPage() {
 
       <section className="container-page grid items-start gap-10 py-16 lg:grid-cols-[1fr_1.1fr]">
         <Reveal>
-          <p className="text-sm font-semibold tracking-wider text-brand-600 uppercase">Đặt lịch tư vấn</p>
+          <p className="text-sm font-semibold tracking-wider text-steel-600 uppercase">Đặt lịch tư vấn</p>
           <h2 className="mt-1 text-3xl font-bold text-steel-900 sm:text-4xl">Cần tư vấn thiết bị cho nhà máy?</h2>
           <p className="mt-4 text-slate-600">
             Để lại thông tin và nhu cầu, kỹ thuật của chúng tôi sẽ liên hệ lại để tư vấn và gửi báo giá phù hợp.
