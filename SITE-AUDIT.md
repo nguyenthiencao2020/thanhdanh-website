@@ -39,9 +39,11 @@ Bố cục gọn 7 section (~5,4 màn hình desktop, ~5,6 màn hình mobile; tr�
 | 2 | Thương hiệu | Logo 13 hãng có màu, chạy ngang | Logo Carousel | Giữ theo yêu cầu |
 | 3 | Danh mục | 8 nhóm chính cùng một kiểu ô (icon + số danh mục) + “Xem tất cả 17 nhóm”; mobile: 1 hàng trượt ngang | Icon Grid | |
 | 4 | Sản phẩm nổi bật | Một khối duy nhất, tab theo nhóm (Tất cả · Đóng cắt · …); mobile: trượt ngang | Tabs + Product Grid | Thay cho 9 khối “theo danh mục” |
-| 5 | Về chúng tôi + Vì sao chọn + Quy trình | Đoạn giới thiệu, 4 lợi ích, 4 bước đặt hàng | Text + Feature Grid + Steps | Nền tối |
-| 6 | Tin tức | 3 bài mới; mobile trượt ngang | Blog Grid | |
-| 7 | CTA | “Liên hệ ngay để được tư vấn & báo giá” | CTA Banner | |
+| 5 | Báo giá nhanh trong 4 bước | Đặt ngay sau sản phẩm: 4 bước đặt hàng + nút báo giá / gọi / Zalo | CTA + Steps | Thay khung CTA cuối trang |
+| 6 | Về chúng tôi + Vì sao chọn | Đoạn giới thiệu + 4 lợi ích | Text + Feature Grid | Nền tối |
+| 7 | Tin tức | 3 bài mới; mobile trượt ngang | Blog Grid | Kết thúc trang trước footer |
+
+Luồng đọc: giới thiệu → niềm tin (logo hãng) → tìm hàng (danh mục) → xem sản phẩm → **báo giá** → tìm hiểu công ty → tin tức.
 
 **Quy ước giao diện:** màu đỏ chỉ cho nút hành động chính; tiêu đề nhỏ, nhãn, icon dùng xanh thép/xám.
 **Mobile:** thanh cố định dưới đáy *Gọi · Zalo · Báo giá* (thay nút nổi); bộ lọc sản phẩm trong khung “Bộ lọc”;

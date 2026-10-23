@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
-import { CtaBanner } from "@/components/CtaBanner";
 import { Gear } from "@/components/Gear";
 import { HeroSlider } from "@/components/HeroSlider";
 import { Icon } from "@/components/Icon";
@@ -18,7 +17,12 @@ const strengths = [
   { icon: "chat", title: "Tư vấn kỹ thuật", text: "Hỗ trợ chọn mã, tìm mã tương đương." },
 ];
 
-const steps = ["Gửi yêu cầu", "Tư vấn chọn mã", "Nhận báo giá", "Giao hàng"];
+const steps = [
+  { title: "Gửi yêu cầu", text: "Mã hàng, số lượng qua form, hotline hoặc Zalo." },
+  { title: "Tư vấn chọn mã", text: "Kiểm tra thông số, đề xuất mã phù hợp hoặc tương đương." },
+  { title: "Nhận báo giá", text: "Đơn giá, thời gian giao hàng, bảo hành rõ ràng." },
+  { title: "Giao hàng", text: "Đóng gói cẩn thận, giao tận nhà máy." },
+];
 
 /** How many product groups the home page shows before “Xem tất cả”. */
 const HOME_GROUPS = 8;
@@ -83,7 +87,7 @@ export default async function HomePage() {
       </section>
 
       {/* ------------------------------------------------------------ 3. Categories */}
-      <section className="container-page py-14">
+      <section className="container-page py-16">
         <SectionHeading eyebrow="Danh mục" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel={`Xem tất cả ${tree.length} nhóm →`} />
         {/* Mobile: one swipeable row · Desktop: 4 × 2 grid — every tile in the same style */}
         <div className="-mx-4 mt-8 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
@@ -111,7 +115,7 @@ export default async function HomePage() {
 
       {/* ------------------------------------------------------- 4. Featured (tabs) */}
       {tabs.length > 0 && (
-        <section className="bg-slate-50 py-14">
+        <section className="bg-slate-50 py-16">
           <div className="container-page">
             <SectionHeading eyebrow="Sản phẩm" title="Sản phẩm nổi bật" />
             <Reveal className="mt-8">
@@ -121,7 +125,47 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ------------------------------------------- 5. About + why us + process */}
+      {/* ---------------------------------------------- 5. Quote in 4 steps (CTA) */}
+      {/* Right after the products, where the visitor is most likely to ask for a price. */}
+      <section className="container-page py-16">
+        <Reveal>
+          <div className="grid items-center gap-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 lg:grid-cols-[1fr_1.3fr]">
+            <div>
+              <p className="text-sm font-semibold tracking-wider text-steel-600 uppercase">Báo giá nhanh</p>
+              <h2 className="mt-1 text-3xl font-bold text-steel-900 sm:text-4xl">Nhận báo giá chỉ với 4 bước</h2>
+              <p className="mt-3 text-slate-600">Gửi danh sách mã hàng hoặc ảnh tem nhãn — chúng tôi tư vấn và báo giá cho bạn.</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href="/lien-he" className="btn-primary px-6 py-3 text-base">
+                  Gửi yêu cầu báo giá <Icon name="arrow" className="h-4 w-4" />
+                </Link>
+                {settings.phone && (
+                  <a href={`tel:${phoneDigits(settings.phone)}`} className="btn-outline px-6 py-3 text-base">
+                    <Icon name="phone" className="h-4 w-4" /> {settings.phone}
+                  </a>
+                )}
+                {settings.zalo && (
+                  <a href={`https://zalo.me/${phoneDigits(settings.zalo)}`} target="_blank" rel="noopener noreferrer" className="btn-outline px-6 py-3 text-base">
+                    Chat Zalo
+                  </a>
+                )}
+              </div>
+            </div>
+            <ol className="grid gap-3 sm:grid-cols-2">
+              {steps.map((s, i) => (
+                <li key={s.title} className="flex gap-4 rounded-2xl bg-slate-50 p-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-steel-900 font-extrabold text-white">{i + 1}</span>
+                  <span>
+                    <span className="block font-semibold text-slate-900">{s.title}</span>
+                    <span className="mt-0.5 block text-sm text-slate-500">{s.text}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ------------------------------------------- 6. About + why us  */}
       <section className="relative isolate overflow-hidden bg-steel-900 py-16 text-white">
         <div className="bg-blueprint absolute inset-0 -z-10" />
         <Gear teeth={16} className="animate-spin-slow absolute -right-32 -bottom-32 -z-10 h-[420px] w-[420px] text-white/10" />
@@ -148,21 +192,9 @@ export default async function HomePage() {
             ))}
           </div>
         </div>
-        <div className="container-page mt-12">
-          <Reveal>
-            <ol className="grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:grid-cols-4">
-              {steps.map((s, i) => (
-                <li key={s} className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-sm font-extrabold text-steel-900">{i + 1}</span>
-                  <span className="text-sm font-semibold">{s}</span>
-                </li>
-              ))}
-            </ol>
-          </Reveal>
-        </div>
       </section>
 
-      {/* ----------------------------------------------------------------- 6. News */}
+      {/* ----------------------------------------------------------------- 7. News */}
       {posts.length > 0 && (
         <section className="container-page pt-16">
           <SectionHeading eyebrow="Tin tức" title="Kiến thức & tin tức" href="/tin-tuc" />
@@ -176,10 +208,6 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ------------------------------------------------------------------ 7. CTA */}
-      <section className="container-page pt-16">
-        <CtaBanner title="Liên hệ ngay để được tư vấn & báo giá" phone={settings.phone} zalo={settings.zalo} />
-      </section>
     </>
   );
 }
