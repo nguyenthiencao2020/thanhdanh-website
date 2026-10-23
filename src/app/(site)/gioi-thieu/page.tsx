@@ -29,7 +29,7 @@ export default async function AboutPage() {
       <div className="container-page py-14">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <p className="text-sm font-semibold tracking-wider text-brand-600 uppercase">{settings.company_name}</p>
+            <p className="text-sm font-semibold tracking-wider text-steel-600 uppercase">{settings.company_name}</p>
             <h2 className="mt-2 text-3xl font-bold text-steel-900">Đồng hành cùng nhà máy của bạn</h2>
             <RichText text={settings.about} className="mt-6" />
             <dl className="mt-8 grid grid-cols-2 gap-4 sm:max-w-md">
@@ -96,13 +96,13 @@ export default async function AboutPage() {
 
         <section className="mt-20">
           <Reveal>
-            <p className="text-sm font-semibold tracking-wider text-brand-600 uppercase">Lĩnh vực</p>
+            <p className="text-sm font-semibold tracking-wider text-steel-600 uppercase">Lĩnh vực</p>
             <h2 className="mt-1 text-3xl font-bold text-steel-900">Lĩnh vực cung cấp</h2>
           </Reveal>
           <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c, i) => (
+            {categories.slice(0, 8).map((c, i) => (
               <li key={c.slug}>
-                <Reveal delay={i * 80}>
+                <Reveal delay={(i % 3) * 80}>
                   <Link
                     href={`/danh-muc-san-pham/${c.slug}`}
                     className="group flex h-full gap-4 overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 transition hover:-translate-y-1 hover:border-brand-500 hover:shadow-lg"
@@ -124,6 +124,11 @@ export default async function AboutPage() {
               </li>
             ))}
           </ul>
+          {categories.length > 8 && (
+            <div className="mt-6 text-center">
+              <Link href="/san-pham" className="btn-outline px-6">Xem tất cả {categories.length} nhóm sản phẩm →</Link>
+            </div>
+          )}
         </section>
 
         <section className="mt-20">

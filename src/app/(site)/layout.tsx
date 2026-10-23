@@ -2,6 +2,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { FloatingContact } from "@/components/FloatingContact";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { MobileActionBar } from "@/components/MobileActionBar";
 import { buildCategoryTree, getCategories, getPages, getSettings } from "@/lib/data";
 import { phoneDigits } from "@/lib/utils";
 
@@ -28,6 +29,10 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <Footer settings={settings} categories={tree} pages={pages} />
       <FloatingContact phone={settings.phone} zalo={settings.zalo} messenger={settings.messenger_url} />
       <BackToTop />
+      <MobileActionBar
+        phoneHref={settings.phone ? phoneDigits(settings.phone) : null}
+        zaloHref={settings.zalo ? `https://zalo.me/${phoneDigits(settings.zalo)}` : null}
+      />
     </>
   );
 }

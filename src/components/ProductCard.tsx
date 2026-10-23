@@ -15,7 +15,7 @@ export function ProductImage({ product, className = "" }: { product: ProductWith
   );
 }
 
-export function ProductCard({ product }: { product: ProductWithRelations }) {
+export function ProductCard({ product, hideBadge }: { product: ProductWithRelations; hideBadge?: boolean }) {
   return (
     <Link
       href={`/san-pham/${product.slug}`}
@@ -23,7 +23,7 @@ export function ProductCard({ product }: { product: ProductWithRelations }) {
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-white">
         <ProductImage product={product} className="transition duration-500 group-hover:scale-105" />
-        {product.featured && (
+        {product.featured && !hideBadge && (
           <span className="absolute top-3 left-3 rounded-full bg-brand-600 px-2.5 py-0.5 text-[11px] font-semibold text-white shadow">
             Nổi bật
           </span>
@@ -34,7 +34,7 @@ export function ProductCard({ product }: { product: ProductWithRelations }) {
         <h3 className="mt-1 line-clamp-2 font-semibold text-slate-900 group-hover:text-brand-600">{product.name}</h3>
         {product.summary && <p className="mt-1 line-clamp-2 text-sm text-slate-500">{product.summary}</p>}
         <div className="mt-auto flex items-center justify-between pt-3">
-          <p className="text-sm font-bold text-brand-600">{product.price || "Liên hệ báo giá"}</p>
+          <p className="text-sm font-bold text-steel-700">{product.price || "Liên hệ báo giá"}</p>
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition group-hover:bg-brand-600 group-hover:text-white">
             <Icon name="arrow" className="h-4 w-4" />
           </span>

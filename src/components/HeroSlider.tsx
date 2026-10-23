@@ -105,7 +105,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                       </a>
                     )}
                   </div>
-                  <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-6">
+                  <dl className="mt-10 hidden max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-6 sm:grid">
                     {stats.map((s) => (
                       <div key={s.label} className="flex flex-col-reverse">
                         <dt className="mt-1 text-xs text-steel-100/70 sm:text-sm">{s.label}</dt>
@@ -117,7 +117,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
 
                 {!b.image_url && collage.length > 0 && (
                   <div
-                    className={`relative mx-auto h-[300px] w-full max-w-[560px] transition-all delay-300 duration-700 ${boxed ? "hidden sm:h-[380px] xl:block" : "sm:h-[440px]"} ${
+                    className={`relative mx-auto h-[300px] w-full max-w-[560px] transition-all delay-300 duration-700 ${boxed ? "hidden sm:h-[380px] xl:block" : "hidden lg:block lg:h-[440px]"} ${
                       on ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
                     }`}
                   >

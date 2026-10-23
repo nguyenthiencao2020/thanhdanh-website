@@ -31,19 +31,21 @@ audited_by: Claude (đối chiếu theo cấu trúc lqe.com.vn – Ref/tham-khao
 
 ## 2. Cấu trúc trang chủ (`/`)
 
+Bố cục gọn 7 section (~5,4 màn hình desktop, ~5,6 màn hình mobile; trước đó 12,7 và 21).
+
 | # | Section | Mô tả | Loại block | Ghi chú |
 |---|---------|-------|------------|---------|
-| 0 | Thanh thông báo | Dải thông báo trên cùng, có link, đóng được | Banner | Bật/tắt trong Admin → Cài đặt |
-| 1 | Hero Slider | 3 slide tự chuyển (6 giây, dừng khi rê chuột), nút chấm + mũi tên; mỗi slide: tiêu đề, mô tả, nút CTA + hotline, 3 ô số liệu; ảnh banner tràn nền hoặc cụm ảnh sản phẩm lơ lửng | Hero Slider + CTA | Quản lý tại Admin → Banner trang chủ |
-| 2 | Thương hiệu phân phối | Logo 13 hãng **có màu**, chạy ngang liên tục, dừng khi rê chuột | Logo Carousel | Theo yêu cầu giữ nguyên, có màu |
-| 3 | Giới thiệu ngắn | “Chào mừng đến với Đạt Danh”, đoạn giới thiệu, 4 điểm mạnh, nút “Xem thêm” | Text + Image | |
-| 4 | Danh mục sản phẩm | 5 nhóm, thẻ ảnh + icon + mô tả | Category Grid | Link tới `/danh-muc-san-pham/...` |
-| 5 | Sản phẩm nổi bật | Tối đa 8 sản phẩm đánh dấu nổi bật | Product Grid | |
-| 6 | Dịch vụ | 5 dịch vụ, icon + mô tả ngắn | Icon Grid | Link tới `/dich-vu#...` |
-| 7 | Quy trình 4 bước | Gửi yêu cầu → Tư vấn → Báo giá → Giao hàng | Steps | |
-| 8 | Vì sao chọn chúng tôi | 4 lý do + ảnh minh họa | Feature Grid | Nền tối |
-| 9 | Tin tức | 3 bài mới nhất | Blog Grid | |
-| 10 | CTA cuối trang | “Liên hệ ngay để được tư vấn & báo giá” + hotline + Zalo | CTA Banner | |
+| 1 | Hero Slider | 3 slide tự chuyển, CTA + hotline; ảnh minh họa và ô số liệu chỉ hiện trên màn hình lớn | Hero Slider | Admin → Banner trang chủ |
+| 2 | Thương hiệu | Logo 13 hãng có màu, chạy ngang | Logo Carousel | Giữ theo yêu cầu |
+| 3 | Danh mục | 8 nhóm chính cùng một kiểu ô (icon + số danh mục) + “Xem tất cả 17 nhóm”; mobile: 1 hàng trượt ngang | Icon Grid | |
+| 4 | Sản phẩm nổi bật | Một khối duy nhất, tab theo nhóm (Tất cả · Đóng cắt · …); mobile: trượt ngang | Tabs + Product Grid | Thay cho 9 khối “theo danh mục” |
+| 5 | Về chúng tôi + Vì sao chọn + Quy trình | Đoạn giới thiệu, 4 lợi ích, 4 bước đặt hàng | Text + Feature Grid + Steps | Nền tối |
+| 6 | Tin tức | 3 bài mới; mobile trượt ngang | Blog Grid | |
+| 7 | CTA | “Liên hệ ngay để được tư vấn & báo giá” | CTA Banner | |
+
+**Quy ước giao diện:** màu đỏ chỉ cho nút hành động chính; tiêu đề nhỏ, nhãn, icon dùng xanh thép/xám.
+**Mobile:** thanh cố định dưới đáy *Gọi · Zalo · Báo giá* (thay nút nổi); bộ lọc sản phẩm trong khung “Bộ lọc”;
+footer dạng accordion; tab chi tiết sản phẩm trống được ẩn.
 
 ---
 

@@ -31,6 +31,9 @@ type Props = {
 
 export function Header({ shortName, tagline, announcement, announcementUrl, phone, phoneHref, email, zaloHref, facebook, categories }: Props) {
   const [open, setOpen] = useState(false);
+  // After choosing an item in the products mega menu, keep it closed until the pointer leaves
+  // the menu — otherwise hover/focus would hold it open over the page that just loaded.
+  const [megaDismissed, setMegaDismissed] = useState(false);
   const pathname = usePathname();
   const isActive = (href: string) =>
     href === "/"
@@ -86,7 +89,17 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Chính">
           {nav.map((item) =>
             item.dropdown ? (
-              <div key={item.href} className="group">
+              <div
+                key={item.href}
+                className={megaDismissed ? "" : "group"}
+                onMouseLeave={() => setMegaDismissed(false)}
+                onClickCapture={(e) => {
+                  if ((e.target as HTMLElement).closest("a")) {
+                    setMegaDismissed(true);
+                    (document.activeElement as HTMLElement | null)?.blur();
+                  }
+                }}
+              >
                 <Link
                   href={item.href}
                   className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold transition ${
