@@ -67,7 +67,7 @@ export default async function NewsPage({ searchParams }: { searchParams: SearchP
             <Pagination page={page} total={total} pageSize={PAGE_SIZE} basePath="/tin-tuc" params={{ "danh-muc": category, tag, q }} />
           </div>
 
-          <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
+          <aside className="space-y-6 lg:sticky lg:top-36 lg:self-start">
             <form action="/tin-tuc" className="relative">
               <input name="q" type="search" defaultValue={q} placeholder="Tìm bài viết…" className="input h-11 rounded-xl pr-10" aria-label="Tìm bài viết" />
               <Icon name="search" className="pointer-events-none absolute top-1/2 right-3.5 h-4 w-4 -translate-y-1/2 text-slate-400" />

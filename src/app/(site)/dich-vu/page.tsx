@@ -32,7 +32,7 @@ export default async function ServicesPage() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 90}>
-              <article id={s.slug} className="group relative h-full scroll-mt-28 overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl hover:shadow-steel-900/10">
+              <article id={s.slug} className="group relative h-full scroll-mt-36 overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl hover:shadow-steel-900/10">
                 <span className="absolute -top-6 -right-6 text-[7rem] leading-none font-black text-slate-100 transition group-hover:text-brand-50">
                   {String(i + 1).padStart(2, "0")}
                 </span>
