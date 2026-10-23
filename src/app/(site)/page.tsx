@@ -260,11 +260,14 @@ export default async function HomePage() {
                 <defs>
                   <path id="about-circle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
                 </defs>
-                <text fontSize="9.5" fontWeight="700" letterSpacing="2.6" fill="white">
-                  <textPath href="#about-circle">{`${settings.short_name.toUpperCase()} • FACTORY SUPPLIES • `}</textPath>
+                <text fontSize="8" fontWeight="700" letterSpacing="1.6" fill="white">
+                  <textPath href="#about-circle">{`${settings.short_name.toUpperCase()} • SPARE PARTS FACTORY 24H • `}</textPath>
                 </text>
               </svg>
-              <Icon name="cog" className="h-9 w-9 text-white" />
+              <span className="flex h-[60%] w-[60%] items-center justify-center rounded-full bg-white p-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logo-dat-danh-mark.png" alt="" className="w-full" />
+              </span>
             </div>
 
             {strengths.map((s, i) => (
