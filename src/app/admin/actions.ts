@@ -30,12 +30,28 @@ const IMAGE_TYPES: Record<string, string> = {
   "image/gif": "gif",
 };
 
+const PDF_TYPES: Record<string, string> = { "application/pdf": "pdf" };
+// Vercel caps a request body at ~4.5MB, so files (and the whole form) must stay under that.
+const MAX_PDF = 4 * 1024 * 1024;
+
 /** Uploads an image from the form to the `media` bucket and returns its public URL (or null if none chosen). */
 async function uploadImage(supabase: Supabase, file: FormDataEntryValue | null, folder: string) {
+  return uploadFile(supabase, file, folder, IMAGE_TYPES, MAX_UPLOAD, "Chỉ hỗ trợ ảnh JPG, PNG, WEBP, SVG hoặc GIF.", "Ảnh tối đa 4MB.");
+}
+
+async function uploadFile(
+  supabase: Supabase,
+  file: FormDataEntryValue | null,
+  folder: string,
+  types: Record<string, string>,
+  maxSize: number,
+  typeError: string,
+  sizeError: string,
+) {
   if (!(file instanceof File) || file.size === 0) return null;
-  const ext = IMAGE_TYPES[file.type];
-  if (!ext) throw new Error("Chỉ hỗ trợ ảnh JPG, PNG, WEBP, SVG hoặc GIF.");
-  if (file.size > MAX_UPLOAD) throw new Error("Ảnh tối đa 4MB.");
+  const ext = types[file.type];
+  if (!ext) throw new Error(typeError);
+  if (file.size > maxSize) throw new Error(sizeError);
 
   const path = `${folder}/${Date.now()}-${crypto.randomUUID().slice(0, 8)}.${ext}`;
   const { error } = await supabase.storage.from("media").upload(path, file, { contentType: file.type });
@@ -86,6 +102,22 @@ export async function saveProduct(form: FormData) {
   }
   if (bool(form, "remove_image")) imageUrl = null;
 
+  // Extra gallery images: keep the ones still listed, append new uploads.
+  const gallery = form.getAll("gallery_keep").map(String).filter(Boolean);
+  let datasheetUrl = text(form, "datasheet_url");
+  try {
+    for (const f of form.getAll("gallery_new")) {
+      const url = await uploadImage(supabase, f, "products");
+      if (url) gallery.push(url);
+    }
+    datasheetUrl =
+      (await uploadFile(supabase, form.get("datasheet"), "datasheets", PDF_TYPES, MAX_PDF, "Datasheet phải là file PDF.", "File PDF tối đa 4MB.")) ??
+      datasheetUrl;
+  } catch (e) {
+    fail(back, (e as Error).message);
+  }
+  if (bool(form, "remove_datasheet")) datasheetUrl = null;
+
   const row = {
     name,
     slug: slugify(text(form, "slug") ?? name) || crypto.randomUUID().slice(0, 8),
@@ -94,8 +126,12 @@ export async function saveProduct(form: FormData) {
     brand_id: text(form, "brand_id"),
     summary: text(form, "summary"),
     description: text(form, "description"),
+    specs: text(form, "specs"),
     price: text(form, "price"),
     image_url: imageUrl,
+    gallery: gallery.slice(0, 12),
+    datasheet_url: datasheetUrl,
+    in_stock: bool(form, "in_stock"),
     featured: bool(form, "featured"),
     published: bool(form, "published"),
     updated_at: new Date().toISOString(),
@@ -240,6 +276,12 @@ export async function saveSettings(form: FormData) {
     zalo: text(form, "zalo"),
     facebook: text(form, "facebook"),
     map_embed_url: mapUrl,
+    messenger_url: text(form, "messenger_url"),
+    announcement: text(form, "announcement"),
+    announcement_url: text(form, "announcement_url"),
+    mission: text(form, "mission"),
+    vision: text(form, "vision"),
+    core_values: text(form, "core_values"),
     business_hours: text(form, "business_hours"),
     updated_at: new Date().toISOString(),
   });
@@ -247,4 +289,114 @@ export async function saveSettings(form: FormData) {
 
   refreshSite();
   redirect("/admin/cai-dat?saved=1");
+}
+
+// ---------------------------------------------------------------------------
+// News posts
+// ---------------------------------------------------------------------------
+export async function savePost(form: FormData) {
+  const { supabase } = await requireAdmin();
+  const id = text(form, "id");
+  const back = id ? `/admin/tin-tuc/${id}` : "/admin/tin-tuc/moi";
+  const title = text(form, "title");
+  if (!title) fail(back, "Vui lòng nhập tiêu đề.");
+
+  let coverUrl = text(form, "cover_url");
+  try {
+    coverUrl = (await uploadImage(supabase, form.get("cover"), "posts")) ?? coverUrl;
+  } catch (e) {
+    fail(back, (e as Error).message);
+  }
+  if (bool(form, "remove_cover")) coverUrl = null;
+
+  const date = text(form, "published_at");
+  const row = {
+    title,
+    slug: slugify(text(form, "slug") ?? title) || crypto.randomUUID().slice(0, 8),
+    excerpt: text(form, "excerpt"),
+    content: text(form, "content"),
+    cover_url: coverUrl,
+    category: text(form, "category"),
+    tags: (text(form, "tags") ?? "")
+      .split(",")
+      .map((t) => t.trim())
+      .filter(Boolean)
+      .slice(0, 12),
+    author: text(form, "author"),
+    featured: bool(form, "featured"),
+    published: bool(form, "published"),
+    ...(date ? { published_at: new Date(`${date}T08:00:00+07:00`).toISOString() } : {}),
+    updated_at: new Date().toISOString(),
+  };
+  const { error } = id ? await supabase.from("posts").update(row).eq("id", id) : await supabase.from("posts").insert(row);
+  if (error) fail(back, error.code === "23505" ? "Đường dẫn (slug) đã tồn tại." : error.message);
+
+  refreshSite();
+  redirect("/admin/tin-tuc?saved=1");
+}
+
+export async function deletePost(form: FormData) {
+  const { supabase } = await requireAdmin();
+  const { error } = await supabase.from("posts").delete().eq("id", String(form.get("id")));
+  if (error) fail("/admin/tin-tuc", error.message);
+  refreshSite();
+  redirect("/admin/tin-tuc");
+}
+
+// ---------------------------------------------------------------------------
+// Services
+// ---------------------------------------------------------------------------
+export async function saveService(form: FormData) {
+  const { supabase } = await requireAdmin();
+  const id = text(form, "id");
+  const title = text(form, "title");
+  if (!title) fail("/admin/dich-vu", "Vui lòng nhập tên dịch vụ.");
+  const row = {
+    title,
+    slug: slugify(text(form, "slug") ?? title),
+    summary: text(form, "summary"),
+    content: text(form, "content"),
+    icon: text(form, "icon"),
+    sort_order: int(form, "sort_order"),
+  };
+  const { error } = id ? await supabase.from("services").update(row).eq("id", id) : await supabase.from("services").insert(row);
+  if (error) fail("/admin/dich-vu", error.code === "23505" ? "Đường dẫn (slug) đã tồn tại." : error.message);
+  refreshSite();
+  redirect("/admin/dich-vu?saved=1");
+}
+
+export async function deleteService(form: FormData) {
+  const { supabase } = await requireAdmin();
+  const { error } = await supabase.from("services").delete().eq("id", String(form.get("id")));
+  if (error) fail("/admin/dich-vu", error.message);
+  refreshSite();
+  redirect("/admin/dich-vu");
+}
+
+// ---------------------------------------------------------------------------
+// Policy / static pages
+// ---------------------------------------------------------------------------
+/** Paths used by the site itself; a page with one of these slugs would never be reachable. */
+const RESERVED_SLUGS = new Set(["admin", "api", "san-pham", "danh-muc-san-pham", "thuong-hieu", "gioi-thieu", "dich-vu", "tin-tuc", "lien-he", "tim-kiem"]);
+
+export async function savePage(form: FormData) {
+  const { supabase } = await requireAdmin();
+  const id = text(form, "id");
+  const title = text(form, "title");
+  if (!title) fail("/admin/trang", "Vui lòng nhập tiêu đề trang.");
+  const slug = slugify(text(form, "slug") ?? title);
+  if (RESERVED_SLUGS.has(slug)) fail("/admin/trang", `Đường dẫn “${slug}” đã được website sử dụng, hãy chọn tên khác.`);
+  const row = { title, slug, content: text(form, "content"), sort_order: int(form, "sort_order"), updated_at: new Date().toISOString() };
+  const { error } = id ? await supabase.from("pages").update(row).eq("id", id) : await supabase.from("pages").insert(row);
+  if (error) fail("/admin/trang", error.code === "23505" ? "Đường dẫn (slug) đã tồn tại." : error.message);
+  refreshSite();
+  redirect("/admin/trang?saved=1");
+}
+
+export async function deletePage(form: FormData) {
+  const { supabase } = await requireAdmin();
+  const { error } = await supabase.from("pages").delete().eq("id", String(form.get("id")));
+  if (error) fail("/admin/trang", error.message);
+  refreshSite();
+  redirect("/admin/trang");
 }

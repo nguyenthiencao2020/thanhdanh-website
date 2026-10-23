@@ -12,6 +12,9 @@ const nav = [
   { href: "/admin/san-pham", label: "Sản phẩm" },
   { href: "/admin/danh-muc", label: "Danh mục" },
   { href: "/admin/thuong-hieu", label: "Thương hiệu" },
+  { href: "/admin/tin-tuc", label: "Tin tức" },
+  { href: "/admin/dich-vu", label: "Dịch vụ" },
+  { href: "/admin/trang", label: "Trang chính sách" },
   { href: "/admin/cai-dat", label: "Cài đặt" },
 ];
 

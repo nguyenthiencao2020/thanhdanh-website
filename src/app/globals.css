@@ -104,3 +104,20 @@ body {
   }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* Content rendered by components/RichText.tsx */
+.rich-text {
+  @apply space-y-4 leading-relaxed text-slate-700;
+}
+.rich-text h2 {
+  @apply pt-4 text-2xl font-bold text-steel-900;
+}
+.rich-text h3 {
+  @apply pt-2 text-lg font-semibold text-steel-900;
+}
+.rich-text ul {
+  @apply list-disc space-y-1.5 pl-6 marker:text-brand-500;
+}
+.rich-text ol {
+  @apply list-decimal space-y-1.5 pl-6 marker:font-semibold marker:text-steel-600;
+}

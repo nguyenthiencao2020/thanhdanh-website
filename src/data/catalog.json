@@ -14,7 +14,13 @@
     "zalo": "0907646647",
     "facebook": null,
     "map_embed_url": "https://www.google.com/maps?q=53%2F22%20%C4%90%C6%B0%E1%BB%9Dng%20s%E1%BB%91%204%2C%20B%C3%ACnh%20T%C3%A2n%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh&output=embed",
-    "business_hours": "Thứ 2 – Thứ 7: 7:30 – 17:30"
+    "business_hours": "Thứ 2 – Thứ 7: 7:30 – 17:30",
+    "announcement": "Báo giá nhanh vật tư nhà máy — gọi hotline 0907 646 647 hoặc chat Zalo",
+    "announcement_url": "/lien-he",
+    "messenger_url": null,
+    "mission": "Cung cấp đúng thiết bị, đúng thời điểm để dây chuyền sản xuất của khách hàng vận hành liên tục.\n\nĐồng hành cùng khách hàng từ khâu tư vấn chọn mã, báo giá đến giao hàng và hỗ trợ sau bán hàng.",
+    "vision": "Trở thành nhà cung cấp vật tư nhà máy đáng tin cậy của các doanh nghiệp sản xuất tại TP. Hồ Chí Minh và khu vực lân cận.",
+    "core_values": "Uy tín | Giữ đúng cam kết về chất lượng, giá và thời gian giao hàng\nChất lượng | Sản phẩm có nguồn gốc rõ ràng từ các thương hiệu uy tín\nTận tâm | Lắng nghe và giải quyết đúng nhu cầu của từng khách hàng\nNhanh chóng | Phản hồi, báo giá và giao hàng nhanh để nhà máy không phải chờ"
   },
   "categories": [
     {
@@ -147,7 +153,8 @@
       "summary": "PLC nhỏ gọn cho các ứng dụng điều khiển máy và dây chuyền vừa và nhỏ.",
       "description": "Dòng PLC S7-1200 tích hợp cổng PROFINET, lập trình bằng TIA Portal. Liên hệ để được tư vấn chọn CPU, module mở rộng và báo giá.",
       "featured": true,
-      "image_url": "/demo/plc.svg"
+      "image_url": "/demo/plc.svg",
+      "specs": "Dòng sản phẩm | S7-1200\nNgôn ngữ lập trình | LAD, FBD, SCL (TIA Portal)\nCổng truyền thông | PROFINET tích hợp\nNguồn cấp | 24 VDC hoặc 120/230 VAC (tùy CPU)\nMở rộng | Signal board, signal module, communication module"
     },
     {
       "slug": "bien-tan-mitsubishi-fr-e800",
@@ -157,7 +164,8 @@
       "summary": "Biến tần đa năng cho bơm, quạt, băng tải.",
       "description": "Biến tần FR-E800 hỗ trợ nhiều chuẩn truyền thông công nghiệp. Liên hệ để được tư vấn công suất phù hợp.",
       "featured": true,
-      "image_url": "/demo/bien-tan.svg"
+      "image_url": "/demo/bien-tan.svg",
+      "specs": null
     },
     {
       "slug": "cam-bien-tiem-can-omron",
@@ -167,7 +175,8 @@
       "summary": "Cảm biến tiệm cận điện cảm, nhiều kích thước M8 – M30.",
       "description": "Phát hiện vật thể kim loại không tiếp xúc, dùng trong máy đóng gói, băng tải, máy CNC.",
       "featured": true,
-      "image_url": "/demo/cam-bien-tiem-can.svg"
+      "image_url": "/demo/cam-bien-tiem-can.svg",
+      "specs": null
     },
     {
       "slug": "aptomat-schneider-easy9",
@@ -177,7 +186,8 @@
       "summary": "Cầu dao tự động bảo vệ quá tải và ngắn mạch.",
       "description": "Đầy đủ dòng định mức và số cực. Liên hệ để nhận báo giá theo số lượng.",
       "featured": true,
-      "image_url": "/demo/aptomat.svg"
+      "image_url": "/demo/aptomat.svg",
+      "specs": null
     },
     {
       "slug": "contactor-abb-af",
@@ -187,7 +197,8 @@
       "summary": "Khởi động từ cho động cơ và tải công nghiệp.",
       "description": "Cuộn coil dải điện áp rộng, độ bền cao. Liên hệ để được tư vấn chọn mã.",
       "featured": false,
-      "image_url": "/demo/contactor.svg"
+      "image_url": "/demo/contactor.svg",
+      "specs": null
     },
     {
       "slug": "xi-lanh-khi-nen-festo",
@@ -197,7 +208,8 @@
       "summary": "Xi lanh tiêu chuẩn ISO, nhiều đường kính và hành trình.",
       "description": "Phù hợp cho các ứng dụng gá kẹp, đẩy, nâng hạ trong dây chuyền tự động.",
       "featured": true,
-      "image_url": "/demo/xi-lanh-khi-nen.svg"
+      "image_url": "/demo/xi-lanh-khi-nen.svg",
+      "specs": null
     },
     {
       "slug": "van-dien-tu-smc",
@@ -207,7 +219,8 @@
       "summary": "Van điện từ 5/2, 5/3 điều khiển xi lanh khí nén.",
       "description": "Đa dạng điện áp coil và kiểu kết nối. Liên hệ để được báo giá nhanh.",
       "featured": true,
-      "image_url": "/demo/van-dien-tu.svg"
+      "image_url": "/demo/van-dien-tu.svg",
+      "specs": null
     },
     {
       "slug": "cam-bien-quang-sick",
@@ -217,7 +230,8 @@
       "summary": "Cảm biến quang thu phát, phản xạ gương và phản xạ khuếch tán.",
       "description": "Độ chính xác cao, phù hợp cho môi trường công nghiệp khắc nghiệt.",
       "featured": false,
-      "image_url": "/demo/cam-bien-quang.svg"
+      "image_url": "/demo/cam-bien-quang.svg",
+      "specs": null
     },
     {
       "slug": "motor-giam-toc",
@@ -227,7 +241,8 @@
       "summary": "Motor giảm tốc cốt thẳng, cốt vuông góc nhiều tỉ số truyền.",
       "description": "Tư vấn chọn công suất, tỉ số truyền và kiểu lắp đặt theo yêu cầu thực tế.",
       "featured": true,
-      "image_url": "/demo/motor-giam-toc.svg"
+      "image_url": "/demo/motor-giam-toc.svg",
+      "specs": null
     },
     {
       "slug": "van-bi-inox",
@@ -237,7 +252,123 @@
       "summary": "Van bi inox nối ren, mặt bích các cỡ.",
       "description": "Dùng cho hệ thống nước, khí, hóa chất nhẹ. Cung cấp kèm co, tê, rắc co đồng bộ.",
       "featured": false,
-      "image_url": "/demo/van-bi-inox.svg"
+      "image_url": "/demo/van-bi-inox.svg",
+      "specs": null
+    }
+  ],
+  "posts": [
+    {
+      "slug": "cach-chon-aptomat-mcb-phu-hop",
+      "title": "Cách chọn aptomat (MCB) phù hợp cho tủ điện",
+      "excerpt": "Dòng định mức, đường cong cắt, số cực và khả năng cắt ngắn mạch — 4 thông số cần xem khi chọn aptomat.",
+      "cover_url": "/demo/aptomat.svg",
+      "published_at": "2026-10-20",
+      "content": "Aptomat (MCB – Miniature Circuit Breaker) bảo vệ mạch điện khỏi quá tải và ngắn mạch. Chọn sai thông số có thể khiến aptomat nhảy liên tục hoặc không bảo vệ được thiết bị.\n\n## 1. Dòng định mức (In)\nChọn In lớn hơn dòng làm việc thực tế của mạch nhưng không vượt quá khả năng chịu dòng của dây dẫn. Các mức phổ biến: 6A, 10A, 16A, 20A, 25A, 32A, 40A, 50A, 63A.\n\n## 2. Đường cong cắt (B, C, D)\n- Loại B: cắt nhanh, dùng cho tải thuần trở, chiếu sáng.\n- Loại C: phổ biến nhất, dùng cho tải hỗn hợp, động cơ nhỏ.\n- Loại D: chịu được dòng khởi động lớn, dùng cho động cơ, máy biến áp.\n\n## 3. Số cực\n1P/2P cho mạch một pha, 3P/4P cho mạch ba pha. Mạch có dây trung tính cần cắt đồng thời thì chọn 2P hoặc 4P.\n\n## 4. Khả năng cắt ngắn mạch (Icu)\nIcu phải lớn hơn dòng ngắn mạch có thể xảy ra tại vị trí lắp đặt. Với tủ điện công nghiệp gần máy biến áp, nên chọn loại có Icu cao.\n\nCần tư vấn chọn mã aptomat theo bản vẽ tủ điện? Gửi danh sách cho chúng tôi để được báo giá nhanh.",
+      "category": "Hướng dẫn kỹ thuật",
+      "tags": [
+        "aptomat",
+        "tủ điện"
+      ],
+      "featured": true,
+      "author": "Đạt Danh"
+    },
+    {
+      "slug": "phan-biet-cam-bien-tiem-can-dien-cam-va-dien-dung",
+      "title": "Phân biệt cảm biến tiệm cận điện cảm và điện dung",
+      "excerpt": "Cảm biến điện cảm chỉ phát hiện kim loại, cảm biến điện dung phát hiện được cả nhựa, gỗ, chất lỏng. Chọn loại nào cho máy của bạn?",
+      "cover_url": "/demo/cam-bien-tiem-can.svg",
+      "published_at": "2026-10-18",
+      "content": "Cảm biến tiệm cận phát hiện vật thể mà không cần tiếp xúc, được dùng rộng rãi trên băng tải, máy đóng gói, máy CNC.\n\n## Cảm biến tiệm cận điện cảm (Inductive)\n- Chỉ phát hiện vật bằng kim loại.\n- Bền, ít bị ảnh hưởng bởi bụi, dầu.\n- Khoảng cách phát hiện thường từ 1 – 40 mm tùy kích thước (M8, M12, M18, M30).\n\n## Cảm biến tiệm cận điện dung (Capacitive)\n- Phát hiện được cả vật phi kim: nhựa, gỗ, giấy, chất lỏng, hạt.\n- Thường dùng để báo mức trong bồn, phễu.\n- Có núm chỉnh độ nhạy, cần cân chỉnh khi lắp đặt.\n\n## Các thông số cần xác định khi đặt hàng\n- Kiểu ngõ ra: NPN hoặc PNP (phải phù hợp với ngõ vào PLC).\n- Trạng thái: thường mở (NO) hoặc thường đóng (NC).\n- Điện áp: phổ biến 10 – 30 VDC.\n- Kích thước ren và kiểu đầu: đầu bằng (shielded) hay đầu lồi (unshielded).\n\nGửi mã cảm biến đang dùng, chúng tôi hỗ trợ tìm mã tương đương nhanh chóng.",
+      "category": "Hướng dẫn kỹ thuật",
+      "tags": [
+        "cảm biến",
+        "tự động hóa"
+      ],
+      "featured": false,
+      "author": "Đạt Danh"
+    },
+    {
+      "slug": "5-luu-y-khi-chon-xi-lanh-khi-nen",
+      "title": "5 lưu ý khi chọn xi lanh khí nén",
+      "excerpt": "Đường kính, hành trình, kiểu tác động, áp suất làm việc và cảm biến hành trình — những điều cần biết trước khi đặt mua xi lanh.",
+      "cover_url": "/demo/xi-lanh-khi-nen.svg",
+      "published_at": "2026-10-15",
+      "content": "Xi lanh khí nén biến năng lượng khí nén thành chuyển động thẳng, dùng để đẩy, kẹp, nâng hạ trong dây chuyền tự động.\n\n## 1. Đường kính piston\nLực đẩy lý thuyết bằng áp suất nhân diện tích piston (F = P × A). Đường kính càng lớn, lực càng mạnh. Nên chọn dư lực khoảng 30 – 50% so với tải thực tế.\n\n## 2. Hành trình\nChọn hành trình đúng với quãng đường cần di chuyển. Hành trình dài cần chú ý đến độ võng của cần piston và có thể cần thêm dẫn hướng.\n\n## 3. Kiểu tác động\n- Tác động đơn: khí nén đẩy một chiều, lò xo hồi về.\n- Tác động kép: khí nén điều khiển cả hai chiều, phổ biến nhất.\n\n## 4. Áp suất làm việc\nHệ thống khí nén nhà máy thường hoạt động ở khoảng 5 – 7 bar. Kiểm tra dải áp suất cho phép của xi lanh và van điều khiển.\n\n## 5. Cảm biến hành trình\nNếu cần PLC biết vị trí piston, chọn xi lanh có piston từ để gắn cảm biến từ (reed switch).\n\nChúng tôi cung cấp xi lanh, van điện từ, đầu nối và ống hơi đồng bộ — liên hệ để được tư vấn.",
+      "category": "Hướng dẫn kỹ thuật",
+      "tags": [
+        "khí nén",
+        "xi lanh"
+      ],
+      "featured": false,
+      "author": "Đạt Danh"
+    }
+  ],
+  "services": [
+    {
+      "slug": "tu-van-chon-thiet-bi",
+      "title": "Tư vấn chọn thiết bị",
+      "icon": "chat",
+      "sort_order": 1,
+      "summary": "Kiểm tra thông số, đề xuất mã thiết bị phù hợp với ứng dụng và ngân sách.",
+      "content": "Gửi cho chúng tôi thông số kỹ thuật, bản vẽ hoặc ảnh tem nhãn thiết bị đang dùng. Đội ngũ kỹ thuật sẽ kiểm tra và đề xuất mã phù hợp, kèm các phương án về giá và thời gian giao hàng."
+    },
+    {
+      "slug": "tim-ma-thay-the-tuong-duong",
+      "title": "Tìm mã thay thế tương đương",
+      "icon": "search",
+      "sort_order": 2,
+      "summary": "Hỗ trợ tìm thiết bị thay thế khi mã cũ ngừng sản xuất hoặc khan hàng.",
+      "content": "Khi thiết bị đang dùng đã ngừng sản xuất hoặc khó tìm, chúng tôi tra cứu và đề xuất mã tương đương từ cùng hãng hoặc hãng khác, đảm bảo tương thích về thông số và kích thước lắp đặt."
+    },
+    {
+      "slug": "cung-cap-vat-tu-theo-du-an",
+      "title": "Cung cấp vật tư theo dự án",
+      "icon": "box",
+      "sort_order": 3,
+      "summary": "Báo giá trọn gói theo danh sách vật tư cho dự án, công trình, bảo trì định kỳ.",
+      "content": "Nhận danh sách vật tư (BOM) theo file Excel, báo giá trọn gói và giao hàng theo tiến độ dự án hoặc kế hoạch bảo trì của nhà máy."
+    },
+    {
+      "slug": "giao-hang-tan-noi",
+      "title": "Giao hàng tận nơi",
+      "icon": "truck",
+      "sort_order": 4,
+      "summary": "Đóng gói cẩn thận, giao hàng đến tận nhà máy, kho bãi của khách hàng.",
+      "content": "Hàng được kiểm tra, đóng gói cẩn thận trước khi giao. Chúng tôi giao hàng đến tận nhà máy, kho bãi theo thời gian đã thống nhất với khách hàng."
+    },
+    {
+      "slug": "ho-tro-ky-thuat",
+      "title": "Hỗ trợ kỹ thuật",
+      "icon": "cog",
+      "sort_order": 5,
+      "summary": "Hướng dẫn đấu nối, cài đặt cơ bản và hỗ trợ xử lý sự cố sau bán hàng.",
+      "content": "Hỗ trợ khách hàng về tài liệu kỹ thuật, sơ đồ đấu nối và cài đặt thông số cơ bản cho thiết bị đã mua; tiếp nhận và xử lý yêu cầu bảo hành."
+    }
+  ],
+  "pages": [
+    {
+      "slug": "chinh-sach-bao-hanh",
+      "title": "Chính sách bảo hành",
+      "sort_order": 1,
+      "content": "## Thời gian bảo hành\nSản phẩm được bảo hành theo tiêu chuẩn của nhà sản xuất đối với từng loại thiết bị. Thời gian bảo hành cụ thể được ghi rõ trên báo giá hoặc hóa đơn bán hàng.\n\n## Điều kiện bảo hành\n- Sản phẩm còn trong thời hạn bảo hành.\n- Tem, nhãn, số serial của sản phẩm còn nguyên vẹn.\n- Lỗi phát sinh do nhà sản xuất.\n\n## Trường hợp không được bảo hành\n- Sản phẩm bị hư hỏng do lắp đặt, đấu nối sai hướng dẫn kỹ thuật.\n- Sử dụng sai điện áp, quá tải, môi trường không phù hợp với thông số của thiết bị.\n- Sản phẩm bị rơi vỡ, vào nước, cháy nổ do tác động bên ngoài.\n- Sản phẩm đã bị tự ý sửa chữa, thay đổi kết cấu.\n\n## Quy trình bảo hành\n1. Liên hệ hotline hoặc Zalo, cung cấp thông tin hóa đơn và tình trạng lỗi.\n2. Gửi sản phẩm về công ty hoặc hẹn lịch nhận hàng.\n3. Công ty kiểm tra, gửi hãng bảo hành (nếu cần) và thông báo kết quả cho khách hàng."
+    },
+    {
+      "slug": "chinh-sach-van-chuyen",
+      "title": "Chính sách vận chuyển",
+      "sort_order": 2,
+      "content": "## Phạm vi giao hàng\nGiao hàng tại TP. Hồ Chí Minh và các tỉnh, thành khác thông qua đơn vị vận chuyển.\n\n## Thời gian giao hàng\nThời gian giao hàng phụ thuộc vào tình trạng hàng có sẵn và địa điểm nhận hàng, được thông báo cụ thể trên báo giá.\n\n## Phí vận chuyển\nPhí vận chuyển (nếu có) được thông báo và thống nhất với khách hàng trước khi giao hàng.\n\n## Kiểm tra khi nhận hàng\nKhách hàng vui lòng kiểm tra số lượng, mã hàng và tình trạng bên ngoài của kiện hàng khi nhận. Nếu có sai sót, vui lòng báo ngay cho chúng tôi để được xử lý."
+    },
+    {
+      "slug": "chinh-sach-doi-tra",
+      "title": "Chính sách đổi trả",
+      "sort_order": 3,
+      "content": "## Trường hợp được đổi trả\n- Giao sai mã hàng, sai số lượng so với đơn hàng.\n- Sản phẩm bị lỗi kỹ thuật do nhà sản xuất khi nhận hàng.\n\n## Điều kiện đổi trả\n- Sản phẩm còn nguyên tem, nhãn, bao bì và chưa qua lắp đặt, sử dụng (trừ trường hợp lỗi do nhà sản xuất).\n- Thông báo cho công ty trong thời gian sớm nhất sau khi nhận hàng.\n\n## Trường hợp không áp dụng đổi trả\n- Hàng đặt riêng theo yêu cầu của khách hàng.\n- Sản phẩm hư hỏng do lắp đặt, sử dụng sai hướng dẫn.\n\nThời hạn và chi phí đổi trả cụ thể sẽ được thống nhất theo từng đơn hàng."
+    },
+    {
+      "slug": "chinh-sach-bao-mat",
+      "title": "Chính sách bảo mật thông tin",
+      "sort_order": 4,
+      "content": "## Thông tin chúng tôi thu thập\nKhi bạn gửi yêu cầu báo giá hoặc liên hệ, chúng tôi thu thập: họ tên, số điện thoại, email, tên công ty và nội dung yêu cầu.\n\n## Mục đích sử dụng\n- Liên hệ tư vấn, gửi báo giá và xử lý đơn hàng theo yêu cầu của bạn.\n- Chăm sóc khách hàng và hỗ trợ sau bán hàng.\n\n## Bảo mật thông tin\nThông tin của bạn được lưu trữ an toàn và chỉ người có thẩm quyền của công ty mới được truy cập. Chúng tôi không bán hoặc chia sẻ thông tin cá nhân cho bên thứ ba, trừ khi có yêu cầu của cơ quan nhà nước có thẩm quyền theo quy định pháp luật.\n\n## Quyền của bạn\nBạn có quyền yêu cầu xem, chỉnh sửa hoặc xóa thông tin cá nhân của mình bằng cách liên hệ với chúng tôi qua hotline hoặc email."
     }
   ]
 }

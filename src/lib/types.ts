@@ -12,8 +12,15 @@ export type Settings = {
   address: string | null;
   zalo: string | null;
   facebook: string | null;
+  messenger_url: string | null;
   map_embed_url: string | null;
   business_hours: string | null;
+  announcement: string | null;
+  announcement_url: string | null;
+  mission: string | null;
+  vision: string | null;
+  /** One value per line: "Title | description" */
+  core_values: string | null;
 };
 
 export type Category = {
@@ -43,7 +50,12 @@ export type Product = {
   brand_id: string | null;
   summary: string | null;
   description: string | null;
+  /** One spec per line: "Name | value" */
+  specs: string | null;
   image_url: string | null;
+  gallery: string[] | null;
+  datasheet_url: string | null;
+  in_stock: boolean | null;
   price: string | null;
   featured: boolean;
   published: boolean;
@@ -52,6 +64,39 @@ export type Product = {
 export type ProductWithRelations = Product & {
   category: Pick<Category, "slug" | "name"> | null;
   brand: Pick<Brand, "slug" | "name" | "logo_url"> | null;
+};
+
+export type Post = {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  content: string | null;
+  cover_url: string | null;
+  category: string | null;
+  tags: string[] | null;
+  author: string | null;
+  featured: boolean;
+  published: boolean;
+  published_at: string;
+};
+
+export type Service = {
+  id: string;
+  slug: string;
+  title: string;
+  summary: string | null;
+  content: string | null;
+  icon: string | null;
+  sort_order: number;
+};
+
+export type Page = {
+  id: string;
+  slug: string;
+  title: string;
+  content: string | null;
+  sort_order: number;
 };
 
 export type Inquiry = {

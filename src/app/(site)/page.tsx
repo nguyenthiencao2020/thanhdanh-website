@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
+import { CtaBanner } from "@/components/CtaBanner";
 import { Gear } from "@/components/Gear";
 import { Icon } from "@/components/Icon";
+import { PostCard } from "@/components/PostCard";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
-import { getBrands, getCategories, getProducts, getSettings } from "@/lib/data";
+import { SectionHeading } from "@/components/SectionHeading";
+import { getBrands, getCategories, getPosts, getProducts, getServices, getSettings } from "@/lib/data";
 import { phoneDigits } from "@/lib/utils";
 
 const strengths = [
@@ -33,11 +36,13 @@ const categoryFallbackImage: Record<string, string> = {
 const heroFallback = ["/demo/plc.svg", "/demo/bien-tan.svg", "/demo/xi-lanh-khi-nen.svg"];
 
 export default async function HomePage() {
-  const [settings, categories, brands, featured] = await Promise.all([
+  const [settings, categories, brands, featured, services, posts] = await Promise.all([
     getSettings(),
     getCategories(),
     getBrands(),
     getProducts({ featured: true, limit: 8 }),
+    getServices(),
+    getPosts({ limit: 3 }),
   ]);
 
   // Hero collage: first three featured products that have an image, else demo art.
@@ -156,6 +161,42 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ------------------------------------------------------------- About intro */}
+      <section className="container-page grid items-center gap-12 py-16 lg:grid-cols-2">
+        <Reveal className="relative order-2 lg:order-1">
+          <div className="absolute -inset-4 -z-10 -rotate-2 rounded-[2rem] bg-gradient-to-br from-steel-100 to-brand-100" />
+          <div className="grid grid-cols-2 gap-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/demo/van-dien-tu.svg" alt="" className="col-span-2 aspect-[2/1] w-full rounded-3xl object-cover shadow-xl" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/demo/aptomat.svg" alt="" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/demo/motor-giam-toc.svg" alt="" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg" />
+          </div>
+        </Reveal>
+        <Reveal delay={120} className="order-1 lg:order-2">
+          <p className="text-sm font-semibold tracking-wider text-brand-600 uppercase">Về chúng tôi</p>
+          <h2 className="mt-1 text-3xl font-bold text-steel-900 sm:text-4xl">
+            Chào mừng đến với <span className="text-brand-600">{settings.short_name}</span>
+          </h2>
+          <p className="mt-2 text-sm font-semibold tracking-wide text-steel-600 uppercase">{settings.company_name}</p>
+          <p className="mt-5 line-clamp-6 leading-relaxed text-slate-600">{settings.about}</p>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            {["Thiết bị từ các thương hiệu uy tín", "Tư vấn chọn mã, tìm mã tương đương", "Báo giá nhanh theo danh sách", "Giao hàng tận nơi"].map((t) => (
+              <li key={t} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
+                  <Icon name="check" className="h-4 w-4" />
+                </span>
+                {t}
+              </li>
+            ))}
+          </ul>
+          <Link href="/gioi-thieu" className="btn-secondary mt-8 px-6 py-3">
+            Xem thêm về chúng tôi <Icon name="arrow" className="h-4 w-4" />
+          </Link>
+        </Reveal>
+      </section>
+
       {/* -------------------------------------------------------------- Categories */}
       <section className="container-page py-16">
         <Reveal className="flex items-end justify-between gap-4">
@@ -174,7 +215,7 @@ export default async function HomePage() {
             return (
               <Reveal key={c.slug} delay={i * 80}>
                 <Link
-                  href={`/san-pham?danh-muc=${c.slug}`}
+                  href={`/danh-muc-san-pham/${c.slug}`}
                   className="group block h-full overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl hover:shadow-steel-900/10"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
@@ -229,6 +270,29 @@ export default async function HomePage() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ---------------------------------------------------------------- Services */}
+      {services.length > 0 && (
+        <section className="container-page py-16">
+          <SectionHeading eyebrow="Dịch vụ" title="Dịch vụ của chúng tôi" href="/dich-vu" />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {services.map((s, i) => (
+              <Reveal key={s.slug} delay={i * 80}>
+                <Link
+                  href={`/dich-vu#${s.slug}`}
+                  className="group block h-full rounded-2xl border border-slate-200 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:bg-gradient-to-br hover:from-white hover:to-brand-50 hover:shadow-xl hover:shadow-steel-900/10"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-steel-900 text-white transition group-hover:bg-brand-600">
+                    <Icon name={s.icon ?? "cog"} className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-4 font-semibold text-slate-900">{s.title}</h3>
+                  {s.summary && <p className="mt-1 line-clamp-3 text-sm text-slate-500">{s.summary}</p>}
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </section>
       )}
@@ -298,32 +362,23 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* -------------------------------------------------------------------- News */}
+      {posts.length > 0 && (
+        <section className="container-page pt-16">
+          <SectionHeading eyebrow="Tin tức" title="Kiến thức & tin tức" description="Hướng dẫn chọn thiết bị, mẹo kỹ thuật và tin tức mới." href="/tin-tuc" />
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {posts.map((p, i) => (
+              <Reveal key={p.id} delay={i * 100}>
+                <PostCard post={p} />
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* --------------------------------------------------------------------- CTA */}
       <section className="container-page pt-16">
-        <Reveal>
-          <div className="relative isolate flex flex-col items-start justify-between gap-6 overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 to-brand-700 p-8 text-white shadow-xl shadow-brand-600/20 sm:flex-row sm:items-center sm:p-12">
-            <Gear teeth={12} className="animate-spin-slow absolute -top-16 -right-10 -z-10 h-64 w-64 text-white/15" />
-            <div>
-              <h2 className="text-2xl font-bold sm:text-3xl">Cần báo giá vật tư cho nhà máy?</h2>
-              <p className="mt-2 text-brand-100">Gửi danh sách mã hàng, chúng tôi phản hồi nhanh chóng.</p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/lien-he" className="btn bg-white px-6 py-3 text-base text-brand-700 hover:bg-brand-50">
-                Gửi yêu cầu ngay
-              </Link>
-              {settings.zalo && (
-                <a
-                  href={`https://zalo.me/${phoneDigits(settings.zalo)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn border border-white/40 px-6 py-3 text-base text-white hover:bg-white/10"
-                >
-                  Chat Zalo
-                </a>
-              )}
-            </div>
-          </div>
-        </Reveal>
+        <CtaBanner title="Liên hệ ngay để được tư vấn & báo giá" phone={settings.phone} zalo={settings.zalo} />
       </section>
     </>
   );

@@ -23,6 +23,9 @@ export default async function ContactPage() {
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <h2 className="text-lg font-semibold text-slate-900">Gửi yêu cầu</h2>
           <QuoteForm />
+          <p className="mt-4 flex items-center gap-2 text-sm text-slate-500">
+            <Icon name="clock" className="h-4 w-4" /> Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.
+          </p>
         </div>
 
         <aside className="space-y-6">
@@ -42,6 +45,14 @@ export default async function ContactPage() {
                 <li className="flex gap-3">
                   <Icon name="mail" className="mt-0.5 h-5 w-5 shrink-0" />
                   <a href={`mailto:${s.email}`} className="hover:underline">{s.email}</a>
+                </li>
+              )}
+              {s.zalo && (
+                <li className="flex gap-3">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-steel-500 text-[8px] font-bold text-white">Zalo</span>
+                  <a href={`https://zalo.me/${phoneDigits(s.zalo)}`} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    Chat Zalo: {s.zalo}
+                  </a>
                 </li>
               )}
               {s.business_hours && (
