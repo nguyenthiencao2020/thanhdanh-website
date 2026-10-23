@@ -1,9 +1,12 @@
 {
   "settings": {
-    "company_name": "Công ty TNHH TM DV Thiết bị Nhà máy Thành Danh",
-    "short_name": "Thành Danh",
+    "company_name": "Công ty TNHH Thương mại Vật tư Nhà máy Đạt Danh",
+    "short_name": "Đạt Danh",
+    "english_name": "Dat Danh Factory Supplies Materials Trading Company Limited",
+    "tax_code": "0319753015",
+    "license_info": "Đăng ký lần đầu ngày 20/10/2026 tại Phòng Đăng ký kinh doanh – Sở Tài chính TP. Hồ Chí Minh",
     "tagline": "Chuyên cung cấp vật tư nhà máy",
-    "about": "Thành Danh chuyên cung cấp vật tư, thiết bị và phụ tùng cho nhà máy: thiết bị điện công nghiệp và tự động hóa, thiết bị khí nén – thủy lực, motor – hộp giảm tốc, phụ kiện đường ống và van các loại. Chúng tôi phân phối sản phẩm từ các thương hiệu hàng đầu như Siemens, Schneider Electric, Mitsubishi Electric, Omron, Festo, SMC, ABB… với báo giá nhanh và giao hàng tận nơi.",
+    "about": "Đạt Danh chuyên cung cấp vật tư, thiết bị và phụ tùng cho nhà máy: thiết bị điện công nghiệp và tự động hóa, thiết bị khí nén – thủy lực, motor – hộp giảm tốc, phụ kiện đường ống và van các loại. Chúng tôi phân phối sản phẩm từ các thương hiệu hàng đầu như Siemens, Schneider Electric, Mitsubishi Electric, Omron, Festo, SMC, ABB… với báo giá nhanh và giao hàng tận nơi.",
     "phone": "0907 646 647",
     "phone2": "0939 113 115",
     "email": null,

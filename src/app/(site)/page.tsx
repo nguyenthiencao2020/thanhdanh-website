@@ -144,7 +144,7 @@ export default async function HomePage() {
               <Link
                 key={`${b.slug}-${i}`}
                 href={`/san-pham?thuong-hieu=${b.slug}`}
-                className="flex h-14 w-40 shrink-0 items-center justify-center px-4 opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0"
+                className="flex h-14 w-40 shrink-0 items-center justify-center px-4 transition hover:scale-105"
                 title={b.name}
                 tabIndex={i >= brands.length ? -1 : undefined}
                 aria-hidden={i >= brands.length || undefined}

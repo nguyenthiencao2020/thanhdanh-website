@@ -6,6 +6,9 @@ import type { Settings } from "@/lib/types";
 const fields: { name: keyof Settings; label: string; type?: "textarea"; hint?: string; required?: boolean }[] = [
   { name: "company_name", label: "Tên công ty đầy đủ", required: true },
   { name: "short_name", label: "Tên ngắn (hiển thị)", required: true },
+  { name: "english_name", label: "Tên tiếng Anh" },
+  { name: "tax_code", label: "Mã số thuế / Mã số doanh nghiệp" },
+  { name: "license_info", label: "Thông tin đăng ký kinh doanh", hint: "VD: Đăng ký lần đầu ngày …, tại Phòng Đăng ký kinh doanh – Sở …" },
   { name: "tagline", label: "Khẩu hiệu" },
   { name: "phone", label: "Hotline 1" },
   { name: "phone2", label: "Hotline 2" },

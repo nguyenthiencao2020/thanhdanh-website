@@ -15,8 +15,9 @@ Danh sách những nội dung trên website hiện đang là **tạm / giả đ�
 
 | | Ưu tiên | Nội dung | Hiện trạng | Cần bổ sung |
 |---|---|---|---|---|
-| [ ] | 🔴 | **Tên công ty chính thức** | Đang dùng tên trên logo: *Công ty TNHH TM DV Thiết bị Nhà máy Thành Danh* | Giấy tờ (`Ref/info.jpg`, bảng quảng cáo) ghi *Công ty TNHH Thương mại Vật tư Nhà máy **Đạt Danh***. Xác nhận tên đúng theo giấy phép kinh doanh |
-| [ ] | 🔴 | **Mã số thuế / Số ĐKKD** | Chưa có (website chưa có ô này) | Mã số thuế, ngày cấp, nơi cấp. Theo quy định, website doanh nghiệp nên hiển thị ở chân trang — *cần thêm ô trong Code* |
+| [x] | 🔴 | **Tên công ty chính thức** | ✅ Đã cập nhật theo giấy chứng nhận ĐKDN: *Công ty TNHH Thương mại Vật tư Nhà máy Đạt Danh* (tiếng Anh: *Dat Danh Factory Supplies Materials Trading Company Limited*) | — |
+| [ ] | 🔴 | **Logo có chữ “Đạt Danh”** | Logo hiện tại in chữ *THANH DANH* → tạm thời chỉ dùng phần biểu tượng (bánh răng + nhà xưởng) kèm chữ “ĐẠT DANH” | File logo mới (PNG nền trong suốt hoặc SVG). Có logo mới sẽ thay lại vào header |
+| [x] | 🔴 | **Mã số thuế / Số ĐKKD** | ✅ MST 0319753015, đăng ký lần đầu 20/10/2026 — hiển thị ở chân trang | — |
 | [ ] | 🔴 | **Email liên hệ** | Chưa có (đang ẩn) | Email nhận báo giá, ví dụ `sales@...` hoặc Gmail công ty |
 | [ ] | 🟡 | **Giờ làm việc** | Tạm ghi *Thứ 2 – Thứ 7: 7:30 – 17:30* (giả định) | Giờ làm việc thực tế |
 | [ ] | 🟡 | **Bản đồ Google Maps** | Đang tìm theo địa chỉ, có thể chưa ghim đúng vị trí | Google Maps → tìm đúng cửa hàng → *Chia sẻ → Nhúng bản đồ* → copy link trong `src="..."` |

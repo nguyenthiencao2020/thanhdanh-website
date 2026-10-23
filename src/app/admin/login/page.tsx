@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { signIn } from "../actions";
+import { BrandMark } from "@/components/BrandMark";
+import { getSettings } from "@/lib/data";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 export const metadata: Metadata = { title: "Đăng nhập quản trị", robots: { index: false } };
@@ -8,13 +9,15 @@ export const metadata: Metadata = { title: "Đăng nhập quản trị", robots:
 type SearchParams = Promise<{ error?: string }>;
 
 export default async function LoginPage({ searchParams }: { searchParams: SearchParams }) {
-  const { error } = await searchParams;
+  const [{ error }, settings] = await Promise.all([searchParams, getSettings()]);
   const message = error === "forbidden" ? "Tài khoản này chưa được cấp quyền quản trị." : error;
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-100 px-4">
       <div className="w-full max-w-sm rounded-xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-        <Image src="/logo.png" alt="Logo" width={1000} height={547} className="mx-auto h-16 w-auto" />
+        <div className="flex justify-center">
+          <BrandMark name={settings.short_name} subtitle="Factory Supplies" />
+        </div>
         <h1 className="mt-6 text-center text-lg font-bold text-slate-900">Đăng nhập quản trị</h1>
 
         {!isSupabaseConfigured ? (
