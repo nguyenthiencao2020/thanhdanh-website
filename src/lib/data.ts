@@ -2,7 +2,7 @@ import "server-only";
 import catalog from "@/data/catalog.json";
 import { isSupabaseConfigured } from "./supabase/config";
 import { createPublicClient } from "./supabase/server";
-import type { Brand, Category, Page, Post, ProductWithRelations, Service, Settings } from "./types";
+import type { Banner, Brand, Category, Page, Post, ProductWithRelations, Service, Settings } from "./types";
 
 const PRODUCT_SELECT = "*, category:categories(slug,name), brand:brands(slug,name,logo_url)";
 
@@ -39,6 +39,14 @@ const fallbackProducts: ProductWithRelations[] = catalog.products.map((p) => {
 const fallbackPosts: Post[] = catalog.posts.map((p) => ({ id: p.slug, published: true, ...p }));
 const fallbackServices: Service[] = catalog.services.map((s) => ({ id: s.slug, ...s }));
 const fallbackPages: Page[] = catalog.pages.map((p) => ({ id: p.slug, ...p }));
+const fallbackBanners: Banner[] = catalog.banners.map((b) => ({ id: b.title, ...b }));
+
+/**
+ * True when the table/column does not exist yet (migration not run). In that case the
+ * bundled sample content is shown instead of an empty section.
+ */
+const isMissingSchema = (error: { code?: string } | null) =>
+  Boolean(error && ["42P01", "42703", "PGRST205", "PGRST204"].includes(error.code ?? ""));
 
 /** Strips characters that have meaning in PostgREST filter syntax. */
 function cleanSearch(q: string) {
@@ -55,7 +63,9 @@ export async function getSettings(): Promise<Settings> {
   if (!isSupabaseConfigured) return fallbackSettings;
   const { data, error } = await createPublicClient().from("settings").select("*").eq("id", 1).maybeSingle();
   if (error) console.error("getSettings", error.message);
-  return data ?? fallbackSettings;
+  // Spread over the defaults so columns added by a not-yet-run migration still have values;
+  // fields an admin cleared come back as null and stay empty.
+  return data ? { ...fallbackSettings, ...data } : fallbackSettings;
 }
 
 export async function getCategories(): Promise<Category[]> {
@@ -186,6 +196,7 @@ export async function getPostsPage(filter: PostFilter = {}): Promise<Paged<Post>
 
   const { data, count, error } = await query;
   if (error) console.error("getPostsPage", error.message);
+  if (isMissingSchema(error)) return { items: fallbackPosts.slice(0, pageSize ?? undefined), total: fallbackPosts.length };
   return { items: data ?? [], total: count ?? 0 };
 }
 
@@ -197,6 +208,7 @@ export async function getPost(slug: string): Promise<Post | null> {
   if (!isSupabaseConfigured) return fallbackPosts.find((p) => p.slug === slug) ?? null;
   const { data, error } = await createPublicClient().from("posts").select("*").eq("slug", slug).eq("published", true).maybeSingle();
   if (error) console.error("getPost", error.message);
+  if (isMissingSchema(error)) return fallbackPosts.find((p) => p.slug === slug) ?? null;
   return data ?? null;
 }
 
@@ -206,7 +218,7 @@ export async function getPostFacets() {
   if (isSupabaseConfigured) {
     const { data, error } = await createPublicClient().from("posts").select("category, tags").eq("published", true);
     if (error) console.error("getPostFacets", error.message);
-    rows = data ?? [];
+    rows = isMissingSchema(error) ? fallbackPosts : (data ?? []);
   }
   const count = (values: (string | null | undefined)[]) => {
     const m = new Map<string, number>();
@@ -223,6 +235,7 @@ export async function getServices(): Promise<Service[]> {
   if (!isSupabaseConfigured) return fallbackServices;
   const { data, error } = await createPublicClient().from("services").select("*").order("sort_order").order("title");
   if (error) console.error("getServices", error.message);
+  if (isMissingSchema(error)) return fallbackServices;
   return data ?? [];
 }
 
@@ -230,6 +243,7 @@ export async function getPages(): Promise<Page[]> {
   if (!isSupabaseConfigured) return fallbackPages;
   const { data, error } = await createPublicClient().from("pages").select("*").order("sort_order").order("title");
   if (error) console.error("getPages", error.message);
+  if (isMissingSchema(error)) return fallbackPages;
   return data ?? [];
 }
 
@@ -237,5 +251,17 @@ export async function getPage(slug: string): Promise<Page | null> {
   if (!isSupabaseConfigured) return fallbackPages.find((p) => p.slug === slug) ?? null;
   const { data, error } = await createPublicClient().from("pages").select("*").eq("slug", slug).maybeSingle();
   if (error) console.error("getPage", error.message);
+  if (isMissingSchema(error)) return fallbackPages.find((p) => p.slug === slug) ?? null;
   return data ?? null;
+}
+
+// ---------------------------------------------------------------------------
+// Home hero slider
+// ---------------------------------------------------------------------------
+export async function getBanners(): Promise<Banner[]> {
+  if (!isSupabaseConfigured) return fallbackBanners;
+  const { data, error } = await createPublicClient().from("banners").select("*").eq("published", true).order("sort_order");
+  if (error) console.error("getBanners", error.message);
+  if (isMissingSchema(error) || !data?.length) return fallbackBanners;
+  return data;
 }

@@ -2,12 +2,13 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Gear } from "@/components/Gear";
+import { HeroSlider } from "@/components/HeroSlider";
 import { Icon } from "@/components/Icon";
 import { PostCard } from "@/components/PostCard";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { getBrands, getCategories, getPosts, getProducts, getServices, getSettings } from "@/lib/data";
+import { getBanners, getBrands, getCategories, getPosts, getProducts, getServices, getSettings } from "@/lib/data";
 import { phoneDigits } from "@/lib/utils";
 
 const strengths = [
@@ -33,113 +34,33 @@ const categoryFallbackImage: Record<string, string> = {
   pipe: "/demo/van-bi-inox.svg",
 };
 
-const heroFallback = ["/demo/plc.svg", "/demo/bien-tan.svg", "/demo/xi-lanh-khi-nen.svg"];
 
 export default async function HomePage() {
-  const [settings, categories, brands, featured, services, posts] = await Promise.all([
+  const [settings, categories, brands, featured, services, posts, banners] = await Promise.all([
     getSettings(),
     getCategories(),
     getBrands(),
     getProducts({ featured: true, limit: 8 }),
     getServices(),
     getPosts({ limit: 3 }),
+    getBanners(),
   ]);
 
-  // Hero collage: first three featured products that have an image, else demo art.
-  const withImages = featured.filter((p) => p.image_url);
-  const hero = heroFallback.map((src, i) => ({ src: withImages[i]?.image_url ?? src, alt: withImages[i]?.name ?? "" }));
 
   return (
     <>
-      {/* ------------------------------------------------------------------ Hero */}
-      <section className="relative isolate overflow-hidden bg-steel-900 text-white">
-        <div className="bg-blueprint absolute inset-0 -z-10" />
-        <div className="absolute -top-40 -left-40 -z-10 h-[520px] w-[520px] rounded-full bg-steel-500/30 blur-3xl" />
-        <div className="absolute -right-32 -bottom-48 -z-10 h-[480px] w-[480px] rounded-full bg-brand-600/30 blur-3xl" />
-        <Gear teeth={14} className="animate-spin-slow absolute -top-24 -right-24 -z-10 h-96 w-96 text-white/10" />
-        <Gear teeth={10} className="animate-spin-slow-reverse absolute bottom-6 left-[38%] -z-10 h-40 w-40 text-white/10" />
-
-        <div className="container-page grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
-          <div className="animate-fade-up">
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-steel-100 backdrop-blur">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-green-400" /> {settings.tagline}
-            </p>
-            <h1 className="mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-              Vật tư & thiết bị
-              <br />
-              <span className="bg-gradient-to-r from-brand-500 via-orange-400 to-amber-300 bg-clip-text text-transparent">
-                cho nhà máy
-              </span>{" "}
-              của bạn
-            </h1>
-            <p className="mt-6 max-w-xl text-base text-steel-100/90 sm:text-lg">
-              Thiết bị điện công nghiệp, tự động hóa, khí nén – thủy lực, motor – hộp giảm tốc và phụ kiện đường ống từ các
-              thương hiệu hàng đầu thế giới.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/lien-he" className="btn-primary px-6 py-3 text-base shadow-lg shadow-brand-600/30">
-                Yêu cầu báo giá <Icon name="arrow" className="h-4 w-4" />
-              </Link>
-              {settings.phone && (
-                <a
-                  href={`tel:${phoneDigits(settings.phone)}`}
-                  className="btn border border-white/25 bg-white/10 px-6 py-3 text-base text-white backdrop-blur hover:bg-white/20"
-                >
-                  <Icon name="phone" className="h-4 w-4" /> {settings.phone}
-                </a>
-              )}
-            </div>
-            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-6">
-              {[
-                { value: `${brands.length}+`, label: "Thương hiệu" },
-                { value: `${categories.length}`, label: "Nhóm sản phẩm" },
-                { value: "Miễn phí", label: "Tư vấn chọn mã" },
-              ].map((s) => (
-                <div key={s.label} className="flex flex-col-reverse">
-                  <dt className="mt-1 text-xs text-steel-100/70 sm:text-sm">{s.label}</dt>
-                  <dd className="text-2xl font-extrabold whitespace-nowrap text-white sm:text-3xl">{s.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          {/* Floating product collage */}
-          <div className="relative mx-auto h-[300px] w-full max-w-[560px] sm:h-[440px]">
-            <div className="animate-float absolute top-6 left-0 w-[72%] overflow-hidden rounded-3xl border border-white/15 bg-white shadow-2xl shadow-black/40">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={hero[0].src} alt={hero[0].alt} className="aspect-[4/3] w-full object-cover" />
-            </div>
-            <div
-              className="animate-float absolute top-0 right-0 hidden w-[42%] overflow-hidden rounded-2xl border border-white/15 bg-white shadow-2xl shadow-black/40 sm:block"
-              style={{ animationDelay: "-2s" }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={hero[1].src} alt={hero[1].alt} className="aspect-[4/3] w-full object-cover" />
-            </div>
-            <div
-              className="animate-float absolute right-2 bottom-0 w-[50%] overflow-hidden rounded-2xl border border-white/15 bg-white shadow-2xl shadow-black/40"
-              style={{ animationDelay: "-4s" }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={hero[2].src} alt={hero[2].alt} className="aspect-[4/3] w-full object-cover" />
-            </div>
-            {settings.phone && (
-              <a
-                href={`tel:${phoneDigits(settings.phone)}`}
-                className="absolute bottom-4 left-2 hidden items-center gap-3 rounded-2xl border border-white/20 bg-white/15 px-4 py-3 shadow-xl backdrop-blur-md transition hover:bg-white/25 sm:bottom-10 sm:flex"
-              >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600">
-                  <Icon name="phone" className="h-5 w-5" />
-                </span>
-                <span>
-                  <span className="block text-xs text-steel-100/80">Hotline tư vấn</span>
-                  <span className="block font-bold">{settings.phone}</span>
-                </span>
-              </a>
-            )}
-          </div>
-        </div>
-      </section>
+      {/* ------------------------------------------------------------- Hero slider */}
+      <HeroSlider
+        banners={banners}
+        tagline={settings.tagline}
+        phone={settings.phone}
+        phoneHref={settings.phone ? phoneDigits(settings.phone) : null}
+        stats={[
+          { value: `${brands.length}+`, label: "Thương hiệu" },
+          { value: `${categories.length}`, label: "Nhóm sản phẩm" },
+          { value: "Miễn phí", label: "Tư vấn chọn mã" },
+        ]}
+      />
 
       {/* ------------------------------------------------------------ Brand marquee */}
       {/* Keep this section: the owner asked for the full-colour scrolling brand strip on the home page. */}

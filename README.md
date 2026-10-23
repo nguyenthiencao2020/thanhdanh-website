@@ -40,8 +40,9 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    - `supabase/migrations/0003_security_fixes.sql` (sửa cảnh báo của Security Advisor)
    - `supabase/migrations/0004_dat_danh.sql` (đổi tên công ty theo giấy phép, thêm MST / tên tiếng Anh)
    - `supabase/migrations/0005_site_structure.sql` (tin tức, dịch vụ, trang chính sách, gallery/thông số sản phẩm)
+   - `supabase/migrations/0006_banners.sql` (slider banner trang chủ)
 
-   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `0005` → `seed.sql`.
+   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `0005` → `0006` → `seed.sql`.
    > Đã chạy `0001` và `seed.sql` từ trước? Chạy thêm các file migration còn thiếu, **rồi chạy lại `seed.sql`**
    > để có bài viết, dịch vụ, chính sách mẫu (dữ liệu đã có được giữ nguyên).
    > Các file migration đều chạy lại nhiều lần được, không gây lỗi.
@@ -101,6 +102,7 @@ Lệnh khác: `npm run build`, `npm run typecheck`, `npm run seed:sql` (tạo l�
 - **Yêu cầu báo giá**: xem khách gửi form, đánh dấu đã xử lý
 - **Sản phẩm**: thêm/sửa/xóa, ảnh chính + ảnh phụ, thông số kỹ thuật, datasheet PDF, tình trạng hàng, nổi bật
 - **Danh mục / Thương hiệu**: thêm/sửa/xóa, tải logo
+- **Banner trang chủ**: slider đầu trang — tải ảnh, tiêu đề, nút, thứ tự
 - **Tin tức**: viết bài, ảnh đại diện, danh mục tin, thẻ, bài nổi bật
 - **Dịch vụ / Trang chính sách**: thêm/sửa/xóa nội dung
 - **Cài đặt**: tên công ty, MST, hotline, Zalo, Messenger, email, địa chỉ, giờ làm việc, bản đồ, giới thiệu, sứ mệnh, tầm nhìn, giá trị cốt lõi, thanh thông báo

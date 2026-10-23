@@ -34,7 +34,7 @@ audited_by: Claude (đối chiếu theo cấu trúc lqe.com.vn – Ref/tham-khao
 | # | Section | Mô tả | Loại block | Ghi chú |
 |---|---------|-------|------------|---------|
 | 0 | Thanh thông báo | Dải thông báo trên cùng, có link, đóng được | Banner | Bật/tắt trong Admin → Cài đặt |
-| 1 | Hero | Tiêu đề, mô tả, nút “Yêu cầu báo giá” + hotline, 3 ô số liệu; bên phải cụm 3 ảnh sản phẩm lơ lửng + thẻ hotline | Hero + CTA | Nền tối blueprint, bánh răng quay |
+| 1 | Hero Slider | 3 slide tự chuyển (6 giây, dừng khi rê chuột), nút chấm + mũi tên; mỗi slide: tiêu đề, mô tả, nút CTA + hotline, 3 ô số liệu; ảnh banner tràn nền hoặc cụm ảnh sản phẩm lơ lửng | Hero Slider + CTA | Quản lý tại Admin → Banner trang chủ |
 | 2 | Thương hiệu phân phối | Logo 13 hãng **có màu**, chạy ngang liên tục, dừng khi rê chuột | Logo Carousel | Theo yêu cầu giữ nguyên, có màu |
 | 3 | Giới thiệu ngắn | “Chào mừng đến với Đạt Danh”, đoạn giới thiệu, 4 điểm mạnh, nút “Xem thêm” | Text + Image | |
 | 4 | Danh mục sản phẩm | 5 nhóm, thẻ ảnh + icon + mô tả | Category Grid | Link tới `/danh-muc-san-pham/...` |

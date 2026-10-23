@@ -51,6 +51,15 @@ const lines = [
     .join(",\n"),
   "on conflict (slug) do nothing;",
   "",
+  "insert into public.banners (title, subtitle, image_url, collage, cta_label, cta_url, sort_order, published) values",
+  data.banners
+    .map(
+      (x) =>
+        `  (${q(x.title)}, ${q(x.subtitle)}, ${q(x.image_url)}, ${arr(x.collage)}, ${q(x.cta_label)}, ${q(x.cta_url)}, ${x.sort_order}, ${b(x.published)})`,
+    )
+    .join(",\n"),
+  "on conflict (title) do nothing;",
+  "",
   "insert into public.pages (slug, title, content, sort_order) values",
   data.pages.map((x) => `  (${q(x.slug)}, ${q(x.title)}, ${q(x.content)}, ${x.sort_order})`).join(",\n"),
   "on conflict (slug) do nothing;",

@@ -73,6 +73,7 @@ Các đoạn chữ sau đang viết sẵn trong code. Gửi nội dung muốn đ
 |---|---|---|---|---|
 | [ ] | 🔴 | **Dịch vụ** (Admin → Dịch vụ) | 5 dịch vụ mẫu phù hợp nhà cung cấp vật tư: tư vấn chọn thiết bị, tìm mã tương đương, cung cấp theo dự án, giao hàng, hỗ trợ kỹ thuật | Xác nhận công ty có làm các dịch vụ này; thêm nếu có lắp tủ điện, lập trình PLC, sửa chữa… |
 | [ ] | 🔴 | **4 trang chính sách** (Admin → Trang chính sách) | Bản nháp chung: bảo hành theo hãng, vận chuyển, đổi trả khi giao sai/lỗi NSX, bảo mật thông tin | Điền điều kiện thực tế: thời gian bảo hành, phí ship, thời hạn đổi trả |
+| [ ] | 🔴 | **Ảnh banner trang chủ** (Admin → Banner trang chủ) | 3 slide đang dùng hình vẽ minh họa | 2–3 ảnh chụp thật, ngang, tối thiểu 1920×800px: mặt tiền cửa hàng, kho hàng, hàng hóa, giao hàng. Đây là thứ làm trang chủ giống LQE nhất |
 | [ ] | 🟡 | **Sứ mệnh, Tầm nhìn, Giá trị cốt lõi** (Admin → Cài đặt) | Bản nháp do mình viết | Viết lại theo định hướng của công ty |
 | [ ] | 🟡 | **3 bài tin tức mẫu** (Admin → Tin tức) | Kiến thức kỹ thuật chung: chọn aptomat, cảm biến tiệm cận, xi lanh khí nén | Giữ, sửa hoặc thay bằng bài của công ty; nên đăng đều 2–4 bài/tháng cho SEO |
 | [ ] | 🟡 | **Câu chữ cam kết** | “Tư vấn miễn phí, không ràng buộc” (trang Dịch vụ), “Bảo hành theo hãng” (chi tiết sản phẩm) | Xác nhận đúng chính sách công ty |

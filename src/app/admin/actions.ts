@@ -400,3 +400,43 @@ export async function deletePage(form: FormData) {
   refreshSite();
   redirect("/admin/trang");
 }
+
+// ---------------------------------------------------------------------------
+// Home hero banners
+// ---------------------------------------------------------------------------
+export async function saveBanner(form: FormData) {
+  const { supabase } = await requireAdmin();
+  const id = text(form, "id");
+  const title = text(form, "title");
+  if (!title) fail("/admin/banner", "Vui lòng nhập tiêu đề banner.");
+
+  let imageUrl = text(form, "image_url");
+  try {
+    imageUrl = (await uploadImage(supabase, form.get("image"), "banners")) ?? imageUrl;
+  } catch (e) {
+    fail("/admin/banner", (e as Error).message);
+  }
+  if (bool(form, "remove_image")) imageUrl = null;
+
+  const row = {
+    title,
+    subtitle: text(form, "subtitle"),
+    image_url: imageUrl,
+    cta_label: text(form, "cta_label"),
+    cta_url: text(form, "cta_url"),
+    sort_order: int(form, "sort_order"),
+    published: bool(form, "published"),
+  };
+  const { error } = id ? await supabase.from("banners").update(row).eq("id", id) : await supabase.from("banners").insert(row);
+  if (error) fail("/admin/banner", error.code === "23505" ? "Đã có banner trùng tiêu đề." : error.message);
+  refreshSite();
+  redirect("/admin/banner?saved=1");
+}
+
+export async function deleteBanner(form: FormData) {
+  const { supabase } = await requireAdmin();
+  const { error } = await supabase.from("banners").delete().eq("id", String(form.get("id")));
+  if (error) fail("/admin/banner", error.message);
+  refreshSite();
+  redirect("/admin/banner");
+}

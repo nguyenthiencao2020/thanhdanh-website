@@ -115,6 +115,12 @@ insert into public.services (slug, title, summary, content, icon, sort_order) va
   ('ho-tro-ky-thuat', 'Hỗ trợ kỹ thuật', 'Hướng dẫn đấu nối, cài đặt cơ bản và hỗ trợ xử lý sự cố sau bán hàng.', 'Hỗ trợ khách hàng về tài liệu kỹ thuật, sơ đồ đấu nối và cài đặt thông số cơ bản cho thiết bị đã mua; tiếp nhận và xử lý yêu cầu bảo hành.', 'cog', 5)
 on conflict (slug) do nothing;
 
+insert into public.banners (title, subtitle, image_url, collage, cta_label, cta_url, sort_order, published) values
+  ('Vật tư & thiết bị cho nhà máy của bạn', 'Thiết bị điện công nghiệp, tự động hóa, khí nén – thủy lực, motor – hộp giảm tốc và phụ kiện đường ống từ các thương hiệu hàng đầu thế giới.', null, array['/demo/plc.svg', '/demo/bien-tan.svg', '/demo/cam-bien-tiem-can.svg']::text[], 'Yêu cầu báo giá', '/lien-he', 1, true),
+  ('Thiết bị tự động hóa từ các hãng uy tín', 'PLC, biến tần, cảm biến, HMI từ Siemens, Mitsubishi Electric, Omron, SICK… Tư vấn chọn mã và tìm mã thay thế tương đương.', null, array['/demo/bien-tan.svg', '/demo/cam-bien-quang.svg', '/demo/plc.svg']::text[], 'Xem thiết bị tự động hóa', '/danh-muc-san-pham/tu-dong-hoa', 2, true),
+  ('Khí nén – thủy lực, van & phụ kiện đường ống', 'Xi lanh, van điện từ, đầu nối, van bi inox và phụ kiện đồng bộ — báo giá nhanh theo danh sách vật tư của nhà máy.', null, array['/demo/xi-lanh-khi-nen.svg', '/demo/van-dien-tu.svg', '/demo/van-bi-inox.svg']::text[], 'Xem khí nén – thủy lực', '/danh-muc-san-pham/khi-nen-thuy-luc', 3, true)
+on conflict (title) do nothing;
+
 insert into public.pages (slug, title, content, sort_order) values
   ('chinh-sach-bao-hanh', 'Chính sách bảo hành', '## Thời gian bảo hành
 Sản phẩm được bảo hành theo tiêu chuẩn của nhà sản xuất đối với từng loại thiết bị. Thời gian bảo hành cụ thể được ghi rõ trên báo giá hoặc hóa đơn bán hàng.

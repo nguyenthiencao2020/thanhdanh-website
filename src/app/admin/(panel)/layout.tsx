@@ -9,6 +9,7 @@ export const dynamic = "force-dynamic";
 const nav = [
   { href: "/admin", label: "Tổng quan" },
   { href: "/admin/yeu-cau", label: "Yêu cầu báo giá" },
+  { href: "/admin/banner", label: "Banner trang chủ" },
   { href: "/admin/san-pham", label: "Sản phẩm" },
   { href: "/admin/danh-muc", label: "Danh mục" },
   { href: "/admin/thuong-hieu", label: "Thương hiệu" },
