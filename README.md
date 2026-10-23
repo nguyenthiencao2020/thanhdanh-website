@@ -90,6 +90,12 @@ Supabase gói Free tự **pause** project nếu 7 ngày không có hoạt độn
 - Nên thêm biến môi trường `CRON_SECRET` (chuỗi ngẫu nhiên dài) trên Vercel rồi Redeploy, để người ngoài không gọi được route này.
 - Kiểm tra: Vercel → *Settings → Cron Jobs* → **Run** → xem *Logs*, kết quả `{"ok":true,...}` là được.
 
+## File báo giá Excel
+
+`tai-lieu/Bao-gia-Dat-Danh.xlsx` — mẫu báo giá (sheet *Báo giá*, *Bảng giá*, *Danh mục*, *Hướng dẫn*):
+nhập Mã hàng → tự điền tên, hãng, ĐVT, đơn giá từ Bảng giá; tự tính thành tiền, chiết khấu, VAT, tổng cộng.
+Danh mục và thương hiệu giống website. Tạo lại sau khi đổi danh mục: `python3 scripts/build-bao-gia.py`.
+
 ## Chạy trên máy
 
 ```bash
