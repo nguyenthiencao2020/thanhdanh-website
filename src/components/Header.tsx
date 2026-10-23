@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { BrandMark } from "./BrandMark";
 import { Icon } from "./Icon";
+import Form from "next/form";
 
 const nav = [
   { href: "/", label: "Trang chủ" },
@@ -81,7 +82,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
         </div>
       </div>
 
-      <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
+      <div className="container-page flex h-[72px] items-center justify-between gap-4 lg:h-24">
         <Link href="/" className="flex shrink-0 items-center" aria-label={`${shortName} – Trang chủ`}>
           <BrandMark name={shortName} priority />
         </Link>
@@ -114,8 +115,8 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                     so the menu closes as soon as the mouse leaves it. */}
                 <div className="pointer-events-none invisible fixed top-[5.5rem] right-0 left-0 translate-y-2 opacity-0 transition duration-200 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   <div className="container-page">
-                    <div className="pointer-events-auto pt-10">
-                    <div className="grid max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-steel-900/15 lg:grid-cols-[1fr_280px]">
+                    <div className="pointer-events-auto pt-12">
+                    <div className="grid max-h-[calc(100vh-9rem)] overflow-y-auto rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-steel-900/15 lg:grid-cols-[1fr_280px]">
                       {/* Groups */}
                       <div className="p-5">
                         <div className="mb-3 flex items-center justify-between px-2">
@@ -183,10 +184,10 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
         </nav>
 
         <div className="flex items-center gap-2">
-          <form action="/tim-kiem" className="relative hidden xl:block">
+          <Form action="/tim-kiem" className="relative hidden xl:block">
             <input name="q" type="search" placeholder="Tìm sản phẩm, bài viết…" className="input w-56 pr-9" aria-label="Tìm kiếm" />
             <Icon name="search" className="pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2 text-slate-400" />
-          </form>
+          </Form>
           <Link href="/tim-kiem" className="rounded-md p-2 text-slate-700 hover:bg-slate-100 xl:hidden" aria-label="Tìm kiếm">
             <Icon name="search" className="h-5 w-5" />
           </Link>
@@ -208,9 +209,9 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
       {open && (
         <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-slate-200 bg-white lg:hidden">
           <div className="container-page space-y-1 py-3">
-            <form action="/tim-kiem" className="mb-2" onSubmit={() => setOpen(false)}>
+            <Form action="/tim-kiem" className="mb-2" onSubmit={() => setOpen(false)}>
               <input name="q" type="search" placeholder="Tìm sản phẩm, bài viết…" className="input" aria-label="Tìm kiếm" />
-            </form>
+            </Form>
             {nav.map((item) => (
               <div key={item.href}>
                 <Link

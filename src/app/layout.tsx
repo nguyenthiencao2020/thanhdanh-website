@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { getSettings } from "@/lib/data";
+import { NavProgress } from "@/components/NavProgress";
 import "./globals.css";
 
 const font = Be_Vietnam_Pro({
@@ -27,7 +28,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Enables scroll-reveal animations only when JS runs, so content is never hidden without it. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <NavProgress />
+        {children}
+      </body>
     </html>
   );
 }

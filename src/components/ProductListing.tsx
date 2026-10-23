@@ -1,13 +1,13 @@
-import Link from "next/link";
 import { buildCategoryTree, getBrands, getCategories, getProductsPage, getSettings, PRODUCT_SORTS, type ProductSort } from "@/lib/data";
 import { BrandSelect } from "./BrandSelect";
+import { CatalogNavProvider, CatalogResults, CategoryTree, NavLink } from "./CatalogNav";
 import { CtaBanner } from "./CtaBanner";
 import { FilterDrawer } from "./FilterDrawer";
 import { Icon } from "./Icon";
 import { PageHeader } from "./PageHeader";
 import { Pagination } from "./Pagination";
 import { ProductCard } from "./ProductCard";
-import { Reveal } from "./Reveal";
+import Form from "next/form";
 
 const PAGE_SIZE = 12;
 
@@ -70,58 +70,31 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
       />
 
       <div className="container-page py-10">
+        <CatalogNavProvider>
         <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
           {/* Sidebar */}
           <FilterDrawer summary={[category?.name, brand?.name].filter(Boolean).join(" · ") || "Danh mục, thương hiệu"}>
             <div className="space-y-5">
-            <form action={basePath} className="relative">
+            <Form action={basePath} className="relative">
               {params.brand && <input type="hidden" name="thuong-hieu" value={params.brand} />}
               <input name="q" type="search" defaultValue={params.q} placeholder="Tên, mã sản phẩm…" className="input h-11 rounded-xl pr-10" aria-label="Tìm kiếm" />
               <Icon name="search" className="pointer-events-none absolute top-1/2 right-3.5 h-4 w-4 -translate-y-1/2 text-slate-400" />
-            </form>
+            </Form>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-4">
               <h2 className="mb-2 px-2 text-xs font-bold tracking-wider text-slate-500 uppercase">Danh mục sản phẩm</h2>
-              <ul className="space-y-0.5 text-sm">
-                <li>
-                  <Link href={href({}, "/san-pham")} className={`flex items-center gap-2 rounded-lg px-2 py-2 ${!category ? "bg-brand-50 font-semibold text-brand-600" : "text-slate-700 hover:bg-slate-50"}`}>
-                    <Icon name="box" className="h-4 w-4" /> Tất cả sản phẩm
-                  </Link>
-                </li>
-                {tree.map((g) => {
-                  const open = group?.slug === g.slug;
-                  return (
-                    <li key={g.slug}>
-                      <Link
-                        href={href({}, `/danh-muc-san-pham/${g.slug}`)}
-                        className={`flex items-center gap-2 rounded-lg px-2 py-2 ${
-                          category?.slug === g.slug ? "bg-brand-50 font-semibold text-brand-600" : open ? "font-semibold text-slate-900" : "text-slate-700 hover:bg-slate-50"
-                        }`}
-                      >
-                        <Icon name={g.icon ?? "box"} className="h-4 w-4 shrink-0" />
-                        <span className="flex-1">{g.name}</span>
-                        {g.children.length > 0 && <span className="text-xs text-slate-400">{open ? "−" : "+"}</span>}
-                      </Link>
-                      {open && g.children.length > 0 && (
-                        <ul className="my-1 ml-4 space-y-0.5 border-l border-slate-200 pl-2">
-                          {g.children.map((c) => (
-                            <li key={c.slug}>
-                              <Link
-                                href={href({}, `/danh-muc-san-pham/${c.slug}`)}
-                                className={`block rounded-lg px-2 py-1.5 text-[13px] ${
-                                  category?.slug === c.slug ? "bg-brand-50 font-semibold text-brand-600" : "text-slate-600 hover:bg-slate-50"
-                                }`}
-                              >
-                                {c.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
+              <CategoryTree
+                allHref={href({}, "/san-pham")}
+                current={category?.slug}
+                openGroup={group?.slug}
+                groups={tree.map((g) => ({
+                  slug: g.slug,
+                  name: g.name,
+                  icon: g.icon,
+                  href: href({}, `/danh-muc-san-pham/${g.slug}`),
+                  children: g.children.map((c) => ({ slug: c.slug, name: c.name, href: href({}, `/danh-muc-san-pham/${c.slug}`) })),
+                }))}
+              />
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-4">
@@ -138,16 +111,16 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
           </FilterDrawer>
 
           {/* Results */}
-          <div>
+          <CatalogResults>
             {group && group.children.length > 0 && (
               <div className="-mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
-                <Link href={href({}, `/danh-muc-san-pham/${group.slug}`)} className={chip(category?.slug === group.slug)}>
+                <NavLink href={href({}, `/danh-muc-san-pham/${group.slug}`)} className={chip(category?.slug === group.slug)} pendingClassName={chip(true)}>
                   Tất cả {group.name}
-                </Link>
+                </NavLink>
                 {group.children.map((c) => (
-                  <Link key={c.slug} href={href({}, `/danh-muc-san-pham/${c.slug}`)} className={chip(category?.slug === c.slug)}>
+                  <NavLink key={c.slug} href={href({}, `/danh-muc-san-pham/${c.slug}`)} className={chip(category?.slug === c.slug)} pendingClassName={chip(true)}>
                     {c.name}
-                  </Link>
+                  </NavLink>
                 ))}
               </div>
             )}
@@ -159,7 +132,7 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
               <div className="-mx-1 flex items-center gap-2 overflow-x-auto px-1">
                 <span className="shrink-0 text-xs font-semibold text-slate-500">Sắp xếp:</span>
                 {(Object.keys(PRODUCT_SORTS) as ProductSort[]).map((s) => (
-                  <Link key={s} href={href({ sort: s })} className={chip(sort === s)}>{PRODUCT_SORTS[s]}</Link>
+                  <NavLink key={s} href={href({ sort: s })} className={chip(sort === s)} pendingClassName={chip(true)}>{PRODUCT_SORTS[s]}</NavLink>
                 ))}
               </div>
             </div>
@@ -167,10 +140,8 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
             {items.length > 0 ? (
               <>
                 <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                  {items.map((p, i) => (
-                    <Reveal key={p.id} delay={(i % 3) * 70}>
-                      <ProductCard product={p} />
-                    </Reveal>
+                  {items.map((p) => (
+                    <ProductCard key={p.id} product={p} />
                   ))}
                 </div>
                 <Pagination
@@ -188,8 +159,9 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
                 <p className="mt-1 text-sm text-slate-500">Hãy gửi mã hàng bạn cần — chúng tôi sẽ tìm và báo giá ngay.</p>
               </div>
             )}
-          </div>
+          </CatalogResults>
         </div>
+        </CatalogNavProvider>
 
         <div className="mt-14">
           <CtaBanner

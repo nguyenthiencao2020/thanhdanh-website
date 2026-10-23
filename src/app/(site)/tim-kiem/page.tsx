@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { PostCard } from "@/components/PostCard";
 import { ProductCard } from "@/components/ProductCard";
 import { getPostsPage, getProductsPage } from "@/lib/data";
+import Form from "next/form";
 
 export const metadata: Metadata = { title: "Tìm kiếm", robots: { index: false } };
 
@@ -21,7 +22,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
     <>
       <PageHeader title={q ? `Kết quả tìm kiếm cho: “${q}”` : "Tìm kiếm"} crumbs={[{ label: "Tìm kiếm" }]} />
       <div className="container-page py-10">
-        <form action="/tim-kiem" className="relative mx-auto max-w-2xl">
+        <Form action="/tim-kiem" className="relative mx-auto max-w-2xl">
           <input
             name="q"
             type="search"
@@ -34,7 +35,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
           <button type="submit" className="btn-primary absolute top-1/2 right-2 -translate-y-1/2">
             <Icon name="search" className="h-4 w-4" /> Tìm
           </button>
-        </form>
+        </Form>
 
         {q && (
           <>

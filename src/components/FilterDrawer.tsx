@@ -26,7 +26,7 @@ export function FilterDrawer({ children, summary }: { children: ReactNode; summa
       <aside
         className={`${
           open ? "fixed inset-0 z-[60] block overflow-y-auto bg-slate-50 p-4 pb-24" : "hidden"
-        } space-y-5 lg:static lg:sticky lg:top-28 lg:block lg:self-start lg:bg-transparent lg:p-0`}
+        } space-y-5 lg:static lg:sticky lg:top-36 lg:block lg:self-start lg:bg-transparent lg:p-0`}
       >
         {open && (
           <div className="flex items-center justify-between lg:hidden">
