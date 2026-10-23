@@ -46,14 +46,193 @@ begin
   if to_regclass('public.categories') is not null
      and exists (select 1 from information_schema.columns where table_schema = 'public' and table_name = 'categories' and column_name = 'image_url') then
     insert into public.categories (slug, name, description, icon, image_url, sort_order) values
-      ('thiet-bi-dien-cong-nghiep', 'Thiết bị điện công nghiệp', 'Aptomat, contactor, relay, khởi động từ, nguồn tổ ong, cầu đấu và phụ kiện tủ điện.', 'bolt', '/demo/aptomat.svg', 1),
-      ('tu-dong-hoa', 'Tự động hóa', 'PLC, HMI, biến tần, servo, cảm biến và bộ điều khiển cho dây chuyền sản xuất.', 'cpu', '/demo/plc.svg', 2),
-      ('khi-nen-thuy-luc', 'Khí nén – Thủy lực', 'Xi lanh, van điện từ, bộ lọc khí, đầu nối, ống hơi và thiết bị thủy lực.', 'wind', '/demo/xi-lanh-khi-nen.svg', 3),
-      ('motor-hop-giam-toc', 'Motor – Hộp giảm tốc', 'Động cơ điện, motor giảm tốc, hộp số và phụ kiện truyền động.', 'cog', '/demo/motor-giam-toc.svg', 4),
-      ('phu-kien-duong-ong-van', 'Phụ kiện đường ống – Van', 'Co, tê, rắc co, mặt bích, van bi, van bướm, van một chiều các loại.', 'pipe', '/demo/van-bi-inox.svg', 5)
+      ('thiet-bi-dong-cat', 'Thiết bị đóng cắt', 'Aptomat MCB, Aptomat khối MCCB, Máy cắt không khí ACB, Chống giật RCCB – RCBO, Cầu dao cách ly – LIS, Cầu dao đảo chiều MTS.', 'bolt', '/demo/aptomat.svg', 1),
+      ('mcb', 'Aptomat MCB', null, 'bolt', null, 1),
+      ('mccb', 'Aptomat khối MCCB', null, 'bolt', null, 2),
+      ('acb', 'Máy cắt không khí ACB', null, 'bolt', null, 3),
+      ('rccb-rcbo', 'Chống giật RCCB – RCBO', null, 'bolt', null, 4),
+      ('cau-dao-cach-ly', 'Cầu dao cách ly – LIS', null, 'bolt', null, 5),
+      ('cau-dao-dao-chieu', 'Cầu dao đảo chiều MTS', null, 'bolt', null, 6),
+      ('contactor-khoi-dong-tu', 'Contactor – Khởi động từ', 'Contactor, Khởi động từ, Rơ le nhiệt, Contactor tụ bù.', 'bolt', '/demo/contactor.svg', 2),
+      ('contactor', 'Contactor', null, 'bolt', null, 1),
+      ('khoi-dong-tu', 'Khởi động từ', null, 'bolt', null, 2),
+      ('ro-le-nhiet', 'Rơ le nhiệt', null, 'bolt', null, 3),
+      ('contactor-tu-bu', 'Contactor tụ bù', null, 'bolt', null, 4),
+      ('relay-timer', 'Relay – Timer', 'Relay trung gian, Relay bảo vệ (dòng, áp, pha), Timer – Bộ định thời, Relay bán dẫn SSR.', 'cpu', null, 3),
+      ('relay-trung-gian', 'Relay trung gian', null, 'cpu', null, 1),
+      ('relay-bao-ve', 'Relay bảo vệ (dòng, áp, pha)', null, 'cpu', null, 2),
+      ('timer', 'Timer – Bộ định thời', null, 'cpu', null, 3),
+      ('relay-ban-dan', 'Relay bán dẫn SSR', null, 'cpu', null, 4),
+      ('bien-tan-khoi-dong-mem', 'Biến tần – Khởi động mềm', 'Biến tần, Khởi động mềm, Phụ kiện biến tần.', 'cpu', '/demo/bien-tan.svg', 4),
+      ('bien-tan', 'Biến tần', null, 'cpu', null, 1),
+      ('khoi-dong-mem', 'Khởi động mềm', null, 'cpu', null, 2),
+      ('phu-kien-bien-tan', 'Phụ kiện biến tần', null, 'cpu', null, 3),
+      ('tu-dong-hoa', 'Thiết bị tự động hóa (PLC)', 'PLC, Màn hình HMI, Servo – Bộ điều khiển chuyển động, Module mở rộng – Truyền thông.', 'cpu', '/demo/plc.svg', 5),
+      ('plc', 'PLC', null, 'cpu', null, 1),
+      ('hmi', 'Màn hình HMI', null, 'cpu', null, 2),
+      ('servo', 'Servo – Bộ điều khiển chuyển động', null, 'cpu', null, 3),
+      ('module-mo-rong', 'Module mở rộng – Truyền thông', null, 'cpu', null, 4),
+      ('cam-bien-dieu-khien-nhiet', 'Cảm biến – Điều khiển nhiệt độ', 'Cảm biến tiệm cận, Cảm biến quang, Bộ điều khiển nhiệt độ – độ ẩm, Can nhiệt – Cảm biến nhiệt, Encoder.', 'cpu', '/demo/cam-bien-tiem-can.svg', 6),
+      ('cam-bien-tiem-can', 'Cảm biến tiệm cận', null, 'cpu', null, 1),
+      ('cam-bien-quang', 'Cảm biến quang', null, 'cpu', null, 2),
+      ('bo-dieu-khien-nhiet-do', 'Bộ điều khiển nhiệt độ – độ ẩm', null, 'cpu', null, 3),
+      ('can-nhiet', 'Can nhiệt – Cảm biến nhiệt', null, 'cpu', null, 4),
+      ('encoder', 'Encoder', null, 'cpu', null, 5),
+      ('bo-chuyen-nguon-ats', 'Bộ chuyển nguồn ATS', 'Bộ chuyển nguồn tự động ATS, Bộ điều khiển ATS.', 'bolt', null, 7),
+      ('ats', 'Bộ chuyển nguồn tự động ATS', null, 'bolt', null, 1),
+      ('bo-dieu-khien-ats', 'Bộ điều khiển ATS', null, 'bolt', null, 2),
+      ('tu-bu-cuon-khang', 'Tụ bù – Cuộn kháng', 'Tụ bù, Cuộn kháng, Bộ điều khiển tụ bù.', 'bolt', null, 8),
+      ('tu-bu', 'Tụ bù', null, 'bolt', null, 1),
+      ('cuon-khang', 'Cuộn kháng', null, 'bolt', null, 2),
+      ('bo-dieu-khien-tu-bu', 'Bộ điều khiển tụ bù', null, 'bolt', null, 3),
+      ('bien-dong-dong-ho-do', 'Biến dòng – Đồng hồ đo', 'Biến dòng, Đồng hồ đo đa năng, Đồng hồ Ampe – Vôn, Công tơ điện.', 'clock', null, 9),
+      ('bien-dong', 'Biến dòng', null, 'clock', null, 1),
+      ('dong-ho-da-nang', 'Đồng hồ đo đa năng', null, 'clock', null, 2),
+      ('dong-ho-ampe-von', 'Đồng hồ Ampe – Vôn', null, 'clock', null, 3),
+      ('cong-to-dien', 'Công tơ điện', null, 'clock', null, 4),
+      ('cau-chi', 'Cầu chì', 'Cầu chì hạ thế, Cầu chì trung thế, Đế – Phụ kiện cầu chì.', 'shield', null, 10),
+      ('cau-chi-ha-the', 'Cầu chì hạ thế', null, 'shield', null, 1),
+      ('cau-chi-trung-the', 'Cầu chì trung thế', null, 'shield', null, 2),
+      ('de-cau-chi', 'Đế – Phụ kiện cầu chì', null, 'shield', null, 3),
+      ('chong-set', 'Chống sét', 'Chống sét lan truyền, Kim thu sét – Phụ kiện.', 'shield', null, 11),
+      ('chong-set-lan-truyen', 'Chống sét lan truyền', null, 'shield', null, 1),
+      ('kim-thu-set', 'Kim thu sét – Phụ kiện', null, 'shield', null, 2),
+      ('bo-nguon-ups', 'Bộ nguồn – UPS', 'Bộ nguồn – Nguồn tổ ong, Bộ lưu điện UPS.', 'bolt', null, 12),
+      ('bo-nguon', 'Bộ nguồn – Nguồn tổ ong', null, 'bolt', null, 1),
+      ('ups', 'Bộ lưu điện UPS', null, 'bolt', null, 2),
+      ('phu-kien-tu-dien', 'Phụ kiện tủ điện', 'Cầu đấu – Domino, Máng nhựa – Thanh ray, Busbar – Gối đỡ, Co nhiệt – Đầu cos, Đèn báo – Nút nhấn.', 'box', null, 13),
+      ('cau-dau', 'Cầu đấu – Domino', null, 'box', null, 1),
+      ('mang-nhua-thanh-ray', 'Máng nhựa – Thanh ray', null, 'box', null, 2),
+      ('busbar-goi-do', 'Busbar – Gối đỡ', null, 'box', null, 3),
+      ('co-nhiet-dau-cos', 'Co nhiệt – Đầu cos', null, 'box', null, 4),
+      ('den-bao-nut-nhan', 'Đèn báo – Nút nhấn', null, 'box', null, 5),
+      ('tu-dien', 'Tủ điện', 'Tủ điện công nghiệp, Vỏ tủ điện, Vật tư tủ điện.', 'box', null, 14),
+      ('tu-dien-cong-nghiep', 'Tủ điện công nghiệp', null, 'box', null, 1),
+      ('vo-tu-dien', 'Vỏ tủ điện', null, 'box', null, 2),
+      ('vat-tu-tu-dien', 'Vật tư tủ điện', null, 'box', null, 3),
+      ('khi-nen-thuy-luc', 'Khí nén – Thủy lực', 'Xi lanh khí nén, Van điện từ khí nén, Bộ lọc – Điều áp, Đầu nối – Ống hơi, Thiết bị thủy lực.', 'wind', '/demo/xi-lanh-khi-nen.svg', 15),
+      ('xi-lanh-khi-nen', 'Xi lanh khí nén', null, 'wind', null, 1),
+      ('van-dien-tu-khi-nen', 'Van điện từ khí nén', null, 'wind', null, 2),
+      ('bo-loc-dieu-ap', 'Bộ lọc – Điều áp', null, 'wind', null, 3),
+      ('dau-noi-ong-hoi', 'Đầu nối – Ống hơi', null, 'wind', null, 4),
+      ('thiet-bi-thuy-luc', 'Thiết bị thủy lực', null, 'wind', null, 5),
+      ('motor-hop-giam-toc', 'Motor – Hộp giảm tốc', 'Động cơ điện, Motor giảm tốc, Hộp số – Hộp giảm tốc, Quạt hút công nghiệp.', 'cog', '/demo/motor-giam-toc.svg', 16),
+      ('dong-co-dien', 'Động cơ điện', null, 'cog', null, 1),
+      ('motor-giam-toc', 'Motor giảm tốc', null, 'cog', null, 2),
+      ('hop-so', 'Hộp số – Hộp giảm tốc', null, 'cog', null, 3),
+      ('quat-hut', 'Quạt hút công nghiệp', null, 'cog', null, 4),
+      ('phu-kien-duong-ong-van', 'Phụ kiện đường ống – Van', 'Van bi, Van bướm, Van một chiều, Co – Tê – Rắc co, Mặt bích.', 'pipe', '/demo/van-bi-inox.svg', 17),
+      ('van-bi', 'Van bi', null, 'pipe', null, 1),
+      ('van-buom', 'Van bướm', null, 'pipe', null, 2),
+      ('van-mot-chieu', 'Van một chiều', null, 'pipe', null, 3),
+      ('co-te-rac-co', 'Co – Tê – Rắc co', null, 'pipe', null, 4),
+      ('mat-bich', 'Mặt bích', null, 'pipe', null, 5)
     on conflict (slug) do nothing;
   else
     raise notice 'Bỏ qua dữ liệu mẫu "categories": hãy chạy 0002_demo_images.sql trước, rồi chạy lại seed.sql';
+  end if;
+end
+$seed$;
+
+do $seed$
+begin
+  if to_regclass('public.categories') is not null
+     and exists (select 1 from information_schema.columns where table_schema = 'public' and table_name = 'categories' and column_name = 'parent_id') then
+    -- Link sub-categories to their group (only where no parent is set yet).
+    update public.categories c set parent_id = p.id
+    from (values
+      ('mcb', 'thiet-bi-dong-cat'),
+      ('mccb', 'thiet-bi-dong-cat'),
+      ('acb', 'thiet-bi-dong-cat'),
+      ('rccb-rcbo', 'thiet-bi-dong-cat'),
+      ('cau-dao-cach-ly', 'thiet-bi-dong-cat'),
+      ('cau-dao-dao-chieu', 'thiet-bi-dong-cat'),
+      ('contactor', 'contactor-khoi-dong-tu'),
+      ('khoi-dong-tu', 'contactor-khoi-dong-tu'),
+      ('ro-le-nhiet', 'contactor-khoi-dong-tu'),
+      ('contactor-tu-bu', 'contactor-khoi-dong-tu'),
+      ('relay-trung-gian', 'relay-timer'),
+      ('relay-bao-ve', 'relay-timer'),
+      ('timer', 'relay-timer'),
+      ('relay-ban-dan', 'relay-timer'),
+      ('bien-tan', 'bien-tan-khoi-dong-mem'),
+      ('khoi-dong-mem', 'bien-tan-khoi-dong-mem'),
+      ('phu-kien-bien-tan', 'bien-tan-khoi-dong-mem'),
+      ('plc', 'tu-dong-hoa'),
+      ('hmi', 'tu-dong-hoa'),
+      ('servo', 'tu-dong-hoa'),
+      ('module-mo-rong', 'tu-dong-hoa'),
+      ('cam-bien-tiem-can', 'cam-bien-dieu-khien-nhiet'),
+      ('cam-bien-quang', 'cam-bien-dieu-khien-nhiet'),
+      ('bo-dieu-khien-nhiet-do', 'cam-bien-dieu-khien-nhiet'),
+      ('can-nhiet', 'cam-bien-dieu-khien-nhiet'),
+      ('encoder', 'cam-bien-dieu-khien-nhiet'),
+      ('ats', 'bo-chuyen-nguon-ats'),
+      ('bo-dieu-khien-ats', 'bo-chuyen-nguon-ats'),
+      ('tu-bu', 'tu-bu-cuon-khang'),
+      ('cuon-khang', 'tu-bu-cuon-khang'),
+      ('bo-dieu-khien-tu-bu', 'tu-bu-cuon-khang'),
+      ('bien-dong', 'bien-dong-dong-ho-do'),
+      ('dong-ho-da-nang', 'bien-dong-dong-ho-do'),
+      ('dong-ho-ampe-von', 'bien-dong-dong-ho-do'),
+      ('cong-to-dien', 'bien-dong-dong-ho-do'),
+      ('cau-chi-ha-the', 'cau-chi'),
+      ('cau-chi-trung-the', 'cau-chi'),
+      ('de-cau-chi', 'cau-chi'),
+      ('chong-set-lan-truyen', 'chong-set'),
+      ('kim-thu-set', 'chong-set'),
+      ('bo-nguon', 'bo-nguon-ups'),
+      ('ups', 'bo-nguon-ups'),
+      ('cau-dau', 'phu-kien-tu-dien'),
+      ('mang-nhua-thanh-ray', 'phu-kien-tu-dien'),
+      ('busbar-goi-do', 'phu-kien-tu-dien'),
+      ('co-nhiet-dau-cos', 'phu-kien-tu-dien'),
+      ('den-bao-nut-nhan', 'phu-kien-tu-dien'),
+      ('tu-dien-cong-nghiep', 'tu-dien'),
+      ('vo-tu-dien', 'tu-dien'),
+      ('vat-tu-tu-dien', 'tu-dien'),
+      ('xi-lanh-khi-nen', 'khi-nen-thuy-luc'),
+      ('van-dien-tu-khi-nen', 'khi-nen-thuy-luc'),
+      ('bo-loc-dieu-ap', 'khi-nen-thuy-luc'),
+      ('dau-noi-ong-hoi', 'khi-nen-thuy-luc'),
+      ('thiet-bi-thuy-luc', 'khi-nen-thuy-luc'),
+      ('dong-co-dien', 'motor-hop-giam-toc'),
+      ('motor-giam-toc', 'motor-hop-giam-toc'),
+      ('hop-so', 'motor-hop-giam-toc'),
+      ('quat-hut', 'motor-hop-giam-toc'),
+      ('van-bi', 'phu-kien-duong-ong-van'),
+      ('van-buom', 'phu-kien-duong-ong-van'),
+      ('van-mot-chieu', 'phu-kien-duong-ong-van'),
+      ('co-te-rac-co', 'phu-kien-duong-ong-van'),
+      ('mat-bich', 'phu-kien-duong-ong-van')
+    ) as v(slug, parent_slug)
+    join public.categories p on p.slug = v.parent_slug
+    where c.slug = v.slug and c.parent_id is null;
+    
+    -- Move the sample products from the old flat categories to the new sub-categories.
+    update public.products pr set category_id = c.id
+    from (values
+      ('plc-siemens-s7-1200', 'plc'),
+      ('bien-tan-mitsubishi-fr-e800', 'bien-tan'),
+      ('cam-bien-tiem-can-omron', 'cam-bien-tiem-can'),
+      ('aptomat-schneider-easy9', 'mcb'),
+      ('contactor-abb-af', 'contactor'),
+      ('xi-lanh-khi-nen-festo', 'xi-lanh-khi-nen'),
+      ('van-dien-tu-smc', 'van-dien-tu-khi-nen'),
+      ('cam-bien-quang-sick', 'cam-bien-quang'),
+      ('motor-giam-toc', 'motor-giam-toc'),
+      ('van-bi-inox', 'van-bi')
+    ) as v(product_slug, category_slug)
+    join public.categories c on c.slug = v.category_slug
+    where pr.slug = v.product_slug
+      and (pr.category_id is null or pr.category_id in (select id from public.categories where parent_id is null));
+    
+    -- The old flat group 'Thiết bị điện công nghiệp' is replaced by the new groups; drop it once empty.
+    delete from public.categories old where old.slug = 'thiet-bi-dien-cong-nghiep'
+      and not exists (select 1 from public.products where category_id = old.id)
+      and not exists (select 1 from public.categories where parent_id = old.id);
+  else
+    raise notice 'Bỏ qua dữ liệu mẫu "categories": hãy chạy 0007_category_tree.sql trước, rồi chạy lại seed.sql';
   end if;
 end
 $seed$;
@@ -80,20 +259,20 @@ begin
      and exists (select 1 from information_schema.columns where table_schema = 'public' and table_name = 'products' and column_name = 'specs')
      and exists (select 1 from information_schema.columns where table_schema = 'public' and table_name = 'products' and column_name = 'image_url') then
     insert into public.products (slug, name, category_id, brand_id, summary, description, specs, image_url, featured, published) values
-      ('plc-siemens-s7-1200', 'Bộ lập trình PLC Siemens S7-1200', (select id from public.categories where slug = 'tu-dong-hoa'), (select id from public.brands where slug = 'siemens'), 'PLC nhỏ gọn cho các ứng dụng điều khiển máy và dây chuyền vừa và nhỏ.', 'Dòng PLC S7-1200 tích hợp cổng PROFINET, lập trình bằng TIA Portal. Liên hệ để được tư vấn chọn CPU, module mở rộng và báo giá.', 'Dòng sản phẩm | S7-1200
+      ('plc-siemens-s7-1200', 'Bộ lập trình PLC Siemens S7-1200', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'PLC nhỏ gọn cho các ứng dụng điều khiển máy và dây chuyền vừa và nhỏ.', 'Dòng PLC S7-1200 tích hợp cổng PROFINET, lập trình bằng TIA Portal. Liên hệ để được tư vấn chọn CPU, module mở rộng và báo giá.', 'Dòng sản phẩm | S7-1200
     Ngôn ngữ lập trình | LAD, FBD, SCL (TIA Portal)
     Cổng truyền thông | PROFINET tích hợp
     Nguồn cấp | 24 VDC hoặc 120/230 VAC (tùy CPU)
     Mở rộng | Signal board, signal module, communication module', '/demo/plc.svg', true, true),
-      ('bien-tan-mitsubishi-fr-e800', 'Biến tần Mitsubishi FR-E800', (select id from public.categories where slug = 'tu-dong-hoa'), (select id from public.brands where slug = 'mitsubishi-electric'), 'Biến tần đa năng cho bơm, quạt, băng tải.', 'Biến tần FR-E800 hỗ trợ nhiều chuẩn truyền thông công nghiệp. Liên hệ để được tư vấn công suất phù hợp.', null, '/demo/bien-tan.svg', true, true),
-      ('cam-bien-tiem-can-omron', 'Cảm biến tiệm cận Omron', (select id from public.categories where slug = 'tu-dong-hoa'), (select id from public.brands where slug = 'omron'), 'Cảm biến tiệm cận điện cảm, nhiều kích thước M8 – M30.', 'Phát hiện vật thể kim loại không tiếp xúc, dùng trong máy đóng gói, băng tải, máy CNC.', null, '/demo/cam-bien-tiem-can.svg', true, true),
-      ('aptomat-schneider-easy9', 'Aptomat (MCB) Schneider Easy9', (select id from public.categories where slug = 'thiet-bi-dien-cong-nghiep'), (select id from public.brands where slug = 'schneider-electric'), 'Cầu dao tự động bảo vệ quá tải và ngắn mạch.', 'Đầy đủ dòng định mức và số cực. Liên hệ để nhận báo giá theo số lượng.', null, '/demo/aptomat.svg', true, true),
-      ('contactor-abb-af', 'Contactor ABB dòng AF', (select id from public.categories where slug = 'thiet-bi-dien-cong-nghiep'), (select id from public.brands where slug = 'abb'), 'Khởi động từ cho động cơ và tải công nghiệp.', 'Cuộn coil dải điện áp rộng, độ bền cao. Liên hệ để được tư vấn chọn mã.', null, '/demo/contactor.svg', false, true),
-      ('xi-lanh-khi-nen-festo', 'Xi lanh khí nén Festo', (select id from public.categories where slug = 'khi-nen-thuy-luc'), (select id from public.brands where slug = 'festo'), 'Xi lanh tiêu chuẩn ISO, nhiều đường kính và hành trình.', 'Phù hợp cho các ứng dụng gá kẹp, đẩy, nâng hạ trong dây chuyền tự động.', null, '/demo/xi-lanh-khi-nen.svg', true, true),
-      ('van-dien-tu-smc', 'Van điện từ khí nén SMC', (select id from public.categories where slug = 'khi-nen-thuy-luc'), (select id from public.brands where slug = 'smc'), 'Van điện từ 5/2, 5/3 điều khiển xi lanh khí nén.', 'Đa dạng điện áp coil và kiểu kết nối. Liên hệ để được báo giá nhanh.', null, '/demo/van-dien-tu.svg', true, true),
-      ('cam-bien-quang-sick', 'Cảm biến quang SICK', (select id from public.categories where slug = 'tu-dong-hoa'), (select id from public.brands where slug = 'sick'), 'Cảm biến quang thu phát, phản xạ gương và phản xạ khuếch tán.', 'Độ chính xác cao, phù hợp cho môi trường công nghiệp khắc nghiệt.', null, '/demo/cam-bien-quang.svg', false, true),
-      ('motor-giam-toc', 'Motor giảm tốc công nghiệp', (select id from public.categories where slug = 'motor-hop-giam-toc'), null, 'Motor giảm tốc cốt thẳng, cốt vuông góc nhiều tỉ số truyền.', 'Tư vấn chọn công suất, tỉ số truyền và kiểu lắp đặt theo yêu cầu thực tế.', null, '/demo/motor-giam-toc.svg', true, true),
-      ('van-bi-inox', 'Van bi inox', (select id from public.categories where slug = 'phu-kien-duong-ong-van'), null, 'Van bi inox nối ren, mặt bích các cỡ.', 'Dùng cho hệ thống nước, khí, hóa chất nhẹ. Cung cấp kèm co, tê, rắc co đồng bộ.', null, '/demo/van-bi-inox.svg', false, true)
+      ('bien-tan-mitsubishi-fr-e800', 'Biến tần Mitsubishi FR-E800', (select id from public.categories where slug = 'bien-tan'), (select id from public.brands where slug = 'mitsubishi-electric'), 'Biến tần đa năng cho bơm, quạt, băng tải.', 'Biến tần FR-E800 hỗ trợ nhiều chuẩn truyền thông công nghiệp. Liên hệ để được tư vấn công suất phù hợp.', null, '/demo/bien-tan.svg', true, true),
+      ('cam-bien-tiem-can-omron', 'Cảm biến tiệm cận Omron', (select id from public.categories where slug = 'cam-bien-tiem-can'), (select id from public.brands where slug = 'omron'), 'Cảm biến tiệm cận điện cảm, nhiều kích thước M8 – M30.', 'Phát hiện vật thể kim loại không tiếp xúc, dùng trong máy đóng gói, băng tải, máy CNC.', null, '/demo/cam-bien-tiem-can.svg', true, true),
+      ('aptomat-schneider-easy9', 'Aptomat (MCB) Schneider Easy9', (select id from public.categories where slug = 'mcb'), (select id from public.brands where slug = 'schneider-electric'), 'Cầu dao tự động bảo vệ quá tải và ngắn mạch.', 'Đầy đủ dòng định mức và số cực. Liên hệ để nhận báo giá theo số lượng.', null, '/demo/aptomat.svg', true, true),
+      ('contactor-abb-af', 'Contactor ABB dòng AF', (select id from public.categories where slug = 'contactor'), (select id from public.brands where slug = 'abb'), 'Khởi động từ cho động cơ và tải công nghiệp.', 'Cuộn coil dải điện áp rộng, độ bền cao. Liên hệ để được tư vấn chọn mã.', null, '/demo/contactor.svg', false, true),
+      ('xi-lanh-khi-nen-festo', 'Xi lanh khí nén Festo', (select id from public.categories where slug = 'xi-lanh-khi-nen'), (select id from public.brands where slug = 'festo'), 'Xi lanh tiêu chuẩn ISO, nhiều đường kính và hành trình.', 'Phù hợp cho các ứng dụng gá kẹp, đẩy, nâng hạ trong dây chuyền tự động.', null, '/demo/xi-lanh-khi-nen.svg', true, true),
+      ('van-dien-tu-smc', 'Van điện từ khí nén SMC', (select id from public.categories where slug = 'van-dien-tu-khi-nen'), (select id from public.brands where slug = 'smc'), 'Van điện từ 5/2, 5/3 điều khiển xi lanh khí nén.', 'Đa dạng điện áp coil và kiểu kết nối. Liên hệ để được báo giá nhanh.', null, '/demo/van-dien-tu.svg', true, true),
+      ('cam-bien-quang-sick', 'Cảm biến quang SICK', (select id from public.categories where slug = 'cam-bien-quang'), (select id from public.brands where slug = 'sick'), 'Cảm biến quang thu phát, phản xạ gương và phản xạ khuếch tán.', 'Độ chính xác cao, phù hợp cho môi trường công nghiệp khắc nghiệt.', null, '/demo/cam-bien-quang.svg', false, true),
+      ('motor-giam-toc', 'Motor giảm tốc công nghiệp', (select id from public.categories where slug = 'motor-giam-toc'), null, 'Motor giảm tốc cốt thẳng, cốt vuông góc nhiều tỉ số truyền.', 'Tư vấn chọn công suất, tỉ số truyền và kiểu lắp đặt theo yêu cầu thực tế.', null, '/demo/motor-giam-toc.svg', true, true),
+      ('van-bi-inox', 'Van bi inox', (select id from public.categories where slug = 'van-bi'), null, 'Van bi inox nối ren, mặt bích các cỡ.', 'Dùng cho hệ thống nước, khí, hóa chất nhẹ. Cung cấp kèm co, tê, rắc co đồng bộ.', null, '/demo/van-bi-inox.svg', false, true)
     on conflict (slug) do nothing;
   else
     raise notice 'Bỏ qua dữ liệu mẫu "products": hãy chạy 0005_site_structure.sql trước, rồi chạy lại seed.sql';

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getBrands, getCategories, getProductsPage, getSettings, PRODUCT_SORTS, type ProductSort } from "@/lib/data";
+import { buildCategoryTree, getBrands, getCategories, getProductsPage, getSettings, PRODUCT_SORTS, type ProductSort } from "@/lib/data";
 import { CtaBanner } from "./CtaBanner";
 import { Icon } from "./Icon";
 import { PageHeader } from "./PageHeader";
@@ -23,7 +23,11 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
     getProductsPage({ category: categorySlug, brand: params.brand, q: params.q, sort, page, pageSize: PAGE_SIZE }),
   ]);
 
+  const tree = buildCategoryTree(categories);
   const category = categories.find((c) => c.slug === categorySlug);
+  const parent = category?.parent_id ? categories.find((c) => c.id === category.parent_id) : undefined;
+  // The group whose sub-categories are shown: the category itself, or its parent.
+  const group = tree.find((g) => g.slug === (parent ?? category)?.slug);
   const brand = brands.find((b) => b.slug === params.brand);
   const basePath = category ? `/danh-muc-san-pham/${category.slug}` : "/san-pham";
   const title = category?.name ?? (brand ? `Sản phẩm ${brand.name}` : "Sản phẩm");
@@ -48,8 +52,19 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
     <>
       <PageHeader
         title={title}
-        description={category?.description ?? "Thiết bị điện công nghiệp, tự động hóa, khí nén – thủy lực, motor – hộp giảm tốc và phụ kiện đường ống."}
-        crumbs={category ? [{ href: "/san-pham", label: "Sản phẩm" }, { label: category.name }] : [{ label: "Sản phẩm" }]}
+        description={
+          category?.description ??
+          (parent ? `Thuộc nhóm ${parent.name}.` : "Thiết bị điện công nghiệp, tự động hóa, khí nén – thủy lực, motor – hộp giảm tốc và phụ kiện đường ống.")
+        }
+        crumbs={
+          category
+            ? [
+                { href: "/san-pham", label: "Sản phẩm" },
+                ...(parent ? [{ href: `/danh-muc-san-pham/${parent.slug}`, label: parent.name }] : []),
+                { label: category.name },
+              ]
+            : [{ label: "Sản phẩm" }]
+        }
       />
 
       <div className="container-page py-10">
@@ -70,16 +85,39 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
                     <Icon name="box" className="h-4 w-4" /> Tất cả sản phẩm
                   </Link>
                 </li>
-                {categories.map((c) => (
-                  <li key={c.slug}>
-                    <Link
-                      href={href({}, `/danh-muc-san-pham/${c.slug}`)}
-                      className={`flex items-center gap-2 rounded-lg px-2 py-2 ${category?.slug === c.slug ? "bg-brand-50 font-semibold text-brand-600" : "text-slate-700 hover:bg-slate-50"}`}
-                    >
-                      <Icon name={c.icon ?? "box"} className="h-4 w-4" /> {c.name}
-                    </Link>
-                  </li>
-                ))}
+                {tree.map((g) => {
+                  const open = group?.slug === g.slug;
+                  return (
+                    <li key={g.slug}>
+                      <Link
+                        href={href({}, `/danh-muc-san-pham/${g.slug}`)}
+                        className={`flex items-center gap-2 rounded-lg px-2 py-2 ${
+                          category?.slug === g.slug ? "bg-brand-50 font-semibold text-brand-600" : open ? "font-semibold text-slate-900" : "text-slate-700 hover:bg-slate-50"
+                        }`}
+                      >
+                        <Icon name={g.icon ?? "box"} className="h-4 w-4 shrink-0" />
+                        <span className="flex-1">{g.name}</span>
+                        {g.children.length > 0 && <span className="text-xs text-slate-400">{open ? "−" : "+"}</span>}
+                      </Link>
+                      {open && g.children.length > 0 && (
+                        <ul className="my-1 ml-4 space-y-0.5 border-l border-slate-200 pl-2">
+                          {g.children.map((c) => (
+                            <li key={c.slug}>
+                              <Link
+                                href={href({}, `/danh-muc-san-pham/${c.slug}`)}
+                                className={`block rounded-lg px-2 py-1.5 text-[13px] ${
+                                  category?.slug === c.slug ? "bg-brand-50 font-semibold text-brand-600" : "text-slate-600 hover:bg-slate-50"
+                                }`}
+                              >
+                                {c.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
@@ -96,6 +134,18 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
 
           {/* Results */}
           <div>
+            {group && group.children.length > 0 && (
+              <div className="mb-4 flex flex-wrap gap-2">
+                <Link href={href({}, `/danh-muc-san-pham/${group.slug}`)} className={chip(category?.slug === group.slug)}>
+                  Tất cả {group.name}
+                </Link>
+                {group.children.map((c) => (
+                  <Link key={c.slug} href={href({}, `/danh-muc-san-pham/${c.slug}`)} className={chip(category?.slug === c.slug)}>
+                    {c.name}
+                  </Link>
+                ))}
+              </div>
+            )}
             <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
               <p className="text-sm text-slate-500">
                 {params.q && <>Kết quả cho “<span className="font-semibold text-slate-800">{params.q}</span>” · </>}

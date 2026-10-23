@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
+import { CategoryMenu } from "@/components/CategoryMenu";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Gear } from "@/components/Gear";
 import { HeroSlider } from "@/components/HeroSlider";
@@ -8,7 +9,7 @@ import { PostCard } from "@/components/PostCard";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { getBanners, getBrands, getCategories, getPosts, getProducts, getServices, getSettings } from "@/lib/data";
+import { buildCategoryTree, getBanners, getBrands, getCategories, getPosts, getProducts, getServices, getSettings } from "@/lib/data";
 import { phoneDigits } from "@/lib/utils";
 
 const strengths = [
@@ -25,14 +26,6 @@ const steps = [
   { title: "Giao hàng", text: "Đóng gói cẩn thận, giao tận nơi, hỗ trợ sau bán hàng." },
 ];
 
-// Used when a category has no image set in the CMS.
-const categoryFallbackImage: Record<string, string> = {
-  bolt: "/demo/aptomat.svg",
-  cpu: "/demo/plc.svg",
-  wind: "/demo/xi-lanh-khi-nen.svg",
-  cog: "/demo/motor-giam-toc.svg",
-  pipe: "/demo/van-bi-inox.svg",
-};
 
 
 export default async function HomePage() {
@@ -45,22 +38,40 @@ export default async function HomePage() {
     getPosts({ limit: 3 }),
     getBanners(),
   ]);
+  const tree = buildCategoryTree(categories);
+
+  // "Products by category" blocks: every group that has products, up to 4 each.
+  const allProducts = await getProducts({ limit: 200 });
+  const groupOf = new Map<string, string>();
+  for (const g of tree) {
+    groupOf.set(g.slug, g.slug);
+    g.children.forEach((c) => groupOf.set(c.slug, g.slug));
+  }
+  const productBlocks = tree
+    .map((g) => ({ group: g, items: allProducts.filter((p) => p.category && groupOf.get(p.category.slug) === g.slug).slice(0, 4) }))
+    .filter((b) => b.items.length > 0);
 
 
   return (
     <>
-      {/* ------------------------------------------------------------- Hero slider */}
-      <HeroSlider
+      {/* ------------------------------------------- Category menu + hero slider */}
+      <section className="bg-gradient-to-b from-slate-100 to-white pt-4 pb-2 lg:pt-6">
+        <div className="container-page grid gap-4 lg:grid-cols-[280px_1fr]">
+          <CategoryMenu tree={tree} />
+          <HeroSlider
+            boxed
         banners={banners}
         tagline={settings.tagline}
         phone={settings.phone}
         phoneHref={settings.phone ? phoneDigits(settings.phone) : null}
         stats={[
           { value: `${brands.length}+`, label: "Thương hiệu" },
-          { value: `${categories.length}`, label: "Nhóm sản phẩm" },
+          { value: `${tree.length}`, label: "Nhóm sản phẩm" },
           { value: "Miễn phí", label: "Tư vấn chọn mã" },
         ]}
-      />
+          />
+        </div>
+      </section>
 
       {/* ------------------------------------------------------------ Brand marquee */}
       {/* Keep this section: the owner asked for the full-colour scrolling brand strip on the home page. */}
@@ -131,44 +142,30 @@ export default async function HomePage() {
             Xem tất cả →
           </Link>
         </Reveal>
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-          {categories.map((c, i) => {
-            const img = c.image_url ?? categoryFallbackImage[c.icon ?? ""];
-            return (
-              <Reveal key={c.slug} delay={i * 80}>
-                <Link
-                  href={`/danh-muc-san-pham/${c.slug}`}
-                  className="group block h-full overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl hover:shadow-steel-900/10"
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-                    {img ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={img}
-                        alt={c.name}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                      />
-                    ) : (
-                      <div className="flex h-full items-center justify-center text-steel-500">
-                        <Icon name={c.icon ?? "box"} className="h-12 w-12" />
-                      </div>
-                    )}
-                    <span className="absolute top-3 left-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/90 text-brand-600 shadow-sm backdrop-blur">
-                      <Icon name={c.icon ?? "box"} className="h-5 w-5" />
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          {tree.map((c, i) => (
+            <Reveal key={c.slug} delay={(i % 6) * 60}>
+              <Link
+                href={`/danh-muc-san-pham/${c.slug}`}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl hover:shadow-steel-900/10"
+              >
+                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-steel-50 to-slate-100">
+                  {c.image_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={c.image_url} alt={c.name} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
+                  ) : (
+                    <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-sm transition group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white">
+                      <Icon name={c.icon ?? "box"} className="h-8 w-8" />
                     </span>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-slate-900 group-hover:text-brand-600">{c.name}</h3>
-                    {c.description && <p className="mt-1 line-clamp-2 text-sm text-slate-500">{c.description}</p>}
-                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-steel-600 transition-all group-hover:gap-2 group-hover:text-brand-600">
-                      Xem sản phẩm <Icon name="arrow" className="h-4 w-4" />
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
-            );
-          })}
+                  )}
+                </div>
+                <div className="flex flex-1 flex-col p-3.5">
+                  <h3 className="text-sm font-semibold text-slate-900 group-hover:text-brand-600">{c.name}</h3>
+                  <p className="mt-1 line-clamp-2 text-xs text-slate-500">{c.children.map((x) => x.name).join(" · ")}</p>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -193,6 +190,46 @@ export default async function HomePage() {
               ))}
             </div>
           </div>
+        </section>
+      )}
+
+      {/* ------------------------------------------------- Products by category */}
+      {productBlocks.length > 0 && (
+        <section className="container-page space-y-10 py-16">
+          <SectionHeading eyebrow="Sản phẩm" title="Sản phẩm theo danh mục" href="/san-pham" />
+          {productBlocks.map(({ group, items }) => (
+            <Reveal key={group.slug}>
+              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white">
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-b border-slate-100 bg-slate-50 px-5 py-4">
+                  <h3 className="flex items-center gap-2.5 text-lg font-bold text-steel-900">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-600 text-white">
+                      <Icon name={group.icon ?? "box"} className="h-5 w-5" />
+                    </span>
+                    {group.name}
+                  </h3>
+                  <div className="flex flex-1 flex-wrap gap-2">
+                    {group.children.slice(0, 6).map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/danh-muc-san-pham/${c.slug}`}
+                        className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600 transition hover:border-brand-500 hover:text-brand-600"
+                      >
+                        {c.name}
+                      </Link>
+                    ))}
+                  </div>
+                  <Link href={`/danh-muc-san-pham/${group.slug}`} className="text-sm font-semibold text-brand-600 hover:underline">
+                    Xem tất cả →
+                  </Link>
+                </div>
+                <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-4">
+                  {items.map((p) => (
+                    <ProductCard key={p.id} product={p} />
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </section>
       )}
 

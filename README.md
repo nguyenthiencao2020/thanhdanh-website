@@ -41,8 +41,9 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    - `supabase/migrations/0004_dat_danh.sql` (đổi tên công ty theo giấy phép, thêm MST / tên tiếng Anh)
    - `supabase/migrations/0005_site_structure.sql` (tin tức, dịch vụ, trang chính sách, gallery/thông số sản phẩm)
    - `supabase/migrations/0006_banners.sql` (slider banner trang chủ)
+   - `supabase/migrations/0007_category_tree.sql` (danh mục 2 cấp: 17 nhóm, 64 danh mục con)
 
-   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `0005` → `0006` → `seed.sql`.
+   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `0005` → `0006` → `0007` → `seed.sql`.
    > `seed.sql` không bao giờ dừng giữa chừng: bảng/cột nào chưa có sẽ được bỏ qua kèm thông báo
    > *“Bỏ qua dữ liệu mẫu … hãy chạy 000x_… trước”* — chạy file đó rồi chạy lại `seed.sql`.
    > Đã chạy `0001` và `seed.sql` từ trước? Chạy thêm các file migration còn thiếu, **rồi chạy lại `seed.sql`**
@@ -88,6 +89,12 @@ Supabase gói Free tự **pause** project nếu 7 ngày không có hoạt độn
 - Không cần cấu hình thêm: cron tự bật sau khi deploy (xem tại Vercel → *Settings → Cron Jobs*).
 - Nên thêm biến môi trường `CRON_SECRET` (chuỗi ngẫu nhiên dài) trên Vercel rồi Redeploy, để người ngoài không gọi được route này.
 - Kiểm tra: Vercel → *Settings → Cron Jobs* → **Run** → xem *Logs*, kết quả `{"ok":true,...}` là được.
+
+## File báo giá Excel
+
+`tai-lieu/Bao-gia-Dat-Danh.xlsx` — mẫu báo giá (sheet *Báo giá*, *Bảng giá*, *Danh mục*, *Hướng dẫn*):
+nhập Mã hàng → tự điền tên, hãng, ĐVT, đơn giá từ Bảng giá; tự tính thành tiền, chiết khấu, VAT, tổng cộng.
+Danh mục và thương hiệu giống website. Tạo lại sau khi đổi danh mục: `python3 scripts/build-bao-gia.py`.
 
 ## Chạy trên máy
 

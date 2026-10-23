@@ -177,7 +177,18 @@ export async function saveCategory(form: FormData) {
     icon: text(form, "icon"),
     image_url: imageUrl,
     sort_order: int(form, "sort_order"),
+    parent_id: text(form, "parent_id"),
   };
+  // Categories are two levels deep: a parent must be a group, and a group with children can't be nested.
+  if (row.parent_id) {
+    if (row.parent_id === id) fail("/admin/danh-muc", "Danh mục không thể là cha của chính nó.");
+    const { data: parent } = await supabase.from("categories").select("parent_id").eq("id", row.parent_id).maybeSingle();
+    if (parent?.parent_id) fail("/admin/danh-muc", "Chỉ chọn được danh mục cha là nhóm cấp 1.");
+    if (id) {
+      const { count } = await supabase.from("categories").select("id", { count: "exact", head: true }).eq("parent_id", id);
+      if (count) fail("/admin/danh-muc", "Nhóm này đang có danh mục con nên không thể đặt làm danh mục con.");
+    }
+  }
   const { error } = id
     ? await supabase.from("categories").update(row).eq("id", id)
     : await supabase.from("categories").insert(row);

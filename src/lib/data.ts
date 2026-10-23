@@ -2,7 +2,7 @@ import "server-only";
 import catalog from "@/data/catalog.json";
 import { isSupabaseConfigured } from "./supabase/config";
 import { createPublicClient } from "./supabase/server";
-import type { Banner, Brand, Category, Page, Post, ProductWithRelations, Service, Settings } from "./types";
+import type { Banner, Brand, Category, CategoryNode, Page, Post, ProductWithRelations, Service, Settings } from "./types";
 
 const PRODUCT_SELECT = "*, category:categories(slug,name), brand:brands(slug,name,logo_url)";
 
@@ -10,7 +10,7 @@ const PRODUCT_SELECT = "*, category:categories(slug,name), brand:brands(slug,nam
 // Fallback content (used until Supabase env vars are configured)
 // ---------------------------------------------------------------------------
 const fallbackSettings = catalog.settings as Settings;
-const fallbackCategories: Category[] = catalog.categories.map((c) => ({ id: c.slug, ...c }));
+const fallbackCategories: Category[] = catalog.categories.map(({ parent, ...c }) => ({ id: c.slug, ...c, parent_id: parent }));
 const fallbackBrands: Brand[] = catalog.brands.map((b) => ({ id: b.slug, ...b }));
 const fallbackProducts: ProductWithRelations[] = catalog.products.map((p) => {
   const category = fallbackCategories.find((c) => c.slug === p.category) ?? null;
@@ -75,6 +75,25 @@ export async function getCategories(): Promise<Category[]> {
   return data ?? [];
 }
 
+/** Groups (no parent) with their sub-categories, both in sort order. */
+export function buildCategoryTree(categories: Category[]): CategoryNode[] {
+  const ids = new Set(categories.map((c) => c.id));
+  // A category whose parent no longer exists is treated as a group.
+  const roots = categories.filter((c) => !c.parent_id || !ids.has(c.parent_id));
+  return roots.map((r) => ({ ...r, children: categories.filter((c) => c.parent_id === r.id) }));
+}
+
+export async function getCategoryTree(): Promise<CategoryNode[]> {
+  return buildCategoryTree(await getCategories());
+}
+
+/** The category plus its direct sub-categories (what a category page lists). */
+function withChildren(categories: Category[], slug: string) {
+  const cat = categories.find((c) => c.slug === slug);
+  if (!cat) return null;
+  return [cat, ...categories.filter((c) => c.parent_id === cat.id)];
+}
+
 export async function getBrands(): Promise<Brand[]> {
   if (!isSupabaseConfigured) return fallbackBrands;
   const { data, error } = await createPublicClient().from("brands").select("*").order("sort_order").order("name");
@@ -114,7 +133,10 @@ export async function getProductsPage(filter: ProductFilter = {}): Promise<Paged
 
   if (!isSupabaseConfigured) {
     let list = fallbackProducts;
-    if (filter.category) list = list.filter((p) => p.category?.slug === filter.category);
+    if (filter.category) {
+      const slugs = new Set((withChildren(fallbackCategories, filter.category) ?? []).map((c) => c.slug));
+      list = list.filter((p) => p.category && slugs.has(p.category.slug));
+    }
     if (filter.brand) list = list.filter((p) => p.brand?.slug === filter.brand);
     if (filter.featured) list = list.filter((p) => p.featured);
     if (q) list = list.filter((p) => includes([p.name, p.summary, p.sku], q));
@@ -127,9 +149,9 @@ export async function getProductsPage(filter: ProductFilter = {}): Promise<Paged
   let query = supabase.from("products").select(PRODUCT_SELECT, { count: "exact" }).eq("published", true);
 
   if (filter.category) {
-    const { data: cat } = await supabase.from("categories").select("id").eq("slug", filter.category).maybeSingle();
-    if (!cat) return { items: [], total: 0 };
-    query = query.eq("category_id", cat.id);
+    const cats = withChildren(await getCategories(), filter.category);
+    if (!cats) return { items: [], total: 0 };
+    query = query.in("category_id", cats.map((c) => c.id));
   }
   if (filter.brand) {
     const { data: brand } = await supabase.from("brands").select("id").eq("slug", filter.brand).maybeSingle();

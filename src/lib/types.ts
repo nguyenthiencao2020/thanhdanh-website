@@ -31,7 +31,10 @@ export type Category = {
   icon: string | null;
   image_url: string | null;
   sort_order: number;
+  parent_id?: string | null;
 };
+
+export type CategoryNode = Category & { children: Category[] };
 
 export type Brand = {
   id: string;

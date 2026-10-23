@@ -46,6 +46,13 @@ Danh sách những nội dung trên website hiện đang là **tạm / giả đ�
 | [ ] | 🟡 | **Mô tả danh mục** | Tự viết, liệt kê ví dụ mặt hàng | Liệt kê đúng các loại hàng công ty thực sự kinh doanh |
 | [ ] | 🟢 | **Ảnh danh mục** | Hình minh họa | Ảnh thật đại diện cho mỗi nhóm hàng (tỉ lệ 4:3) |
 
+### 3b. Cây danh mục mới (theo cấu trúc lqe.com.vn)
+
+| | Ưu tiên | Nội dung | Hiện trạng | Cần bổ sung |
+|---|---|---|---|---|
+| [ ] | 🔴 | **17 nhóm, 64 danh mục con** (Admin → Danh mục) | Dựng theo cách tổ chức của LQE, chia theo loại sản phẩm; bỏ nhóm không thuộc ngành (máy lạnh, điện mặt trời, máy phát, cân điện tử, hóa chất) | Xóa danh mục công ty không kinh doanh, thêm danh mục còn thiếu. Danh mục con nên đặt theo **loại hàng**; thương hiệu đã có bộ lọc riêng |
+| [ ] | 🟢 | **Ảnh nhóm danh mục** | 8/17 nhóm có hình minh họa, còn lại hiện icon | Ảnh thật cho từng nhóm (tỉ lệ 4:3) |
+
 ## 4. Thương hiệu — Admin → Thương hiệu
 
 | | Ưu tiên | Nội dung | Hiện trạng | Cần bổ sung |

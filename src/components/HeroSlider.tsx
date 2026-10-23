@@ -12,12 +12,14 @@ type Props = {
   phone: string | null;
   phoneHref: string | null;
   stats: { value: string; label: string }[];
+  /** Rounded banner that sits next to the category menu instead of spanning the page. */
+  boxed?: boolean;
 };
 
 const INTERVAL = 6000;
 
 /** Home hero: rotating slides (Admin → Banner trang chủ). Photo slides fill the banner; others show an illustration collage. */
-export function HeroSlider({ banners, tagline, phone, phoneHref, stats }: Props) {
+export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }: Props) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const count = banners.length;
@@ -31,7 +33,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats }: Props)
 
   return (
     <section
-      className="relative isolate overflow-hidden bg-steel-900 text-white"
+      className={`relative isolate overflow-hidden bg-steel-900 text-white ${boxed ? "rounded-3xl" : ""}`}
       aria-roledescription="carousel"
       aria-label="Banner"
       onMouseEnter={() => setPaused(true)}
@@ -69,7 +71,11 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats }: Props)
                   <div className="absolute inset-0 -z-10 bg-gradient-to-r from-steel-900/95 via-steel-900/75 to-steel-900/20" />
                 </>
               )}
-              <div className={`container-page grid items-center gap-12 py-16 lg:py-24 ${b.image_url ? "" : "lg:grid-cols-[1.05fr_1fr]"}`}>
+              <div
+                className={`grid items-center gap-10 ${boxed ? "px-6 py-12 sm:px-10 lg:py-14" : "container-page py-16 lg:py-24"} ${
+                  b.image_url ? "" : boxed ? "xl:grid-cols-[1.1fr_1fr]" : "lg:grid-cols-[1.05fr_1fr]"
+                }`}
+              >
                 <div className={`max-w-2xl transition-all delay-150 duration-700 ${on ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
                   {tagline && (
                     <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-steel-100 backdrop-blur">
@@ -77,9 +83,9 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats }: Props)
                     </p>
                   )}
                   {i === 0 ? (
-                    <h1 className="mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl">{b.title}</h1>
+                    <h1 className={`mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "lg:text-6xl"}`}>{b.title}</h1>
                   ) : (
-                    <h2 className="mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl">{b.title}</h2>
+                    <h2 className={`mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "lg:text-6xl"}`}>{b.title}</h2>
                   )}
                   <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-brand-500 via-orange-400 to-amber-300" />
                   {b.subtitle && <p className="mt-6 max-w-xl text-base text-steel-100/90 sm:text-lg">{b.subtitle}</p>}
@@ -111,7 +117,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats }: Props)
 
                 {!b.image_url && collage.length > 0 && (
                   <div
-                    className={`relative mx-auto h-[300px] w-full max-w-[560px] transition-all delay-300 duration-700 sm:h-[440px] ${
+                    className={`relative mx-auto h-[300px] w-full max-w-[560px] transition-all delay-300 duration-700 ${boxed ? "hidden sm:h-[380px] xl:block" : "sm:h-[440px]"} ${
                       on ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
                     }`}
                   >

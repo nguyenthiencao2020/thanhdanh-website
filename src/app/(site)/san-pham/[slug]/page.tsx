@@ -8,7 +8,7 @@ import { ProductGallery } from "@/components/ProductGallery";
 import { QuoteForm } from "@/components/QuoteForm";
 import { RichText } from "@/components/RichText";
 import { Tabs } from "@/components/Tabs";
-import { getProduct, getProducts, getSettings } from "@/lib/data";
+import { getCategories, getProduct, getProducts, getSettings } from "@/lib/data";
 import { phoneDigits } from "@/lib/utils";
 
 type Params = Promise<{ slug: string }>;
@@ -44,8 +44,10 @@ function parseSpecs(specs: string | null) {
 
 export default async function ProductPage({ params }: { params: Params }) {
   const { slug } = await params;
-  const [product, settings] = await Promise.all([getProduct(slug), getSettings()]);
+  const [product, settings, categories] = await Promise.all([getProduct(slug), getSettings(), getCategories()]);
   if (!product) notFound();
+  const cat = categories.find((c) => c.slug === product.category?.slug);
+  const parentCat = cat?.parent_id ? categories.find((c) => c.id === cat.parent_id) : undefined;
 
   const related = product.category
     ? (await getProducts({ category: product.category.slug, limit: 9 })).filter((p) => p.id !== product.id).slice(0, 8)
@@ -103,6 +105,12 @@ export default async function ProductPage({ params }: { params: Params }) {
         <nav className="text-sm text-slate-500" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-brand-600">Trang chủ</Link> /{" "}
           <Link href="/san-pham" className="hover:text-brand-600">Sản phẩm</Link>
+          {parentCat && (
+            <>
+              {" / "}
+              <Link href={`/danh-muc-san-pham/${parentCat.slug}`} className="hover:text-brand-600">{parentCat.name}</Link>
+            </>
+          )}
           {product.category && (
             <>
               {" / "}
