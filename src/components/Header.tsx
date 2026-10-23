@@ -26,7 +26,7 @@ type Props = {
   email: string | null;
   zaloHref: string | null;
   facebook: string | null;
-  categories: { slug: string; name: string; icon: string | null; children: { slug: string; name: string }[] }[];
+  categories: { slug: string; name: string; icon: string | null; description: string | null; children: { slug: string; name: string }[] }[];
 };
 
 export function Header({ shortName, tagline, announcement, announcementUrl, phone, phoneHref, email, zaloHref, facebook, categories }: Props) {
@@ -102,41 +102,53 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                 <div className="pointer-events-none invisible fixed top-[5.5rem] right-0 left-0 translate-y-2 opacity-0 transition duration-200 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   <div className="container-page">
                     <div className="pointer-events-auto pt-10">
-                    <div className="max-h-[70vh] overflow-y-auto rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl shadow-steel-900/15">
-                      <div className="grid grid-cols-3 gap-x-6 gap-y-5 xl:grid-cols-4">
-                        {categories.map((g) => (
-                          <div key={g.slug}>
+                    <div className="grid max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-steel-900/15 lg:grid-cols-[1fr_280px]">
+                      {/* Groups */}
+                      <div className="p-5">
+                        <div className="mb-3 flex items-center justify-between px-2">
+                          <p className="text-xs font-bold tracking-widest text-slate-400 uppercase">Danh mục sản phẩm</p>
+                          <Link href="/san-pham" className="text-xs font-semibold text-steel-600 hover:text-brand-600">Xem tất cả →</Link>
+                        </div>
+                        <div className={`grid gap-1 ${categories.length > 8 ? "grid-cols-2 xl:grid-cols-3" : "grid-cols-2"}`}>
+                          {categories.map((g) => (
                             <Link
+                              key={g.slug}
                               href={`/danh-muc-san-pham/${g.slug}`}
-                              className="flex items-center gap-2 text-sm font-bold text-steel-900 hover:text-brand-600"
+                              className="group/cat flex items-center gap-3 rounded-2xl px-3 py-2.5 transition hover:bg-slate-50"
                             >
-                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
-                                <Icon name={g.icon ?? "box"} className="h-4 w-4" />
+                              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-orange-50 text-brand-600 ring-1 ring-brand-100 transition group-hover/cat:from-brand-600 group-hover/cat:to-brand-500 group-hover/cat:text-white">
+                                <Icon name={g.icon ?? "box"} className="h-5 w-5" />
                               </span>
-                              {g.name}
+                              <span className="min-w-0">
+                                <span className="block truncate text-sm font-bold text-steel-900 group-hover/cat:text-brand-600">{g.name}</span>
+                                <span className="block truncate text-xs text-slate-500">
+                                  {g.children.length > 0 ? g.children.map((c) => c.name).join(" · ") : g.description}
+                                </span>
+                              </span>
                             </Link>
-                            <ul className="mt-1.5 space-y-0.5 pl-9">
-                              {g.children.slice(0, 5).map((c) => (
-                                <li key={c.slug}>
-                                  <Link href={`/danh-muc-san-pham/${c.slug}`} className="block py-0.5 text-[13px] text-slate-600 hover:text-brand-600">
-                                    {c.name}
-                                  </Link>
-                                </li>
-                              ))}
-                              {g.children.length > 5 && (
-                                <li>
-                                  <Link href={`/danh-muc-san-pham/${g.slug}`} className="text-xs font-semibold text-steel-600 hover:text-brand-600">
-                                    +{g.children.length - 5} danh mục khác
-                                  </Link>
-                                </li>
-                              )}
-                            </ul>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
-                      <div className="mt-5 flex items-center justify-between rounded-2xl bg-slate-50 px-4 py-3 text-sm">
-                        <Link href="/san-pham" className="font-semibold text-steel-600 hover:text-brand-600">Tất cả sản phẩm →</Link>
-                        <Link href="/thuong-hieu" className="font-semibold text-steel-600 hover:text-brand-600">Thương hiệu →</Link>
+                      {/* Promo */}
+                      <div className="relative isolate hidden flex-col justify-between overflow-hidden bg-steel-900 p-6 text-white lg:flex">
+                        <div className="bg-blueprint absolute inset-0 -z-10" />
+                        <div className="absolute -right-16 -bottom-16 -z-10 h-48 w-48 rounded-full bg-brand-600/40 blur-2xl" />
+                        <div>
+                          <p className="text-xs font-bold tracking-widest text-brand-100 uppercase">Báo giá nhanh</p>
+                          <p className="mt-2 text-xl leading-snug font-bold">Không thấy mã hàng bạn cần?</p>
+                          <p className="mt-2 text-sm text-steel-100/80">Gửi mã hoặc ảnh tem nhãn — chúng tôi tìm và báo giá cho bạn.</p>
+                        </div>
+                        <div className="mt-6 space-y-2.5">
+                          {phone && phoneHref && (
+                            <a href={`tel:${phoneHref}`} className="flex items-center gap-2.5 rounded-xl bg-white/10 px-3 py-2.5 text-sm font-bold backdrop-blur hover:bg-white/20">
+                              <Icon name="phone" className="h-4 w-4" /> {phone}
+                            </a>
+                          )}
+                          <Link href="/lien-he" className="btn-primary w-full">Gửi yêu cầu báo giá</Link>
+                          <Link href="/thuong-hieu" className="block text-center text-xs font-semibold text-steel-100/80 hover:text-white">
+                            Xem thương hiệu phân phối →
+                          </Link>
+                        </div>
                       </div>
                     </div>
                     </div>
