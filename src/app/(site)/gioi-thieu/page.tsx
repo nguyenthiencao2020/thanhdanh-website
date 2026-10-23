@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { BrandMark } from "@/components/BrandMark";
 import { Icon } from "@/components/Icon";
 import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
@@ -41,7 +41,9 @@ export default async function AboutPage() {
           <Reveal delay={150} className="relative">
             <div className="absolute -inset-4 -z-10 rotate-2 rounded-[2rem] bg-gradient-to-br from-steel-100 to-brand-100" />
             <div className="rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200">
-              <Image src="/logo.png" alt={settings.company_name} width={1000} height={547} className="h-auto w-full" />
+              <div className="flex justify-center py-6">
+                <BrandMark name={settings.short_name} subtitle={settings.english_name ?? "Factory Supplies"} size="lg" />
+              </div>
             </div>
           </Reveal>
         </div>

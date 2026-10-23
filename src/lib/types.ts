@@ -1,6 +1,9 @@
 export type Settings = {
   company_name: string;
   short_name: string;
+  english_name: string | null;
+  tax_code: string | null;
+  license_info: string | null;
   tagline: string | null;
   about: string | null;
   phone: string | null;

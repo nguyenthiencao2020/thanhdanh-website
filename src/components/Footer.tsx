@@ -10,7 +10,14 @@ export function Footer({ settings, categories }: { settings: Settings; categorie
       <div className="container-page grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-4">
         <div className="lg:col-span-2">
           <p className="text-lg font-bold text-white uppercase">{settings.company_name}</p>
-          {settings.tagline && <p className="mt-1 text-sm text-brand-100">{settings.tagline}</p>}
+          {settings.english_name && <p className="mt-1 text-xs tracking-wide text-steel-100/70 uppercase">{settings.english_name}</p>}
+          {settings.tagline && <p className="mt-2 text-sm text-brand-100">{settings.tagline}</p>}
+          {settings.tax_code && (
+            <p className="mt-4 text-sm">
+              <span className="font-semibold text-white">Mã số thuế: {settings.tax_code}</span>
+              {settings.license_info && <span className="block text-xs text-steel-100/70">{settings.license_info}</span>}
+            </p>
+          )}
           <ul className="mt-5 space-y-3 text-sm">
             {settings.address && (
               <li className="flex gap-3">

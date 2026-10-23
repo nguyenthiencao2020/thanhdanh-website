@@ -1,4 +1,4 @@
--- Thành Danh website — initial schema
+-- Đạt Danh website — initial schema
 -- Run in Supabase SQL Editor (or `supabase db push`).
 
 create extension if not exists "pgcrypto";

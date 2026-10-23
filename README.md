@@ -1,4 +1,6 @@
-# Website Thành Danh – Vật tư nhà máy
+# Website Đạt Danh – Vật tư nhà máy
+
+Công ty TNHH Thương mại Vật tư Nhà máy Đạt Danh (MST 0319753015).
 
 ```
 GitHub (source code)  →  Vercel (build/host/CDN)  →  Supabase (Postgres + Storage + Auth = CMS)
@@ -30,8 +32,10 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    - `supabase/migrations/0002_demo_images.sql` (cột ảnh danh mục + gắn ảnh minh họa cho dữ liệu mẫu)
    - `supabase/seed.sql` (dữ liệu ban đầu: thông tin công ty, danh mục, thương hiệu, sản phẩm mẫu)
    - `supabase/migrations/0003_security_fixes.sql` (sửa cảnh báo của Security Advisor)
+   - `supabase/migrations/0004_dat_danh.sql` (đổi tên công ty theo giấy phép, thêm MST / tên tiếng Anh)
 
-   > Đã chạy `0001` và `seed.sql` từ trước? Chỉ cần chạy thêm `0002_demo_images.sql` và `0003_security_fixes.sql`.
+   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `seed.sql`.
+   > Đã chạy `0001` và `seed.sql` từ trước? Chỉ cần chạy thêm các file `0002`, `0003`, `0004` còn thiếu.
    > Các file migration đều chạy lại nhiều lần được, không gây lỗi.
 3. **Authentication → Sign In / Providers → Email**: tắt *Allow new users to sign up* (không cho người lạ tự tạo tài khoản).
 4. Copy 2 giá trị để dán vào Vercel (hoặc bấm nút **Connect** ở thanh trên cùng):
