@@ -172,7 +172,7 @@ export default async function ProductPage({ params }: { params: Params }) {
               ))}
             </ul>
 
-            <div id="bao-gia" className="mt-6 scroll-mt-36 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div id="bao-gia" className="mt-6 scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <h2 className="font-semibold text-slate-900">Yêu cầu báo giá sản phẩm này</h2>
               <QuoteForm productId={product.id} productName={product.name} compact />
             </div>

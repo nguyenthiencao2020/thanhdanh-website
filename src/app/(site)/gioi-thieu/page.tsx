@@ -50,7 +50,7 @@ export default async function AboutPage() {
             <div className="absolute -inset-4 -z-10 rotate-2 rounded-[2rem] bg-gradient-to-br from-steel-100 to-brand-100" />
             <div className="rounded-3xl bg-white p-8 shadow-xl ring-1 ring-slate-200">
               <div className="flex justify-center py-6">
-                <BrandMark name={settings.short_name} size="lg" />
+                <BrandMark name={settings.short_name} />
               </div>
             </div>
           </Reveal>

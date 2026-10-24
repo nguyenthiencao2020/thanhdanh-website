@@ -1,26 +1,34 @@
 import Image from "next/image";
 
-/** Company logo (Ref/Đạt Danh_logo_2.png → public/logo-dat-danh.png). */
+const LOGOS = {
+  // Ref/Đạt Danh Factory ngang.png — header
+  horizontal: { src: "/logo-dat-danh-ngang.png", width: 1258, height: 200, className: "h-9 w-auto sm:h-10 xl:h-[52px]" },
+  // Ref/Đạt Danh Factory Emblem.png — footer, about, login
+  emblem: { src: "/logo-dat-danh-emblem.png", width: 1000, height: 680, className: "h-auto w-full max-w-md" },
+};
+
+/** Company logo: the horizontal lock-up for the header, the stacked emblem elsewhere. */
 export function BrandMark({
   name,
-  size = "md",
+  variant = "emblem",
   priority,
   className,
 }: {
   name: string;
-  size?: "md" | "lg";
+  variant?: keyof typeof LOGOS;
   priority?: boolean;
   /** Overrides the size classes. */
   className?: string;
 }) {
+  const logo = LOGOS[variant];
   return (
     <Image
-      src="/logo-dat-danh.png"
+      src={logo.src}
       alt={`${name} – Spare Parts Factory`}
-      width={1000}
-      height={576}
+      width={logo.width}
+      height={logo.height}
       priority={priority}
-      className={className ?? (size === "lg" ? "h-auto w-full max-w-md" : "h-14 w-auto lg:h-[84px]")}
+      className={className ?? logo.className}
     />
   );
 }

@@ -27,7 +27,7 @@ export default async function StaticPage({ params }: { params: Params }) {
     <>
       <PageHeader title={page.title} crumbs={[{ label: "Chính sách" }, { label: page.title }]} />
       <div className="container-page grid gap-10 py-12 lg:grid-cols-[260px_1fr]">
-        <aside className="lg:sticky lg:top-36 lg:self-start">
+        <aside className="lg:sticky lg:top-28 lg:self-start">
           <nav className="rounded-2xl border border-slate-200 bg-white p-4" aria-label="Chính sách">
             <p className="mb-2 px-2 text-xs font-bold tracking-wider text-slate-500 uppercase">Chính sách</p>
             <ul className="space-y-0.5 text-sm">
