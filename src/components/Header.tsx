@@ -82,9 +82,9 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
         </div>
       </div>
 
-      <div className="container-page flex h-[72px] items-center justify-between gap-4 lg:h-24">
+      <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
         <Link href="/" className="flex shrink-0 items-center" aria-label={`${shortName} – Trang chủ`}>
-          <BrandMark name={shortName} priority />
+          <BrandMark name={shortName} variant="horizontal" priority />
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Chính">
@@ -103,7 +103,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold transition ${
+                  className={`flex items-center gap-1 rounded-md px-2.5 py-2 text-sm font-semibold whitespace-nowrap transition xl:px-3 ${
                     isActive(item.href) ? "text-brand-600" : "text-slate-700 hover:text-brand-600"
                   }`}
                 >
@@ -115,8 +115,8 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                     so the menu closes as soon as the mouse leaves it. */}
                 <div className="pointer-events-none invisible fixed top-[5.5rem] right-0 left-0 translate-y-2 opacity-0 transition duration-200 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   <div className="container-page">
-                    <div className="pointer-events-auto pt-12">
-                    <div className="grid max-h-[calc(100vh-9rem)] overflow-y-auto rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-steel-900/15 lg:grid-cols-[1fr_280px]">
+                    <div className="pointer-events-auto pt-10">
+                    <div className="grid max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-steel-900/15 lg:grid-cols-[1fr_280px]">
                       {/* Groups */}
                       <div className="p-5">
                         <div className="mb-3 flex items-center justify-between px-2">
@@ -173,7 +173,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-md px-3 py-2 text-sm font-semibold transition ${
+                className={`rounded-md px-2.5 py-2 text-sm font-semibold whitespace-nowrap transition xl:px-3 ${
                   isActive(item.href) ? "text-brand-600" : "text-slate-700 hover:text-brand-600"
                 }`}
               >
@@ -185,13 +185,13 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
 
         <div className="flex items-center gap-2">
           <Form action="/tim-kiem" className="relative hidden xl:block">
-            <input name="q" type="search" placeholder="Tìm sản phẩm, bài viết…" className="input w-56 pr-9" aria-label="Tìm kiếm" />
+            <input name="q" type="search" placeholder="Tìm sản phẩm…" className="input w-44 pr-9 2xl:w-56" aria-label="Tìm kiếm" />
             <Icon name="search" className="pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2 text-slate-400" />
           </Form>
           <Link href="/tim-kiem" className="rounded-md p-2 text-slate-700 hover:bg-slate-100 xl:hidden" aria-label="Tìm kiếm">
             <Icon name="search" className="h-5 w-5" />
           </Link>
-          <Link href="/lien-he" className="btn-primary hidden sm:inline-flex">
+          <Link href="/lien-he" className="btn-primary hidden whitespace-nowrap sm:inline-flex">
             Báo giá nhanh
           </Link>
           <button

@@ -16,7 +16,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
     <div className="flex min-h-screen items-center justify-center bg-slate-100 px-4">
       <div className="w-full max-w-sm rounded-xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
         <div className="flex justify-center">
-          <BrandMark name={settings.short_name} />
+          <BrandMark name={settings.short_name} className="h-24 w-auto" />
         </div>
         <h1 className="mt-6 text-center text-lg font-bold text-slate-900">Đăng nhập quản trị</h1>
 
