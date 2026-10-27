@@ -109,7 +109,7 @@ widths = {"A": 5, "B": 18, "C": 36, "D": 13, "E": 7, "F": 8, "G": 14, "H": 8, "I
 for k, v in widths.items(): bq.column_dimensions[k].width = v
 
 try:
-    img = XLImage(f"{ROOT}/public/logo-dat-danh-emblem.png"); img.height = 70; img.width = 103
+    img = XLImage(f"{ROOT}/public/logo-dat-danh-emblem-3.png"); img.height = 70; img.width = 110
     bq.add_image(img, "B1")
 except Exception as e:
     print("logo skipped:", e)
