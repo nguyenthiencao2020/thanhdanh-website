@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const LOGOS = {
-  // Ref/Đạt Danh Factory ngang.png — header
-  horizontal: { src: "/logo-dat-danh-ngang.png", width: 1258, height: 200, className: "h-9 w-auto sm:h-10 xl:h-[52px]" },
-  // Ref/Đạt Danh Factory Emblem.png — footer, about, login
-  emblem: { src: "/logo-dat-danh-emblem.png", width: 1000, height: 680, className: "h-auto w-full max-w-md" },
+  // Ref/Logo_Dat Danh _final_ngang_3.png — header
+  horizontal: { src: "/logo-dat-danh-ngang-3.png", width: 1071, height: 240, className: "h-11 w-auto sm:h-12 lg:h-14 xl:h-16" },
+  // Ref/Logo_Dat Danh _final_3.png — footer, about, login
+  emblem: { src: "/logo-dat-danh-emblem-3.png", width: 1000, height: 636, className: "h-auto w-full max-w-md" },
 };
 
 /** Company logo: the horizontal lock-up for the header, the stacked emblem elsewhere. */

@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
     title: { default: `${s.short_name} – ${s.tagline ?? "Vật tư nhà máy"}`, template: `%s | ${s.short_name}` },
     description: s.about?.slice(0, 160) ?? undefined,
-    openGraph: { type: "website", locale: "vi_VN", siteName: s.company_name, images: ["/logo-dat-danh-emblem.png"] },
+    openGraph: { type: "website", locale: "vi_VN", siteName: s.company_name, images: ["/logo-dat-danh-emblem-3.png"] },
   };
 }
 
