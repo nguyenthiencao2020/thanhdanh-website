@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
       { source: "/danh-muc-san-pham/thiet-bi-dien-cong-nghiep", destination: "/danh-muc-san-pham/thiet-bi-dong-cat", permanent: true },
     ];
   },
+  // Admin guide: reachable by direct link only, kept out of search engines.
+  async headers() {
+    return [{ source: "/huong-dan-quan-tri.html", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }];
+  },
   experimental: {
     serverActions: { bodySizeLimit: "5mb" },
   },
