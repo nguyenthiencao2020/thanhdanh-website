@@ -13,7 +13,7 @@ export async function requireAdmin() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect("/admin/login");
+  if (!user) redirect("/admin/login?error=session");
 
   const { data: isAdmin } = await supabase.rpc("is_admin");
   if (!isAdmin) redirect("/admin/login?error=forbidden");
