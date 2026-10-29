@@ -66,15 +66,33 @@ function fail(path: string, message: string): never {
 // ---------------------------------------------------------------------------
 // Auth
 // ---------------------------------------------------------------------------
-export async function signIn(form: FormData) {
-  if (!isSupabaseConfigured) fail("/admin/login", "Chưa cấu hình Supabase.");
+export type SignInState = { error?: string; ok?: boolean };
+
+/** Used with useActionState: returns an error to show, or ok (the form then loads /admin). */
+export async function signIn(_prev: SignInState, form: FormData): Promise<SignInState> {
+  if (!isSupabaseConfigured) return { error: "Chưa cấu hình Supabase." };
   const supabase = await createSessionClient();
   const { error } = await supabase.auth.signInWithPassword({
-    email: String(form.get("email") ?? ""),
+    email: String(form.get("email") ?? "").trim(),
     password: String(form.get("password") ?? ""),
   });
-  if (error) fail("/admin/login", "Email hoặc mật khẩu không đúng.");
-  redirect("/admin");
+  if (error) {
+    if (error.code === "email_not_confirmed")
+      return { error: "Email chưa được xác nhận. Trong Supabase → Authentication → Users, mở tài khoản này và bấm Confirm (hoặc tạo lại với “Auto Confirm User”)." };
+    if (error.code === "invalid_credentials" || error.status === 400) return { error: "Email hoặc mật khẩu không đúng." };
+    return { error: `Không đăng nhập được: ${error.message}` };
+  }
+
+  // Check the admin right away so an unauthorised account gets a clear message.
+  const { data: isAdmin, error: rpcError } = await supabase.rpc("is_admin");
+  if (rpcError) return { error: `Đăng nhập được nhưng không kiểm tra được quyền quản trị: ${rpcError.message}` };
+  if (!isAdmin) {
+    await supabase.auth.signOut();
+    return {
+      error: "Tài khoản này đăng nhập được nhưng chưa được cấp quyền quản trị. Chạy lệnh insert into public.admins … trong Supabase → SQL Editor rồi đăng nhập lại.",
+    };
+  }
+  return { ok: true };
 }
 
 export async function signOut() {

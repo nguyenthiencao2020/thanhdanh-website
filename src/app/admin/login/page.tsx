@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { signIn } from "../actions";
+import { redirect } from "next/navigation";
+import { LoginForm } from "@/components/admin/LoginForm";
 import { BrandMark } from "@/components/BrandMark";
 import { getSettings } from "@/lib/data";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
+import { createSessionClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = { title: "Đăng nhập quản trị", robots: { index: false } };
 
@@ -10,7 +12,18 @@ type SearchParams = Promise<{ error?: string }>;
 
 export default async function LoginPage({ searchParams }: { searchParams: SearchParams }) {
   const [{ error }, settings] = await Promise.all([searchParams, getSettings()]);
-  const message = error === "forbidden" ? "Tài khoản này chưa được cấp quyền quản trị." : error;
+  // Already signed in as an admin → straight to the dashboard.
+  if (isSupabaseConfigured && !error) {
+    const supabase = await createSessionClient();
+    const { data } = await supabase.auth.getUser();
+    if (data.user && (await supabase.rpc("is_admin")).data) redirect("/admin");
+  }
+  const message =
+    error === "forbidden"
+      ? "Tài khoản này chưa được cấp quyền quản trị. Chạy lệnh insert into public.admins … trong Supabase → SQL Editor rồi đăng nhập lại."
+      : error === "session"
+        ? "Phiên đăng nhập không được lưu. Hãy bật cookie cho trang này (hoặc tắt chế độ chặn cookie) rồi thử lại."
+        : undefined;
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-100 px-4">
@@ -26,18 +39,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
             biến môi trường (xem README).
           </p>
         ) : (
-          <form action={signIn} className="mt-6 space-y-4">
-            {message && <p className="rounded-md bg-brand-50 p-3 text-sm text-brand-700">{message}</p>}
-            <div>
-              <label className="label" htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" required autoComplete="username" className="input" />
-            </div>
-            <div>
-              <label className="label" htmlFor="password">Mật khẩu</label>
-              <input id="password" name="password" type="password" required autoComplete="current-password" className="input" />
-            </div>
-            <button type="submit" className="btn-primary w-full">Đăng nhập</button>
-          </form>
+          <LoginForm initialError={message} />
         )}
       </div>
     </div>

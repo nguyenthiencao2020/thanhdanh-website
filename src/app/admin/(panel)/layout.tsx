@@ -29,6 +29,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <Link href="/" target="_blank" className="text-xs text-steel-100/70 hover:text-white lg:mt-1 lg:block">
             Xem website ↗
           </Link>
+          <a href="/huong-dan-quan-tri.html" target="_blank" rel="noopener" className="text-xs text-steel-100/70 hover:text-white lg:mt-1 lg:block">
+            Hướng dẫn sử dụng ↗
+          </a>
         </div>
         <nav className="flex gap-1 overflow-x-auto px-2 pb-2 lg:block lg:space-y-1 lg:overflow-visible">
           {nav.map((item) => (
