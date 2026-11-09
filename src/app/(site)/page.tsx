@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { CountUp } from "@/components/CountUp";
+import { Gear } from "@/components/Gear";
 import { HeroSlider } from "@/components/HeroSlider";
 import { Icon } from "@/components/Icon";
 import { PostCard } from "@/components/PostCard";
@@ -22,14 +23,6 @@ const steps = [
   { title: "Tư vấn chọn mã", text: "Kiểm tra thông số, đề xuất mã phù hợp hoặc tương đương." },
   { title: "Nhận báo giá", text: "Đơn giá, thời gian giao hàng, bảo hành rõ ràng." },
   { title: "Giao hàng", text: "Đóng gói cẩn thận, giao tận nhà máy." },
-];
-
-/** Where the four benefit chips float around the About collage. */
-const chipPos = [
-  "top-0 right-0 sm:-right-4",
-  "top-[45%] -left-2 sm:-left-8",
-  "right-0 bottom-0 sm:-right-6",
-  "-bottom-4 left-4 sm:left-10",
 ];
 
 /** How many product groups the home page shows before “Xem tất cả”. */
@@ -102,67 +95,85 @@ export default async function HomePage() {
       </section>
 
       {/* ------------------------------------------------------ 3. About (showcase) */}
-      <section className="relative isolate overflow-hidden bg-steel-900 py-16 text-white lg:py-24">
-        <div className="bg-blueprint absolute inset-0 -z-10" />
-        <div className="absolute top-1/3 -left-40 -z-10 h-[480px] w-[480px] rounded-full bg-steel-500/30 blur-3xl" />
-        <div className="absolute -right-40 bottom-0 -z-10 h-[520px] w-[520px] rounded-full bg-brand-600/30 blur-3xl" />
+      {/* Light section (the hero above is dark): photo bento on the left, story + strengths on the right. */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white py-16 lg:py-24">
+        <div
+          className="absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_at_center,#000_30%,transparent_75%)]"
+          style={{ backgroundImage: "radial-gradient(rgb(36 59 97 / 0.12) 1px, transparent 1px)", backgroundSize: "22px 22px" }}
+        />
+        <div className="absolute -top-24 -right-24 -z-10 h-80 w-80 rounded-full bg-brand-100/60 blur-3xl" />
 
-        <div className="container-page grid items-center gap-14 lg:grid-cols-2">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold tracking-wider uppercase backdrop-blur">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-green-400" /> Về chúng tôi
+        <div className="container-page grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+          {/* Story */}
+          <Reveal className="lg:order-2">
+            <span className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold tracking-wider text-brand-700 uppercase ring-1 ring-brand-100">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-600" /> Về chúng tôi
             </span>
-            <h2 className="mt-5 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl">
-              Đối tác vật tư{" "}
-              <span className="bg-gradient-to-r from-brand-500 via-orange-400 to-amber-300 bg-clip-text whitespace-nowrap text-transparent">tin cậy</span>
-              <br />
-              cho mọi nhà máy
+            <h2 className="mt-4 text-3xl leading-tight font-extrabold tracking-tight text-balance text-steel-900 sm:text-4xl lg:text-[2.75rem]">
+              Đối tác vật tư <span className="text-brand-600">tin cậy</span> cho mọi nhà máy
             </h2>
-            <p className="mt-5 line-clamp-3 max-w-xl text-lg leading-relaxed text-steel-100/80">{settings.about}</p>
+            <p className="mt-4 line-clamp-4 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">{settings.about}</p>
 
-            <dl className="mt-8 grid max-w-lg grid-cols-3 divide-x divide-white/10 rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
-              {[
-                { value: brands.length, suffix: "+", label: "Thương hiệu" },
-                { value: tree.length, suffix: "", label: "Nhóm hàng" },
-                { value: subNames.length, suffix: "+", label: "Danh mục" },
-              ]
-                .filter((s) => s.value > 0)
-                .map((s) => (
-                <div key={s.label} className="flex flex-col-reverse px-4 py-4 text-center sm:px-6">
-                  <dt className="mt-1 text-xs text-steel-100/70 sm:text-sm">{s.label}</dt>
-                  <dd className="bg-gradient-to-b from-white to-steel-100/70 bg-clip-text text-3xl font-black text-transparent sm:text-4xl">
-                    <CountUp value={s.value} suffix={s.suffix} />
-                  </dd>
-                </div>
+            <ul className="mt-7 grid grid-cols-2 gap-3">
+              {strengths.map((s) => (
+                <li key={s.title} className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3 transition hover:border-brand-500/40 hover:shadow-md sm:items-start sm:p-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 sm:h-10 sm:w-10">
+                    <Icon name={s.icon} className="h-5 w-5" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-sm leading-snug font-semibold text-steel-900 sm:text-base">{s.title}</span>
+                    <span className="mt-0.5 hidden text-sm leading-snug text-slate-500 sm:block">{s.text}</span>
+                  </span>
+                </li>
               ))}
-            </dl>
+            </ul>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/gioi-thieu" className="btn bg-white px-6 py-3 text-base text-steel-900 hover:bg-steel-50">
+              <Link href="/gioi-thieu" className="btn-primary px-6 py-3 text-base">
                 Tìm hiểu về {settings.short_name} <Icon name="arrow" className="h-4 w-4" />
               </Link>
-              <Link href="/thuong-hieu" className="btn border border-white/25 px-6 py-3 text-base text-white hover:bg-white/10">
+              <Link href="/thuong-hieu" className="btn-outline px-6 py-3 text-base">
                 Thương hiệu phân phối
               </Link>
             </div>
           </Reveal>
 
-          {/* Tilted collage with floating benefit chips */}
-          <Reveal delay={150} className="relative mx-auto hidden h-[460px] w-full max-w-[540px] sm:block">
-            <div className="animate-float absolute top-4 left-2 w-[62%] -rotate-6 overflow-hidden rounded-3xl border border-white/15 bg-white shadow-2xl shadow-black/40">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/img/banner/dong-co.jpg" alt="" className="aspect-[4/3] w-full bg-white object-contain" />
-            </div>
-            <div
-              className="animate-float absolute right-2 bottom-6 w-[58%] rotate-[5deg] overflow-hidden rounded-3xl border border-white/15 bg-white shadow-2xl shadow-black/40"
-              style={{ animationDelay: "-3s" }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/img/banner/khoi-dong-mem.jpg" alt="" className="aspect-[4/3] w-full bg-white object-contain" />
+          {/* Photo bento + stats */}
+          <Reveal delay={120} className="relative lg:order-1">
+            <div className="grid h-[380px] grid-cols-6 grid-rows-6 gap-3 sm:h-[480px]">
+              <div className="col-span-4 row-span-4 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/img/banner/dong-co.jpg" alt="Động cơ điện công nghiệp" loading="lazy" className="h-full w-full object-contain p-4" />
+              </div>
+              <div className="col-span-2 row-span-2 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/img/banner/nguon.jpg" alt="Bộ nguồn công nghiệp" loading="lazy" className="h-full w-full object-contain p-2" />
+              </div>
+              <div className="col-span-2 row-span-2 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/img/banner/khoi-dong-mem.jpg" alt="Khởi động mềm" loading="lazy" className="h-full w-full object-contain p-2" />
+              </div>
+              <dl className="relative col-span-6 row-span-2 grid grid-cols-3 items-center overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 to-brand-700 text-white shadow-lg shadow-brand-600/25">
+                <Gear teeth={12} className="animate-spin-slow absolute -right-8 -bottom-10 h-36 w-36 text-white/10" />
+                {[
+                  { value: brands.length, suffix: "+", label: "Thương hiệu" },
+                  { value: tree.length, suffix: "", label: "Nhóm hàng" },
+                  { value: subNames.length, suffix: "+", label: "Danh mục" },
+                ]
+                  .filter((x) => x.value > 0)
+                  .map((x) => (
+                    <div key={x.label} className="relative flex flex-col-reverse text-center">
+                      <dt className="mt-0.5 text-xs text-white/80 sm:text-sm">{x.label}</dt>
+                      <dd className="text-3xl font-black sm:text-4xl">
+                        <CountUp value={x.value} suffix={x.suffix} />
+                      </dd>
+                    </div>
+                  ))}
+              </dl>
             </div>
 
-            {/* Rotating badge */}
-            <div className="absolute top-[38%] left-[46%] flex h-28 w-28 -translate-x-1/2 items-center justify-center rounded-full bg-brand-600 shadow-xl shadow-brand-600/40 ring-8 ring-steel-900 sm:h-32 sm:w-32">
+            {/* Rotating badge where the photos meet */}
+            <div className="absolute top-[52%] left-[66%] flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-steel-900 shadow-xl ring-8 ring-white sm:h-28 sm:w-28">
               <svg viewBox="0 0 100 100" className="animate-spin-slow absolute inset-0 h-full w-full" aria-hidden="true">
                 <defs>
                   <path id="about-circle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
@@ -171,36 +182,12 @@ export default async function HomePage() {
                   <textPath href="#about-circle">{`${settings.short_name.toUpperCase()} • SPARE PARTS FACTORY 24H • `}</textPath>
                 </text>
               </svg>
-              <span className="flex h-[60%] w-[60%] items-center justify-center rounded-full bg-white p-2">
+              <span className="flex h-[58%] w-[58%] items-center justify-center rounded-full bg-white p-1.5">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/logo-dat-danh-mark.png" alt="" className="w-full" />
               </span>
             </div>
-
-            {strengths.map((s, i) => (
-              <div
-                key={s.title}
-                className={`animate-float absolute z-10 flex items-center gap-2.5 rounded-2xl border border-white/15 bg-steel-900/90 px-3.5 py-2.5 text-sm font-semibold shadow-xl shadow-black/30 backdrop-blur-md ${chipPos[i]}`}
-                style={{ animationDelay: `${-i * 1.5}s` }}
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-steel-900">
-                  <Icon name={s.icon} className="h-4 w-4" />
-                </span>
-                {s.title}
-              </div>
-            ))}
           </Reveal>
-
-          <ul className="grid grid-cols-2 gap-3 sm:hidden">
-            {strengths.map((s) => (
-              <li key={s.title} className="flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/5 p-3 text-sm font-semibold">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-steel-900">
-                  <Icon name={s.icon} className="h-4 w-4" />
-                </span>
-                {s.title}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

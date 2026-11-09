@@ -37,7 +37,7 @@ Bố cục gọn 7 section (~5,4 màn hình desktop, ~5,6 màn hình mobile; tr�
 |---|---------|-------|------------|---------|
 | 1 | Hero Slider | 3 slide tự chuyển, CTA + hotline; ảnh sản phẩm thật và ô số liệu chỉ hiện trên màn hình lớn | Hero Slider | Admin → Banner trang chủ |
 | 2 | Thương hiệu | Logo 62 hãng có màu, chạy ngang chậm (~5 giây/logo), dừng khi rê chuột | Logo Carousel | Giữ theo yêu cầu |
-| 3 | Về chúng tôi + Vì sao chọn | Đoạn giới thiệu, số liệu, ảnh sản phẩm + 4 lợi ích | Text + Feature Grid | Nền tối; đưa lên sau dải logo theo yêu cầu |
+| 3 | Về chúng tôi + Vì sao chọn | Ảnh sản phẩm dạng bento + dải số liệu đỏ (trái), giới thiệu + 4 lợi ích + nút (phải) | Bento + Feature Grid | Nền sáng để tách khỏi hero tối; đưa lên sau dải logo theo yêu cầu |
 | 4 | Danh mục | 8 nhóm chính, mỗi ô có ảnh sản phẩm + số danh mục, “Xem tất cả 17 nhóm”; mobile: 1 hàng trượt ngang | Image Grid | |
 | 5 | Sản phẩm nổi bật | Một khối duy nhất, tab theo nhóm; sản phẩm có ảnh thật xếp trước; mobile: trượt ngang | Tabs + Product Grid | |
 | 6 | Báo giá nhanh trong 4 bước | 4 bước đặt hàng + nút báo giá / gọi / Zalo | CTA + Steps | |
