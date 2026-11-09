@@ -118,7 +118,16 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
                   Tất cả {group.name}
                 </NavLink>
                 {group.children.map((c) => (
-                  <NavLink key={c.slug} href={href({}, `/danh-muc-san-pham/${c.slug}`)} className={chip(category?.slug === c.slug)} pendingClassName={chip(true)}>
+                  <NavLink
+                    key={c.slug}
+                    href={href({}, `/danh-muc-san-pham/${c.slug}`)}
+                    className={`${chip(category?.slug === c.slug)} inline-flex items-center gap-1.5 ${c.image_url ? "py-1 pl-1" : ""}`}
+                    pendingClassName={`${chip(true)} inline-flex items-center gap-1.5 ${c.image_url ? "py-1 pl-1" : ""}`}
+                  >
+                    {c.image_url && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={c.image_url} alt="" loading="lazy" className="h-6 w-6 rounded-full bg-white object-contain ring-1 ring-slate-200" />
+                    )}
                     {c.name}
                   </NavLink>
                 ))}

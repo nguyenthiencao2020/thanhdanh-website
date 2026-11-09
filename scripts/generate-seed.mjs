@@ -102,16 +102,16 @@ const lines = [
   "",
   guarded(
     "products",
-    ["specs", "image_url"],
+    ["specs", "image_url", "in_stock"],
     "0005_site_structure.sql",
     [
-      "insert into public.products (slug, name, category_id, brand_id, summary, description, specs, image_url, featured, published) values",
+      "insert into public.products (slug, name, category_id, brand_id, summary, description, specs, image_url, featured, published, in_stock) values",
       data.products
         .map(
           (p) =>
             `  (${q(p.slug)}, ${q(p.name)}, (select id from public.categories where slug = ${q(p.category)}), ` +
             `${p.brand ? `(select id from public.brands where slug = ${q(p.brand)})` : "null"}, ` +
-            `${q(p.summary)}, ${q(p.description)}, ${q(p.specs)}, ${q(p.image_url)}, ${b(p.featured)}, true)`,
+            `${q(p.summary)}, ${q(p.description)}, ${q(p.specs)}, ${q(p.image_url)}, ${b(p.featured)}, true, ${b(p.in_stock ?? true)})`,
         )
         .join(",\n"),
       "on conflict (slug) do nothing;",

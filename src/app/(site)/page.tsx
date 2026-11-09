@@ -104,14 +104,26 @@ export default async function HomePage() {
             <Reveal key={g.slug} delay={(i % 4) * 60} className="w-44 shrink-0 snap-start sm:w-auto">
               <Link
                 href={`/danh-muc-san-pham/${g.slug}`}
-                className="group flex h-full flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg sm:flex-row sm:items-center"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg"
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-steel-50 text-steel-600 transition group-hover:bg-steel-900 group-hover:text-white">
-                  <Icon name={g.icon ?? "box"} className="h-6 w-6" />
+                <span className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-slate-100 bg-white">
+                  {g.image_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={g.image_url} alt="" loading="lazy" className="h-full w-full object-contain p-2 transition duration-500 group-hover:scale-105" />
+                  ) : (
+                    <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-steel-50 text-steel-600">
+                      <Icon name={g.icon ?? "box"} className="h-7 w-7" />
+                    </span>
+                  )}
                 </span>
-                <span className="min-w-0">
-                  <span className="block font-semibold text-slate-900">{g.name}</span>
-                  <span className="mt-0.5 block text-xs text-slate-500">{g.children.length} danh mục</span>
+                <span className="flex items-center gap-2 p-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-steel-50 text-steel-600 transition group-hover:bg-steel-900 group-hover:text-white">
+                    <Icon name={g.icon ?? "box"} className="h-4 w-4" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-sm leading-snug font-semibold text-slate-900">{g.name}</span>
+                    <span className="mt-0.5 block text-xs text-slate-500">{g.children.length} danh mục</span>
+                  </span>
                 </span>
               </Link>
             </Reveal>
@@ -224,14 +236,14 @@ export default async function HomePage() {
           <Reveal delay={150} className="relative mx-auto hidden h-[460px] w-full max-w-[540px] sm:block">
             <div className="animate-float absolute top-4 left-2 w-[62%] -rotate-6 overflow-hidden rounded-3xl border border-white/15 bg-white shadow-2xl shadow-black/40">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/demo/motor-giam-toc.svg" alt="" className="aspect-[4/3] w-full object-cover" />
+              <img src="/img/banner/dong-co.jpg" alt="" className="aspect-[4/3] w-full bg-white object-contain" />
             </div>
             <div
               className="animate-float absolute right-2 bottom-6 w-[58%] rotate-[5deg] overflow-hidden rounded-3xl border border-white/15 bg-white shadow-2xl shadow-black/40"
               style={{ animationDelay: "-3s" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/demo/van-dien-tu.svg" alt="" className="aspect-[4/3] w-full object-cover" />
+              <img src="/img/banner/khoi-dong-mem.jpg" alt="" className="aspect-[4/3] w-full bg-white object-contain" />
             </div>
 
             {/* Rotating badge */}
