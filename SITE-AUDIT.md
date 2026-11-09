@@ -35,7 +35,7 @@ Bố cục gọn 7 section (~5,4 màn hình desktop, ~5,6 màn hình mobile; tr�
 
 | # | Section | Mô tả | Loại block | Ghi chú |
 |---|---------|-------|------------|---------|
-| 1 | Hero Slider | 3 slide tự chuyển, CTA + hotline; ảnh sản phẩm thật và ô số liệu chỉ hiện trên màn hình lớn | Hero Slider | Admin → Banner trang chủ |
+| 1 | Hero Slider | Nền ảnh nhà máy (robot, dây chuyền); tiêu đề có phần cuối xanh nhạt; nút đỏ bo tròn + hotline; số liệu có icon; ảnh sản phẩm trên thẻ kính xanh nhạt; 3 slide tự chuyển. Vừa 1 màn hình laptop 1366–1536px | Hero Slider | Chữ/ảnh slide: Admin → Banner trang chủ; nền: `public/img/banner/hero-nha-may.jpg` |
 | 2 | Thương hiệu | Logo 62 hãng có màu, chạy ngang chậm (~5 giây/logo), dừng khi rê chuột | Logo Carousel | Giữ theo yêu cầu |
 | 3 | Về chúng tôi + Vì sao chọn | Ảnh sản phẩm dạng bento + dải số liệu đỏ (trái), giới thiệu + 4 lợi ích + nút (phải) | Bento + Feature Grid | Nền sáng để tách khỏi hero tối; đưa lên sau dải logo theo yêu cầu |
 | 4 | Danh mục | 8 nhóm chính, mỗi ô có ảnh sản phẩm + số danh mục, “Xem tất cả 17 nhóm”; mobile: 1 hàng trượt ngang | Image Grid | |
@@ -78,10 +78,10 @@ footer dạng accordion; tab chi tiết sản phẩm trống được ẩn.
 | # | Section | Mô tả | Loại block | Ghi chú |
 |---|---------|-------|------------|---------|
 | 1 | Banner tiêu đề | Breadcrumb, tên + mô tả danh mục | Page Header | Tiêu đề SEO riêng mỗi danh mục |
-| 2 | Sidebar | Ô tìm kiếm, danh mục (icon), lọc thương hiệu | Sidebar | Dính khi cuộn (desktop) |
+| 2 | Sidebar | Ô tìm kiếm (có dấu hoặc không dấu), cây danh mục 2 cấp mở/đóng tức thì, lọc thương hiệu | Sidebar | Dính khi cuộn (desktop); mobile: nút “Bộ lọc” |
 | 3 | Thanh công cụ | Số kết quả + sắp xếp: Nổi bật / Mới nhất / Tên A→Z | Toolbar | |
-| 4 | Lưới sản phẩm | Ảnh, danh mục, tên, mô tả, giá / “Liên hệ báo giá” | Product Grid | 12 sản phẩm/trang |
-| 5 | Phân trang | | Pagination | |
+| 4 | Lưới sản phẩm | Ảnh, danh mục, tên, mô tả, giá / “Liên hệ báo giá”; chip danh mục con có ảnh nhỏ | Product Grid | 12 sản phẩm/trang; mobile ẩn mô tả cho gọn |
+| 5 | Phân trang | Dạng rút gọn 1 2 … 11 | Pagination | |
 | 6 | CTA | “Không tìm thấy sản phẩm bạn cần?” | CTA Banner | |
 
 ### 3.4. Trang Chi tiết sản phẩm (`/san-pham/{slug}`)
@@ -95,7 +95,8 @@ footer dạng accordion; tab chi tiết sản phẩm trống được ẩn.
 | 5 | Chính sách nhanh | Bảo hành · Giao hàng · Đổi trả (link tới trang chính sách) | Icon Row | |
 | 6 | Form báo giá | Gắn sẵn tên sản phẩm | Form | |
 | 7 | Tabs | Mô tả chi tiết · Thông số kỹ thuật (bảng) · Tài liệu / Datasheet (PDF) | Tabs | |
-| 8 | Sản phẩm cùng danh mục | Tối đa 8, trượt ngang | Carousel | |
+| 8 | Sản phẩm cùng danh mục | Tối đa 8, ảnh thật xếp trước, trượt ngang | Carousel | |
+| 9 | Dữ liệu cấu trúc | schema.org Product (tên, mã, hãng, ảnh, danh mục) | JSON-LD | Cho Google |
 
 ### 3.5. Trang Tin tức (`/tin-tuc`, `/tin-tuc/{slug}`)
 
@@ -125,7 +126,7 @@ footer dạng accordion; tab chi tiết sản phẩm trống được ẩn.
 - [x] **Header / Menu chính:** Thanh trên (khẩu hiệu, email, Zalo, Facebook, hotline) · logo · menu *Trang chủ / Giới thiệu / Sản phẩm (menu thả xuống: danh mục + thương hiệu) / Dịch vụ / Tin tức / Liên hệ* · nút “Báo giá nhanh”. Menu gọn trên mobile. Header dính khi cuộn.
 - [x] **Thanh tìm kiếm:** Trong header (tìm sản phẩm + bài viết → `/tim-kiem`), trong sidebar trang sản phẩm và tin tức.
 - [x] **Hotline / Zalo / Chat:** Nút nổi góc phải: Gọi (hiệu ứng sóng), Zalo, Messenger (khi có link).
-- [x] **Footer:** Logo, tên công ty, tên tiếng Anh, MST, địa chỉ, giờ làm việc · cột Liên hệ · cột Sản phẩm · cột Chính sách + Thông tin · bản đồ · copyright.
+- [x] **Footer:** Dải liên hệ nhanh (2 hotline + Zalo) · 4 cột: logo + địa chỉ/giờ làm việc · Sản phẩm · Đạt Danh · Chính sách + bản đồ · dải pháp lý (tên công ty, tên tiếng Anh, MST) · copyright.
 - [x] **Breadcrumb:** Có, trên mọi trang con.
 - [x] **Nút Back to top:** Có (góc trái dưới, hiện khi cuộn quá 600px).
 - [x] **Popup / Banner quảng cáo:** Thanh thông báo trên cùng (không dùng popup che nội dung).
@@ -134,11 +135,9 @@ footer dạng accordion; tab chi tiết sản phẩm trống được ẩn.
 
 ## 5. Danh mục sản phẩm / dịch vụ chính
 
-- [x] Thiết bị điện công nghiệp
-- [x] Tự động hóa
-- [x] Khí nén – Thủy lực
-- [x] Motor – Hộp giảm tốc
-- [x] Phụ kiện đường ống – Van
+17 nhóm, 64 danh mục con (theo cách chia của lqe.com.vn): Thiết bị đóng cắt · Contactor – Khởi động từ · Relay – Timer · Biến tần – Khởi động mềm · Thiết bị tự động hóa (PLC) · Cảm biến – Điều khiển nhiệt độ · Bộ chuyển nguồn ATS · Tụ bù – Cuộn kháng · Biến dòng – Đồng hồ đo · Cầu chì · Chống sét · Bộ nguồn – UPS · Phụ kiện tủ điện · Tủ điện · Khí nén – Thủy lực · Motor – Hộp giảm tốc · Phụ kiện đường ống – Van.
+
+123 sản phẩm (113 sản phẩm có ảnh thật từ file “Hình ảnh đưa web.xlsx”), 62 thương hiệu. 33/81 danh mục chưa có sản phẩm.
 
 **Dịch vụ (nội dung mẫu, cần xác nhận):** Tư vấn chọn thiết bị · Tìm mã thay thế tương đương · Cung cấp vật tư theo dự án · Giao hàng tận nơi · Hỗ trợ kỹ thuật.
 
@@ -150,9 +149,9 @@ footer dạng accordion; tab chi tiết sản phẩm trống được ẩn.
 |----------|----------|---------|
 | Cấu trúc section rõ ràng | Tốt | Đủ các section như lqe.com.vn, thêm thương hiệu, quy trình, tìm kiếm chung |
 | Điều hướng (navigation) | Tốt | Menu thả xuống cho danh mục, breadcrumb, sidebar lọc, link chéo sản phẩm ↔ chính sách |
-| Tốc độ tải trang | Tốt (ước tính) | Trang tĩnh + cache 60s (ISR), JS tải lần đầu ~103–112 kB, ảnh minh họa SVG nhẹ. **Chưa đo trên bản thật** — nên chạy PageSpeed Insights sau khi có tên miền |
-| Tính responsive | Tốt | Đã kiểm tra màn hình 390px và 1280px |
-| SEO cơ bản (title, meta, heading) | Tốt | Mỗi trang có title/description riêng, 1 thẻ H1, sitemap + robots tự sinh, URL tiếng Việt không dấu. Thiếu dữ liệu có cấu trúc (JSON-LD) |
+| Tốc độ tải trang | Tốt (ước tính) | Trang tĩnh + cache 60s (ISR), dữ liệu Supabase cache 60s; trang chủ ~2,6 MB (ảnh ~1,3 MB, đã thu nhỏ logo/ảnh danh mục). Thanh tiến trình khi bấm link. **Chưa đo trên bản thật** — nên chạy PageSpeed Insights |
+| Tính responsive | Tốt | Đã kiểm tra 390, 820, 1024, 1280, 1366, 1440, 1536, 1920px: không tràn ngang |
+| SEO cơ bản (title, meta, heading) | Tốt | Mỗi trang có title/description riêng, 1 thẻ H1, sitemap + robots tự sinh, URL tiếng Việt không dấu, JSON-LD Product ở trang sản phẩm. Tên miền: `www.thietbinhamay-dd.com` (cần đặt `NEXT_PUBLIC_SITE_URL`) |
 | Khả năng truy cập (accessibility) | Khá | Có `aria-label`, alt ảnh, tôn trọng “giảm chuyển động”, nội dung hiển thị cả khi không có JavaScript. Chưa kiểm tra bằng công cụ chuyên dụng |
 
 ---
@@ -161,8 +160,8 @@ footer dạng accordion; tab chi tiết sản phẩm trống được ẩn.
 
 - **Nội dung thật là việc quan trọng nhất còn lại:** sản phẩm, ảnh thật, dịch vụ, chính sách, sứ mệnh — danh sách chi tiết trong `NOI-DUNG-CAN-BO-SUNG.md`.
 - **Thông báo yêu cầu báo giá:** hiện chỉ lưu trong Admin; nên thêm gửi email/Zalo/Telegram khi có yêu cầu mới.
-- **Tên miền riêng + Google Search Console + Google Business Profile.**
-- **Đề xuất kỹ thuật tiếp theo:** JSON-LD (Organization, Product, Article) cho Google; ảnh OG riêng 1200×630; nhập sản phẩm hàng loạt từ Excel.
+- **Tên miền** `www.thietbinhamay-dd.com` đã gắn; còn: đặt `NEXT_PUBLIC_SITE_URL`, Google Search Console, Google Business Profile.
+- **Đề xuất kỹ thuật tiếp theo:** JSON-LD Organization / Article; ảnh OG riêng 1200×630; nhập sản phẩm hàng loạt từ Excel; thông báo email/Zalo khi có yêu cầu báo giá.
 - **Khác biệt có chủ đích so với LQE:** không có giỏ hàng / bộ lọc giá (B2B báo giá theo mã, giá thường để “Liên hệ”); không có đánh giá/bình luận (cần kiểm duyệt).
 
 ---
