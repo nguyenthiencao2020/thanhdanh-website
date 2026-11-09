@@ -46,6 +46,7 @@ export default async function HomePage() {
   const catCount = countByCategory(tree, pairs);
   const shopBrands = featuredBrands(brands).filter((b) => (brandCount.get(b.slug) ?? 0) > 0);
   const shopGroups = nonEmptyTree(tree, catCount);
+  const otherBrands = brands.filter((b) => !shopBrands.some((x) => x.slug === b.slug));
 
   // Featured products, with one tab per group that has any (featured first, then newest).
   const groupOf = new Map<string, string>();
@@ -76,27 +77,61 @@ export default async function HomePage() {
         ]}
       />
 
-      {/* ----------------------------------------------------- 2. Brand marquee */}
-      {/* Keep this section: the owner asked for the full-colour scrolling brand strip on the home page. */}
-      <section className="border-b border-slate-200 bg-white py-6" aria-label="Thương hiệu phân phối">
-        <div className="group relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
-          {/* ~5 s per logo keeps the strip slow and readable however many brands there are */}
-          <div
-            className="animate-marquee flex w-max items-center gap-6 group-hover:[animation-play-state:paused]"
-            style={{ animationDuration: `${Math.max(60, brands.length * 5)}s` }}
-          >
-            {[...brands, ...brands].map((b, i) => (
-              <Link
-                key={`${b.slug}-${i}`}
-                href={`/san-pham?thuong-hieu=${b.slug}`}
-                className="flex h-14 w-40 shrink-0 items-center justify-center px-4 transition hover:scale-105"
-                title={b.name}
-                tabIndex={i >= brands.length ? -1 : undefined}
-                aria-hidden={i >= brands.length || undefined}
-              >
-                <BrandLogo brand={b} className="max-h-10" eager />
-              </Link>
-            ))}
+      {/* ----------------------------------------------------- 2. Brands */}
+      {/* Main brands as large, still logos on a card that overlaps the hero; the other brands keep
+          scrolling in full colour underneath (the owner asked for the coloured scrolling strip). */}
+      <section className="relative z-10 border-b border-slate-200 bg-white pt-px pb-6" aria-label="Thương hiệu phân phối">
+        <div className="container-page">
+          <div className="-mt-12 rounded-3xl bg-white p-4 shadow-2xl shadow-steel-900/15 ring-1 ring-slate-200 sm:p-7">
+            <div className="flex flex-wrap items-end justify-between gap-2">
+              <div>
+                <p className="text-xs font-bold tracking-widest text-brand-600 uppercase">Cung cấp thiết bị chính hãng</p>
+                <h2 className="mt-1 text-xl font-extrabold text-steel-900 sm:text-2xl">Thương hiệu chủ lực</h2>
+              </div>
+              <Link href="/thuong-hieu" className="text-sm font-semibold text-steel-600 hover:text-brand-600">Xem tất cả {brands.length} hãng →</Link>
+            </div>
+            <ul className="mt-4 grid grid-cols-4 gap-2 sm:mt-5 sm:gap-3 lg:grid-cols-8">
+              {shopBrands.map((b) => (
+                <li key={b.slug}>
+                  <Link
+                    href={`/san-pham?thuong-hieu=${b.slug}`}
+                    title={b.name}
+                    className="group flex h-full flex-col items-center justify-center gap-2 rounded-xl border border-slate-200 px-1.5 py-2.5 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-lg sm:rounded-2xl sm:px-3 sm:py-4"
+                  >
+                    <span className="flex h-8 w-full items-center justify-center sm:h-12">
+                      <BrandLogo brand={b} className="max-h-8 sm:max-h-12" eager />
+                    </span>
+                    <span className="hidden text-[11px] font-semibold text-slate-500 transition group-hover:text-brand-600 sm:block lg:opacity-0 lg:group-hover:opacity-100">
+                      {brandCount.get(b.slug)} sản phẩm →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="container-page mt-6 flex items-center gap-4">
+          <span className="hidden shrink-0 text-xs font-bold tracking-widest text-slate-400 uppercase sm:block">Và các hãng khác</span>
+          <div className="group relative min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
+            {/* ~5 s per logo keeps the strip slow and readable however many brands there are */}
+            <div
+              className="animate-marquee flex w-max items-center gap-4 group-hover:[animation-play-state:paused]"
+              style={{ animationDuration: `${Math.max(60, otherBrands.length * 5)}s` }}
+            >
+              {[...otherBrands, ...otherBrands].map((b, i) => (
+                <Link
+                  key={`${b.slug}-${i}`}
+                  href={`/san-pham?thuong-hieu=${b.slug}`}
+                  className="flex h-10 w-32 shrink-0 items-center justify-center px-3 transition hover:scale-105"
+                  title={b.name}
+                  tabIndex={i >= otherBrands.length ? -1 : undefined}
+                  aria-hidden={i >= otherBrands.length || undefined}
+                >
+                  <BrandLogo brand={b} className="max-h-8" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -198,29 +233,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ---------------------------------------------- 4. Shop by brand / by type */}
+      {/* ------------------------------------- 4. Shop by product type (brands are in section 2) */}
       <section className="container-page py-16">
-        <SectionHeading eyebrow="Sản phẩm" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel="Xem tất cả sản phẩm →" />
+        <SectionHeading eyebrow="Loại hàng" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel="Xem tất cả sản phẩm →" />
 
-        <h3 className="mt-8 text-sm font-bold tracking-wider text-slate-500 uppercase">Chọn theo hãng</h3>
-        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-          {shopBrands.map((b, i) => (
-            <Reveal key={b.slug} delay={(i % 4) * 60}>
-              <Link
-                href={`/san-pham?thuong-hieu=${b.slug}`}
-                className="group flex h-full flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg"
-              >
-                <span className="flex h-12 w-full items-center justify-center">
-                  <BrandLogo brand={b} className="max-h-11" />
-                </span>
-                <span className="text-xs font-semibold text-slate-500 group-hover:text-brand-600">{brandCount.get(b.slug)} sản phẩm →</span>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-
-        <h3 className="mt-10 text-sm font-bold tracking-wider text-slate-500 uppercase">Hoặc theo loại hàng</h3>
-        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
           {shopGroups.slice(0, HOME_GROUPS).map((g, i) => (
             <Reveal key={g.slug} delay={(i % 4) * 60}>
               <Link
