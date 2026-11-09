@@ -47,7 +47,7 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    - `supabase/migrations/0010_tim-kiem-khong-dau.sql` (tìm kiếm có dấu/không dấu; bỏ “nổi bật” cho sản phẩm còn ảnh vẽ)
 
    > Cài mới: chạy `0001` → … → `0010` theo thứ tự, rồi `seed.sql`.
-   > Trang thật đã chạy đến `0008` (đã kiểm tra: 62 thương hiệu / 123 sản phẩm). **Chạy tiếp `0009` và `0010` nếu chưa chạy.**
+   > Trang thật đã chạy `0008` (đã kiểm tra: 62 thương hiệu / 123 sản phẩm) và `0010`. Chạy `0009` nếu chưa chạy.
    > `seed.sql` không bao giờ dừng giữa chừng: bảng/cột nào chưa có sẽ được bỏ qua kèm thông báo
    > *“Bỏ qua dữ liệu mẫu … hãy chạy 000x_… trước”* — chạy file đó rồi chạy lại `seed.sql`.
    > Đã chạy `0001` và `seed.sql` từ trước? Chạy thêm các file migration còn thiếu, **rồi chạy lại `seed.sql`**
