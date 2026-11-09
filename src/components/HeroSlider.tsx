@@ -104,7 +104,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                 </>
               )}
               <div
-                className={`grid items-center gap-10 ${boxed ? "px-6 py-12 sm:px-10 lg:py-14" : "container-page py-16 lg:py-24"} ${
+                className={`grid items-center gap-10 ${boxed ? "px-6 py-12 sm:px-10 lg:py-14" : "container-page py-14 pb-16 lg:py-14 xl:py-16 [@media(min-height:900px)]:lg:py-20"} ${
                   b.image_url ? "" : boxed ? "xl:grid-cols-[1.1fr_1fr]" : "lg:grid-cols-[1.05fr_1fr]"
                 }`}
               >
@@ -115,13 +115,13 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                     </p>
                   )}
                   {i === 0 ? (
-                    <h1 className={`mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "lg:text-6xl"}`}><Title text={b.title} /></h1>
+                    <h1 className={`mt-5 text-4xl leading-[1.08] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "xl:text-[3.5rem]"}`}><Title text={b.title} /></h1>
                   ) : (
-                    <h2 className={`mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "lg:text-6xl"}`}><Title text={b.title} /></h2>
+                    <h2 className={`mt-5 text-4xl leading-[1.08] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "xl:text-[3.5rem]"}`}><Title text={b.title} /></h2>
                   )}
-                  <div className="mt-5 h-1 w-28 rounded-full bg-brand-600" />
-                  {b.subtitle && <p className="mt-6 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">{b.subtitle}</p>}
-                  <div className="mt-8 flex flex-wrap gap-3">
+                  <div className="mt-4 h-1 w-24 rounded-full bg-brand-600" />
+                  {b.subtitle && <p className="mt-5 max-w-xl text-base leading-relaxed text-white/90 lg:text-[17px]">{b.subtitle}</p>}
+                  <div className="mt-7 flex flex-wrap gap-3">
                     {b.cta_url && (
                       <Link
                         href={b.cta_url}
@@ -144,12 +144,12 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                       </a>
                     )}
                   </div>
-                  <dl className="mt-10 hidden max-w-2xl grid-cols-3 sm:grid">
+                  <dl className="mt-8 hidden max-w-xl grid-cols-3 sm:grid">
                     {stats.map((st, k) => (
-                      <div key={st.label} className={`flex items-center gap-3 ${k ? "border-l border-white/40 pl-5 lg:pl-8" : ""}`}>
-                        <Icon name={STAT_ICONS[k] ?? "check"} className="h-9 w-9 shrink-0 text-white" />
+                      <div key={st.label} className={`flex items-center gap-2.5 xl:gap-3 ${k ? "border-l border-white/40 pl-4 xl:pl-7" : ""}`}>
+                        <Icon name={STAT_ICONS[k] ?? "check"} className="h-7 w-7 shrink-0 text-white/90 xl:h-8 xl:w-8" />
                         <div className="flex flex-col-reverse">
-                          <dt className="text-xs text-white/80 sm:text-sm">{st.label}</dt>
+                          <dt className="text-xs whitespace-nowrap text-white/80 xl:text-sm">{st.label}</dt>
                           <dd className="text-2xl font-extrabold whitespace-nowrap text-white sm:text-3xl">{st.value}</dd>
                         </div>
                       </div>
@@ -159,11 +159,11 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
 
                 {!b.image_url && collage.length > 0 && (
                   <div
-                    className={`relative mx-auto h-[300px] w-full max-w-[560px] transition-all delay-300 duration-700 ${boxed ? "hidden sm:h-[380px] xl:block" : "hidden lg:block lg:h-[440px]"} ${
+                    className={`relative mx-auto h-[300px] w-full max-w-[540px] lg:mr-0 transition-all delay-300 duration-700 ${boxed ? "hidden sm:h-[380px] xl:block" : "hidden lg:block lg:h-[400px] xl:h-[430px]"} ${
                       on ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
                     }`}
                   >
-                    <div className={`animate-float absolute top-12 left-0 w-[64%] ${GLASS}`}>
+                    <div className={`animate-float absolute top-[14%] left-0 w-[62%] ${GLASS}`}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <div className={GLASS_FILL}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -172,7 +172,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                     </div>
                     {collage[1] && (
                       <div
-                        className={`animate-float absolute top-0 right-0 hidden w-[42%] sm:block ${GLASS}`}
+                        className={`animate-float absolute top-0 right-2 hidden w-[40%] sm:block ${GLASS}`}
                         style={{ animationDelay: "-2s" }}
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -184,7 +184,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                     )}
                     {collage[2] && (
                       <div
-                        className={`animate-float absolute right-4 bottom-0 w-[44%] ${GLASS}`}
+                        className={`animate-float absolute right-6 bottom-0 w-[42%] ${GLASS}`}
                         style={{ animationDelay: "-4s" }}
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -222,7 +222,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
             type="button"
             onClick={() => go(active - 1)}
             aria-label="Slide trước"
-            className="absolute top-1/2 left-3 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 backdrop-blur transition hover:bg-white/30 xl:flex"
+            className="absolute top-1/2 left-4 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 backdrop-blur transition hover:bg-white/30 2xl:flex"
           >
             <Icon name="arrow" className="h-5 w-5 rotate-180" />
           </button>
@@ -230,7 +230,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
             type="button"
             onClick={() => go(active + 1)}
             aria-label="Slide sau"
-            className="absolute top-1/2 right-3 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 backdrop-blur transition hover:bg-white/30 xl:flex"
+            className="absolute top-1/2 right-4 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 backdrop-blur transition hover:bg-white/30 2xl:flex"
           >
             <Icon name="arrow" className="h-5 w-5" />
           </button>
