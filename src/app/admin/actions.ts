@@ -290,8 +290,8 @@ export async function saveSettings(form: FormData) {
   const shortName = text(form, "short_name");
   if (!companyName || !shortName) fail("/admin/cai-dat", "Tên công ty và tên ngắn là bắt buộc.");
   const mapUrl = text(form, "map_embed_url");
-  if (mapUrl && !/^https:\/\/(www\.)?google\.[a-z.]+\/maps/.test(mapUrl)) {
-    fail("/admin/cai-dat", "Link bản đồ phải là link nhúng Google Maps (https://www.google.com/maps/...).");
+  if (mapUrl && !/^https:\/\/((www\.|maps\.)?google\.[a-z.]+\/maps|maps\.app\.goo\.gl\/|goo\.gl\/maps\/)/.test(mapUrl)) {
+    fail("/admin/cai-dat", "Link bản đồ phải là link Google Maps (VD https://maps.app.goo.gl/… hoặc https://www.google.com/maps/…).");
   }
 
   const { error } = await supabase.from("settings").upsert({
