@@ -53,7 +53,9 @@ export default async function HomePage() {
     groupOf.set(g.slug, g.slug);
     g.children.forEach((c) => groupOf.set(c.slug, g.slug));
   }
-  const ordered = [...allProducts.filter((p) => p.featured), ...allProducts.filter((p) => !p.featured)];
+  // Real photos before the drawn placeholders (/demo/…), so the showcase looks consistent.
+  const rank = (p: (typeof allProducts)[number]) => (p.featured ? 2 : 0) + (p.image_url && !p.image_url.startsWith("/demo/") ? 1 : 0);
+  const ordered = [...allProducts].sort((a, b) => rank(b) - rank(a));
   const tabs = tree
     .map((g) => ({ slug: g.slug, name: g.name, items: ordered.filter((p) => p.category && groupOf.get(p.category.slug) === g.slug) }))
     .filter((t) => t.items.length > 0)
@@ -78,7 +80,11 @@ export default async function HomePage() {
       {/* Keep this section: the owner asked for the full-colour scrolling brand strip on the home page. */}
       <section className="border-b border-slate-200 bg-white py-6" aria-label="Thương hiệu phân phối">
         <div className="group relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
-          <div className="animate-marquee flex w-max items-center gap-6 group-hover:[animation-play-state:paused]">
+          {/* ~3 s per logo keeps the strip at the same calm speed however many brands there are */}
+          <div
+            className="animate-marquee flex w-max items-center gap-6 group-hover:[animation-play-state:paused]"
+            style={{ animationDuration: `${Math.max(40, brands.length * 3)}s` }}
+          >
             {[...brands, ...brands].map((b, i) => (
               <Link
                 key={`${b.slug}-${i}`}
@@ -153,7 +159,7 @@ export default async function HomePage() {
           <div className="grid items-center gap-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 lg:grid-cols-[1fr_1.3fr]">
             <div>
               <p className="text-sm font-semibold tracking-wider text-steel-600 uppercase">Báo giá nhanh</p>
-              <h2 className="mt-1 text-3xl font-bold text-steel-900 sm:text-4xl">Nhận báo giá chỉ với 4 bước</h2>
+              <h2 className="mt-1 text-3xl font-bold text-balance text-steel-900 sm:text-4xl">Nhận báo giá chỉ với 4 bước</h2>
               <p className="mt-3 text-slate-600">Gửi danh sách mã hàng hoặc ảnh tem nhãn — chúng tôi tư vấn và báo giá cho bạn.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/lien-he" className="btn-primary px-6 py-3 text-base">
