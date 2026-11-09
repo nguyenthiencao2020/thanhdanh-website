@@ -1,0 +1,940 @@
+[
+  {
+    "brand": "siemens",
+    "slug": "plc-logo",
+    "name": "PLC, LOGO!",
+    "group": "tu-dong-hoa",
+    "series": [
+      "S7-200",
+      "S7-200 SMART",
+      "S7-300",
+      "S7-400",
+      "S7-1200",
+      "S7-1500",
+      "ET200",
+      "LOGO!",
+      "module mở rộng I/O",
+      "PROFIBUS"
+    ],
+    "image_url": "/img/sp/plc-siemens-s7-1200.jpg",
+    "description": "PLC, LOGO! Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "plc-siemens-s7-1200",
+      "plc-siemens-s7-1500",
+      "plc-siemens-s7-200",
+      "plc-siemens-s7-200-smart",
+      "plc-siemens-s7-300",
+      "plc-siemens-s7-400",
+      "bo-dieu-khien-siemens-logo",
+      "module-mo-rong-plc-siemens",
+      "dau-noi-profibus-siemens"
+    ],
+    "sort_order": 1
+  },
+  {
+    "brand": "siemens",
+    "slug": "hmi-man-hinh-van-hanh",
+    "name": "HMI – Màn hình vận hành",
+    "group": "tu-dong-hoa",
+    "series": [
+      "KTP Basic",
+      "TP/KP Comfort",
+      "SMART 700 IE",
+      "TP 177B",
+      "OP 77A"
+    ],
+    "image_url": "/img/sp/hmi-siemens-ktp-basic.jpg",
+    "description": "HMI – Màn hình vận hành Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "hmi-siemens-ktp-basic",
+      "hmi-siemens-tp-comfort",
+      "hmi-siemens-kp-comfort",
+      "hmi-siemens-smart-700-ie",
+      "hmi-siemens-tp177b",
+      "hmi-siemens-op77a"
+    ],
+    "sort_order": 2
+  },
+  {
+    "brand": "siemens",
+    "slug": "bien-tan-khoi-dong-mem",
+    "name": "Biến tần – Khởi động mềm",
+    "group": "bien-tan-khoi-dong-mem",
+    "series": [
+      "SINAMICS V20",
+      "G120C",
+      "G120 (Control Unit, Power Module)",
+      "MICROMASTER 420/440",
+      "SIRIUS 3RW"
+    ],
+    "image_url": "/img/sp/bien-tan-siemens-v20.jpg",
+    "description": "Biến tần – Khởi động mềm Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "bien-tan-siemens-v20",
+      "bien-tan-siemens-g120c",
+      "bien-tan-siemens-g120",
+      "control-unit-siemens-g120",
+      "bien-tan-siemens-micromaster-420",
+      "bien-tan-siemens-micromaster-440",
+      "khoi-dong-mem-siemens-3rw"
+    ],
+    "sort_order": 3
+  },
+  {
+    "brand": "siemens",
+    "slug": "motor-servo",
+    "name": "Motor – Servo",
+    "group": "motor-hop-giam-toc",
+    "series": [
+      "Động cơ SIMOTICS",
+      "Servo SINAMICS V90 + động cơ 1FL6"
+    ],
+    "image_url": "/img/sp/dong-co-dien-siemens-simotics.jpg",
+    "description": "Motor – Servo Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "dong-co-dien-siemens-simotics",
+      "servo-siemens-v90"
+    ],
+    "sort_order": 4
+  },
+  {
+    "brand": "siemens",
+    "slug": "mcb-mccb",
+    "name": "MCB, MCCB",
+    "group": "thiet-bi-dong-cat",
+    "series": [
+      "MCB 5SL",
+      "MCCB 3VA"
+    ],
+    "image_url": "/img/sp/mccb-siemens-3va.jpg",
+    "description": "MCB, MCCB Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "mcb-siemens-5sl",
+      "mccb-siemens-3va"
+    ],
+    "sort_order": 5
+  },
+  {
+    "brand": "siemens",
+    "slug": "contactor-khoi-dong-tu-ro-le-nhiet",
+    "name": "Contactor – Khởi động từ – Rơ le nhiệt",
+    "group": "contactor-khoi-dong-tu",
+    "series": [
+      "SIRIUS 3RT",
+      "3RT2",
+      "3TS",
+      "CB động cơ 3RV",
+      "Rơ le nhiệt 3RU / 3RB",
+      "Contactor phụ 3TH",
+      "Timer 3RP"
+    ],
+    "image_url": "/img/sp/contactor-siemens-3rt.jpg",
+    "description": "Contactor – Khởi động từ – Rơ le nhiệt Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "contactor-siemens-3rt",
+      "bo-khoi-dong-tu-siemens-3rt2",
+      "contactor-siemens-3ts",
+      "cb-bao-ve-dong-co-siemens-3rv",
+      "ro-le-nhiet-siemens-3ru",
+      "ro-le-nhiet-dien-tu-siemens-3rb",
+      "contactor-phu-siemens-3th",
+      "timer-siemens-3rp"
+    ],
+    "sort_order": 6
+  },
+  {
+    "brand": "siemens",
+    "slug": "nut-nhan-den-bao",
+    "name": "Nút nhấn, đèn báo",
+    "group": "phu-kien-tu-dien",
+    "series": [
+      "SIRIUS ACT 3SU1 (nút nhấn, đèn báo, công tắc xoay, dừng khẩn)"
+    ],
+    "image_url": "/img/sp/nut-nhan-schneider-harmony-xb4.jpg",
+    "description": "Nút nhấn, đèn báo Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [],
+    "sort_order": 7
+  },
+  {
+    "brand": "siemens",
+    "slug": "bo-nguon-sitop-ups",
+    "name": "Bộ nguồn SITOP – UPS",
+    "group": "bo-nguon-ups",
+    "series": [
+      "SITOP PSU100C",
+      "PSU200M",
+      "PSE200U",
+      "DC UPS",
+      "LOGO!Power"
+    ],
+    "image_url": "/img/sp/nguon-siemens-sitop-psu200m.jpg",
+    "description": "Bộ nguồn SITOP – UPS Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "nguon-siemens-sitop-psu100c",
+      "nguon-siemens-sitop-psu200m",
+      "module-bao-ve-siemens-sitop-pse200u",
+      "ups-dc-siemens-sitop",
+      "nguon-siemens-logo-power"
+    ],
+    "sort_order": 8
+  },
+  {
+    "brand": "siemens",
+    "slug": "cau-chi",
+    "name": "Cầu chì",
+    "group": "cau-chi",
+    "series": [
+      "Cầu chì ống 3NW",
+      "Cầu chì bán dẫn SITOR 3NE"
+    ],
+    "image_url": "/img/sp/cau-chi-ban-dan-siemens-sitor.jpg",
+    "description": "Cầu chì Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cau-chi-siemens-3nw",
+      "cau-chi-ban-dan-siemens-sitor"
+    ],
+    "sort_order": 9
+  },
+  {
+    "brand": "siemens",
+    "slug": "thiet-bi-do",
+    "name": "Thiết bị đo",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "SITRANS P (áp suất)",
+      "SITRANS LR (đo mức radar)"
+    ],
+    "image_url": "/img/sp/cam-bien-ap-suat-siemens-sitrans-p.jpg",
+    "description": "Thiết bị đo Siemens chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-ap-suat-siemens-sitrans-p",
+      "cam-bien-muc-radar-siemens"
+    ],
+    "sort_order": 10
+  },
+  {
+    "brand": "schneider-electric",
+    "slug": "mcb-mccb",
+    "name": "MCB, MCCB",
+    "group": "thiet-bi-dong-cat",
+    "series": [
+      "MCB Easy9",
+      "MCCB EasyPact EZC"
+    ],
+    "image_url": "/img/sp/mccb-schneider-easypact-ezc.jpg",
+    "description": "MCB, MCCB Schneider Electric chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "aptomat-schneider-easy9",
+      "mccb-schneider-easypact-ezc"
+    ],
+    "sort_order": 11
+  },
+  {
+    "brand": "schneider-electric",
+    "slug": "contactor-khoi-dong-tu-ro-le-nhiet",
+    "name": "Contactor – Khởi động từ – Rơ le nhiệt",
+    "group": "contactor-khoi-dong-tu",
+    "series": [
+      "TeSys D LC1D",
+      "TeSys F LC1F",
+      "EasyPact TVS LC1E",
+      "CB động cơ GV2",
+      "Rơ le nhiệt LRD"
+    ],
+    "image_url": "/img/sp/contactor-schneider-tesys-d.jpg",
+    "description": "Contactor – Khởi động từ – Rơ le nhiệt Schneider Electric chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "contactor-schneider-tesys-d",
+      "contactor-schneider-tesys-f",
+      "contactor-schneider-easypact-tvs",
+      "cb-bao-ve-dong-co-schneider-gv2",
+      "ro-le-nhiet-schneider-lrd"
+    ],
+    "sort_order": 12
+  },
+  {
+    "brand": "schneider-electric",
+    "slug": "relay-timer",
+    "name": "Relay – Timer",
+    "group": "relay-timer",
+    "series": [
+      "Relay trung gian Zelio RXM",
+      "Timer Zelio RE22",
+      "Relay bảo vệ pha"
+    ],
+    "image_url": "/img/sp/relay-trung-gian-schneider-rxm.jpg",
+    "description": "Relay – Timer Schneider Electric chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "relay-trung-gian-schneider-rxm",
+      "timer-schneider-zelio-re22",
+      "relay-bao-ve-pha-schneider"
+    ],
+    "sort_order": 13
+  },
+  {
+    "brand": "schneider-electric",
+    "slug": "nut-nhan-den-bao",
+    "name": "Nút nhấn, đèn báo",
+    "group": "phu-kien-tu-dien",
+    "series": [
+      "Harmony XB4 / XB5",
+      "Hộp nút dừng khẩn XAP",
+      "Nút nhấn đôi"
+    ],
+    "image_url": "/img/sp/nut-nhan-schneider-harmony-xb4.jpg",
+    "description": "Nút nhấn, đèn báo Schneider Electric chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "nut-nhan-schneider-harmony-xb4",
+      "hop-nut-dung-khan-cap-schneider",
+      "nut-nhan-doi-schneider-harmony"
+    ],
+    "sort_order": 14
+  },
+  {
+    "brand": "schneider-electric",
+    "slug": "cam-bien-telemecanique",
+    "name": "Cảm biến Telemecanique",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "Cảm biến quang XUK",
+      "Cảm biến siêu âm XX"
+    ],
+    "image_url": "/img/sp/cam-bien-quang-telemecanique-xuk.jpg",
+    "description": "Cảm biến Telemecanique Schneider Electric chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-quang-telemecanique-xuk",
+      "cam-bien-sieu-am-telemecanique"
+    ],
+    "sort_order": 15
+  },
+  {
+    "brand": "schneider-electric",
+    "slug": "thiet-bi-do",
+    "name": "Thiết bị đo",
+    "group": "bien-dong-dong-ho-do",
+    "series": [
+      "Đồng hồ đa năng PowerLogic PM"
+    ],
+    "image_url": "/img/sp/dong-ho-da-nang-schneider-pm.jpg",
+    "description": "Thiết bị đo Schneider Electric chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "dong-ho-da-nang-schneider-pm"
+    ],
+    "sort_order": 16
+  },
+  {
+    "brand": "abb",
+    "slug": "mcb-mccb",
+    "name": "MCB, MCCB",
+    "group": "thiet-bi-dong-cat",
+    "series": [
+      "MCB S200",
+      "MCCB Tmax"
+    ],
+    "image_url": "/img/sp/mcb-abb-s200.jpg",
+    "description": "MCB, MCCB ABB chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "mcb-abb-s200",
+      "mccb-abb-tmax"
+    ],
+    "sort_order": 17
+  },
+  {
+    "brand": "abb",
+    "slug": "contactor-ro-le-nhiet",
+    "name": "Contactor – Rơ le nhiệt",
+    "group": "contactor-khoi-dong-tu",
+    "series": [
+      "Contactor AF",
+      "AX",
+      "Rơ le nhiệt TA"
+    ],
+    "image_url": "/img/sp/contactor-abb-ax.jpg",
+    "description": "Contactor – Rơ le nhiệt ABB chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "contactor-abb-af",
+      "contactor-abb-ax",
+      "ro-le-nhiet-abb-ta"
+    ],
+    "sort_order": 18
+  },
+  {
+    "brand": "abb",
+    "slug": "relay",
+    "name": "Relay",
+    "group": "relay-timer",
+    "series": [
+      "Relay trung gian CR",
+      "Relay giám sát CM"
+    ],
+    "image_url": "/img/sp/relay-giam-sat-abb-cm.jpg",
+    "description": "Relay ABB chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "relay-trung-gian-abb-cr",
+      "relay-giam-sat-abb-cm"
+    ],
+    "sort_order": 19
+  },
+  {
+    "brand": "abb",
+    "slug": "bien-tan",
+    "name": "Biến tần",
+    "group": "bien-tan-khoi-dong-mem",
+    "series": [
+      "ACS series"
+    ],
+    "image_url": "/img/sp/bien-tan-abb-acs.jpg",
+    "description": "Biến tần ABB chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "bien-tan-abb-acs"
+    ],
+    "sort_order": 20
+  },
+  {
+    "brand": "abb",
+    "slug": "cau-chi",
+    "name": "Cầu chì",
+    "group": "cau-chi",
+    "series": [
+      "Cầu chì NH"
+    ],
+    "image_url": "/img/sp/cau-chi-nh-abb.jpg",
+    "description": "Cầu chì ABB chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cau-chi-nh-abb"
+    ],
+    "sort_order": 21
+  },
+  {
+    "brand": "ifm",
+    "slug": "cam-bien-tiem-can",
+    "name": "Cảm biến tiệm cận",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "M12",
+      "M30",
+      "cảm biến điện dung"
+    ],
+    "image_url": "/img/sp/cam-bien-tiem-can-ifm-m30.jpg",
+    "description": "Cảm biến tiệm cận ifm electronic chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-tiem-can-ifm-m12",
+      "cam-bien-tiem-can-ifm-m30",
+      "cam-bien-dien-dung-ifm"
+    ],
+    "sort_order": 22
+  },
+  {
+    "brand": "ifm",
+    "slug": "cam-bien-quang",
+    "name": "Cảm biến quang",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "Cảm biến quang thu phát, phản xạ"
+    ],
+    "image_url": "/img/sp/cam-bien-quang-ifm.jpg",
+    "description": "Cảm biến quang ifm electronic chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-quang-ifm"
+    ],
+    "sort_order": 23
+  },
+  {
+    "brand": "ifm",
+    "slug": "cam-bien-nhiet-do-luu-luong",
+    "name": "Cảm biến nhiệt độ, lưu lượng",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "Cảm biến nhiệt độ",
+      "Cảm biến lưu lượng"
+    ],
+    "image_url": "/img/sp/cam-bien-nhiet-do-ifm.jpg",
+    "description": "Cảm biến nhiệt độ, lưu lượng ifm electronic chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-nhiet-do-ifm",
+      "cam-bien-luu-luong-ifm"
+    ],
+    "sort_order": 24
+  },
+  {
+    "brand": "autonics",
+    "slug": "cam-bien-tiem-can",
+    "name": "Cảm biến tiệm cận",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "PR (dạng trụ)",
+      "PS (dạng hộp)"
+    ],
+    "image_url": "/img/sp/cam-bien-tiem-can-autonics-pr.jpg",
+    "description": "Cảm biến tiệm cận Autonics chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-tiem-can-autonics-pr",
+      "cam-bien-tiem-can-autonics-ps"
+    ],
+    "sort_order": 25
+  },
+  {
+    "brand": "autonics",
+    "slug": "cam-bien-quang",
+    "name": "Cảm biến quang",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "BJ",
+      "BR"
+    ],
+    "image_url": "/img/sp/cam-bien-quang-autonics-br.jpg",
+    "description": "Cảm biến quang Autonics chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-quang-autonics-bj",
+      "cam-bien-quang-autonics-br"
+    ],
+    "sort_order": 26
+  },
+  {
+    "brand": "autonics",
+    "slug": "encoder",
+    "name": "Encoder",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "E50S"
+    ],
+    "image_url": "/img/sp/encoder-autonics-e50s.jpg",
+    "description": "Encoder Autonics chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "encoder-autonics-e50s"
+    ],
+    "sort_order": 27
+  },
+  {
+    "brand": "autonics",
+    "slug": "bo-nguon",
+    "name": "Bộ nguồn",
+    "group": "bo-nguon-ups",
+    "series": [
+      "SPB"
+    ],
+    "image_url": "/img/sp/nguon-autonics-spb.jpg",
+    "description": "Bộ nguồn Autonics chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "nguon-autonics-spb"
+    ],
+    "sort_order": 28
+  },
+  {
+    "brand": "chint",
+    "slug": "contactor-khoi-dong-tu",
+    "name": "Contactor – Khởi động từ",
+    "group": "contactor-khoi-dong-tu",
+    "series": [
+      "NXC",
+      "CJX2",
+      "NC2",
+      "CB động cơ NS2"
+    ],
+    "image_url": "/img/sp/contactor-chint-cjx2.jpg",
+    "description": "Contactor – Khởi động từ CHINT chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "contactor-chint-nxc",
+      "contactor-chint-cjx2",
+      "contactor-chint-nc2",
+      "cb-bao-ve-dong-co-chint-ns2"
+    ],
+    "sort_order": 29
+  },
+  {
+    "brand": "chint",
+    "slug": "relay-bao-ve",
+    "name": "Relay bảo vệ",
+    "group": "relay-timer",
+    "series": [
+      "Relay bảo vệ pha XJ3"
+    ],
+    "image_url": "/img/sp/relay-bao-ve-pha-chint-xj3.jpg",
+    "description": "Relay bảo vệ CHINT chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "relay-bao-ve-pha-chint-xj3"
+    ],
+    "sort_order": 30
+  },
+  {
+    "brand": "weidmuller",
+    "slug": "bo-nguon",
+    "name": "Bộ nguồn",
+    "group": "bo-nguon-ups",
+    "series": [
+      "PRO eco",
+      "PRO top"
+    ],
+    "image_url": "/img/sp/nguon-weidmuller-pro-eco.jpg",
+    "description": "Bộ nguồn Weidmüller chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "nguon-weidmuller-pro-eco",
+      "nguon-weidmuller-pro-top"
+    ],
+    "sort_order": 31
+  },
+  {
+    "brand": "weidmuller",
+    "slug": "cau-dau-relay-kem-de",
+    "name": "Cầu đấu – Relay kèm đế",
+    "group": "phu-kien-tu-dien",
+    "series": [
+      "Cầu đấu dây",
+      "Relay kèm đế"
+    ],
+    "image_url": "/img/sp/cau-dau-weidmuller.jpg",
+    "description": "Cầu đấu – Relay kèm đế Weidmüller chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cau-dau-weidmuller",
+      "relay-kem-de-weidmuller"
+    ],
+    "sort_order": 32
+  },
+  {
+    "brand": "weidmuller",
+    "slug": "switch-ethernet",
+    "name": "Switch Ethernet",
+    "group": "tu-dong-hoa",
+    "series": [
+      "Switch Ethernet công nghiệp"
+    ],
+    "image_url": "/img/sp/switch-ethernet-weidmuller.jpg",
+    "description": "Switch Ethernet Weidmüller chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "switch-ethernet-weidmuller"
+    ],
+    "sort_order": 33
+  },
+  {
+    "brand": "sick",
+    "slug": "cam-bien-quang",
+    "name": "Cảm biến quang",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "Cảm biến quang",
+      "cảm biến màu",
+      "cảm biến nhãn (chữ U)"
+    ],
+    "image_url": "/img/sp/cam-bien-quang-sick.jpg",
+    "description": "Cảm biến quang SICK chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-quang-sick",
+      "cam-bien-mau-sick",
+      "cam-bien-nhan-sick"
+    ],
+    "sort_order": 34
+  },
+  {
+    "brand": "sick",
+    "slug": "cam-bien-ap-suat",
+    "name": "Cảm biến áp suất",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "PBS"
+    ],
+    "image_url": "/img/sp/cam-bien-ap-suat-sick-pbs.jpg",
+    "description": "Cảm biến áp suất SICK chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-ap-suat-sick-pbs"
+    ],
+    "sort_order": 35
+  },
+  {
+    "brand": "phoenix-contact",
+    "slug": "bo-nguon",
+    "name": "Bộ nguồn",
+    "group": "bo-nguon-ups",
+    "series": [
+      "QUINT",
+      "TRIO",
+      "STEP"
+    ],
+    "image_url": "/img/sp/nguon-phoenix-contact.jpg",
+    "description": "Bộ nguồn Phoenix Contact chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "nguon-phoenix-contact"
+    ],
+    "sort_order": 36
+  },
+  {
+    "brand": "phoenix-contact",
+    "slug": "cau-dau",
+    "name": "Cầu đấu",
+    "group": "phu-kien-tu-dien",
+    "series": [
+      "Cầu đấu dây",
+      "cầu đấu dạng cắm"
+    ],
+    "image_url": "/img/sp/cau-dau-phoenix-contact.jpg",
+    "description": "Cầu đấu Phoenix Contact chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cau-dau-phoenix-contact",
+      "cau-dau-cam-phoenix-contact"
+    ],
+    "sort_order": 37
+  },
+  {
+    "brand": "phoenix-contact",
+    "slug": "switch-ethernet",
+    "name": "Switch Ethernet",
+    "group": "tu-dong-hoa",
+    "series": [
+      "Switch Ethernet công nghiệp"
+    ],
+    "image_url": "/img/sp/switch-ethernet-phoenix-contact.jpg",
+    "description": "Switch Ethernet Phoenix Contact chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "switch-ethernet-phoenix-contact"
+    ],
+    "sort_order": 38
+  },
+  {
+    "brand": "pepperl-fuchs",
+    "slug": "cam-bien-tiem-can",
+    "name": "Cảm biến tiệm cận",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "Dạng trụ",
+      "dạng hộp"
+    ],
+    "image_url": "/img/sp/cam-bien-tiem-can-pepperl-fuchs-tru.jpg",
+    "description": "Cảm biến tiệm cận Pepperl+Fuchs chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-tiem-can-pepperl-fuchs-tru",
+      "cam-bien-tiem-can-pepperl-fuchs-vuong"
+    ],
+    "sort_order": 39
+  },
+  {
+    "brand": "pepperl-fuchs",
+    "slug": "cam-bien-quang",
+    "name": "Cảm biến quang",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "Cảm biến quang"
+    ],
+    "image_url": "/img/sp/cam-bien-quang-pepperl-fuchs.jpg",
+    "description": "Cảm biến quang Pepperl+Fuchs chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-quang-pepperl-fuchs"
+    ],
+    "sort_order": 40
+  },
+  {
+    "brand": "eaton",
+    "slug": "cau-chi-bussmann",
+    "name": "Cầu chì Bussmann",
+    "group": "cau-chi",
+    "series": [
+      "NH",
+      "bán dẫn",
+      "ống 10x38"
+    ],
+    "image_url": "/img/sp/cau-chi-nh-eaton-bussmann.jpg",
+    "description": "Cầu chì Bussmann Eaton chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cau-chi-nh-eaton-bussmann",
+      "cau-chi-ban-dan-eaton-bussmann",
+      "cau-chi-ong-10x38-bussmann"
+    ],
+    "sort_order": 41
+  },
+  {
+    "brand": "pilz",
+    "slug": "thiet-bi-an-toan",
+    "name": "Thiết bị an toàn",
+    "group": "relay-timer",
+    "series": [
+      "Relay an toàn PNOZ",
+      "Công tắc an toàn PSEN"
+    ],
+    "image_url": "/img/sp/relay-an-toan-pilz-pnoz.jpg",
+    "description": "Thiết bị an toàn Pilz chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "relay-an-toan-pilz-pnoz",
+      "cong-tac-an-toan-pilz-psen"
+    ],
+    "sort_order": 42
+  },
+  {
+    "brand": "mikro",
+    "slug": "bo-dieu-khien-tu-bu-relay-bao-ve",
+    "name": "Bộ điều khiển tụ bù – Relay bảo vệ",
+    "group": "tu-bu-cuon-khang",
+    "series": [
+      "Bộ điều khiển tụ bù PFR",
+      "Relay bảo vệ dòng rò"
+    ],
+    "image_url": "/img/sp/bo-dieu-khien-tu-bu-mikro.jpg",
+    "description": "Bộ điều khiển tụ bù – Relay bảo vệ Mikro chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "bo-dieu-khien-tu-bu-mikro",
+      "relay-bao-ve-mikro"
+    ],
+    "sort_order": 43
+  },
+  {
+    "brand": "mitsubishi-electric",
+    "slug": "bien-tan",
+    "name": "Biến tần",
+    "group": "bien-tan-khoi-dong-mem",
+    "series": [
+      "FR-E800"
+    ],
+    "image_url": "/demo/bien-tan.svg",
+    "description": "Biến tần Mitsubishi Electric chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "bien-tan-mitsubishi-fr-e800"
+    ],
+    "sort_order": 44
+  },
+  {
+    "brand": "omron",
+    "slug": "cam-bien-tiem-can",
+    "name": "Cảm biến tiệm cận",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "E2E"
+    ],
+    "image_url": "/demo/cam-bien-tiem-can.svg",
+    "description": "Cảm biến tiệm cận Omron chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "cam-bien-tiem-can-omron"
+    ],
+    "sort_order": 45
+  },
+  {
+    "brand": "festo",
+    "slug": "xi-lanh-khi-nen",
+    "name": "Xi lanh khí nén",
+    "group": "khi-nen-thuy-luc",
+    "series": [
+      "DSBC",
+      "ADN"
+    ],
+    "image_url": "/demo/xi-lanh-khi-nen.svg",
+    "description": "Xi lanh khí nén Festo chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "xi-lanh-khi-nen-festo"
+    ],
+    "sort_order": 46
+  },
+  {
+    "brand": "smc",
+    "slug": "van-dien-tu-khi-nen",
+    "name": "Van điện từ khí nén",
+    "group": "khi-nen-thuy-luc",
+    "series": [
+      "SY",
+      "VF"
+    ],
+    "image_url": "/demo/van-dien-tu.svg",
+    "description": "Van điện từ khí nén SMC chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn chọn mã và báo giá nhanh.",
+    "products": [
+      "van-dien-tu-smc"
+    ],
+    "sort_order": 47
+  },
+  {
+    "brand": "hang-thong-dung",
+    "slug": "nut-nhan-den-bao-cong-tac",
+    "name": "Nút nhấn – Đèn báo – Công tắc",
+    "group": "phu-kien-tu-dien",
+    "series": [
+      "Đèn báo pha AD16",
+      "Đèn tháp tín hiệu",
+      "Công tắc xoay",
+      "Công tắc chìa khóa",
+      "Hộp nút cầu trục"
+    ],
+    "image_url": "/img/sp/den-bao-pha-ad16.jpg",
+    "description": "Nút nhấn – Đèn báo – Công tắc các loại cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn và báo giá nhanh.",
+    "products": [
+      "den-bao-pha-ad16",
+      "den-thap-tin-hieu",
+      "cong-tac-xoay",
+      "cong-tac-chia-khoa",
+      "hop-nut-nhan-cau-truc"
+    ],
+    "sort_order": 48
+  },
+  {
+    "brand": "hang-thong-dung",
+    "slug": "tu-bu-cuon-khang",
+    "name": "Tụ bù – Cuộn kháng",
+    "group": "tu-bu-cuon-khang",
+    "series": [
+      "Tụ bù hạ thế",
+      "Cuộn kháng lọc sóng hài"
+    ],
+    "image_url": "/img/sp/tu-bu-ha-the.jpg",
+    "description": "Tụ bù – Cuộn kháng các loại cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn và báo giá nhanh.",
+    "products": [
+      "tu-bu-ha-the",
+      "cuon-khang-loc-song-hai"
+    ],
+    "sort_order": 49
+  },
+  {
+    "brand": "hang-thong-dung",
+    "slug": "de-cau-chi",
+    "name": "Đế cầu chì",
+    "group": "cau-chi",
+    "series": [
+      "Đế cầu chì gắn ray"
+    ],
+    "image_url": "/img/sp/de-cau-chi-gan-ray.jpg",
+    "description": "Đế cầu chì các loại cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn và báo giá nhanh.",
+    "products": [
+      "de-cau-chi-gan-ray"
+    ],
+    "sort_order": 50
+  },
+  {
+    "brand": "hang-thong-dung",
+    "slug": "encoder",
+    "name": "Encoder",
+    "group": "cam-bien-dieu-khien-nhiet",
+    "series": [
+      "Encoder tương đối",
+      "tuyệt đối"
+    ],
+    "image_url": "/img/sp/encoder-cong-nghiep.jpg",
+    "description": "Encoder các loại cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn và báo giá nhanh.",
+    "products": [
+      "encoder-cong-nghiep"
+    ],
+    "sort_order": 51
+  },
+  {
+    "brand": "hang-thong-dung",
+    "slug": "motor-giam-toc",
+    "name": "Motor giảm tốc",
+    "group": "motor-hop-giam-toc",
+    "series": [
+      "Motor giảm tốc cốt thẳng",
+      "cốt vuông góc"
+    ],
+    "image_url": "/img/sp/motor-giam-toc.jpg",
+    "description": "Motor giảm tốc các loại cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn và báo giá nhanh.",
+    "products": [
+      "motor-giam-toc"
+    ],
+    "sort_order": 52
+  },
+  {
+    "brand": "hang-thong-dung",
+    "slug": "van-bi-inox",
+    "name": "Van bi inox",
+    "group": "phu-kien-duong-ong-van",
+    "series": [
+      "Van bi inox nối ren, mặt bích"
+    ],
+    "image_url": "/demo/van-bi-inox.svg",
+    "description": "Van bi inox các loại cho nhà máy và tủ điện công nghiệp. Gửi mã hàng hoặc ảnh tem nhãn để được tư vấn và báo giá nhanh.",
+    "products": [
+      "van-bi-inox"
+    ],
+    "sort_order": 53
+  }
+]
