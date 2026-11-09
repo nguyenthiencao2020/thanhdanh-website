@@ -139,7 +139,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                             {brands.map((b) => (
                               <Link
                                 key={b.slug}
-                                href={`/san-pham?thuong-hieu=${b.slug}`}
+                                href={`/thuong-hieu/${b.slug}`}
                                 className="flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-slate-200 px-2 py-3 transition hover:border-brand-500 hover:shadow-md"
                               >
                                 <span className="flex h-9 w-full items-center justify-center">
@@ -246,7 +246,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                       <p className="mb-1.5 text-[11px] font-bold tracking-widest text-slate-400 uppercase">Theo hãng</p>
                       <div className="flex flex-wrap gap-1.5">
                         {brands.map((b) => (
-                          <Link key={b.slug} href={`/san-pham?thuong-hieu=${b.slug}`} onClick={() => setOpen(false)} className="rounded-full border border-slate-200 px-3 py-1.5 text-sm font-semibold text-slate-700">
+                          <Link key={b.slug} href={`/thuong-hieu/${b.slug}`} onClick={() => setOpen(false)} className="rounded-full border border-slate-200 px-3 py-1.5 text-sm font-semibold text-slate-700">
                             {b.name}
                           </Link>
                         ))}

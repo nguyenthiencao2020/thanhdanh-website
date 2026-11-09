@@ -145,7 +145,7 @@ export default async function ProductPage({ params }: { params: Params }) {
 
           <div>
             {product.brand && (
-              <Link href={`/san-pham?thuong-hieu=${product.brand.slug}`} className="inline-flex h-10 items-center">
+              <Link href={`/thuong-hieu/${product.brand.slug}`} className="inline-flex h-10 items-center">
                 <BrandLogo brand={product.brand} className="max-h-8" />
               </Link>
             )}

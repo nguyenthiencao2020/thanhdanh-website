@@ -26,7 +26,7 @@ export default async function BrandsPage() {
           {shown.map((b) => (
             <Link
               key={b.slug}
-              href={`/san-pham?thuong-hieu=${b.slug}`}
+              href={`/thuong-hieu/${b.slug}`}
               className="group flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-xl hover:shadow-steel-900/10"
             >
               <div className="flex h-20 items-center justify-center">

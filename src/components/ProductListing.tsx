@@ -221,7 +221,7 @@ function Landing({ brands, tree, pairs }: { brands: Brand[]; tree: CategoryNode[
           {top.map((b) => (
             <NavLink
               key={b.slug}
-              href={`/san-pham?thuong-hieu=${b.slug}`}
+              href={`/thuong-hieu/${b.slug}`}
               className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center transition hover:-translate-y-0.5 hover:border-steel-500 hover:shadow-lg"
               pendingClassName="flex flex-col items-center justify-center gap-3 rounded-2xl border border-steel-600 bg-steel-50 p-5 text-center"
             >
@@ -236,7 +236,7 @@ function Landing({ brands, tree, pairs }: { brands: Brand[]; tree: CategoryNode[
           <p className="mt-4 flex flex-wrap items-center gap-2 text-sm text-slate-500">
             Hãng khác:
             {otherBrands.map((b) => (
-              <NavLink key={b.slug} href={`/san-pham?thuong-hieu=${b.slug}`} className="rounded-full border border-slate-200 bg-white px-3 py-1 font-semibold text-slate-700 hover:border-steel-500" pendingClassName="rounded-full border border-steel-600 bg-steel-700 px-3 py-1 font-semibold text-white">
+              <NavLink key={b.slug} href={`/thuong-hieu/${b.slug}`} className="rounded-full border border-slate-200 bg-white px-3 py-1 font-semibold text-slate-700 hover:border-steel-500" pendingClassName="rounded-full border border-steel-600 bg-steel-700 px-3 py-1 font-semibold text-white">
                 {b.name} <span className="text-slate-400">{byBrand.get(b.slug)}</span>
               </NavLink>
             ))}
