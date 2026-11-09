@@ -3,14 +3,21 @@ import { FloatingContact } from "@/components/FloatingContact";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MobileActionBar } from "@/components/MobileActionBar";
-import { buildCategoryTree, getCategories, getPages, getSettings } from "@/lib/data";
+import { countByBrand, countByCategory, featuredBrands, nonEmptyTree } from "@/lib/catalog";
+import { buildCategoryTree, getBrands, getCategories, getPages, getProductPairs, getSettings } from "@/lib/data";
 import { phoneDigits } from "@/lib/utils";
 
 export const revalidate = 60;
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
-  const [settings, categories, pages] = await Promise.all([getSettings(), getCategories(), getPages()]);
-  const tree = buildCategoryTree(categories);
+  const [settings, categories, pages, brands, pairs] = await Promise.all([getSettings(), getCategories(), getPages(), getBrands(), getProductPairs()]);
+  // Menus only show groups and brands that have products.
+  const catCount = countByCategory(buildCategoryTree(categories), pairs);
+  const tree = nonEmptyTree(buildCategoryTree(categories), catCount);
+  const brandCount = countByBrand(pairs);
+  const menuBrands = featuredBrands(brands)
+    .filter((b) => (brandCount.get(b.slug) ?? 0) > 0)
+    .map((b) => ({ slug: b.slug, name: b.name, logo_url: b.logo_url, count: brandCount.get(b.slug) ?? 0 }));
   return (
     <>
       <Header
@@ -23,7 +30,8 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         email={settings.email}
         zaloHref={settings.zalo ? `https://zalo.me/${phoneDigits(settings.zalo)}` : null}
         facebook={settings.facebook}
-        categories={tree}
+        categories={tree.map((g) => ({ ...g, count: catCount.get(g.slug) ?? 0 }))}
+        brands={menuBrands}
       />
       <main className="overflow-x-clip">{children}</main>
       <Footer settings={settings} categories={tree} pages={pages} />

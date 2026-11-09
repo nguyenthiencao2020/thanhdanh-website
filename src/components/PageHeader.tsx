@@ -4,7 +4,18 @@ import { Gear } from "./Gear";
 type Crumb = { href?: string; label: string };
 
 /** Dark "blueprint" banner used at the top of inner pages. */
-export function PageHeader({ title, description, crumbs }: { title: string; description?: string | null; crumbs: Crumb[] }) {
+export function PageHeader({
+  title,
+  description,
+  crumbs,
+  children,
+}: {
+  title: string;
+  description?: string | null;
+  crumbs: Crumb[];
+  /** Extra content under the description, e.g. a search box. */
+  children?: React.ReactNode;
+}) {
   return (
     <section className="relative isolate overflow-hidden bg-steel-900 text-white">
       <div className="bg-blueprint absolute inset-0 -z-10" />
@@ -22,6 +33,7 @@ export function PageHeader({ title, description, crumbs }: { title: string; desc
         </nav>
         <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h1>
         {description && <p className="mt-3 max-w-3xl text-steel-100/85">{description}</p>}
+        {children}
       </div>
     </section>
   );

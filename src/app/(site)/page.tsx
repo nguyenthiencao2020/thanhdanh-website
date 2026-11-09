@@ -8,7 +8,9 @@ import { PostCard } from "@/components/PostCard";
 import { ProductTabs } from "@/components/ProductTabs";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { buildCategoryTree, getBanners, getBrands, getCategories, getPosts, getProducts, getSettings } from "@/lib/data";
+import { countByBrand, countByCategory, featuredBrands, nonEmptyTree } from "@/lib/catalog";
+import { buildCategoryTree, getBanners, getBrands, getCategories, getPosts, getProductPairs, getProducts, getSettings } from "@/lib/data";
+import { categoryThumb } from "@/lib/utils";
 import { phoneDigits } from "@/lib/utils";
 
 const strengths = [
@@ -29,16 +31,21 @@ const steps = [
 const HOME_GROUPS = 8;
 
 export default async function HomePage() {
-  const [settings, categories, brands, posts, banners, allProducts] = await Promise.all([
+  const [settings, categories, brands, posts, banners, allProducts, pairs] = await Promise.all([
     getSettings(),
     getCategories(),
     getBrands(),
     getPosts({ limit: 3 }),
     getBanners(),
     getProducts({ limit: 200 }),
+    getProductPairs(),
   ]);
   const tree = buildCategoryTree(categories);
-  const subNames = tree.flatMap((g) => g.children.map((c) => c.name));
+  // "Sản phẩm chúng tôi cung cấp": main brands and product types that actually have products.
+  const brandCount = countByBrand(pairs);
+  const catCount = countByCategory(tree, pairs);
+  const shopBrands = featuredBrands(brands).filter((b) => (brandCount.get(b.slug) ?? 0) > 0);
+  const shopGroups = nonEmptyTree(tree, catCount);
 
   // Featured products, with one tab per group that has any (featured first, then newest).
   const groupOf = new Map<string, string>();
@@ -64,7 +71,7 @@ export default async function HomePage() {
         phoneHref={settings.phone ? phoneDigits(settings.phone) : null}
         stats={[
           { value: `${brands.length}+`, label: "Thương hiệu" },
-          { value: `${tree.length}`, label: "Nhóm sản phẩm" },
+          { value: `${shopGroups.length}`, label: "Nhóm sản phẩm" },
           { value: "Miễn phí", label: "Tư vấn chọn mã" },
         ]}
       />
@@ -157,8 +164,8 @@ export default async function HomePage() {
                 <Gear teeth={12} className="animate-spin-slow absolute -right-8 -bottom-10 h-36 w-36 text-white/10" />
                 {[
                   { value: brands.length, suffix: "+", label: "Thương hiệu" },
-                  { value: tree.length, suffix: "", label: "Nhóm hàng" },
-                  { value: subNames.length, suffix: "+", label: "Danh mục" },
+                  { value: shopGroups.length, suffix: "", label: "Nhóm hàng" },
+                  { value: pairs.length, suffix: "+", label: "Sản phẩm" },
                 ]
                   .filter((x) => x.value > 0)
                   .map((x) => (
@@ -191,43 +198,58 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ------------------------------------------------------------ 4. Categories */}
+      {/* ---------------------------------------------- 4. Shop by brand / by type */}
       <section className="container-page py-16">
-        <SectionHeading eyebrow="Danh mục" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel={`Xem tất cả ${tree.length} nhóm →`} />
-        {/* Mobile: one swipeable row · Desktop: 4 × 2 grid — every tile in the same style */}
-        <div className="-mx-4 mt-8 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 md:grid-cols-4">
-          {tree.slice(0, HOME_GROUPS).map((g, i) => (
-            <Reveal key={g.slug} delay={(i % 4) * 60} className="w-44 shrink-0 snap-start sm:w-auto">
+        <SectionHeading eyebrow="Sản phẩm" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel="Xem tất cả sản phẩm →" />
+
+        <h3 className="mt-8 text-sm font-bold tracking-wider text-slate-500 uppercase">Chọn theo hãng</h3>
+        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+          {shopBrands.map((b, i) => (
+            <Reveal key={b.slug} delay={(i % 4) * 60}>
+              <Link
+                href={`/san-pham?thuong-hieu=${b.slug}`}
+                className="group flex h-full flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg"
+              >
+                <span className="flex h-12 w-full items-center justify-center">
+                  <BrandLogo brand={b} className="max-h-11" />
+                </span>
+                <span className="text-xs font-semibold text-slate-500 group-hover:text-brand-600">{brandCount.get(b.slug)} sản phẩm →</span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+
+        <h3 className="mt-10 text-sm font-bold tracking-wider text-slate-500 uppercase">Hoặc theo loại hàng</h3>
+        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+          {shopGroups.slice(0, HOME_GROUPS).map((g, i) => (
+            <Reveal key={g.slug} delay={(i % 4) * 60}>
               <Link
                 href={`/danh-muc-san-pham/${g.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg"
+                className="group flex h-full items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3 transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg"
               >
-                <span className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-slate-100 bg-white">
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-slate-50">
                   {g.image_url ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={g.image_url} alt="" loading="lazy" className="h-full w-full object-contain p-2 transition duration-500 group-hover:scale-105" />
+                    <img src={categoryThumb(g.image_url)} alt="" loading="lazy" className="h-full w-full object-contain p-1 transition duration-500 group-hover:scale-105" />
                   ) : (
-                    <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-steel-50 text-steel-600">
-                      <Icon name={g.icon ?? "box"} className="h-7 w-7" />
-                    </span>
+                    <Icon name={g.icon ?? "box"} className="h-7 w-7 text-steel-600" />
                   )}
                 </span>
-                <span className="flex items-center gap-2 p-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-steel-50 text-steel-600 transition group-hover:bg-steel-900 group-hover:text-white">
-                    <Icon name={g.icon ?? "box"} className="h-4 w-4" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-sm leading-snug font-semibold text-slate-900">{g.name}</span>
-                    <span className="mt-0.5 block text-xs text-slate-500">{g.children.length} danh mục</span>
-                  </span>
+                <span className="min-w-0">
+                  <span className="block text-sm leading-snug font-semibold text-slate-900 group-hover:text-brand-600">{g.name}</span>
+                  <span className="mt-0.5 block text-xs text-slate-500">{catCount.get(g.slug)} sản phẩm</span>
                 </span>
               </Link>
             </Reveal>
           ))}
         </div>
-        <div className="mt-6 text-center sm:hidden">
-          <Link href="/san-pham" className="inline-block py-2 text-sm font-semibold text-steel-600">Xem tất cả {tree.length} nhóm →</Link>
-        </div>
+        {shopGroups.length > HOME_GROUPS && (
+          <div className="mt-6 text-center">
+            <Link href="/san-pham" className="inline-block py-2 text-sm font-semibold text-steel-600 hover:text-brand-600">
+              Xem tất cả {shopGroups.length} loại hàng →
+            </Link>
+          </div>
+        )}
       </section>
 
       {/* ------------------------------------------------------- 5. Featured (tabs) */}

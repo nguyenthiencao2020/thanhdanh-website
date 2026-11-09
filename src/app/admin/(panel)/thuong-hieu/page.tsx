@@ -15,6 +15,10 @@ function BrandFields({ b }: { b?: Brand }) {
         <input name="slug" defaultValue={b?.slug} placeholder="slug (tự tạo)" className="input" aria-label="Slug" />
         <input name="sort_order" type="number" defaultValue={b?.sort_order ?? 0} className="input" aria-label="Thứ tự" title="Thứ tự" />
       </div>
+      <label className="mt-3 flex items-center gap-2 text-sm font-medium text-slate-700">
+        <input type="checkbox" name="featured" defaultChecked={!!b?.featured} /> Hãng chủ lực
+        <span className="font-normal text-slate-500">(hiện đầu trang Sản phẩm và menu, nên chọn tối đa 8)</span>
+      </label>
       <label className="mt-3 block text-sm text-slate-600">
         Logo: <input type="file" name="logo" accept="image/jpeg,image/png,image/webp,image/svg+xml" className="ml-2 text-sm" />
       </label>
@@ -25,7 +29,9 @@ function BrandFields({ b }: { b?: Brand }) {
 export default async function AdminBrands({ searchParams }: { searchParams: Promise<{ error?: string; saved?: string }> }) {
   const { error, saved } = await searchParams;
   const { supabase } = await requireAdmin();
-  const { data } = await supabase.from("brands").select("*").order("sort_order");
+  // Featured first; before migration 0011 the column is missing, so fall back to plain order.
+  let { data, error: listError } = await supabase.from("brands").select("*").order("featured", { ascending: false }).order("sort_order");
+  if (listError) ({ data } = await supabase.from("brands").select("*").order("sort_order"));
   const brands = (data ?? []) as Brand[];
 
   return (

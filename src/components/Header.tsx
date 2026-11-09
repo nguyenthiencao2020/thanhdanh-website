@@ -28,10 +28,13 @@ type Props = {
   email: string | null;
   zaloHref: string | null;
   facebook: string | null;
-  categories: { slug: string; name: string; icon: string | null; image_url?: string | null; description: string | null; children: { slug: string; name: string }[] }[];
+  /** Product groups that have products (empty ones are hidden), with their product count. */
+  categories: { slug: string; name: string; icon: string | null; image_url?: string | null; count: number; children: { slug: string; name: string }[] }[];
+  /** “Hãng chủ lực” with their product count. */
+  brands: { slug: string; name: string; logo_url: string | null; count: number }[];
 };
 
-export function Header({ shortName, tagline, announcement, announcementUrl, phone, phoneHref, email, zaloHref, facebook, categories }: Props) {
+export function Header({ shortName, tagline, announcement, announcementUrl, phone, phoneHref, email, zaloHref, facebook, categories, brands }: Props) {
   const [open, setOpen] = useState(false);
   // After choosing an item in the products mega menu, keep it closed until the pointer leaves
   // the menu — otherwise hover/focus would hold it open over the page that just loaded.
@@ -117,60 +120,68 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                 <div className="pointer-events-none invisible fixed top-[5.5rem] right-0 left-0 translate-y-2 opacity-0 transition duration-200 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   <div className="container-page">
                     <div className="pointer-events-auto pt-10">
-                    <div className="grid max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-steel-900/15 lg:grid-cols-[1fr_280px]">
-                      {/* Groups */}
-                      <div className="p-5">
-                        <div className="mb-3 flex items-center justify-between px-2">
-                          <p className="text-xs font-bold tracking-widest text-slate-400 uppercase">Danh mục sản phẩm</p>
-                          <Link href="/san-pham" className="text-xs font-semibold text-steel-600 hover:text-brand-600">Xem tất cả →</Link>
+                    <div className="max-h-[calc(100vh-8rem)] overflow-y-auto rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-steel-900/15">
+                      {/* 1. Search by code */}
+                      <div className="border-b border-slate-100 p-5">
+                        <Form action="/san-pham" className="relative">
+                          <Icon name="search" className="pointer-events-none absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-slate-400" />
+                          <input name="q" type="search" placeholder="Nhập mã hàng hoặc tên sản phẩm…" aria-label="Tìm sản phẩm" className="input h-12 rounded-2xl pl-12 text-base" />
+                        </Form>
+                      </div>
+                      <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr]">
+                        {/* 2. By brand */}
+                        <div className="p-5 lg:border-r lg:border-slate-100">
+                          <div className="mb-3 flex items-center justify-between px-1">
+                            <p className="text-xs font-bold tracking-widest text-slate-400 uppercase">Chọn theo hãng</p>
+                            <Link href="/thuong-hieu" className="text-xs font-semibold text-steel-600 hover:text-brand-600">Tất cả hãng →</Link>
+                          </div>
+                          <div className="grid grid-cols-4 gap-2">
+                            {brands.map((b) => (
+                              <Link
+                                key={b.slug}
+                                href={`/san-pham?thuong-hieu=${b.slug}`}
+                                className="flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-slate-200 px-2 py-3 transition hover:border-brand-500 hover:shadow-md"
+                              >
+                                <span className="flex h-9 w-full items-center justify-center">
+                                  {b.logo_url ? (
+                                    // eslint-disable-next-line @next/next/no-img-element
+                                    <img src={b.logo_url} alt={b.name} loading="lazy" className="max-h-8 w-auto max-w-full object-contain" />
+                                  ) : (
+                                    <span className="text-sm font-extrabold text-steel-800">{b.name}</span>
+                                  )}
+                                </span>
+                                <span className="text-[11px] font-semibold text-slate-500">{b.count} SP</span>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                        <div className={`grid gap-1 ${categories.length > 8 ? "grid-cols-2 xl:grid-cols-3" : "grid-cols-2"}`}>
-                          {categories.map((g) => (
-                            <Link
-                              key={g.slug}
-                              href={`/danh-muc-san-pham/${g.slug}`}
-                              className="group/cat flex items-center gap-3 rounded-2xl px-3 py-2.5 transition hover:bg-slate-50"
-                            >
-                              {g.image_url ? (
-                                <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-slate-200 transition group-hover/cat:ring-brand-500">
-                                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                                  <img src={categoryThumb(g.image_url)} alt="" loading="lazy" className="h-full w-full object-contain p-0.5" />
+                        {/* 3. By product type (only groups with products) */}
+                        <div className="p-5">
+                          <p className="mb-3 px-1 text-xs font-bold tracking-widest text-slate-400 uppercase">Hoặc theo loại hàng</p>
+                          <div className="grid grid-cols-2 gap-1">
+                            {categories.map((g) => (
+                              <Link key={g.slug} href={`/danh-muc-san-pham/${g.slug}`} className="group/cat flex items-center gap-2.5 rounded-xl px-2 py-1.5 transition hover:bg-slate-50">
+                                <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-slate-50 ring-1 ring-slate-200">
+                                  {g.image_url ? (
+                                    // eslint-disable-next-line @next/next/no-img-element
+                                    <img src={categoryThumb(g.image_url)} alt="" loading="lazy" className="h-full w-full object-contain p-0.5" />
+                                  ) : (
+                                    <Icon name={g.icon ?? "box"} className="h-4 w-4 text-steel-600" />
+                                  )}
                                 </span>
-                              ) : (
-                                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-orange-50 text-brand-600 ring-1 ring-brand-100 transition group-hover/cat:from-brand-600 group-hover/cat:to-brand-500 group-hover/cat:text-white">
-                                  <Icon name={g.icon ?? "box"} className="h-5 w-5" />
-                                </span>
-                              )}
-                              <span className="min-w-0">
-                                <span className="block truncate text-sm font-bold text-steel-900 group-hover/cat:text-brand-600">{g.name}</span>
-                                <span className="block truncate text-xs text-slate-500">
-                                  {g.children.length > 0 ? g.children.map((c) => c.name).join(" · ") : g.description}
-                                </span>
-                              </span>
-                            </Link>
-                          ))}
+                                <span className="min-w-0 flex-1 truncate text-sm font-semibold text-steel-900 group-hover/cat:text-brand-600">{g.name}</span>
+                                <span className="shrink-0 text-xs text-slate-400">{g.count}</span>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                      {/* Promo */}
-                      <div className="relative isolate hidden flex-col justify-between overflow-hidden bg-steel-900 p-6 text-white lg:flex">
-                        <div className="bg-blueprint absolute inset-0 -z-10" />
-                        <div className="absolute -right-16 -bottom-16 -z-10 h-48 w-48 rounded-full bg-brand-600/40 blur-2xl" />
-                        <div>
-                          <p className="text-xs font-bold tracking-widest text-brand-100 uppercase">Báo giá nhanh</p>
-                          <p className="mt-2 text-xl leading-snug font-bold">Không thấy mã hàng bạn cần?</p>
-                          <p className="mt-2 text-sm text-steel-100/80">Gửi mã hoặc ảnh tem nhãn — chúng tôi tìm và báo giá cho bạn.</p>
-                        </div>
-                        <div className="mt-6 space-y-2.5">
-                          {phone && phoneHref && (
-                            <a href={`tel:${phoneHref}`} className="flex items-center gap-2.5 rounded-xl bg-white/10 px-3 py-2.5 text-sm font-bold backdrop-blur hover:bg-white/20">
-                              <Icon name="phone" className="h-4 w-4" /> {phone}
-                            </a>
-                          )}
-                          <Link href="/lien-he" className="btn-primary w-full">Gửi yêu cầu báo giá</Link>
-                          <Link href="/thuong-hieu" className="block text-center text-xs font-semibold text-steel-100/80 hover:text-white">
-                            Xem thương hiệu phân phối →
-                          </Link>
-                        </div>
+                      <div className="flex flex-wrap items-center justify-between gap-3 rounded-b-3xl border-t border-slate-100 bg-slate-50 px-5 py-3 text-sm">
+                        <Link href="/san-pham" className="font-semibold text-steel-700 hover:text-brand-600">Xem tất cả sản phẩm →</Link>
+                        <span className="text-slate-500">
+                          Không thấy mã hàng? <Link href="/lien-he" className="font-semibold text-brand-600 hover:underline">Gửi yêu cầu báo giá</Link>
+                          {phone && phoneHref && <> hoặc gọi <a href={`tel:${phoneHref}`} className="font-semibold text-brand-600 hover:underline">{phone}</a></>}
+                        </span>
                       </div>
                     </div>
                     </div>
@@ -230,28 +241,26 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                   {item.label}
                 </Link>
                 {item.dropdown && (
-                  <div className="ml-3 border-l border-slate-200 pl-2">
-                    {categories.map((g) => (
-                      <details key={g.slug} className="group/m">
-                        <summary className="flex cursor-pointer list-none items-center justify-between rounded-md px-3 py-1.5 text-sm font-medium text-slate-700">
-                          {g.name}
-                          <Icon name="arrow" className="h-3.5 w-3.5 rotate-90 text-slate-400 transition group-open/m:-rotate-90" />
-                        </summary>
-                        <div className="mb-1 ml-3 border-l border-slate-100 pl-2">
-                          <Link href={`/danh-muc-san-pham/${g.slug}`} onClick={() => setOpen(false)} className="block px-3 py-1 text-sm font-semibold text-brand-600">
-                            Tất cả {g.name}
+                  <div className="mt-1 mb-2 space-y-3 px-3">
+                    <div>
+                      <p className="mb-1.5 text-[11px] font-bold tracking-widest text-slate-400 uppercase">Theo hãng</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {brands.map((b) => (
+                          <Link key={b.slug} href={`/san-pham?thuong-hieu=${b.slug}`} onClick={() => setOpen(false)} className="rounded-full border border-slate-200 px-3 py-1.5 text-sm font-semibold text-slate-700">
+                            {b.name}
                           </Link>
-                          {g.children.map((c) => (
-                            <Link key={c.slug} href={`/danh-muc-san-pham/${c.slug}`} onClick={() => setOpen(false)} className="block px-3 py-1 text-sm text-slate-600">
-                              {c.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </details>
-                    ))}
-                    <Link href="/thuong-hieu" onClick={() => setOpen(false)} className="block rounded-md px-3 py-1.5 text-sm text-slate-600">
-                      Thương hiệu
-                    </Link>
+                        ))}
+                        <Link href="/thuong-hieu" onClick={() => setOpen(false)} className="rounded-full px-3 py-1.5 text-sm font-semibold text-steel-600">Tất cả →</Link>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="mb-1 text-[11px] font-bold tracking-widest text-slate-400 uppercase">Theo loại hàng</p>
+                      {categories.map((g) => (
+                        <Link key={g.slug} href={`/danh-muc-san-pham/${g.slug}`} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-md py-1.5 text-sm text-slate-700">
+                          {g.name} <span className="text-xs text-slate-400">{g.count}</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
