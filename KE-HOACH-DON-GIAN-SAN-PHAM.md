@@ -99,3 +99,22 @@
 **Tiến độ giai đoạn 2:**
 - [x] Hero chung trang sản phẩm (`src/components/ProductHero.tsx`; ảnh đã che thêm nút slider giả AI vẽ ở góc phải dưới)
 - [x] QA máy tính / tablet / điện thoại
+
+---
+
+## Giai đoạn 3 — Logo hãng chủ lực nổi bật trên trang chủ (hướng 1)
+
+*09/11/2026 — chủ Đạt Danh muốn trang chủ tạo điểm nhấn logo các hãng; đã duyệt mẫu.*
+
+- Khung trắng **“Thương hiệu chủ lực”** nổi đè lên mép dưới hero: 8 logo hãng chủ lực to, đủ màu, đứng yên; rê chuột hiện số sản phẩm; bấm vào ra sản phẩm của hãng. Điện thoại: lưới 4 × 2.
+- Dưới khung: dải **“Và các hãng khác”** chạy ngang, đủ màu (giữ yêu cầu dải logo màu), không trùng 8 hãng chính.
+- Khối “Sản phẩm chúng tôi cung cấp” bỏ hàng logo (tránh lặp), chỉ còn theo loại hàng.
+- Chấm chuyển slide hero dời lên để khung không che.
+- Hãng trong khung = ô *Hãng chủ lực* trong Admin → Thương hiệu (cần migration `0011`), chưa có thì dùng 8 hãng mặc định.
+- Lưu ý: laptop màn thấp (~700px) phải cuộn nhẹ mới thấy khung; có thể thu hero hoặc thêm logo trong hero (hướng 2) nếu cần.
+
+**Quay lại:** mốc trước giai đoạn 3 là commit `80a29ef880ad81d498de262188b3d93fef18cb33` trên `main` (PR #31).
+
+- [x] Khung logo hãng chủ lực + dải hãng khác
+- [x] Bỏ logo lặp ở khối loại hàng
+- [x] QA máy tính / tablet / điện thoại
