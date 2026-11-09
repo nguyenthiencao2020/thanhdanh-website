@@ -140,9 +140,22 @@ Công ty bán nhiều hãng, chữ “chủ lực” dễ hiểu là các hãng 
   - Tổng quan: “81 danh mục · 48 đang hiện trên web”, “62 thương hiệu · 17 đang hiện trên web”.
   - Danh mục / Thương hiệu: nhãn “N sản phẩm · đang hiện” hoặc “0 sản phẩm · đang ẩn trên web” cho từng mục + dòng cảnh báo số mục đang ẩn.
 
-## Giai đoạn 4 (chờ duyệt) — Sản phẩm theo hãng → dòng hàng
+## Giai đoạn 4 — Sản phẩm theo hãng → dòng hàng
 
 Yêu cầu của Đạt Danh: trang Sản phẩm chia **cột theo hãng**, mỗi hãng các **dòng hàng** (PLC, LOGO! · HMI · Motor · Biến tần · MCB, MCCB · Contactor · Nút nhấn, đèn báo · Cầu chì · Thiết bị đo…), **mỗi dòng 1 ảnh tượng trưng**, không làm chi tiết từng mã.
 
 - Bản nháp: **`tai-lieu/Dong-hang-theo-hang-NHAP.xlsx`** — 53 dòng hàng gộp từ 123 sản phẩm hiện có (Siemens 10, Schneider 6, ABB 5, …, “Hàng thông dụng” 6), có ảnh, cột series, cột Hiện trên web; sheet Thương hiệu: 17 hãng hiện / 45 hãng ẩn.
 - Sau khi Đạt Danh duyệt file: thêm bảng/trang dòng hàng, menu & trang Sản phẩm theo cột hãng → dòng, trang dòng hàng (ảnh + series + form báo giá), link sản phẩm cũ chuyển về dòng hàng, Admin mục “Dòng hàng”.
+
+### Bước 4a — Giao diện menu bên trái (đã đưa lên main, 09/11/2026)
+
+**Quay lại:** mốc trước bước 4a là commit `ef1d7942ad4d42975527932f918368f083971809` trên `main` (PR #36, sửa bản đồ).
+
+- `/san-pham`: tổng quan các hãng, mỗi hãng liệt kê dòng hàng; ô tìm kiếm tìm theo dòng hàng / series. `?thuong-hieu=x` chuyển sang `/thuong-hieu/x`, `?danh-muc=x` chuyển sang trang danh mục.
+- `/thuong-hieu/[hãng]`: menu trái “Sản phẩm theo hãng” (bấm hãng mở danh sách dòng), bên phải lưới dòng hàng (1 ảnh, series, “Xem & báo giá”).
+- `/thuong-hieu/[hãng]/[dòng]`: ảnh, series, form báo giá điền sẵn “Hãng – Dòng”, các dòng khác của hãng.
+- Điện thoại: menu thu thành nút “Hãng & dòng hàng”, mở toàn màn hình.
+- Dữ liệu tạm: `src/data/product-lines.json` (53 dòng theo file nháp Excel). Sửa dòng hàng hiện phải sửa file này — chưa có trong Admin.
+- Trang chi tiết từng mã `/san-pham/[slug]` và trang danh mục vẫn giữ nguyên.
+
+Còn lại (bước 4b, sau khi Đạt Danh chốt file Excel): bảng dòng hàng trên Supabase + Admin “Dòng hàng”, chuyển link sản phẩm cũ về dòng hàng, menu header theo hãng → dòng.
