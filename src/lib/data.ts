@@ -53,8 +53,12 @@ function cleanSearch(q: string) {
   return q.replace(/[%_,.()*\\:"'{}]/g, " ").trim().slice(0, 80);
 }
 
-const includes = (hay: (string | null | undefined)[], needle: string) =>
-  hay.join(" ").toLowerCase().includes(needle.toLowerCase());
+/** "Biến Tần" → "bien tan": lets visitors search with or without Vietnamese accents. */
+export function foldAccents(text: string) {
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase();
+}
+
+const includes = (hay: (string | null | undefined)[], needle: string) => foldAccents(hay.join(" ")).includes(foldAccents(needle));
 
 // ---------------------------------------------------------------------------
 // Settings, categories, brands
@@ -146,28 +150,38 @@ export async function getProductsPage(filter: ProductFilter = {}): Promise<Paged
   }
 
   const supabase = createPublicClient();
-  let query = supabase.from("products").select(PRODUCT_SELECT, { count: "exact" }).eq("published", true);
-
+  let categoryIds: string[] | null = null;
   if (filter.category) {
     const cats = withChildren(await getCategories(), filter.category);
     if (!cats) return { items: [], total: 0 };
-    query = query.in("category_id", cats.map((c) => c.id));
+    categoryIds = cats.map((c) => c.id);
   }
+  let brandId: string | null = null;
   if (filter.brand) {
     const { data: brand } = await supabase.from("brands").select("id").eq("slug", filter.brand).maybeSingle();
     if (!brand) return { items: [], total: 0 };
-    query = query.eq("brand_id", brand.id);
+    brandId = brand.id;
   }
-  if (filter.featured) query = query.eq("featured", true);
-  if (q) query = query.or(`name.ilike.%${q}%,summary.ilike.%${q}%,sku.ilike.%${q}%`);
 
-  if (sort === "ten-a-z") query = query.order("name");
-  else if (sort === "moi-nhat") query = query.order("created_at", { ascending: false });
-  else query = query.order("featured", { ascending: false }).order("created_at", { ascending: false });
+  // `search_text` (migration 0010) holds name + SKU + summary without accents; older databases fall back to ilike.
+  const run = (accentFree: boolean) => {
+    let query = supabase.from("products").select(PRODUCT_SELECT, { count: "exact" }).eq("published", true);
+    if (categoryIds) query = query.in("category_id", categoryIds);
+    if (brandId) query = query.eq("brand_id", brandId);
+    if (filter.featured) query = query.eq("featured", true);
+    if (q && accentFree) query = query.ilike("search_text", `%${foldAccents(q)}%`);
+    else if (q) query = query.or(`name.ilike.%${q}%,summary.ilike.%${q}%,sku.ilike.%${q}%`);
 
-  if (pageSize) query = query.range(from, from + pageSize - 1);
+    if (sort === "ten-a-z") query = query.order("name");
+    else if (sort === "moi-nhat") query = query.order("created_at", { ascending: false });
+    else query = query.order("featured", { ascending: false }).order("created_at", { ascending: false });
 
-  const { data, count, error } = await query;
+    if (pageSize) query = query.range(from, from + pageSize - 1);
+    return query;
+  };
+
+  let { data, count, error } = await run(Boolean(q));
+  if (error && q && isMissingSchema(error)) ({ data, count, error } = await run(false));
   if (error) console.error("getProductsPage", error.message);
   return { items: (data as ProductWithRelations[] | null) ?? [], total: count ?? 0 };
 }

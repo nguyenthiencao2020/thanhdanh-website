@@ -1146,7 +1146,7 @@
       "brand": "mitsubishi-electric",
       "summary": "Biến tần đa năng cho bơm, quạt, băng tải.",
       "description": "Biến tần FR-E800 hỗ trợ nhiều chuẩn truyền thông công nghiệp. Liên hệ để được tư vấn công suất phù hợp.",
-      "featured": true,
+      "featured": false,
       "image_url": "/demo/bien-tan.svg",
       "specs": null
     },
@@ -1157,7 +1157,7 @@
       "brand": "omron",
       "summary": "Cảm biến tiệm cận điện cảm, nhiều kích thước M8 – M30.",
       "description": "Phát hiện vật thể kim loại không tiếp xúc, dùng trong máy đóng gói, băng tải, máy CNC.",
-      "featured": true,
+      "featured": false,
       "image_url": "/demo/cam-bien-tiem-can.svg",
       "specs": null
     },
@@ -1190,7 +1190,7 @@
       "brand": "festo",
       "summary": "Xi lanh tiêu chuẩn ISO, nhiều đường kính và hành trình.",
       "description": "Phù hợp cho các ứng dụng gá kẹp, đẩy, nâng hạ trong dây chuyền tự động.",
-      "featured": true,
+      "featured": false,
       "image_url": "/demo/xi-lanh-khi-nen.svg",
       "specs": null
     },
@@ -1201,7 +1201,7 @@
       "brand": "smc",
       "summary": "Van điện từ 5/2, 5/3 điều khiển xi lanh khí nén.",
       "description": "Đa dạng điện áp coil và kiểu kết nối. Liên hệ để được báo giá nhanh.",
-      "featured": true,
+      "featured": false,
       "image_url": "/demo/van-dien-tu.svg",
       "specs": null
     },

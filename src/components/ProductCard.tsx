@@ -29,13 +29,13 @@ export function ProductCard({ product, hideBadge }: { product: ProductWithRelati
           </span>
         )}
       </div>
-      <div className="flex flex-1 flex-col border-t border-slate-100 p-4">
-        {product.category && <p className="text-xs font-medium text-steel-600">{product.category.name}</p>}
-        <h3 className="mt-1 line-clamp-2 font-semibold text-slate-900 group-hover:text-brand-600">{product.name}</h3>
-        {product.summary && <p className="mt-1 line-clamp-2 text-sm text-slate-500">{product.summary}</p>}
-        <div className="mt-auto flex items-center justify-between pt-3">
-          <p className="text-sm font-bold text-steel-700">{product.price || "Liên hệ báo giá"}</p>
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition group-hover:bg-brand-600 group-hover:text-white">
+      <div className="flex flex-1 flex-col border-t border-slate-100 p-3 sm:p-4">
+        {product.category && <p className="truncate text-xs font-medium text-steel-600">{product.category.name}</p>}
+        <h3 className="mt-1 line-clamp-2 text-sm leading-snug font-semibold text-slate-900 group-hover:text-brand-600 sm:text-base">{product.name}</h3>
+        {product.summary && <p className="mt-1 line-clamp-2 hidden text-sm text-slate-500 sm:block">{product.summary}</p>}
+        <div className="mt-auto flex items-center justify-between gap-2 pt-3">
+          <p className="min-w-0 truncate text-[13px] font-bold text-steel-700 sm:text-sm">{product.price || "Liên hệ báo giá"}</p>
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition group-hover:bg-brand-600 group-hover:text-white">
             <Icon name="arrow" className="h-4 w-4" />
           </span>
         </div>
