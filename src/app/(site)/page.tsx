@@ -233,29 +233,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ---------------------------------------------- 4. Shop by brand / by type */}
+      {/* ------------------------------------- 4. Shop by product type (brands are in section 2) */}
       <section className="container-page py-16">
-        <SectionHeading eyebrow="Sản phẩm" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel="Xem tất cả sản phẩm →" />
+        <SectionHeading eyebrow="Loại hàng" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel="Xem tất cả sản phẩm →" />
 
-        <h3 className="mt-8 text-sm font-bold tracking-wider text-slate-500 uppercase">Chọn theo hãng</h3>
-        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-          {shopBrands.map((b, i) => (
-            <Reveal key={b.slug} delay={(i % 4) * 60}>
-              <Link
-                href={`/san-pham?thuong-hieu=${b.slug}`}
-                className="group flex h-full flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg"
-              >
-                <span className="flex h-12 w-full items-center justify-center">
-                  <BrandLogo brand={b} className="max-h-11" />
-                </span>
-                <span className="text-xs font-semibold text-slate-500 group-hover:text-brand-600">{brandCount.get(b.slug)} sản phẩm →</span>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-
-        <h3 className="mt-10 text-sm font-bold tracking-wider text-slate-500 uppercase">Hoặc theo loại hàng</h3>
-        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
           {shopGroups.slice(0, HOME_GROUPS).map((g, i) => (
             <Reveal key={g.slug} delay={(i % 4) * 60}>
               <Link
