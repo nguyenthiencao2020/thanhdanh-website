@@ -46,7 +46,8 @@ export default async function HomePage() {
   const catCount = countByCategory(tree, pairs);
   const shopBrands = featuredBrands(brands).filter((b) => (brandCount.get(b.slug) ?? 0) > 0);
   const shopGroups = nonEmptyTree(tree, catCount);
-  const otherBrands = brands.filter((b) => !shopBrands.some((x) => x.slug === b.slug));
+  // Brands without products are hidden (they come back as soon as a product is added).
+  const otherBrands = brands.filter((b) => (brandCount.get(b.slug) ?? 0) > 0 && !shopBrands.some((x) => x.slug === b.slug));
 
   // Featured products, with one tab per group that has any (featured first, then newest).
   const groupOf = new Map<string, string>();
@@ -90,7 +91,7 @@ export default async function HomePage() {
                 </p>
                 <h2 className="mt-1 text-xl font-extrabold text-steel-900 sm:text-2xl">Thương hiệu tiêu biểu</h2>
               </div>
-              <Link href="/thuong-hieu" className="text-sm font-semibold text-steel-600 hover:text-brand-600">Xem tất cả {brands.length} hãng →</Link>
+              <Link href="/thuong-hieu" className="text-sm font-semibold text-steel-600 hover:text-brand-600">Xem tất cả hãng →</Link>
             </div>
             <ul className="mt-4 grid grid-cols-4 gap-2 sm:mt-5 sm:gap-3 lg:grid-cols-8">
               {shopBrands.map((b) => (

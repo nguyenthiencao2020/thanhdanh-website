@@ -125,3 +125,24 @@ Công ty bán nhiều hãng, chữ “chủ lực” dễ hiểu là các hãng 
 - Admin → Thương hiệu: ô tích **“Thương hiệu tiêu biểu”** — chọn tối đa 8 hãng bán chạy / khách hỏi nhiều.
 - Cột database vẫn là `brands.featured`, file `0011_hang-chu-luc.sql` giữ tên cũ (đã chạy, không cần chạy lại).
 - Các mục “hãng chủ lực” ở trên trong file này hiểu là “thương hiệu tiêu biểu”.
+
+---
+
+## QA sau khi phân loại lại (09/11/2026)
+
+- **Trang công khai**: 601 trang (từ trang chủ + sitemap), máy tính & điện thoại — 0 lỗi trang, 0 ảnh hỏng, 0 lỗi JS, 0 tràn ngang.
+- **Đã sửa**:
+  - Ẩn **45 hãng chưa có sản phẩm** ở dải logo trang chủ và trang Thương hiệu (trang Thương hiệu thêm số sản phẩm + ô “Không thấy hãng bạn cần? → gửi yêu cầu”).
+  - Trang Giới thiệu chỉ hiện nhóm có sản phẩm (trước còn link tới nhóm ATS trống).
+  - Ví dụ tìm kiếm “6ES7214” (0 kết quả) → “S7-1200”.
+  - Link “Xem tất cả 62 hãng” → “Xem tất cả hãng” (trang chỉ hiện hãng có hàng).
+- **Admin** (14 trang, đăng nhập Supabase giả lập): đều mở được, không lỗi. Thêm:
+  - Tổng quan: “81 danh mục · 48 đang hiện trên web”, “62 thương hiệu · 17 đang hiện trên web”.
+  - Danh mục / Thương hiệu: nhãn “N sản phẩm · đang hiện” hoặc “0 sản phẩm · đang ẩn trên web” cho từng mục + dòng cảnh báo số mục đang ẩn.
+
+## Giai đoạn 4 (chờ duyệt) — Sản phẩm theo hãng → dòng hàng
+
+Yêu cầu của Đạt Danh: trang Sản phẩm chia **cột theo hãng**, mỗi hãng các **dòng hàng** (PLC, LOGO! · HMI · Motor · Biến tần · MCB, MCCB · Contactor · Nút nhấn, đèn báo · Cầu chì · Thiết bị đo…), **mỗi dòng 1 ảnh tượng trưng**, không làm chi tiết từng mã.
+
+- Bản nháp: **`tai-lieu/Dong-hang-theo-hang-NHAP.xlsx`** — 53 dòng hàng gộp từ 123 sản phẩm hiện có (Siemens 10, Schneider 6, ABB 5, …, “Hàng thông dụng” 6), có ảnh, cột series, cột Hiện trên web; sheet Thương hiệu: 17 hãng hiện / 45 hãng ẩn.
+- Sau khi Đạt Danh duyệt file: thêm bảng/trang dòng hàng, menu & trang Sản phẩm theo cột hãng → dòng, trang dòng hàng (ảnh + series + form báo giá), link sản phẩm cũ chuyển về dòng hàng, Admin mục “Dòng hàng”.

@@ -1,7 +1,8 @@
 import { deleteCategory, saveCategory } from "../../actions";
 import { ConfirmButton } from "@/components/admin/ConfirmButton";
 import { Flash } from "@/components/admin/Flash";
-import { requireAdmin } from "@/lib/admin";
+import { getAdminProductCounts, requireAdmin } from "@/lib/admin";
+import { VisibilityBadge } from "@/components/admin/VisibilityBadge";
 import { buildCategoryTree } from "@/lib/data";
 import type { Category } from "@/lib/types";
 
@@ -42,7 +43,7 @@ function CategoryFields({ c, groups }: { c?: Category; groups: Category[] }) {
   );
 }
 
-function CategoryCard({ c, groups, sub }: { c: Category; groups: Category[]; sub?: boolean }) {
+function CategoryCard({ c, groups, sub, count }: { c: Category; groups: Category[]; sub?: boolean; count: number }) {
   return (
     <details className={`rounded-xl bg-white shadow-sm ring-1 ring-slate-200 ${sub ? "ml-6" : ""}`}>
       <summary className="flex cursor-pointer items-center justify-between gap-3 px-5 py-3">
@@ -50,7 +51,10 @@ function CategoryCard({ c, groups, sub }: { c: Category; groups: Category[]; sub
           {sub ? "↳ " : ""}
           {c.name} <span className="text-xs font-normal text-slate-400">/{c.slug}</span>
         </span>
-        <span className="text-xs text-steel-600">Sửa</span>
+        <span className="flex shrink-0 items-center gap-3">
+          <VisibilityBadge count={count} />
+          <span className="text-xs text-steel-600">Sửa</span>
+        </span>
       </summary>
       <div className="border-t border-slate-100 p-5">
         <form action={saveCategory}>
@@ -69,10 +73,17 @@ function CategoryCard({ c, groups, sub }: { c: Category; groups: Category[]; sub
 export default async function AdminCategories({ searchParams }: { searchParams: Promise<{ error?: string; saved?: string }> }) {
   const { error, saved } = await searchParams;
   const { supabase } = await requireAdmin();
-  const { data } = await supabase.from("categories").select("*").order("sort_order").order("name");
+  const [{ data }, counts] = await Promise.all([
+    supabase.from("categories").select("*").order("sort_order").order("name"),
+    getAdminProductCounts(supabase),
+  ]);
   const categories = (data ?? []) as Category[];
   const tree = buildCategoryTree(categories);
   const groups = tree.map(({ children: _children, ...g }) => g);
+  // A group counts its own products plus its sub-categories'.
+  const own = (id: string) => counts.byCategory.get(id) ?? 0;
+  const groupCount = (g: (typeof tree)[number]) => own(g.id) + g.children.reduce((n, c) => n + own(c.id), 0);
+  const hidden = tree.filter((g) => groupCount(g) === 0).length + tree.reduce((n, g) => n + g.children.filter((c) => own(c.id) === 0).length, 0);
 
   return (
     <>
@@ -80,6 +91,11 @@ export default async function AdminCategories({ searchParams }: { searchParams: 
       <p className="mt-1 text-sm text-slate-500">
         {tree.length} nhóm · {categories.length - tree.length} danh mục con. Danh mục 2 cấp: chọn “Thuộc: …” để đặt làm danh mục con.
       </p>
+      {hidden > 0 && (
+        <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-800">
+          {hidden} danh mục chưa có sản phẩm nên <b>đang ẩn trên website</b> (menu, trang chủ, trang Sản phẩm). Thêm sản phẩm vào danh mục là tự hiện lại.
+        </p>
+      )}
       <div className="mt-4"><Flash error={error} saved={saved} /></div>
 
       <form action={saveCategory} className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
@@ -91,8 +107,8 @@ export default async function AdminCategories({ searchParams }: { searchParams: 
       <div className="mt-6 space-y-2">
         {tree.map((g) => (
           <div key={g.id} className="space-y-2">
-            <CategoryCard c={g} groups={groups} />
-            {g.children.map((c) => <CategoryCard key={c.id} c={c} groups={groups} sub />)}
+            <CategoryCard c={g} groups={groups} count={groupCount(g)} />
+            {g.children.map((c) => <CategoryCard key={c.id} c={c} groups={groups} sub count={own(c.id)} />)}
           </div>
         ))}
       </div>

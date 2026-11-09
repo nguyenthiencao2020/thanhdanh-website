@@ -13,7 +13,7 @@ import { Pagination } from "./Pagination";
 import { ProductCard } from "./ProductCard";
 
 const PAGE_SIZE = 12;
-const SEARCH_EXAMPLES = ["6ES7214", "LC1D", "V20", "cảm biến tiệm cận"];
+const SEARCH_EXAMPLES = ["S7-1200", "LC1D", "V20", "cảm biến tiệm cận"];
 
 export type ListingParams = { brand?: string; q?: string; sort?: string; page?: number };
 
@@ -215,7 +215,7 @@ function Landing({ brands, tree, pairs }: { brands: Brand[]; tree: CategoryNode[
       <section>
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-bold text-steel-900 sm:text-2xl">Chọn theo hãng</h2>
-          <Link href="/thuong-hieu" className="shrink-0 text-sm font-semibold text-steel-600 hover:text-brand-600">Tất cả {brands.length} hãng →</Link>
+          <Link href="/thuong-hieu" className="shrink-0 text-sm font-semibold text-steel-600 hover:text-brand-600">Tất cả hãng →</Link>
         </div>
         <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
           {top.map((b) => (
