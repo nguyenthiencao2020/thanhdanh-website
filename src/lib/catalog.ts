@@ -3,7 +3,7 @@ import type { Brand, CategoryNode } from "./types";
 /** One published product reduced to where it is filed: its category slug and brand slug. */
 export type ProductPair = { category: string | null; brand: string | null };
 
-/** Shown as “Hãng chủ lực” until brands are ticked in Admin (migration 0011). */
+/** Shown as “Thương hiệu tiêu biểu” until brands are ticked in Admin (migration 0011). */
 export const DEFAULT_FEATURED_BRANDS = ["siemens", "schneider-electric", "abb", "ifm", "autonics", "chint", "weidmuller", "sick"];
 
 /** Up to `limit` brands to lead with: the ones ticked in Admin, else the default list. */

@@ -30,7 +30,7 @@ type Props = {
   facebook: string | null;
   /** Product groups that have products (empty ones are hidden), with their product count. */
   categories: { slug: string; name: string; icon: string | null; image_url?: string | null; count: number; children: { slug: string; name: string }[] }[];
-  /** “Hãng chủ lực” with their product count. */
+  /** “Thương hiệu tiêu biểu” with their product count. */
   brands: { slug: string; name: string; logo_url: string | null; count: number }[];
 };
 

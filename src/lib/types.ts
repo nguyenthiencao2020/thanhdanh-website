@@ -42,7 +42,7 @@ export type Brand = {
   name: string;
   logo_url: string | null;
   sort_order: number;
-  /** “Hãng chủ lực”: shown first on the product pages and in the menu (migration 0011). */
+  /** “Thương hiệu tiêu biểu”: shown first on the product pages and in the menu (migration 0011). */
   featured?: boolean | null;
 };
 

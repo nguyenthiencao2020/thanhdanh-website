@@ -85,8 +85,10 @@ export default async function HomePage() {
           <div className="-mt-12 rounded-3xl bg-white p-4 shadow-2xl shadow-steel-900/15 ring-1 ring-slate-200 sm:p-7">
             <div className="flex flex-wrap items-end justify-between gap-2">
               <div>
-                <p className="text-xs font-bold tracking-widest text-brand-600 uppercase">Cung cấp thiết bị chính hãng</p>
-                <h2 className="mt-1 text-xl font-extrabold text-steel-900 sm:text-2xl">Thương hiệu chủ lực</h2>
+                <p className="text-xs font-bold tracking-widest text-brand-600 uppercase">
+                  Cung cấp thiết bị {brands.length >= 20 ? `hơn ${Math.floor(brands.length / 10) * 10}` : brands.length} hãng
+                </p>
+                <h2 className="mt-1 text-xl font-extrabold text-steel-900 sm:text-2xl">Thương hiệu tiêu biểu</h2>
               </div>
               <Link href="/thuong-hieu" className="text-sm font-semibold text-steel-600 hover:text-brand-600">Xem tất cả {brands.length} hãng →</Link>
             </div>

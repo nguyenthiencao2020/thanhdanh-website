@@ -16,8 +16,8 @@ function BrandFields({ b }: { b?: Brand }) {
         <input name="sort_order" type="number" defaultValue={b?.sort_order ?? 0} className="input" aria-label="Thứ tự" title="Thứ tự" />
       </div>
       <label className="mt-3 flex items-center gap-2 text-sm font-medium text-slate-700">
-        <input type="checkbox" name="featured" defaultChecked={!!b?.featured} /> Hãng chủ lực
-        <span className="font-normal text-slate-500">(hiện đầu trang Sản phẩm và menu, nên chọn tối đa 8)</span>
+        <input type="checkbox" name="featured" defaultChecked={!!b?.featured} /> Thương hiệu tiêu biểu
+        <span className="font-normal text-slate-500">(logo to ở trang chủ, trang Sản phẩm và menu — chọn tối đa 8 hãng bán chạy / khách hỏi nhiều)</span>
       </label>
       <label className="mt-3 block text-sm text-slate-600">
         Logo: <input type="file" name="logo" accept="image/jpeg,image/png,image/webp,image/svg+xml" className="ml-2 text-sm" />
