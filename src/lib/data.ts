@@ -28,7 +28,7 @@ const fallbackProducts: ProductWithRelations[] = catalog.products.map((p) => {
     image_url: p.image_url,
     gallery: [],
     datasheet_url: null,
-    in_stock: true,
+    in_stock: (p as { in_stock?: boolean }).in_stock ?? true,
     price: null,
     featured: p.featured,
     published: true,

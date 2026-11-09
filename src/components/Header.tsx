@@ -27,7 +27,7 @@ type Props = {
   email: string | null;
   zaloHref: string | null;
   facebook: string | null;
-  categories: { slug: string; name: string; icon: string | null; description: string | null; children: { slug: string; name: string }[] }[];
+  categories: { slug: string; name: string; icon: string | null; image_url?: string | null; description: string | null; children: { slug: string; name: string }[] }[];
 };
 
 export function Header({ shortName, tagline, announcement, announcementUrl, phone, phoneHref, email, zaloHref, facebook, categories }: Props) {
@@ -130,9 +130,16 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                               href={`/danh-muc-san-pham/${g.slug}`}
                               className="group/cat flex items-center gap-3 rounded-2xl px-3 py-2.5 transition hover:bg-slate-50"
                             >
-                              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-orange-50 text-brand-600 ring-1 ring-brand-100 transition group-hover/cat:from-brand-600 group-hover/cat:to-brand-500 group-hover/cat:text-white">
-                                <Icon name={g.icon ?? "box"} className="h-5 w-5" />
-                              </span>
+                              {g.image_url ? (
+                                <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-slate-200 transition group-hover/cat:ring-brand-500">
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img src={g.image_url} alt="" loading="lazy" className="h-full w-full object-contain p-0.5" />
+                                </span>
+                              ) : (
+                                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-orange-50 text-brand-600 ring-1 ring-brand-100 transition group-hover/cat:from-brand-600 group-hover/cat:to-brand-500 group-hover/cat:text-white">
+                                  <Icon name={g.icon ?? "box"} className="h-5 w-5" />
+                                </span>
+                              )}
                               <span className="min-w-0">
                                 <span className="block truncate text-sm font-bold text-steel-900 group-hover/cat:text-brand-600">{g.name}</span>
                                 <span className="block truncate text-xs text-slate-500">

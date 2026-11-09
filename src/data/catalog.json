@@ -28,7 +28,7 @@
       "name": "Thiết bị đóng cắt",
       "description": "Aptomat MCB, Aptomat khối MCCB, Máy cắt không khí ACB, Chống giật RCCB – RCBO, Cầu dao cách ly – LIS, Cầu dao đảo chiều MTS.",
       "icon": "bolt",
-      "image_url": "/demo/aptomat.svg",
+      "image_url": "/img/dm/thiet-bi-dong-cat.jpg",
       "sort_order": 1,
       "parent": null
     },
@@ -37,7 +37,7 @@
       "name": "Aptomat MCB",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/mcb.jpg",
       "sort_order": 1,
       "parent": "thiet-bi-dong-cat"
     },
@@ -46,7 +46,7 @@
       "name": "Aptomat khối MCCB",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/mccb.jpg",
       "sort_order": 2,
       "parent": "thiet-bi-dong-cat"
     },
@@ -91,7 +91,7 @@
       "name": "Contactor – Khởi động từ",
       "description": "Contactor, Khởi động từ, Rơ le nhiệt, Contactor tụ bù.",
       "icon": "bolt",
-      "image_url": "/demo/contactor.svg",
+      "image_url": "/img/dm/contactor-khoi-dong-tu.jpg",
       "sort_order": 2,
       "parent": null
     },
@@ -100,7 +100,7 @@
       "name": "Contactor",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/contactor.jpg",
       "sort_order": 1,
       "parent": "contactor-khoi-dong-tu"
     },
@@ -109,7 +109,7 @@
       "name": "Khởi động từ",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/khoi-dong-tu.jpg",
       "sort_order": 2,
       "parent": "contactor-khoi-dong-tu"
     },
@@ -118,7 +118,7 @@
       "name": "Rơ le nhiệt",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/ro-le-nhiet.jpg",
       "sort_order": 3,
       "parent": "contactor-khoi-dong-tu"
     },
@@ -136,7 +136,7 @@
       "name": "Relay – Timer",
       "description": "Relay trung gian, Relay bảo vệ (dòng, áp, pha), Timer – Bộ định thời, Relay bán dẫn SSR.",
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/relay-timer.jpg",
       "sort_order": 3,
       "parent": null
     },
@@ -145,7 +145,7 @@
       "name": "Relay trung gian",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/relay-trung-gian.jpg",
       "sort_order": 1,
       "parent": "relay-timer"
     },
@@ -154,7 +154,7 @@
       "name": "Relay bảo vệ (dòng, áp, pha)",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/relay-bao-ve.jpg",
       "sort_order": 2,
       "parent": "relay-timer"
     },
@@ -163,7 +163,7 @@
       "name": "Timer – Bộ định thời",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/timer.jpg",
       "sort_order": 3,
       "parent": "relay-timer"
     },
@@ -181,7 +181,7 @@
       "name": "Biến tần – Khởi động mềm",
       "description": "Biến tần, Khởi động mềm, Phụ kiện biến tần.",
       "icon": "cpu",
-      "image_url": "/demo/bien-tan.svg",
+      "image_url": "/img/dm/bien-tan-khoi-dong-mem.jpg",
       "sort_order": 4,
       "parent": null
     },
@@ -190,7 +190,7 @@
       "name": "Biến tần",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/bien-tan.jpg",
       "sort_order": 1,
       "parent": "bien-tan-khoi-dong-mem"
     },
@@ -199,7 +199,7 @@
       "name": "Khởi động mềm",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/khoi-dong-mem.jpg",
       "sort_order": 2,
       "parent": "bien-tan-khoi-dong-mem"
     },
@@ -208,7 +208,7 @@
       "name": "Phụ kiện biến tần",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/phu-kien-bien-tan.jpg",
       "sort_order": 3,
       "parent": "bien-tan-khoi-dong-mem"
     },
@@ -217,7 +217,7 @@
       "name": "Thiết bị tự động hóa (PLC)",
       "description": "PLC, Màn hình HMI, Servo – Bộ điều khiển chuyển động, Module mở rộng – Truyền thông.",
       "icon": "cpu",
-      "image_url": "/demo/plc.svg",
+      "image_url": "/img/dm/tu-dong-hoa.jpg",
       "sort_order": 5,
       "parent": null
     },
@@ -226,7 +226,7 @@
       "name": "PLC",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/plc.jpg",
       "sort_order": 1,
       "parent": "tu-dong-hoa"
     },
@@ -235,7 +235,7 @@
       "name": "Màn hình HMI",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/hmi.jpg",
       "sort_order": 2,
       "parent": "tu-dong-hoa"
     },
@@ -244,7 +244,7 @@
       "name": "Servo – Bộ điều khiển chuyển động",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/servo.jpg",
       "sort_order": 3,
       "parent": "tu-dong-hoa"
     },
@@ -253,7 +253,7 @@
       "name": "Module mở rộng – Truyền thông",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/module-mo-rong.jpg",
       "sort_order": 4,
       "parent": "tu-dong-hoa"
     },
@@ -262,7 +262,7 @@
       "name": "Cảm biến – Điều khiển nhiệt độ",
       "description": "Cảm biến tiệm cận, Cảm biến quang, Bộ điều khiển nhiệt độ – độ ẩm, Can nhiệt – Cảm biến nhiệt, Encoder.",
       "icon": "cpu",
-      "image_url": "/demo/cam-bien-tiem-can.svg",
+      "image_url": "/img/dm/cam-bien-dieu-khien-nhiet.jpg",
       "sort_order": 6,
       "parent": null
     },
@@ -271,7 +271,7 @@
       "name": "Cảm biến tiệm cận",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/cam-bien-tiem-can.jpg",
       "sort_order": 1,
       "parent": "cam-bien-dieu-khien-nhiet"
     },
@@ -280,7 +280,7 @@
       "name": "Cảm biến quang",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/cam-bien-quang.jpg",
       "sort_order": 2,
       "parent": "cam-bien-dieu-khien-nhiet"
     },
@@ -298,7 +298,7 @@
       "name": "Can nhiệt – Cảm biến nhiệt",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/can-nhiet.jpg",
       "sort_order": 4,
       "parent": "cam-bien-dieu-khien-nhiet"
     },
@@ -307,7 +307,7 @@
       "name": "Encoder",
       "description": null,
       "icon": "cpu",
-      "image_url": null,
+      "image_url": "/img/dm/encoder.jpg",
       "sort_order": 5,
       "parent": "cam-bien-dieu-khien-nhiet"
     },
@@ -343,7 +343,7 @@
       "name": "Tụ bù – Cuộn kháng",
       "description": "Tụ bù, Cuộn kháng, Bộ điều khiển tụ bù.",
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/tu-bu-cuon-khang.jpg",
       "sort_order": 8,
       "parent": null
     },
@@ -352,7 +352,7 @@
       "name": "Tụ bù",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/tu-bu.jpg",
       "sort_order": 1,
       "parent": "tu-bu-cuon-khang"
     },
@@ -361,7 +361,7 @@
       "name": "Cuộn kháng",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/cuon-khang.jpg",
       "sort_order": 2,
       "parent": "tu-bu-cuon-khang"
     },
@@ -370,7 +370,7 @@
       "name": "Bộ điều khiển tụ bù",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/bo-dieu-khien-tu-bu.jpg",
       "sort_order": 3,
       "parent": "tu-bu-cuon-khang"
     },
@@ -379,7 +379,7 @@
       "name": "Biến dòng – Đồng hồ đo",
       "description": "Biến dòng, Đồng hồ đo đa năng, Đồng hồ Ampe – Vôn, Công tơ điện.",
       "icon": "clock",
-      "image_url": null,
+      "image_url": "/img/dm/bien-dong-dong-ho-do.jpg",
       "sort_order": 9,
       "parent": null
     },
@@ -397,7 +397,7 @@
       "name": "Đồng hồ đo đa năng",
       "description": null,
       "icon": "clock",
-      "image_url": null,
+      "image_url": "/img/dm/dong-ho-da-nang.jpg",
       "sort_order": 2,
       "parent": "bien-dong-dong-ho-do"
     },
@@ -424,7 +424,7 @@
       "name": "Cầu chì",
       "description": "Cầu chì hạ thế, Cầu chì trung thế, Đế – Phụ kiện cầu chì.",
       "icon": "shield",
-      "image_url": null,
+      "image_url": "/img/dm/cau-chi.jpg",
       "sort_order": 10,
       "parent": null
     },
@@ -433,7 +433,7 @@
       "name": "Cầu chì hạ thế",
       "description": null,
       "icon": "shield",
-      "image_url": null,
+      "image_url": "/img/dm/cau-chi-ha-the.jpg",
       "sort_order": 1,
       "parent": "cau-chi"
     },
@@ -451,7 +451,7 @@
       "name": "Đế – Phụ kiện cầu chì",
       "description": null,
       "icon": "shield",
-      "image_url": null,
+      "image_url": "/img/dm/de-cau-chi.jpg",
       "sort_order": 3,
       "parent": "cau-chi"
     },
@@ -487,7 +487,7 @@
       "name": "Bộ nguồn – UPS",
       "description": "Bộ nguồn – Nguồn tổ ong, Bộ lưu điện UPS.",
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/bo-nguon-ups.jpg",
       "sort_order": 12,
       "parent": null
     },
@@ -496,7 +496,7 @@
       "name": "Bộ nguồn – Nguồn tổ ong",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/bo-nguon.jpg",
       "sort_order": 1,
       "parent": "bo-nguon-ups"
     },
@@ -505,7 +505,7 @@
       "name": "Bộ lưu điện UPS",
       "description": null,
       "icon": "bolt",
-      "image_url": null,
+      "image_url": "/img/dm/ups.jpg",
       "sort_order": 2,
       "parent": "bo-nguon-ups"
     },
@@ -514,7 +514,7 @@
       "name": "Phụ kiện tủ điện",
       "description": "Cầu đấu – Domino, Máng nhựa – Thanh ray, Busbar – Gối đỡ, Co nhiệt – Đầu cos, Đèn báo – Nút nhấn.",
       "icon": "box",
-      "image_url": null,
+      "image_url": "/img/dm/phu-kien-tu-dien.jpg",
       "sort_order": 13,
       "parent": null
     },
@@ -523,7 +523,7 @@
       "name": "Cầu đấu – Domino",
       "description": null,
       "icon": "box",
-      "image_url": null,
+      "image_url": "/img/dm/cau-dau.jpg",
       "sort_order": 1,
       "parent": "phu-kien-tu-dien"
     },
@@ -559,7 +559,7 @@
       "name": "Đèn báo – Nút nhấn",
       "description": null,
       "icon": "box",
-      "image_url": null,
+      "image_url": "/img/dm/den-bao-nut-nhan.jpg",
       "sort_order": 5,
       "parent": "phu-kien-tu-dien"
     },
@@ -658,7 +658,7 @@
       "name": "Motor – Hộp giảm tốc",
       "description": "Động cơ điện, Motor giảm tốc, Hộp số – Hộp giảm tốc, Quạt hút công nghiệp.",
       "icon": "cog",
-      "image_url": "/demo/motor-giam-toc.svg",
+      "image_url": "/img/dm/motor-hop-giam-toc.jpg",
       "sort_order": 16,
       "parent": null
     },
@@ -667,7 +667,7 @@
       "name": "Động cơ điện",
       "description": null,
       "icon": "cog",
-      "image_url": null,
+      "image_url": "/img/dm/dong-co-dien.jpg",
       "sort_order": 1,
       "parent": "motor-hop-giam-toc"
     },
@@ -676,7 +676,7 @@
       "name": "Motor giảm tốc",
       "description": null,
       "icon": "cog",
-      "image_url": null,
+      "image_url": "/img/dm/motor-giam-toc.jpg",
       "sort_order": 2,
       "parent": "motor-hop-giam-toc"
     },
@@ -757,73 +757,73 @@
     {
       "slug": "siemens",
       "name": "Siemens",
-      "logo_url": "/brands/siemens.png",
+      "logo_url": "/img/th/siemens.png",
       "sort_order": 1
     },
     {
       "slug": "schneider-electric",
       "name": "Schneider Electric",
-      "logo_url": "/brands/schneider-electric.png",
+      "logo_url": "/img/th/schneider-electric.png",
       "sort_order": 2
     },
     {
       "slug": "mitsubishi-electric",
       "name": "Mitsubishi Electric",
-      "logo_url": "/brands/mitsubishi-electric.png",
+      "logo_url": "/img/th/mitsubishi-electric.png",
       "sort_order": 3
     },
     {
       "slug": "omron",
       "name": "Omron",
-      "logo_url": "/brands/omron.png",
+      "logo_url": "/img/th/omron.png",
       "sort_order": 4
     },
     {
       "slug": "abb",
       "name": "ABB",
-      "logo_url": "/brands/abb.png",
+      "logo_url": "/img/th/abb.png",
       "sort_order": 5
     },
     {
       "slug": "festo",
       "name": "Festo",
-      "logo_url": "/brands/festo.png",
+      "logo_url": "/img/th/festo.png",
       "sort_order": 6
     },
     {
       "slug": "smc",
       "name": "SMC",
-      "logo_url": "/brands/smc.png",
+      "logo_url": "/img/th/smc.png",
       "sort_order": 7
     },
     {
       "slug": "sick",
       "name": "SICK",
-      "logo_url": "/brands/sick.png",
+      "logo_url": "/img/th/sick.png",
       "sort_order": 8
     },
     {
       "slug": "ifm",
       "name": "ifm electronic",
-      "logo_url": "/brands/ifm.png",
+      "logo_url": "/img/th/ifm.png",
       "sort_order": 9
     },
     {
       "slug": "phoenix-contact",
       "name": "Phoenix Contact",
-      "logo_url": "/brands/phoenix-contact.png",
+      "logo_url": "/img/th/phoenix-contact.png",
       "sort_order": 10
     },
     {
       "slug": "autonics",
       "name": "Autonics",
-      "logo_url": "/brands/autonics.png",
+      "logo_url": "/img/th/autonics.png",
       "sort_order": 11
     },
     {
       "slug": "hanyoung-nux",
       "name": "Hanyoung Nux",
-      "logo_url": "/brands/hanyoung-nux.png",
+      "logo_url": "/img/th/hanyoung-nux.png",
       "sort_order": 12
     },
     {
@@ -831,6 +831,300 @@
       "name": "IDEC",
       "logo_url": null,
       "sort_order": 13
+    },
+    {
+      "slug": "pepperl-fuchs",
+      "name": "Pepperl+Fuchs",
+      "logo_url": "/img/th/pepperl-fuchs.png",
+      "sort_order": 14
+    },
+    {
+      "slug": "airtac",
+      "name": "AirTAC",
+      "logo_url": "/img/th/airtac.png",
+      "sort_order": 15
+    },
+    {
+      "slug": "ls-electric",
+      "name": "LS Electric",
+      "logo_url": "/img/th/ls-electric.png",
+      "sort_order": 16
+    },
+    {
+      "slug": "mikro",
+      "name": "Mikro",
+      "logo_url": "/img/th/mikro.png",
+      "sort_order": 17
+    },
+    {
+      "slug": "weidmuller",
+      "name": "Weidmüller",
+      "logo_url": "/img/th/weidmuller.png",
+      "sort_order": 18
+    },
+    {
+      "slug": "mean-well",
+      "name": "Mean Well",
+      "logo_url": "/img/th/mean-well.png",
+      "sort_order": 19
+    },
+    {
+      "slug": "sang-jin",
+      "name": "Sang Jin",
+      "logo_url": "/img/th/sang-jin.png",
+      "sort_order": 20
+    },
+    {
+      "slug": "altek-kabel",
+      "name": "Altek Kabel",
+      "logo_url": "/img/th/altek-kabel.png",
+      "sort_order": 21
+    },
+    {
+      "slug": "cadivi",
+      "name": "CADIVI",
+      "logo_url": "/img/th/cadivi.png",
+      "sort_order": 22
+    },
+    {
+      "slug": "lion",
+      "name": "LION",
+      "logo_url": "/img/th/lion.png",
+      "sort_order": 23
+    },
+    {
+      "slug": "eaton",
+      "name": "Eaton",
+      "logo_url": "/img/th/eaton.png",
+      "sort_order": 24
+    },
+    {
+      "slug": "delta",
+      "name": "Delta",
+      "logo_url": "/img/th/delta.png",
+      "sort_order": 25
+    },
+    {
+      "slug": "rockwell-automation",
+      "name": "Rockwell Automation",
+      "logo_url": "/img/th/rockwell-automation.png",
+      "sort_order": 26
+    },
+    {
+      "slug": "fuji-electric",
+      "name": "Fuji Electric",
+      "logo_url": "/img/th/fuji-electric.png",
+      "sort_order": 27
+    },
+    {
+      "slug": "finder",
+      "name": "Finder",
+      "logo_url": "/img/th/finder.png",
+      "sort_order": 28
+    },
+    {
+      "slug": "turck-banner",
+      "name": "Turck Banner",
+      "logo_url": "/img/th/turck-banner.png",
+      "sort_order": 29
+    },
+    {
+      "slug": "selec",
+      "name": "Selec",
+      "logo_url": "/img/th/selec.png",
+      "sort_order": 30
+    },
+    {
+      "slug": "pro-face",
+      "name": "Pro-face",
+      "logo_url": "/img/th/pro-face.png",
+      "sort_order": 31
+    },
+    {
+      "slug": "yaskawa",
+      "name": "Yaskawa",
+      "logo_url": "/img/th/yaskawa.png",
+      "sort_order": 32
+    },
+    {
+      "slug": "weintek",
+      "name": "Weintek",
+      "logo_url": "/img/th/weintek.png",
+      "sort_order": 33
+    },
+    {
+      "slug": "wago",
+      "name": "WAGO",
+      "logo_url": "/img/th/wago.png",
+      "sort_order": 34
+    },
+    {
+      "slug": "endress-hauser",
+      "name": "Endress+Hauser",
+      "logo_url": "/img/th/endress-hauser.png",
+      "sort_order": 35
+    },
+    {
+      "slug": "klemsan",
+      "name": "Klemsan",
+      "logo_url": "/img/th/klemsan.png",
+      "sort_order": 36
+    },
+    {
+      "slug": "puls",
+      "name": "PULS",
+      "logo_url": "/img/th/puls.png",
+      "sort_order": 37
+    },
+    {
+      "slug": "bosch-rexroth",
+      "name": "Bosch Rexroth",
+      "logo_url": "/img/th/bosch-rexroth.png",
+      "sort_order": 38
+    },
+    {
+      "slug": "beckhoff",
+      "name": "Beckhoff",
+      "logo_url": "/img/th/beckhoff.png",
+      "sort_order": 39
+    },
+    {
+      "slug": "danfoss",
+      "name": "Danfoss",
+      "logo_url": "/img/th/danfoss.png",
+      "sort_order": 40
+    },
+    {
+      "slug": "fatek",
+      "name": "Fatek",
+      "logo_url": "/img/th/fatek.png",
+      "sort_order": 41
+    },
+    {
+      "slug": "parker",
+      "name": "Parker",
+      "logo_url": "/img/th/parker.png",
+      "sort_order": 42
+    },
+    {
+      "slug": "pilz",
+      "name": "Pilz",
+      "logo_url": "/img/th/pilz.png",
+      "sort_order": 43
+    },
+    {
+      "slug": "panasonic",
+      "name": "Panasonic",
+      "logo_url": "/img/th/panasonic.png",
+      "sort_order": 44
+    },
+    {
+      "slug": "koyo",
+      "name": "Koyo",
+      "logo_url": "/img/th/koyo.png",
+      "sort_order": 45
+    },
+    {
+      "slug": "dinkle",
+      "name": "Dinkle",
+      "logo_url": "/img/th/dinkle.png",
+      "sort_order": 46
+    },
+    {
+      "slug": "hensel",
+      "name": "Hensel",
+      "logo_url": "/img/th/hensel.png",
+      "sort_order": 47
+    },
+    {
+      "slug": "norgren",
+      "name": "Norgren",
+      "logo_url": "/img/th/norgren.png",
+      "sort_order": 48
+    },
+    {
+      "slug": "schmersal",
+      "name": "Schmersal",
+      "logo_url": "/img/th/schmersal.png",
+      "sort_order": 49
+    },
+    {
+      "slug": "azbil",
+      "name": "Azbil",
+      "logo_url": "/img/th/azbil.png",
+      "sort_order": 50
+    },
+    {
+      "slug": "skf",
+      "name": "SKF",
+      "logo_url": "/img/th/skf.png",
+      "sort_order": 51
+    },
+    {
+      "slug": "asahi",
+      "name": "Asahi",
+      "logo_url": "/img/th/asahi.png",
+      "sort_order": 52
+    },
+    {
+      "slug": "nsk",
+      "name": "NSK",
+      "logo_url": "/img/th/nsk.png",
+      "sort_order": 53
+    },
+    {
+      "slug": "ntn",
+      "name": "NTN",
+      "logo_url": "/img/th/ntn.png",
+      "sort_order": 54
+    },
+    {
+      "slug": "rang-dong",
+      "name": "Rạng Đông",
+      "logo_url": "/img/th/rang-dong.png",
+      "sort_order": 55
+    },
+    {
+      "slug": "duhal",
+      "name": "Duhal",
+      "logo_url": "/img/th/duhal.png",
+      "sort_order": 56
+    },
+    {
+      "slug": "philips",
+      "name": "Philips",
+      "logo_url": "/img/th/philips.png",
+      "sort_order": 57
+    },
+    {
+      "slug": "himel",
+      "name": "Himel",
+      "logo_url": "/img/th/himel.png",
+      "sort_order": 58
+    },
+    {
+      "slug": "samwha",
+      "name": "Samwha",
+      "logo_url": "/img/th/samwha.png",
+      "sort_order": 59
+    },
+    {
+      "slug": "nuintek",
+      "name": "Nuintek",
+      "logo_url": "/img/th/nuintek.png",
+      "sort_order": 60
+    },
+    {
+      "slug": "honeywell",
+      "name": "Honeywell",
+      "logo_url": "/img/th/honeywell.png",
+      "sort_order": 61
+    },
+    {
+      "slug": "chint",
+      "name": "CHINT",
+      "logo_url": null,
+      "sort_order": 62
     }
   ],
   "products": [
@@ -842,7 +1136,7 @@
       "summary": "PLC nhỏ gọn cho các ứng dụng điều khiển máy và dây chuyền vừa và nhỏ.",
       "description": "Dòng PLC S7-1200 tích hợp cổng PROFINET, lập trình bằng TIA Portal. Liên hệ để được tư vấn chọn CPU, module mở rộng và báo giá.",
       "featured": true,
-      "image_url": "/demo/plc.svg",
+      "image_url": "/img/sp/plc-siemens-s7-1200.jpg",
       "specs": "Dòng sản phẩm | S7-1200\nNgôn ngữ lập trình | LAD, FBD, SCL (TIA Portal)\nCổng truyền thông | PROFINET tích hợp\nNguồn cấp | 24 VDC hoặc 120/230 VAC (tùy CPU)\nMở rộng | Signal board, signal module, communication module"
     },
     {
@@ -875,7 +1169,7 @@
       "summary": "Cầu dao tự động bảo vệ quá tải và ngắn mạch.",
       "description": "Đầy đủ dòng định mức và số cực. Liên hệ để nhận báo giá theo số lượng.",
       "featured": true,
-      "image_url": "/demo/aptomat.svg",
+      "image_url": "/img/sp/aptomat-schneider-easy9.jpg",
       "specs": null
     },
     {
@@ -886,7 +1180,7 @@
       "summary": "Khởi động từ cho động cơ và tải công nghiệp.",
       "description": "Cuộn coil dải điện áp rộng, độ bền cao. Liên hệ để được tư vấn chọn mã.",
       "featured": false,
-      "image_url": "/demo/contactor.svg",
+      "image_url": "/img/sp/contactor-abb-af.jpg",
       "specs": null
     },
     {
@@ -919,7 +1213,7 @@
       "summary": "Cảm biến quang thu phát, phản xạ gương và phản xạ khuếch tán.",
       "description": "Độ chính xác cao, phù hợp cho môi trường công nghiệp khắc nghiệt.",
       "featured": false,
-      "image_url": "/demo/cam-bien-quang.svg",
+      "image_url": "/img/sp/cam-bien-quang-sick.jpg",
       "specs": null
     },
     {
@@ -930,7 +1224,7 @@
       "summary": "Motor giảm tốc cốt thẳng, cốt vuông góc nhiều tỉ số truyền.",
       "description": "Tư vấn chọn công suất, tỉ số truyền và kiểu lắp đặt theo yêu cầu thực tế.",
       "featured": true,
-      "image_url": "/demo/motor-giam-toc.svg",
+      "image_url": "/img/sp/motor-giam-toc.jpg",
       "specs": null
     },
     {
@@ -943,6 +1237,1362 @@
       "featured": false,
       "image_url": "/demo/van-bi-inox.svg",
       "specs": null
+    },
+    {
+      "slug": "plc-siemens-s7-200-smart",
+      "name": "PLC Siemens S7-200 SMART",
+      "category": "plc",
+      "brand": "siemens",
+      "summary": "Cung cấp pLC Siemens S7-200 SMART cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp pLC Siemens S7-200 SMART cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/plc-siemens-s7-200-smart.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "plc-siemens-s7-200",
+      "name": "PLC Siemens S7-200",
+      "category": "plc",
+      "brand": "siemens",
+      "summary": "Cung cấp pLC Siemens S7-200 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp pLC Siemens S7-200 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/plc-siemens-s7-200.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "plc-siemens-s7-300",
+      "name": "PLC Siemens S7-300",
+      "category": "plc",
+      "brand": "siemens",
+      "summary": "Cung cấp pLC Siemens S7-300 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp pLC Siemens S7-300 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/plc-siemens-s7-300.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "plc-siemens-s7-400",
+      "name": "PLC Siemens S7-400",
+      "category": "plc",
+      "brand": "siemens",
+      "summary": "Cung cấp pLC Siemens S7-400 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp pLC Siemens S7-400 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/plc-siemens-s7-400.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "plc-siemens-s7-1500",
+      "name": "PLC Siemens S7-1500",
+      "category": "plc",
+      "brand": "siemens",
+      "summary": "Cung cấp pLC Siemens S7-1500 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp pLC Siemens S7-1500 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": true,
+      "image_url": "/img/sp/plc-siemens-s7-1500.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "bo-dieu-khien-siemens-logo",
+      "name": "Bộ điều khiển logic Siemens LOGO!",
+      "category": "plc",
+      "brand": "siemens",
+      "summary": "Cung cấp bộ điều khiển logic Siemens LOGO! cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ điều khiển logic Siemens LOGO! cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/bo-dieu-khien-siemens-logo.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "module-mo-rong-plc-siemens",
+      "name": "Module mở rộng I/O PLC Siemens",
+      "category": "module-mo-rong",
+      "brand": "siemens",
+      "summary": "Cung cấp module mở rộng I/O PLC Siemens cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp module mở rộng I/O PLC Siemens cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/module-mo-rong-plc-siemens.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "dau-noi-profibus-siemens",
+      "name": "Đầu nối PROFIBUS DP Siemens",
+      "category": "module-mo-rong",
+      "brand": "siemens",
+      "summary": "Cung cấp đầu nối PROFIBUS DP Siemens cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp đầu nối PROFIBUS DP Siemens cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/dau-noi-profibus-siemens.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "hmi-siemens-tp-comfort",
+      "name": "Màn hình HMI Siemens TP Comfort",
+      "category": "hmi",
+      "brand": "siemens",
+      "summary": "Cung cấp màn hình HMI Siemens TP Comfort cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp màn hình HMI Siemens TP Comfort cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/hmi-siemens-tp-comfort.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "hmi-siemens-kp-comfort",
+      "name": "Màn hình HMI Siemens KP Comfort (bàn phím)",
+      "category": "hmi",
+      "brand": "siemens",
+      "summary": "Cung cấp màn hình HMI Siemens KP Comfort (bàn phím) cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp màn hình HMI Siemens KP Comfort (bàn phím) cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/hmi-siemens-kp-comfort.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "hmi-siemens-ktp-basic",
+      "name": "Màn hình HMI Siemens KTP Basic",
+      "category": "hmi",
+      "brand": "siemens",
+      "summary": "Cung cấp màn hình HMI Siemens KTP Basic cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp màn hình HMI Siemens KTP Basic cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": true,
+      "image_url": "/img/sp/hmi-siemens-ktp-basic.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "hmi-siemens-smart-700-ie",
+      "name": "Màn hình HMI Siemens SMART 700 IE",
+      "category": "hmi",
+      "brand": "siemens",
+      "summary": "Cung cấp màn hình HMI Siemens SMART 700 IE cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp màn hình HMI Siemens SMART 700 IE cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/hmi-siemens-smart-700-ie.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "hmi-siemens-tp177b",
+      "name": "Màn hình HMI Siemens TP 177B",
+      "category": "hmi",
+      "brand": "siemens",
+      "summary": "Cung cấp màn hình HMI Siemens TP 177B cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp màn hình HMI Siemens TP 177B cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/hmi-siemens-tp177b.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "hmi-siemens-op77a",
+      "name": "Màn hình vận hành Siemens OP 77A",
+      "category": "hmi",
+      "brand": "siemens",
+      "summary": "Cung cấp màn hình vận hành Siemens OP 77A cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp màn hình vận hành Siemens OP 77A cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/hmi-siemens-op77a.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "nguon-siemens-sitop-psu100c",
+      "name": "Bộ nguồn Siemens SITOP PSU100C",
+      "category": "bo-nguon",
+      "brand": "siemens",
+      "summary": "Cung cấp bộ nguồn Siemens SITOP PSU100C cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ nguồn Siemens SITOP PSU100C cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/nguon-siemens-sitop-psu100c.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "nguon-siemens-sitop-psu200m",
+      "name": "Bộ nguồn Siemens SITOP PSU200M",
+      "category": "bo-nguon",
+      "brand": "siemens",
+      "summary": "Cung cấp bộ nguồn Siemens SITOP PSU200M cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ nguồn Siemens SITOP PSU200M cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/nguon-siemens-sitop-psu200m.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "module-bao-ve-siemens-sitop-pse200u",
+      "name": "Module bảo vệ đầu ra Siemens SITOP PSE200U",
+      "category": "bo-nguon",
+      "brand": "siemens",
+      "summary": "Cung cấp module bảo vệ đầu ra Siemens SITOP PSE200U cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp module bảo vệ đầu ra Siemens SITOP PSE200U cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/module-bao-ve-siemens-sitop-pse200u.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "nguon-siemens-logo-power",
+      "name": "Bộ nguồn Siemens LOGO!Power",
+      "category": "bo-nguon",
+      "brand": "siemens",
+      "summary": "Cung cấp bộ nguồn Siemens LOGO!Power cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ nguồn Siemens LOGO!Power cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/nguon-siemens-logo-power.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "ups-dc-siemens-sitop",
+      "name": "Bộ lưu điện DC Siemens SITOP UPS",
+      "category": "ups",
+      "brand": "siemens",
+      "summary": "Cung cấp bộ lưu điện DC Siemens SITOP UPS cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ lưu điện DC Siemens SITOP UPS cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/ups-dc-siemens-sitop.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "bien-tan-siemens-v20",
+      "name": "Biến tần Siemens SINAMICS V20",
+      "category": "bien-tan",
+      "brand": "siemens",
+      "summary": "Cung cấp biến tần Siemens SINAMICS V20 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp biến tần Siemens SINAMICS V20 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": true,
+      "image_url": "/img/sp/bien-tan-siemens-v20.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "bien-tan-siemens-micromaster-420",
+      "name": "Biến tần Siemens MICROMASTER 420",
+      "category": "bien-tan",
+      "brand": "siemens",
+      "summary": "Cung cấp biến tần Siemens MICROMASTER 420 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp biến tần Siemens MICROMASTER 420 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/bien-tan-siemens-micromaster-420.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "bien-tan-siemens-micromaster-440",
+      "name": "Biến tần Siemens MICROMASTER 440",
+      "category": "bien-tan",
+      "brand": "siemens",
+      "summary": "Cung cấp biến tần Siemens MICROMASTER 440 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp biến tần Siemens MICROMASTER 440 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/bien-tan-siemens-micromaster-440.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "bien-tan-siemens-g120c",
+      "name": "Biến tần Siemens SINAMICS G120C",
+      "category": "bien-tan",
+      "brand": "siemens",
+      "summary": "Cung cấp biến tần Siemens SINAMICS G120C cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp biến tần Siemens SINAMICS G120C cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/bien-tan-siemens-g120c.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "bien-tan-siemens-g120",
+      "name": "Biến tần Siemens SINAMICS G120",
+      "category": "bien-tan",
+      "brand": "siemens",
+      "summary": "Cung cấp biến tần Siemens SINAMICS G120 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp biến tần Siemens SINAMICS G120 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/bien-tan-siemens-g120.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "control-unit-siemens-g120",
+      "name": "Control Unit biến tần Siemens SINAMICS G120",
+      "category": "phu-kien-bien-tan",
+      "brand": "siemens",
+      "summary": "Cung cấp control Unit biến tần Siemens SINAMICS G120 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp control Unit biến tần Siemens SINAMICS G120 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/control-unit-siemens-g120.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "khoi-dong-mem-siemens-3rw",
+      "name": "Khởi động mềm Siemens SIRIUS 3RW",
+      "category": "khoi-dong-mem",
+      "brand": "siemens",
+      "summary": "Cung cấp khởi động mềm Siemens SIRIUS 3RW cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp khởi động mềm Siemens SIRIUS 3RW cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/khoi-dong-mem-siemens-3rw.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "mcb-siemens-5sl",
+      "name": "Aptomat MCB Siemens 5SL",
+      "category": "mcb",
+      "brand": "siemens",
+      "summary": "Cung cấp aptomat MCB Siemens 5SL cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp aptomat MCB Siemens 5SL cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/mcb-siemens-5sl.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "mccb-siemens-3va",
+      "name": "Aptomat khối MCCB Siemens 3VA",
+      "category": "mccb",
+      "brand": "siemens",
+      "summary": "Cung cấp aptomat khối MCCB Siemens 3VA cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp aptomat khối MCCB Siemens 3VA cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/mccb-siemens-3va.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-siemens-3rt",
+      "name": "Contactor Siemens SIRIUS 3RT",
+      "category": "contactor",
+      "brand": "siemens",
+      "summary": "Cung cấp contactor Siemens SIRIUS 3RT cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor Siemens SIRIUS 3RT cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/contactor-siemens-3rt.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-siemens-3ts",
+      "name": "Contactor Siemens 3TS",
+      "category": "contactor",
+      "brand": "siemens",
+      "summary": "Cung cấp contactor Siemens 3TS cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor Siemens 3TS cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/contactor-siemens-3ts.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "bo-khoi-dong-tu-siemens-3rt2",
+      "name": "Bộ khởi động từ Siemens SIRIUS 3RT2",
+      "category": "khoi-dong-tu",
+      "brand": "siemens",
+      "summary": "Cung cấp bộ khởi động từ Siemens SIRIUS 3RT2 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ khởi động từ Siemens SIRIUS 3RT2 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/bo-khoi-dong-tu-siemens-3rt2.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cb-bao-ve-dong-co-siemens-3rv",
+      "name": "CB bảo vệ động cơ Siemens SIRIUS 3RV",
+      "category": "khoi-dong-tu",
+      "brand": "siemens",
+      "summary": "Cung cấp cB bảo vệ động cơ Siemens SIRIUS 3RV cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cB bảo vệ động cơ Siemens SIRIUS 3RV cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cb-bao-ve-dong-co-siemens-3rv.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-phu-siemens-3th",
+      "name": "Contactor phụ (relay điều khiển) Siemens 3TH",
+      "category": "relay-trung-gian",
+      "brand": "siemens",
+      "summary": "Cung cấp contactor phụ (relay điều khiển) Siemens 3TH cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor phụ (relay điều khiển) Siemens 3TH cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/contactor-phu-siemens-3th.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "ro-le-nhiet-siemens-3ru",
+      "name": "Rơ le nhiệt Siemens SIRIUS 3RU",
+      "category": "ro-le-nhiet",
+      "brand": "siemens",
+      "summary": "Cung cấp rơ le nhiệt Siemens SIRIUS 3RU cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp rơ le nhiệt Siemens SIRIUS 3RU cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/ro-le-nhiet-siemens-3ru.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "ro-le-nhiet-dien-tu-siemens-3rb",
+      "name": "Rơ le nhiệt điện tử Siemens SIRIUS 3RB",
+      "category": "ro-le-nhiet",
+      "brand": "siemens",
+      "summary": "Cung cấp rơ le nhiệt điện tử Siemens SIRIUS 3RB cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp rơ le nhiệt điện tử Siemens SIRIUS 3RB cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/ro-le-nhiet-dien-tu-siemens-3rb.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "timer-siemens-3rp",
+      "name": "Timer Siemens SIRIUS 3RP",
+      "category": "timer",
+      "brand": "siemens",
+      "summary": "Cung cấp timer Siemens SIRIUS 3RP cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp timer Siemens SIRIUS 3RP cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/timer-siemens-3rp.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "servo-siemens-v90",
+      "name": "Bộ servo Siemens SINAMICS V90 và động cơ 1FL6",
+      "category": "servo",
+      "brand": "siemens",
+      "summary": "Cung cấp bộ servo Siemens SINAMICS V90 và động cơ 1FL6 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ servo Siemens SINAMICS V90 và động cơ 1FL6 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/servo-siemens-v90.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "dong-co-dien-siemens-simotics",
+      "name": "Động cơ điện 3 pha Siemens SIMOTICS",
+      "category": "dong-co-dien",
+      "brand": "siemens",
+      "summary": "Cung cấp động cơ điện 3 pha Siemens SIMOTICS cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp động cơ điện 3 pha Siemens SIMOTICS cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/dong-co-dien-siemens-simotics.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-muc-radar-siemens",
+      "name": "Cảm biến đo mức radar Siemens SITRANS LR",
+      "category": "cam-bien-dieu-khien-nhiet",
+      "brand": "siemens",
+      "summary": "Cung cấp cảm biến đo mức radar Siemens SITRANS LR cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến đo mức radar Siemens SITRANS LR cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-muc-radar-siemens.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-ap-suat-siemens-sitrans-p",
+      "name": "Cảm biến áp suất Siemens SITRANS P",
+      "category": "cam-bien-dieu-khien-nhiet",
+      "brand": "siemens",
+      "summary": "Cung cấp cảm biến áp suất Siemens SITRANS P cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến áp suất Siemens SITRANS P cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-ap-suat-siemens-sitrans-p.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cau-chi-siemens-3nw",
+      "name": "Cầu chì ống Siemens 3NW",
+      "category": "cau-chi-ha-the",
+      "brand": "siemens",
+      "summary": "Cung cấp cầu chì ống Siemens 3NW cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cầu chì ống Siemens 3NW cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cau-chi-siemens-3nw.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cau-chi-ban-dan-siemens-sitor",
+      "name": "Cầu chì bán dẫn Siemens SITOR 3NE",
+      "category": "cau-chi-ha-the",
+      "brand": "siemens",
+      "summary": "Cung cấp cầu chì bán dẫn Siemens SITOR 3NE cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cầu chì bán dẫn Siemens SITOR 3NE cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cau-chi-ban-dan-siemens-sitor.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "mccb-schneider-easypact-ezc",
+      "name": "Aptomat khối MCCB Schneider EasyPact EZC",
+      "category": "mccb",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp aptomat khối MCCB Schneider EasyPact EZC cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp aptomat khối MCCB Schneider EasyPact EZC cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/mccb-schneider-easypact-ezc.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-schneider-easypact-tvs",
+      "name": "Contactor Schneider EasyPact TVS LC1E",
+      "category": "contactor",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp contactor Schneider EasyPact TVS LC1E cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor Schneider EasyPact TVS LC1E cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/contactor-schneider-easypact-tvs.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-schneider-tesys-d",
+      "name": "Contactor Schneider TeSys D LC1D",
+      "category": "contactor",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp contactor Schneider TeSys D LC1D cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor Schneider TeSys D LC1D cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": true,
+      "image_url": "/img/sp/contactor-schneider-tesys-d.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-schneider-tesys-f",
+      "name": "Contactor Schneider TeSys F LC1F",
+      "category": "contactor",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp contactor Schneider TeSys F LC1F cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor Schneider TeSys F LC1F cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/contactor-schneider-tesys-f.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cb-bao-ve-dong-co-schneider-gv2",
+      "name": "CB bảo vệ động cơ Schneider TeSys GV2",
+      "category": "khoi-dong-tu",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp cB bảo vệ động cơ Schneider TeSys GV2 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cB bảo vệ động cơ Schneider TeSys GV2 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cb-bao-ve-dong-co-schneider-gv2.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "ro-le-nhiet-schneider-lrd",
+      "name": "Rơ le nhiệt Schneider TeSys LRD",
+      "category": "ro-le-nhiet",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp rơ le nhiệt Schneider TeSys LRD cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp rơ le nhiệt Schneider TeSys LRD cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/ro-le-nhiet-schneider-lrd.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "relay-trung-gian-schneider-rxm",
+      "name": "Relay trung gian Schneider Zelio RXM",
+      "category": "relay-trung-gian",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp relay trung gian Schneider Zelio RXM cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp relay trung gian Schneider Zelio RXM cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/relay-trung-gian-schneider-rxm.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "timer-schneider-zelio-re22",
+      "name": "Timer Schneider Zelio RE22",
+      "category": "timer",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp timer Schneider Zelio RE22 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp timer Schneider Zelio RE22 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/timer-schneider-zelio-re22.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "relay-bao-ve-pha-schneider",
+      "name": "Relay bảo vệ pha Schneider",
+      "category": "relay-bao-ve",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp relay bảo vệ pha Schneider cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp relay bảo vệ pha Schneider cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/relay-bao-ve-pha-schneider.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "dong-ho-da-nang-schneider-pm",
+      "name": "Đồng hồ đo đa năng Schneider PowerLogic PM",
+      "category": "dong-ho-da-nang",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp đồng hồ đo đa năng Schneider PowerLogic PM cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp đồng hồ đo đa năng Schneider PowerLogic PM cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/dong-ho-da-nang-schneider-pm.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-quang-telemecanique-xuk",
+      "name": "Cảm biến quang Schneider Telemecanique XUK",
+      "category": "cam-bien-quang",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp cảm biến quang Schneider Telemecanique XUK cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến quang Schneider Telemecanique XUK cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-quang-telemecanique-xuk.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-sieu-am-telemecanique",
+      "name": "Cảm biến siêu âm Schneider Telemecanique XX",
+      "category": "cam-bien-dieu-khien-nhiet",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp cảm biến siêu âm Schneider Telemecanique XX cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến siêu âm Schneider Telemecanique XX cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-sieu-am-telemecanique.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "hop-nut-dung-khan-cap-schneider",
+      "name": "Hộp nút dừng khẩn cấp Schneider Harmony XAP",
+      "category": "den-bao-nut-nhan",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp hộp nút dừng khẩn cấp Schneider Harmony XAP cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp hộp nút dừng khẩn cấp Schneider Harmony XAP cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/hop-nut-dung-khan-cap-schneider.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "nut-nhan-schneider-harmony-xb4",
+      "name": "Nút nhấn Schneider Harmony XB4",
+      "category": "den-bao-nut-nhan",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp nút nhấn Schneider Harmony XB4 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp nút nhấn Schneider Harmony XB4 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/nut-nhan-schneider-harmony-xb4.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "nut-nhan-doi-schneider-harmony",
+      "name": "Nút nhấn đôi ON/OFF Schneider Harmony",
+      "category": "den-bao-nut-nhan",
+      "brand": "schneider-electric",
+      "summary": "Cung cấp nút nhấn đôi ON/OFF Schneider Harmony cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp nút nhấn đôi ON/OFF Schneider Harmony cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/nut-nhan-doi-schneider-harmony.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-abb-ax",
+      "name": "Contactor ABB AX",
+      "category": "contactor",
+      "brand": "abb",
+      "summary": "Cung cấp contactor ABB AX cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor ABB AX cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/contactor-abb-ax.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "mcb-abb-s200",
+      "name": "Aptomat MCB ABB S200",
+      "category": "mcb",
+      "brand": "abb",
+      "summary": "Cung cấp aptomat MCB ABB S200 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp aptomat MCB ABB S200 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": true,
+      "image_url": "/img/sp/mcb-abb-s200.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "mccb-abb-tmax",
+      "name": "Aptomat khối MCCB ABB Tmax",
+      "category": "mccb",
+      "brand": "abb",
+      "summary": "Cung cấp aptomat khối MCCB ABB Tmax cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp aptomat khối MCCB ABB Tmax cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/mccb-abb-tmax.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "bien-tan-abb-acs",
+      "name": "Biến tần ABB ACS",
+      "category": "bien-tan",
+      "brand": "abb",
+      "summary": "Cung cấp biến tần ABB ACS cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp biến tần ABB ACS cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/bien-tan-abb-acs.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "ro-le-nhiet-abb-ta",
+      "name": "Rơ le nhiệt ABB TA",
+      "category": "ro-le-nhiet",
+      "brand": "abb",
+      "summary": "Cung cấp rơ le nhiệt ABB TA cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp rơ le nhiệt ABB TA cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/ro-le-nhiet-abb-ta.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "relay-giam-sat-abb-cm",
+      "name": "Relay giám sát ABB CM",
+      "category": "relay-bao-ve",
+      "brand": "abb",
+      "summary": "Cung cấp relay giám sát ABB CM cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp relay giám sát ABB CM cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/relay-giam-sat-abb-cm.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "relay-trung-gian-abb-cr",
+      "name": "Relay trung gian ABB CR",
+      "category": "relay-trung-gian",
+      "brand": "abb",
+      "summary": "Cung cấp relay trung gian ABB CR cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp relay trung gian ABB CR cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/relay-trung-gian-abb-cr.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cau-chi-nh-abb",
+      "name": "Cầu chì NH ABB",
+      "category": "cau-chi-ha-the",
+      "brand": "abb",
+      "summary": "Cung cấp cầu chì NH ABB cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cầu chì NH ABB cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cau-chi-nh-abb.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-chint-nxc",
+      "name": "Contactor CHINT NXC",
+      "category": "contactor",
+      "brand": "chint",
+      "summary": "Cung cấp contactor CHINT NXC cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor CHINT NXC cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/contactor-chint-nxc.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-chint-cjx2",
+      "name": "Contactor CHINT CJX2",
+      "category": "contactor",
+      "brand": "chint",
+      "summary": "Cung cấp contactor CHINT CJX2 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor CHINT CJX2 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/contactor-chint-cjx2.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "contactor-chint-nc2",
+      "name": "Contactor CHINT NC2",
+      "category": "contactor",
+      "brand": "chint",
+      "summary": "Cung cấp contactor CHINT NC2 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp contactor CHINT NC2 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/contactor-chint-nc2.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "relay-bao-ve-pha-chint-xj3",
+      "name": "Relay bảo vệ pha CHINT XJ3",
+      "category": "relay-bao-ve",
+      "brand": "chint",
+      "summary": "Cung cấp relay bảo vệ pha CHINT XJ3 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp relay bảo vệ pha CHINT XJ3 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/relay-bao-ve-pha-chint-xj3.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cb-bao-ve-dong-co-chint-ns2",
+      "name": "CB bảo vệ động cơ CHINT NS2",
+      "category": "khoi-dong-tu",
+      "brand": "chint",
+      "summary": "Cung cấp cB bảo vệ động cơ CHINT NS2 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cB bảo vệ động cơ CHINT NS2 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cb-bao-ve-dong-co-chint-ns2.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "nguon-weidmuller-pro-eco",
+      "name": "Bộ nguồn Weidmüller PRO eco",
+      "category": "bo-nguon",
+      "brand": "weidmuller",
+      "summary": "Cung cấp bộ nguồn Weidmüller PRO eco cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ nguồn Weidmüller PRO eco cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": true,
+      "image_url": "/img/sp/nguon-weidmuller-pro-eco.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "nguon-weidmuller-pro-top",
+      "name": "Bộ nguồn Weidmüller PRO top",
+      "category": "bo-nguon",
+      "brand": "weidmuller",
+      "summary": "Cung cấp bộ nguồn Weidmüller PRO top cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ nguồn Weidmüller PRO top cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/nguon-weidmuller-pro-top.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "switch-ethernet-weidmuller",
+      "name": "Switch Ethernet công nghiệp Weidmüller",
+      "category": "module-mo-rong",
+      "brand": "weidmuller",
+      "summary": "Cung cấp switch Ethernet công nghiệp Weidmüller cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp switch Ethernet công nghiệp Weidmüller cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/switch-ethernet-weidmuller.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cau-dau-weidmuller",
+      "name": "Cầu đấu dây Weidmüller",
+      "category": "cau-dau",
+      "brand": "weidmuller",
+      "summary": "Cung cấp cầu đấu dây Weidmüller cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cầu đấu dây Weidmüller cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cau-dau-weidmuller.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "relay-kem-de-weidmuller",
+      "name": "Relay kèm đế Weidmüller",
+      "category": "relay-trung-gian",
+      "brand": "weidmuller",
+      "summary": "Cung cấp relay kèm đế Weidmüller cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp relay kèm đế Weidmüller cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/relay-kem-de-weidmuller.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "nguon-phoenix-contact",
+      "name": "Bộ nguồn Phoenix Contact",
+      "category": "bo-nguon",
+      "brand": "phoenix-contact",
+      "summary": "Cung cấp bộ nguồn Phoenix Contact cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ nguồn Phoenix Contact cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/nguon-phoenix-contact.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "switch-ethernet-phoenix-contact",
+      "name": "Switch Ethernet công nghiệp Phoenix Contact",
+      "category": "module-mo-rong",
+      "brand": "phoenix-contact",
+      "summary": "Cung cấp switch Ethernet công nghiệp Phoenix Contact cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp switch Ethernet công nghiệp Phoenix Contact cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/switch-ethernet-phoenix-contact.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cau-dau-phoenix-contact",
+      "name": "Cầu đấu dây Phoenix Contact",
+      "category": "cau-dau",
+      "brand": "phoenix-contact",
+      "summary": "Cung cấp cầu đấu dây Phoenix Contact cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cầu đấu dây Phoenix Contact cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cau-dau-phoenix-contact.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cau-dau-cam-phoenix-contact",
+      "name": "Cầu đấu dạng cắm Phoenix Contact",
+      "category": "cau-dau",
+      "brand": "phoenix-contact",
+      "summary": "Cung cấp cầu đấu dạng cắm Phoenix Contact cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cầu đấu dạng cắm Phoenix Contact cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cau-dau-cam-phoenix-contact.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-tiem-can-ifm-m30",
+      "name": "Cảm biến tiệm cận ifm M30",
+      "category": "cam-bien-tiem-can",
+      "brand": "ifm",
+      "summary": "Cung cấp cảm biến tiệm cận ifm M30 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến tiệm cận ifm M30 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-tiem-can-ifm-m30.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-tiem-can-ifm-m12",
+      "name": "Cảm biến tiệm cận ifm M12",
+      "category": "cam-bien-tiem-can",
+      "brand": "ifm",
+      "summary": "Cung cấp cảm biến tiệm cận ifm M12 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến tiệm cận ifm M12 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": true,
+      "image_url": "/img/sp/cam-bien-tiem-can-ifm-m12.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-dien-dung-ifm",
+      "name": "Cảm biến điện dung ifm",
+      "category": "cam-bien-tiem-can",
+      "brand": "ifm",
+      "summary": "Cung cấp cảm biến điện dung ifm cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến điện dung ifm cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-dien-dung-ifm.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-nhiet-do-ifm",
+      "name": "Cảm biến nhiệt độ ifm",
+      "category": "can-nhiet",
+      "brand": "ifm",
+      "summary": "Cung cấp cảm biến nhiệt độ ifm cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến nhiệt độ ifm cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-nhiet-do-ifm.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-luu-luong-ifm",
+      "name": "Cảm biến lưu lượng ifm",
+      "category": "cam-bien-dieu-khien-nhiet",
+      "brand": "ifm",
+      "summary": "Cung cấp cảm biến lưu lượng ifm cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến lưu lượng ifm cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-luu-luong-ifm.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-quang-ifm",
+      "name": "Cảm biến quang ifm",
+      "category": "cam-bien-quang",
+      "brand": "ifm",
+      "summary": "Cung cấp cảm biến quang ifm cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến quang ifm cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-quang-ifm.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-tiem-can-pepperl-fuchs-tru",
+      "name": "Cảm biến tiệm cận Pepperl+Fuchs dạng trụ",
+      "category": "cam-bien-tiem-can",
+      "brand": "pepperl-fuchs",
+      "summary": "Cung cấp cảm biến tiệm cận Pepperl+Fuchs dạng trụ cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến tiệm cận Pepperl+Fuchs dạng trụ cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-tiem-can-pepperl-fuchs-tru.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-tiem-can-pepperl-fuchs-vuong",
+      "name": "Cảm biến tiệm cận Pepperl+Fuchs dạng hộp",
+      "category": "cam-bien-tiem-can",
+      "brand": "pepperl-fuchs",
+      "summary": "Cung cấp cảm biến tiệm cận Pepperl+Fuchs dạng hộp cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến tiệm cận Pepperl+Fuchs dạng hộp cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-tiem-can-pepperl-fuchs-vuong.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-quang-pepperl-fuchs",
+      "name": "Cảm biến quang Pepperl+Fuchs",
+      "category": "cam-bien-quang",
+      "brand": "pepperl-fuchs",
+      "summary": "Cung cấp cảm biến quang Pepperl+Fuchs cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến quang Pepperl+Fuchs cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-quang-pepperl-fuchs.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-mau-sick",
+      "name": "Cảm biến màu SICK",
+      "category": "cam-bien-quang",
+      "brand": "sick",
+      "summary": "Cung cấp cảm biến màu SICK cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến màu SICK cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-mau-sick.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-nhan-sick",
+      "name": "Cảm biến nhãn dạng chữ U SICK",
+      "category": "cam-bien-quang",
+      "brand": "sick",
+      "summary": "Cung cấp cảm biến nhãn dạng chữ U SICK cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến nhãn dạng chữ U SICK cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-nhan-sick.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-ap-suat-sick-pbs",
+      "name": "Cảm biến áp suất SICK PBS",
+      "category": "cam-bien-dieu-khien-nhiet",
+      "brand": "sick",
+      "summary": "Cung cấp cảm biến áp suất SICK PBS cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến áp suất SICK PBS cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-ap-suat-sick-pbs.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "relay-an-toan-pilz-pnoz",
+      "name": "Relay an toàn Pilz PNOZ",
+      "category": "relay-bao-ve",
+      "brand": "pilz",
+      "summary": "Cung cấp relay an toàn Pilz PNOZ cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp relay an toàn Pilz PNOZ cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/relay-an-toan-pilz-pnoz.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cong-tac-an-toan-pilz-psen",
+      "name": "Công tắc an toàn Pilz PSEN",
+      "category": "cam-bien-dieu-khien-nhiet",
+      "brand": "pilz",
+      "summary": "Cung cấp công tắc an toàn Pilz PSEN cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp công tắc an toàn Pilz PSEN cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cong-tac-an-toan-pilz-psen.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-tiem-can-autonics-pr",
+      "name": "Cảm biến tiệm cận Autonics PR",
+      "category": "cam-bien-tiem-can",
+      "brand": "autonics",
+      "summary": "Cung cấp cảm biến tiệm cận Autonics PR cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến tiệm cận Autonics PR cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-tiem-can-autonics-pr.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-tiem-can-autonics-ps",
+      "name": "Cảm biến tiệm cận Autonics PS dạng hộp",
+      "category": "cam-bien-tiem-can",
+      "brand": "autonics",
+      "summary": "Cung cấp cảm biến tiệm cận Autonics PS dạng hộp cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến tiệm cận Autonics PS dạng hộp cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-tiem-can-autonics-ps.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-quang-autonics-br",
+      "name": "Cảm biến quang Autonics BR",
+      "category": "cam-bien-quang",
+      "brand": "autonics",
+      "summary": "Cung cấp cảm biến quang Autonics BR cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến quang Autonics BR cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-quang-autonics-br.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cam-bien-quang-autonics-bj",
+      "name": "Cảm biến quang Autonics BJ",
+      "category": "cam-bien-quang",
+      "brand": "autonics",
+      "summary": "Cung cấp cảm biến quang Autonics BJ cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cảm biến quang Autonics BJ cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cam-bien-quang-autonics-bj.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "nguon-autonics-spb",
+      "name": "Bộ nguồn Autonics SPB",
+      "category": "bo-nguon",
+      "brand": "autonics",
+      "summary": "Cung cấp bộ nguồn Autonics SPB cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ nguồn Autonics SPB cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/nguon-autonics-spb.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "encoder-autonics-e50s",
+      "name": "Encoder Autonics E50S",
+      "category": "encoder",
+      "brand": "autonics",
+      "summary": "Cung cấp encoder Autonics E50S cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp encoder Autonics E50S cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": true,
+      "image_url": "/img/sp/encoder-autonics-e50s.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "bo-dieu-khien-tu-bu-mikro",
+      "name": "Bộ điều khiển tụ bù Mikro PFR",
+      "category": "bo-dieu-khien-tu-bu",
+      "brand": "mikro",
+      "summary": "Cung cấp bộ điều khiển tụ bù Mikro PFR cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp bộ điều khiển tụ bù Mikro PFR cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/bo-dieu-khien-tu-bu-mikro.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "relay-bao-ve-mikro",
+      "name": "Relay bảo vệ dòng rò Mikro",
+      "category": "relay-bao-ve",
+      "brand": "mikro",
+      "summary": "Cung cấp relay bảo vệ dòng rò Mikro cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp relay bảo vệ dòng rò Mikro cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/relay-bao-ve-mikro.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cau-chi-nh-eaton-bussmann",
+      "name": "Cầu chì NH Eaton Bussmann",
+      "category": "cau-chi-ha-the",
+      "brand": "eaton",
+      "summary": "Cung cấp cầu chì NH Eaton Bussmann cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cầu chì NH Eaton Bussmann cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cau-chi-nh-eaton-bussmann.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cau-chi-ban-dan-eaton-bussmann",
+      "name": "Cầu chì bán dẫn Eaton Bussmann",
+      "category": "cau-chi-ha-the",
+      "brand": "eaton",
+      "summary": "Cung cấp cầu chì bán dẫn Eaton Bussmann cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cầu chì bán dẫn Eaton Bussmann cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cau-chi-ban-dan-eaton-bussmann.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cau-chi-ong-10x38-bussmann",
+      "name": "Cầu chì ống 10x38 Eaton Bussmann",
+      "category": "cau-chi-ha-the",
+      "brand": "eaton",
+      "summary": "Cung cấp cầu chì ống 10x38 Eaton Bussmann cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cầu chì ống 10x38 Eaton Bussmann cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cau-chi-ong-10x38-bussmann.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "de-cau-chi-gan-ray",
+      "name": "Đế cầu chì gắn ray",
+      "category": "de-cau-chi",
+      "brand": null,
+      "summary": "Cung cấp đế cầu chì gắn ray cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp đế cầu chì gắn ray cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/de-cau-chi-gan-ray.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "tu-bu-ha-the",
+      "name": "Tụ bù hạ thế",
+      "category": "tu-bu",
+      "brand": null,
+      "summary": "Cung cấp tụ bù hạ thế cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp tụ bù hạ thế cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/tu-bu-ha-the.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cuon-khang-loc-song-hai",
+      "name": "Cuộn kháng lọc sóng hài",
+      "category": "cuon-khang",
+      "brand": null,
+      "summary": "Cung cấp cuộn kháng lọc sóng hài cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp cuộn kháng lọc sóng hài cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cuon-khang-loc-song-hai.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "encoder-cong-nghiep",
+      "name": "Encoder công nghiệp (tương đối, tuyệt đối)",
+      "category": "encoder",
+      "brand": null,
+      "summary": "Cung cấp encoder công nghiệp (tương đối, tuyệt đối) cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp encoder công nghiệp (tương đối, tuyệt đối) cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/encoder-cong-nghiep.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "den-bao-pha-ad16",
+      "name": "Đèn báo pha AD16 (đỏ, vàng, xanh)",
+      "category": "den-bao-nut-nhan",
+      "brand": null,
+      "summary": "Cung cấp đèn báo pha AD16 (đỏ, vàng, xanh) cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp đèn báo pha AD16 (đỏ, vàng, xanh) cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/den-bao-pha-ad16.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "den-thap-tin-hieu",
+      "name": "Đèn tháp tín hiệu nhiều tầng",
+      "category": "den-bao-nut-nhan",
+      "brand": null,
+      "summary": "Cung cấp đèn tháp tín hiệu nhiều tầng cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp đèn tháp tín hiệu nhiều tầng cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/den-thap-tin-hieu.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cong-tac-xoay",
+      "name": "Công tắc xoay 2–3 vị trí",
+      "category": "den-bao-nut-nhan",
+      "brand": null,
+      "summary": "Cung cấp công tắc xoay 2–3 vị trí cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp công tắc xoay 2–3 vị trí cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cong-tac-xoay.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "cong-tac-chia-khoa",
+      "name": "Công tắc chìa khóa",
+      "category": "den-bao-nut-nhan",
+      "brand": null,
+      "summary": "Cung cấp công tắc chìa khóa cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp công tắc chìa khóa cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/cong-tac-chia-khoa.jpg",
+      "specs": null,
+      "in_stock": false
+    },
+    {
+      "slug": "hop-nut-nhan-cau-truc",
+      "name": "Hộp nút nhấn điều khiển cầu trục",
+      "category": "den-bao-nut-nhan",
+      "brand": null,
+      "summary": "Cung cấp hộp nút nhấn điều khiển cầu trục cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.",
+      "description": "Đạt Danh cung cấp hộp nút nhấn điều khiển cầu trục cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.\n\nGửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.\n\nHình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.",
+      "featured": false,
+      "image_url": "/img/sp/hop-nut-nhan-cau-truc.jpg",
+      "specs": null,
+      "in_stock": false
     }
   ],
   "posts": [
@@ -1066,9 +2716,9 @@
       "subtitle": "Thiết bị điện công nghiệp, tự động hóa, khí nén – thủy lực, motor – hộp giảm tốc và phụ kiện đường ống từ các thương hiệu hàng đầu thế giới.",
       "image_url": null,
       "collage": [
-        "/demo/plc.svg",
-        "/demo/bien-tan.svg",
-        "/demo/cam-bien-tiem-can.svg"
+        "/img/banner/bien-tan.jpg",
+        "/img/banner/dong-cat.jpg",
+        "/img/banner/cam-bien.jpg"
       ],
       "cta_label": "Yêu cầu báo giá",
       "cta_url": "/lien-he",
@@ -1080,9 +2730,9 @@
       "subtitle": "PLC, biến tần, cảm biến, HMI từ Siemens, Mitsubishi Electric, Omron, SICK… Tư vấn chọn mã và tìm mã thay thế tương đương.",
       "image_url": null,
       "collage": [
-        "/demo/bien-tan.svg",
-        "/demo/cam-bien-quang.svg",
-        "/demo/plc.svg"
+        "/img/banner/plc.jpg",
+        "/img/banner/hmi.jpg",
+        "/img/banner/cam-bien-quang.jpg"
       ],
       "cta_label": "Xem thiết bị tự động hóa",
       "cta_url": "/danh-muc-san-pham/tu-dong-hoa",
@@ -1090,16 +2740,16 @@
       "published": true
     },
     {
-      "title": "Khí nén – thủy lực, van & phụ kiện đường ống",
-      "subtitle": "Xi lanh, van điện từ, đầu nối, van bi inox và phụ kiện đồng bộ — báo giá nhanh theo danh sách vật tư của nhà máy.",
+      "title": "Thiết bị đóng cắt, nguồn & phụ kiện tủ điện",
+      "subtitle": "Aptomat, contactor, bộ nguồn, cầu đấu và phụ kiện từ ABB, Schneider, Siemens, Weidmüller, Phoenix Contact… Báo giá nhanh theo danh sách vật tư của nhà máy.",
       "image_url": null,
       "collage": [
-        "/demo/xi-lanh-khi-nen.svg",
-        "/demo/van-dien-tu.svg",
-        "/demo/van-bi-inox.svg"
+        "/img/banner/mccb.jpg",
+        "/img/banner/nguon.jpg",
+        "/img/banner/cau-dau.jpg"
       ],
-      "cta_label": "Xem khí nén – thủy lực",
-      "cta_url": "/danh-muc-san-pham/khi-nen-thuy-luc",
+      "cta_label": "Xem thiết bị đóng cắt",
+      "cta_url": "/danh-muc-san-pham/thiet-bi-dong-cat",
       "sort_order": 3,
       "published": true
     }
