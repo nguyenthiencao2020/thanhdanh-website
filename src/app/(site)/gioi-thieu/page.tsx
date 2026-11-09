@@ -7,7 +7,8 @@ import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
 import { RichText } from "@/components/RichText";
 import { SectionHeading } from "@/components/SectionHeading";
-import { getBrands, getCategoryTree, getSettings } from "@/lib/data";
+import { countByCategory, nonEmptyTree } from "@/lib/catalog";
+import { getBrands, getCategoryTree, getProductPairs, getSettings } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Giới thiệu" };
 
@@ -21,7 +22,9 @@ const parseValues = (text: string | null) =>
     .filter((r) => r[0]);
 
 export default async function AboutPage() {
-  const [settings, categories, brands] = await Promise.all([getSettings(), getCategoryTree(), getBrands()]);
+  const [settings, fullTree, brands, pairs] = await Promise.all([getSettings(), getCategoryTree(), getBrands(), getProductPairs()]);
+  // Only product groups that have products (empty ones are hidden site-wide).
+  const categories = nonEmptyTree(fullTree, countByCategory(fullTree, pairs));
   return (
     <>
       <PageHeader title={`Về ${settings.short_name}`} description={settings.tagline} crumbs={[{ label: "Giới thiệu" }]} />

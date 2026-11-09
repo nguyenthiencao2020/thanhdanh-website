@@ -2,7 +2,8 @@ import { deleteBrand, saveBrand } from "../../actions";
 import { BrandLogo } from "@/components/BrandLogo";
 import { ConfirmButton } from "@/components/admin/ConfirmButton";
 import { Flash } from "@/components/admin/Flash";
-import { requireAdmin } from "@/lib/admin";
+import { getAdminProductCounts, requireAdmin } from "@/lib/admin";
+import { VisibilityBadge } from "@/components/admin/VisibilityBadge";
 import type { Brand } from "@/lib/types";
 
 function BrandFields({ b }: { b?: Brand }) {
@@ -33,10 +34,17 @@ export default async function AdminBrands({ searchParams }: { searchParams: Prom
   let { data, error: listError } = await supabase.from("brands").select("*").order("featured", { ascending: false }).order("sort_order");
   if (listError) ({ data } = await supabase.from("brands").select("*").order("sort_order"));
   const brands = (data ?? []) as Brand[];
+  const counts = await getAdminProductCounts(supabase);
+  const hidden = brands.filter((b) => !counts.byBrand.get(b.id)).length;
 
   return (
     <>
       <h1 className="text-2xl font-bold text-slate-900">Thương hiệu</h1>
+      {hidden > 0 && (
+        <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-800">
+          {hidden}/{brands.length} hãng chưa có sản phẩm nên <b>đang ẩn trên website</b> (dải logo, trang Thương hiệu, menu). Thêm sản phẩm cho hãng là tự hiện lại.
+        </p>
+      )}
       <div className="mt-4"><Flash error={error} saved={saved} /></div>
 
       <form action={saveBrand} className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
@@ -48,7 +56,7 @@ export default async function AdminBrands({ searchParams }: { searchParams: Prom
       <div className="mt-6 grid gap-3 xl:grid-cols-2">
         {brands.map((b) => (
           <div key={b.id} className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-            <div className="mb-3 flex h-12 items-center"><BrandLogo brand={b} className="max-h-10" /></div>
+            <div className="mb-3 flex h-12 items-center justify-between gap-3"><BrandLogo brand={b} className="max-h-10" /><VisibilityBadge count={counts.byBrand.get(b.id) ?? 0} /></div>
             <form action={saveBrand}>
               <BrandFields b={b} />
               <button className="btn-secondary mt-3">Lưu</button>
