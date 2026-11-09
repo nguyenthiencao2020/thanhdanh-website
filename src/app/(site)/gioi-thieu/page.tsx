@@ -93,11 +93,12 @@ export default async function AboutPage() {
         {(settings.mission || settings.vision) && (
           <section className="grid gap-6 lg:grid-cols-2">
             {settings.mission && (
-              <Reveal className="relative isolate h-full overflow-hidden rounded-3xl bg-gradient-to-br from-blue-800 to-steel-900 text-white shadow-xl shadow-blue-900/20">
-                <div className="absolute inset-y-0 right-0 -z-10 hidden w-[42%] sm:block">
-                  <Image src="/img/banner/hero-nha-may-900.jpg" alt="" fill sizes="300px" className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-800 via-blue-800/40 to-transparent" />
+              <Reveal className="relative isolate h-full overflow-hidden rounded-3xl bg-gradient-to-r from-[#0b2f6b] via-[#0d3f8f] to-[#1255b8] text-white shadow-xl shadow-blue-900/20">
+                {/* Photo fades into the card colour (mask) instead of a hard edge */}
+                <div className="absolute inset-y-0 right-0 -z-10 w-[70%] [mask-image:linear-gradient(to_right,transparent,black_55%)] opacity-80 max-sm:opacity-40">
+                  <Image src="/img/banner/hero-nha-may-900.jpg" alt="" fill sizes="450px" className="object-cover object-center" />
                 </div>
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b2f6b] via-[#0b2f6b]/70 to-transparent" />
                 <div className="flex gap-4 p-7 sm:max-w-[66%] sm:p-8">
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
                     <Icon name="cog" className="h-7 w-7" />
