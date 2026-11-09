@@ -14,3 +14,18 @@ export function slugify(input: string) {
 export function phoneDigits(phone: string) {
   return phone.replace(/[^\d+]/g, "");
 }
+
+/**
+ * Public address of the site (share images, sitemap, robots). NEXT_PUBLIC_SITE_URL wins; on Vercel
+ * the production domain is used when it is not set, so shared links never point at localhost.
+ */
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "") ||
+  "http://localhost:3000"
+).replace(/\/$/, "");
+
+/** Small (160×120) version of a bundled category photo for menus and chips; other URLs pass through. */
+export function categoryThumb(url: string) {
+  return url.startsWith("/img/dm/") && !url.includes("/nho/") ? url.replace("/img/dm/", "/img/dm/nho/") : url;
+}

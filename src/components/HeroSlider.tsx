@@ -161,8 +161,10 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                 onClick={() => go(i)}
                 aria-label={`Slide ${i + 1}`}
                 aria-current={i === active}
-                className={`h-2.5 rounded-full transition-all ${i === active ? "w-8 bg-brand-500" : "w-2.5 bg-white/40 hover:bg-white/70"}`}
-              />
+                className="group/dot flex h-8 items-center px-1"
+              >
+                <span className={`block h-2.5 rounded-full transition-all ${i === active ? "w-8 bg-brand-500" : "w-2.5 bg-white/40 group-hover/dot:bg-white/70"}`} />
+              </button>
             ))}
           </div>
           <button
