@@ -159,3 +159,36 @@ Yêu cầu của Đạt Danh: trang Sản phẩm chia **cột theo hãng**, mỗ
 - Trang chi tiết từng mã `/san-pham/[slug]` và trang danh mục vẫn giữ nguyên.
 
 Còn lại (bước 4b, sau khi Đạt Danh chốt file Excel): bảng dòng hàng trên Supabase + Admin “Dòng hàng”, chuyển link sản phẩm cũ về dòng hàng, menu header theo hãng → dòng.
+
+---
+
+## Nhật ký thay đổi sau bước 4a (09/11/2026)
+
+Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay trước PR đó — `git revert -m 1 <merge>` hoặc khôi phục về mốc).
+
+| PR | Việc | Merge | Mốc trước |
+|---|---|---|---|
+| #36 | Bản đồ nhận link chia sẻ `maps.app.goo.gl` | `ef1d794` | `f249944` |
+| #37 | Bước 4a: Sản phẩm theo hãng → dòng hàng, menu trái; sitemap thêm 18 trang hãng + 53 trang dòng | `60ee2fe` | `ef1d794` |
+| #38 | Bấm menu hãng/dòng **không nhảy lên hero** (`KeepScroll` + `scroll={false}`); Giới thiệu 9 lĩnh vực | `4d41c87` | `60ee2fe` |
+| #39 | Ô bản đồ Admin nhận cả mã nhúng `<iframe…>`; đọc link chia sẻ chắc hơn | `8cbb1e8` | `4d41c87` |
+| #40 | Bản đồ mặc định ghim theo tọa độ Plus Code `QHWV+GH` = **10.796313, 106.593938** | `1a900db` | `8cbb1e8` |
+| #41 | **Trang Giới thiệu thiết kế lại** theo mẫu (hero logo, Sứ mệnh xanh / Tầm nhìn đỏ, số liệu, giá trị cốt lõi, lĩnh vực 4 × 2, băng Hợp tác) | `ab3dbb1` | `1a900db` |
+| #42 | Link hãng đi thẳng `/thuong-hieu/[hãng]` (bỏ chuyển hướng); sitemap bỏ danh mục trống (còn 48) | `3d90dfa` | `ab3dbb1` |
+
+### Ghi chú
+- **Bản đồ trên web thật** lấy từ Admin → Cài đặt (database), không lấy từ code. Cần dán 1 trong 2:
+  - `https://www.google.com/maps?q=10.796313,106.593938&z=17&hl=vi&output=embed` (ghim theo tọa độ), hoặc
+  - mã nhúng Google Maps → Chia sẻ → Nhúng bản đồ → Sao chép HTML (ghim kèm tên doanh nghiệp).
+- **Trang Giới thiệu**: chữ lấy từ Cài đặt (giới thiệu, sứ mệnh, tầm nhìn, giá trị cốt lõi); số liệu tự đếm (hãng có sản phẩm, số dòng hàng, nhóm có sản phẩm). Không dùng chữ/số điện thoại trong ảnh mẫu.
+- **Cuộn trang sản phẩm**: link trong vùng menu trái + nội dung giữ vị trí; nếu đầu nội dung bị khuất thì lướt tới ngay dưới header. Menu trên cùng vẫn lên đầu trang.
+
+### QA toàn bộ (09/11/2026, sau PR #42)
+- 601 trang công khai, máy tính 1440 + điện thoại 390: 0 lỗi trang, 0 ảnh hỏng, 0 lỗi JS, 0 tràn ngang, 0 link tới trang trống.
+- 18 trang hãng + 53 trang dòng + Sản phẩm / tìm kiếm / Giới thiệu: đủ 1 h1, không tràn. Link cũ `?thuong-hieu=` / `?danh-muc=` chuyển đúng; hãng/dòng sai → 404.
+- Admin 14 trang (Supabase giả lập), 2 cỡ màn hình: mở được, không lỗi.
+- Chưa kiểm tra được từ môi trường thử (bị chặn): web thật, bản đồ Google thật.
+
+### Việc tiếp theo
+- [ ] Dán link bản đồ vào Admin → Cài đặt (xem trên) và xem lại trang Liên hệ.
+- [ ] Đạt Danh chốt `tai-lieu/Dong-hang-theo-hang-NHAP.xlsx` → bước 4b: bảng dòng hàng + Admin “Dòng hàng”, link sản phẩm cũ về dòng hàng, menu header theo hãng → dòng.
