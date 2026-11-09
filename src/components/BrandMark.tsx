@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const LOGOS = {
   // Ref/Logo_Dat Danh _final_ngang_3.png — header
-  horizontal: { src: "/logo-dat-danh-ngang-3.png", width: 1071, height: 240, className: "h-11 w-auto sm:h-12 lg:h-14 xl:h-16" },
+  horizontal: { src: "/logo-dat-danh-ngang-3.png", width: 1071, height: 240, sizes: "300px", className: "h-11 w-auto sm:h-12 lg:h-14 xl:h-16" },
   // Ref/Logo_Dat Danh _final_3.png — footer, about, login
-  emblem: { src: "/logo-dat-danh-emblem-3.png", width: 1000, height: 636, className: "h-auto w-full max-w-md" },
+  emblem: { src: "/logo-dat-danh-emblem-3.png", width: 1000, height: 636, sizes: "(min-width: 1024px) 448px, 90vw", className: "h-auto w-full max-w-md" },
 };
 
 /** Company logo: the horizontal lock-up for the header, the stacked emblem elsewhere. */
@@ -28,6 +28,7 @@ export function BrandMark({
       width={logo.width}
       height={logo.height}
       priority={priority}
+      sizes={logo.sizes}
       className={className ?? logo.className}
     />
   );

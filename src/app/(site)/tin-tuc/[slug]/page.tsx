@@ -7,6 +7,7 @@ import { formatDate, PostCard } from "@/components/PostCard";
 import { RichText } from "@/components/RichText";
 import { ShareButtons } from "@/components/ShareButtons";
 import { getPost, getPosts, getSettings } from "@/lib/data";
+import { siteUrl } from "@/lib/utils";
 
 type Params = Promise<{ slug: string }>;
 
@@ -35,7 +36,7 @@ export default async function PostPage({ params }: { params: Params }) {
     const more = (await getPosts({ limit: 6 })).filter((p) => p.id !== post.id && !related.some((r) => r.id === p.id));
     related = [...related, ...more].slice(0, 3);
   }
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"}/tin-tuc/${post.slug}`;
+  const url = `${siteUrl}/tin-tuc/${post.slug}`;
 
   return (
     <article>

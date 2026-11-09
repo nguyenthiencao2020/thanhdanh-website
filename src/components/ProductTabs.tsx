@@ -33,7 +33,7 @@ export function ProductTabs({ all, tabs }: { all: ProductWithRelations[]; tabs: 
       </div>
 
       {/* Mobile: horizontal scroll · Desktop: 4-column grid */}
-      <div role="tabpanel" className="-mx-4 mt-6 flex snap-x gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 md:grid-cols-3 lg:grid-cols-4">
+      <div role="tabpanel" className="-mx-4 mt-6 flex snap-x gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 md:grid-cols-4">
         {current.items.slice(0, 8).map((p) => (
           <div key={p.id} className="w-60 shrink-0 snap-start sm:w-auto">
             <ProductCard product={p} hideBadge />

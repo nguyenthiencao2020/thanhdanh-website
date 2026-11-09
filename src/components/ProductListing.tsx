@@ -7,6 +7,7 @@ import { Icon } from "./Icon";
 import { PageHeader } from "./PageHeader";
 import { Pagination } from "./Pagination";
 import { ProductCard } from "./ProductCard";
+import { categoryThumb } from "@/lib/utils";
 import Form from "next/form";
 
 const PAGE_SIZE = 12;
@@ -126,7 +127,7 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
                   >
                     {c.image_url && (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={c.image_url} alt="" loading="lazy" className="h-6 w-6 rounded-full bg-white object-contain ring-1 ring-slate-200" />
+                      <img src={categoryThumb(c.image_url)} alt="" loading="lazy" className="h-6 w-6 rounded-full bg-white object-contain ring-1 ring-slate-200" />
                     )}
                     {c.name}
                   </NavLink>

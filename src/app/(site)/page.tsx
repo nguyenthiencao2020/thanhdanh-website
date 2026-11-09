@@ -46,8 +46,8 @@ export default async function HomePage() {
     groupOf.set(g.slug, g.slug);
     g.children.forEach((c) => groupOf.set(c.slug, g.slug));
   }
-  // Real photos before the drawn placeholders (/demo/…), so the showcase looks consistent.
-  const rank = (p: (typeof allProducts)[number]) => (p.featured ? 2 : 0) + (p.image_url && !p.image_url.startsWith("/demo/") ? 1 : 0);
+  // Real photos first (featured before the rest), drawn placeholders (/demo/…) last, so the showcase looks consistent.
+  const rank = (p: (typeof allProducts)[number]) => (p.image_url && !p.image_url.startsWith("/demo/") ? 2 : 0) + (p.featured ? 1 : 0);
   const ordered = [...allProducts].sort((a, b) => rank(b) - rank(a));
   const tabs = tree
     .map((g) => ({ slug: g.slug, name: g.name, items: ordered.filter((p) => p.category && groupOf.get(p.category.slug) === g.slug) }))
@@ -195,7 +195,7 @@ export default async function HomePage() {
       <section className="container-page py-16">
         <SectionHeading eyebrow="Danh mục" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel={`Xem tất cả ${tree.length} nhóm →`} />
         {/* Mobile: one swipeable row · Desktop: 4 × 2 grid — every tile in the same style */}
-        <div className="-mx-4 mt-8 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
+        <div className="-mx-4 mt-8 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 md:grid-cols-4">
           {tree.slice(0, HOME_GROUPS).map((g, i) => (
             <Reveal key={g.slug} delay={(i % 4) * 60} className="w-44 shrink-0 snap-start sm:w-auto">
               <Link
@@ -226,7 +226,7 @@ export default async function HomePage() {
           ))}
         </div>
         <div className="mt-6 text-center sm:hidden">
-          <Link href="/san-pham" className="text-sm font-semibold text-steel-600">Xem tất cả {tree.length} nhóm →</Link>
+          <Link href="/san-pham" className="inline-block py-2 text-sm font-semibold text-steel-600">Xem tất cả {tree.length} nhóm →</Link>
         </div>
       </section>
 
@@ -251,17 +251,17 @@ export default async function HomePage() {
               <p className="text-sm font-semibold tracking-wider text-steel-600 uppercase">Báo giá nhanh</p>
               <h2 className="mt-1 text-3xl font-bold text-balance text-steel-900 sm:text-4xl">Nhận báo giá chỉ với 4 bước</h2>
               <p className="mt-3 text-slate-600">Gửi danh sách mã hàng hoặc ảnh tem nhãn — chúng tôi tư vấn và báo giá cho bạn.</p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/lien-he" className="btn-primary px-6 py-3 text-base">
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
+                <Link href="/lien-he" className="btn-primary col-span-2 px-6 py-3 text-base">
                   Gửi yêu cầu báo giá <Icon name="arrow" className="h-4 w-4" />
                 </Link>
                 {settings.phone && (
-                  <a href={`tel:${phoneDigits(settings.phone)}`} className="btn-outline px-6 py-3 text-base">
+                  <a href={`tel:${phoneDigits(settings.phone)}`} className="btn-outline px-3 py-3 text-sm whitespace-nowrap sm:px-6 sm:text-base">
                     <Icon name="phone" className="h-4 w-4" /> {settings.phone}
                   </a>
                 )}
                 {settings.zalo && (
-                  <a href={`https://zalo.me/${phoneDigits(settings.zalo)}`} target="_blank" rel="noopener noreferrer" className="btn-outline px-6 py-3 text-base">
+                  <a href={`https://zalo.me/${phoneDigits(settings.zalo)}`} target="_blank" rel="noopener noreferrer" className="btn-outline px-3 py-3 text-sm whitespace-nowrap sm:px-6 sm:text-base">
                     Chat Zalo
                   </a>
                 )}

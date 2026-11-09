@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { BrandMark } from "./BrandMark";
 import { Icon } from "./Icon";
+import { categoryThumb } from "@/lib/utils";
 import Form from "next/form";
 
 const nav = [
@@ -133,7 +134,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                               {g.image_url ? (
                                 <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-slate-200 transition group-hover/cat:ring-brand-500">
                                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                                  <img src={g.image_url} alt="" loading="lazy" className="h-full w-full object-contain p-0.5" />
+                                  <img src={categoryThumb(g.image_url)} alt="" loading="lazy" className="h-full w-full object-contain p-0.5" />
                                 </span>
                               ) : (
                                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-orange-50 text-brand-600 ring-1 ring-brand-100 transition group-hover/cat:from-brand-600 group-hover/cat:to-brand-500 group-hover/cat:text-white">
