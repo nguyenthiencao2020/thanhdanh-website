@@ -35,7 +35,7 @@ Danh sách những nội dung trên website hiện đang là **tạm / giả đ�
 | [x] | 🔴 | **Mã số thuế** | ✅ MST 0319753015 ở chân trang | — |
 | [ ] | 🔴 | **Email liên hệ** | Chưa có (đang ẩn) | Email nhận báo giá, ví dụ `sales@thietbinhamay-dd.com` |
 | [ ] | 🟡 | **Giờ làm việc** | Tạm ghi *Thứ 2 – Thứ 7: 7:30 – 17:30* | Giờ làm việc thực tế |
-| [ ] | 🟡 | **Bản đồ Google Maps** | Tìm theo địa chỉ, có thể chưa ghim đúng | Google Maps → *Chia sẻ → Nhúng bản đồ* → copy link trong `src="..."` |
+| [ ] | 🟡 | **Bản đồ Google Maps** | Đã có tọa độ QHWV+GH (10.796313, 106.593938) — cần dán vào Admin | Admin → Cài đặt → ô *Link Google Maps*: dán `https://www.google.com/maps?q=10.796313,106.593938&z=17&hl=vi&output=embed` hoặc cả mã nhúng `<iframe…>` (Google Maps → Chia sẻ → Nhúng bản đồ) |
 | [ ] | 🟡 | **Số Zalo** | 0907 646 647 | Xác nhận số Zalo nhận tin |
 | [ ] | 🟡 | **Facebook / Fanpage, Messenger** | Chưa có (đang ẩn) | Link fanpage và `https://m.me/ten-fanpage` |
 | [ ] | 🟡 | **Giới thiệu công ty** | Đoạn văn chung, tự viết | 2–4 đoạn: năm thành lập, kinh nghiệm, kho hàng, khách hàng tiêu biểu, thế mạnh, cam kết |
