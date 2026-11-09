@@ -45,7 +45,7 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    - `supabase/migrations/0008_hinh-anh-thuc-te.sql` (113 sản phẩm có ảnh thật, 62 thương hiệu, ảnh danh mục, slider)
    - `supabase/migrations/0009_sua-chu-hoa-mo-ta.sql` (sửa chữ “PLC”, “CB” trong mô tả)
    - `supabase/migrations/0010_tim-kiem-khong-dau.sql` (tìm kiếm có dấu/không dấu; bỏ “nổi bật” cho sản phẩm còn ảnh vẽ)
-   - `supabase/migrations/0011_hang-chu-luc.sql` (ô “Hãng chủ lực” trong Admin → Thương hiệu; mặc định 8 hãng)
+   - `supabase/migrations/0011_hang-chu-luc.sql` (ô “Thương hiệu tiêu biểu” trong Admin → Thương hiệu; mặc định 8 hãng)
 
    > Cài mới: chạy `0001` → … → `0011` theo thứ tự, rồi `seed.sql`.
    > Trang thật đã chạy `0008` (đã kiểm tra: 62 thương hiệu / 123 sản phẩm), `0010` và `0011`. Chạy `0009` nếu chưa chạy.

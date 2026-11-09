@@ -118,3 +118,10 @@
 - [x] Khung logo hãng chủ lực + dải hãng khác
 - [x] Bỏ logo lặp ở khối loại hàng
 - [x] QA máy tính / tablet / điện thoại
+
+### Đổi tên “chủ lực” → “Thương hiệu tiêu biểu” (09/11/2026)
+Công ty bán nhiều hãng, chữ “chủ lực” dễ hiểu là các hãng khác là phụ. Đã đổi:
+- Trang chủ: tiêu đề khung **“Thương hiệu tiêu biểu”**, dòng nhỏ **“Cung cấp thiết bị hơn 60 hãng”** (tự tính theo số hãng).
+- Admin → Thương hiệu: ô tích **“Thương hiệu tiêu biểu”** — chọn tối đa 8 hãng bán chạy / khách hỏi nhiều.
+- Cột database vẫn là `brands.featured`, file `0011_hang-chu-luc.sql` giữ tên cũ (đã chạy, không cần chạy lại).
+- Các mục “hãng chủ lực” ở trên trong file này hiểu là “thương hiệu tiêu biểu”.
