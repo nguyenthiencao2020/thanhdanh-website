@@ -96,7 +96,7 @@ export default async function LinePage({ params }: { params: Params }) {
           <h2 className="text-lg font-bold text-steel-900">Dòng hàng khác {generic ? "" : `của ${b.brand.name}`}</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {others.map((x) => (
-              <Link key={x.slug} href={lineHref(x)} className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white py-1 pr-4 pl-1 text-sm font-semibold text-slate-700 hover:border-steel-500 hover:text-brand-600">
+              <Link key={x.slug} href={lineHref(x)} scroll={false} className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white py-1 pr-4 pl-1 text-sm font-semibold text-slate-700 hover:border-steel-500 hover:text-brand-600">
                 {x.image_url && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={x.image_url} alt="" loading="lazy" className="h-8 w-8 rounded-full bg-white object-contain ring-1 ring-slate-200" />

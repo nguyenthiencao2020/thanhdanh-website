@@ -45,7 +45,7 @@ export function LineSidebar({ brands, brand, line }: { brands: SidebarBrand[]; b
             <li key={b.slug}>
               <div className="flex items-center">
                 <Link
-                  href={`/thuong-hieu/${b.slug}`}
+                  scroll={false} href={`/thuong-hieu/${b.slug}`}
                   className={`flex min-w-0 flex-1 items-center gap-2 px-4 py-2.5 text-sm font-bold uppercase transition ${
                     active && !line ? "bg-brand-50 text-brand-600" : active ? "text-brand-600" : "text-steel-900 hover:text-brand-600"
                   }`}
@@ -71,7 +71,7 @@ export function LineSidebar({ brands, brand, line }: { brands: SidebarBrand[]; b
                       return (
                         <li key={l.slug}>
                           <Link
-                            href={`/thuong-hieu/${b.slug}/${l.slug}`}
+                            scroll={false} href={`/thuong-hieu/${b.slug}/${l.slug}`}
                             className={`flex items-center gap-2 py-1.5 pr-4 pl-6 text-sm transition ${
                               on ? "bg-brand-50 font-semibold text-brand-600" : "text-slate-600 hover:bg-slate-50 hover:text-brand-600"
                             }`}

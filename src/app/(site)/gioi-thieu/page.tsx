@@ -103,7 +103,7 @@ export default async function AboutPage() {
             <h2 className="mt-1 text-3xl font-bold text-steel-900">Lĩnh vực cung cấp</h2>
           </Reveal>
           <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.slice(0, 8).map((c, i) => (
+            {categories.slice(0, 9).map((c, i) => (
               <li key={c.slug}>
                 <Reveal delay={(i % 3) * 80}>
                   <Link
