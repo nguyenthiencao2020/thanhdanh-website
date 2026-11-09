@@ -8,7 +8,7 @@ import { buildCategoryTree, getBrands, getCategories, getPages, getProductPairs,
 import { resolveMapEmbed } from "@/lib/maps";
 import { phoneDigits } from "@/lib/utils";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
   const [settings, categories, pages, brands, pairs] = await Promise.all([getSettings(), getCategories(), getPages(), getBrands(), getProductPairs()]);
