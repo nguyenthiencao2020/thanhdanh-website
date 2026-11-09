@@ -240,10 +240,15 @@ export async function saveBrand(form: FormData) {
     fail("/admin/thuong-hieu", (e as Error).message);
   }
 
-  const row = { name, slug: slugify(text(form, "slug") ?? name), logo_url: logoUrl, sort_order: int(form, "sort_order") };
-  const { error } = id
-    ? await supabase.from("brands").update(row).eq("id", id)
-    : await supabase.from("brands").insert(row);
+  const base = { name, slug: slugify(text(form, "slug") ?? name), logo_url: logoUrl, sort_order: int(form, "sort_order") };
+  const save = (row: Record<string, unknown>) =>
+    id ? supabase.from("brands").update(row).eq("id", id) : supabase.from("brands").insert(row);
+  let { error } = await save({ ...base, featured: form.get("featured") === "on" });
+  // Database without migration 0011 has no "featured" column: save the rest and say what to run.
+  if (error?.code === "PGRST204" || error?.code === "42703") {
+    ({ error } = await save(base));
+    if (!error) fail("/admin/thuong-hieu", "Đã lưu, trừ ô “Hãng chủ lực”: hãy chạy supabase/migrations/0011_hang-chu-luc.sql trong Supabase.");
+  }
   if (error) fail("/admin/thuong-hieu", error.code === "23505" ? "Đường dẫn (slug) đã tồn tại." : error.message);
 
   refreshSite();

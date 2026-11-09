@@ -2,6 +2,7 @@ import "server-only";
 import catalog from "@/data/catalog.json";
 import { isSupabaseConfigured } from "./supabase/config";
 import { createPublicClient } from "./supabase/server";
+import type { ProductPair } from "./catalog";
 import type { Banner, Brand, Category, CategoryNode, Page, Post, ProductWithRelations, Service, Settings } from "./types";
 
 const PRODUCT_SELECT = "*, category:categories(slug,name), brand:brands(slug,name,logo_url)";
@@ -108,6 +109,19 @@ export async function getBrands(): Promise<Brand[]> {
 // ---------------------------------------------------------------------------
 // Products
 // ---------------------------------------------------------------------------
+/** Category + brand of every published product: drives counts, hiding empty categories and brand chips. */
+export async function getProductPairs(): Promise<ProductPair[]> {
+  if (!isSupabaseConfigured) return fallbackProducts.map((p) => ({ category: p.category?.slug ?? null, brand: p.brand?.slug ?? null }));
+  const { data, error } = await createPublicClient()
+    .from("products")
+    .select("category:categories(slug), brand:brands(slug)")
+    .eq("published", true)
+    .range(0, 9999);
+  if (error) console.error("getProductPairs", error.message);
+  type Row = { category: { slug: string } | null; brand: { slug: string } | null };
+  return ((data ?? []) as unknown as Row[]).map((r) => ({ category: r.category?.slug ?? null, brand: r.brand?.slug ?? null }));
+}
+
 export const PRODUCT_SORTS = {
   "noi-bat": "Nổi bật",
   "moi-nhat": "Mới nhất",

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useRef, useState, useTransition, type MouseEvent, type ReactNode } from "react";
-import { Icon } from "./Icon";
 
 /*
  * Catalogue navigation that feels instant: links highlight the moment they are clicked, the
@@ -35,11 +34,6 @@ export function CatalogNavProvider({ children }: { children: ReactNode }) {
     },
   };
   return <NavContext.Provider value={value}>{children}</NavContext.Provider>;
-}
-
-/** The catalogue navigator, or null outside a <CatalogNavProvider>. */
-export function useCatalogNav() {
-  return useContext(NavContext);
 }
 
 function useNav() {
@@ -103,80 +97,5 @@ export function CatalogResults({ children }: { children: ReactNode }) {
       </div>
       <div className={`transition-opacity duration-150 ${pending ? "pointer-events-none opacity-50" : ""}`}>{children}</div>
     </div>
-  );
-}
-
-export type TreeGroup = { slug: string; name: string; icon: string | null; href: string; children: { slug: string; name: string; href: string }[] };
-
-/** Category tree in the sidebar; groups expand instantly with the chevron, names navigate. */
-export function CategoryTree({ groups, current, openGroup, allHref }: { groups: TreeGroup[]; current?: string; openGroup?: string; allHref: string }) {
-  const [open, setOpen] = useState<Set<string>>(() => new Set(openGroup ? [openGroup] : []));
-  useEffect(() => {
-    if (openGroup) setOpen((s) => (s.has(openGroup) ? s : new Set(s).add(openGroup)));
-  }, [openGroup]);
-  const toggle = (slug: string) =>
-    setOpen((s) => {
-      const n = new Set(s);
-      if (n.has(slug)) n.delete(slug);
-      else n.add(slug);
-      return n;
-    });
-
-  const active = "bg-brand-50 font-semibold text-brand-600";
-  return (
-    <ul className="space-y-0.5 text-sm">
-      <li>
-        <NavLink href={allHref} className={`flex items-center gap-2 rounded-lg px-2 py-2 ${!current ? active : "text-slate-700 hover:bg-slate-50"}`} pendingClassName={`flex items-center gap-2 rounded-lg px-2 py-2 ${active}`}>
-          <Icon name="box" className="h-4 w-4" /> Tất cả sản phẩm
-        </NavLink>
-      </li>
-      {groups.map((g) => {
-        const isOpen = open.has(g.slug);
-        const base = "flex min-w-0 flex-1 items-center gap-2 rounded-lg px-2 py-2";
-        return (
-          <li key={g.slug}>
-            <div className="flex items-center gap-1">
-              <NavLink
-                href={g.href}
-                className={`${base} ${current === g.slug ? active : openGroup === g.slug ? "font-semibold text-slate-900 hover:bg-slate-50" : "text-slate-700 hover:bg-slate-50"}`}
-                pendingClassName={`${base} ${active}`}
-              >
-                <Icon name={g.icon ?? "box"} className="h-4 w-4 shrink-0" />
-                <span className="flex-1">{g.name}</span>
-              </NavLink>
-              {g.children.length > 0 && (
-                <button
-                  type="button"
-                  onClick={() => toggle(g.slug)}
-                  aria-expanded={isOpen}
-                  aria-label={`${isOpen ? "Thu gọn" : "Mở"} ${g.name}`}
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-700"
-                >
-                  <Icon name="arrow" className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? "-rotate-90" : "rotate-90"}`} />
-                </button>
-              )}
-            </div>
-            {g.children.length > 0 && (
-              <div className={`grid transition-[grid-template-rows] duration-200 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-                <div className="min-h-0 overflow-hidden">
-                <ul className="my-0.5 ml-4 space-y-0.5 border-l border-slate-200 pl-2">
-                  {g.children.map((c) => {
-                    const sub = "block rounded-lg px-2 py-1.5 text-[13px]";
-                    return (
-                      <li key={c.slug}>
-                        <NavLink href={c.href} className={`${sub} ${current === c.slug ? active : "text-slate-600 hover:bg-slate-50"}`} pendingClassName={`${sub} ${active}`}>
-                          {c.name}
-                        </NavLink>
-                      </li>
-                    );
-                  })}
-                </ul>
-                </div>
-              </div>
-            )}
-          </li>
-        );
-      })}
-    </ul>
   );
 }

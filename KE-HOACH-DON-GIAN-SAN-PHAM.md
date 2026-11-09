@@ -54,11 +54,18 @@
 - **Cách 2 – Vercel:** *Deployments* → chọn bản deploy trước thay đổi → **⋯ → Promote to Production** (quay lại tức thì, không cần sửa code).
 - **Database:** migration `0011` chỉ **thêm** cột `brands.featured`; bản cũ không dùng cột này nên không cần xóa. Muốn xóa: `alter table public.brands drop column if exists featured;`
 
-## 6. Tiến độ
+## 6. Tiến độ (đã triển khai — PR “Trang Sản phẩm đơn giản”)
 
-- [ ] Ẩn danh mục / hãng trống
-- [ ] Trang Sản phẩm 3 bước, bỏ cột lọc trái
-- [ ] Menu Sản phẩm mới trên header
-- [ ] Trang chủ: Theo hãng / Theo loại
-- [ ] Ô *Hãng chủ lực* trong Admin + migration `0011`
-- [ ] QA máy tính / tablet / điện thoại
+- [x] Ẩn danh mục / hãng trống
+- [x] Trang Sản phẩm 3 bước, bỏ cột lọc trái
+- [x] Menu Sản phẩm mới trên header
+- [x] Trang chủ: Theo hãng / Theo loại
+- [x] Ô *Hãng chủ lực* trong Admin + migration `0011`
+- [x] QA máy tính / tablet / điện thoại
+
+### Ghi chú khi triển khai
+- Chọn **hãng** → nút lọc theo **nhóm hàng** (không theo danh mục con) để hàng nút ngắn; VD Siemens: Tự động hóa 16 · Biến tần 7 · Contactor 6 · Bộ nguồn 5…
+- Chọn **loại** → hàng “Loại” (danh mục con có hàng) + hàng “Hãng” (hãng có hàng trong loại đó).
+- Số liệu trang chủ đổi theo hàng thật: “Nhóm sản phẩm” = nhóm có hàng; ô “Danh mục” → “Sản phẩm”.
+- Bỏ component cũ: `BrandSelect`, `FilterDrawer`, cây danh mục trong `CatalogNav`.
+- Việc của người dùng: chạy `supabase/migrations/0011_hang-chu-luc.sql` để tích/bỏ *Hãng chủ lực* trong Admin (chưa chạy thì web dùng 8 hãng mặc định).

@@ -758,373 +758,435 @@
       "slug": "siemens",
       "name": "Siemens",
       "logo_url": "/img/th/siemens.png",
-      "sort_order": 1
+      "sort_order": 1,
+      "featured": true
     },
     {
       "slug": "schneider-electric",
       "name": "Schneider Electric",
       "logo_url": "/img/th/schneider-electric.png",
-      "sort_order": 2
+      "sort_order": 2,
+      "featured": true
     },
     {
       "slug": "mitsubishi-electric",
       "name": "Mitsubishi Electric",
       "logo_url": "/img/th/mitsubishi-electric.png",
-      "sort_order": 3
+      "sort_order": 3,
+      "featured": false
     },
     {
       "slug": "omron",
       "name": "Omron",
       "logo_url": "/img/th/omron.png",
-      "sort_order": 4
+      "sort_order": 4,
+      "featured": false
     },
     {
       "slug": "abb",
       "name": "ABB",
       "logo_url": "/img/th/abb.png",
-      "sort_order": 5
+      "sort_order": 5,
+      "featured": true
     },
     {
       "slug": "festo",
       "name": "Festo",
       "logo_url": "/img/th/festo.png",
-      "sort_order": 6
+      "sort_order": 6,
+      "featured": false
     },
     {
       "slug": "smc",
       "name": "SMC",
       "logo_url": "/img/th/smc.png",
-      "sort_order": 7
+      "sort_order": 7,
+      "featured": false
     },
     {
       "slug": "sick",
       "name": "SICK",
       "logo_url": "/img/th/sick.png",
-      "sort_order": 8
+      "sort_order": 8,
+      "featured": true
     },
     {
       "slug": "ifm",
       "name": "ifm electronic",
       "logo_url": "/img/th/ifm.png",
-      "sort_order": 9
+      "sort_order": 9,
+      "featured": true
     },
     {
       "slug": "phoenix-contact",
       "name": "Phoenix Contact",
       "logo_url": "/img/th/phoenix-contact.png",
-      "sort_order": 10
+      "sort_order": 10,
+      "featured": false
     },
     {
       "slug": "autonics",
       "name": "Autonics",
       "logo_url": "/img/th/autonics.png",
-      "sort_order": 11
+      "sort_order": 11,
+      "featured": true
     },
     {
       "slug": "hanyoung-nux",
       "name": "Hanyoung Nux",
       "logo_url": "/img/th/hanyoung-nux.png",
-      "sort_order": 12
+      "sort_order": 12,
+      "featured": false
     },
     {
       "slug": "idec",
       "name": "IDEC",
       "logo_url": null,
-      "sort_order": 13
+      "sort_order": 13,
+      "featured": false
     },
     {
       "slug": "pepperl-fuchs",
       "name": "Pepperl+Fuchs",
       "logo_url": "/img/th/pepperl-fuchs.png",
-      "sort_order": 14
+      "sort_order": 14,
+      "featured": false
     },
     {
       "slug": "airtac",
       "name": "AirTAC",
       "logo_url": "/img/th/airtac.png",
-      "sort_order": 15
+      "sort_order": 15,
+      "featured": false
     },
     {
       "slug": "ls-electric",
       "name": "LS Electric",
       "logo_url": "/img/th/ls-electric.png",
-      "sort_order": 16
+      "sort_order": 16,
+      "featured": false
     },
     {
       "slug": "mikro",
       "name": "Mikro",
       "logo_url": "/img/th/mikro.png",
-      "sort_order": 17
+      "sort_order": 17,
+      "featured": false
     },
     {
       "slug": "weidmuller",
       "name": "Weidmüller",
       "logo_url": "/img/th/weidmuller.png",
-      "sort_order": 18
+      "sort_order": 18,
+      "featured": true
     },
     {
       "slug": "mean-well",
       "name": "Mean Well",
       "logo_url": "/img/th/mean-well.png",
-      "sort_order": 19
+      "sort_order": 19,
+      "featured": false
     },
     {
       "slug": "sang-jin",
       "name": "Sang Jin",
       "logo_url": "/img/th/sang-jin.png",
-      "sort_order": 20
+      "sort_order": 20,
+      "featured": false
     },
     {
       "slug": "altek-kabel",
       "name": "Altek Kabel",
       "logo_url": "/img/th/altek-kabel.png",
-      "sort_order": 21
+      "sort_order": 21,
+      "featured": false
     },
     {
       "slug": "cadivi",
       "name": "CADIVI",
       "logo_url": "/img/th/cadivi.png",
-      "sort_order": 22
+      "sort_order": 22,
+      "featured": false
     },
     {
       "slug": "lion",
       "name": "LION",
       "logo_url": "/img/th/lion.png",
-      "sort_order": 23
+      "sort_order": 23,
+      "featured": false
     },
     {
       "slug": "eaton",
       "name": "Eaton",
       "logo_url": "/img/th/eaton.png",
-      "sort_order": 24
+      "sort_order": 24,
+      "featured": false
     },
     {
       "slug": "delta",
       "name": "Delta",
       "logo_url": "/img/th/delta.png",
-      "sort_order": 25
+      "sort_order": 25,
+      "featured": false
     },
     {
       "slug": "rockwell-automation",
       "name": "Rockwell Automation",
       "logo_url": "/img/th/rockwell-automation.png",
-      "sort_order": 26
+      "sort_order": 26,
+      "featured": false
     },
     {
       "slug": "fuji-electric",
       "name": "Fuji Electric",
       "logo_url": "/img/th/fuji-electric.png",
-      "sort_order": 27
+      "sort_order": 27,
+      "featured": false
     },
     {
       "slug": "finder",
       "name": "Finder",
       "logo_url": "/img/th/finder.png",
-      "sort_order": 28
+      "sort_order": 28,
+      "featured": false
     },
     {
       "slug": "turck-banner",
       "name": "Turck Banner",
       "logo_url": "/img/th/turck-banner.png",
-      "sort_order": 29
+      "sort_order": 29,
+      "featured": false
     },
     {
       "slug": "selec",
       "name": "Selec",
       "logo_url": "/img/th/selec.png",
-      "sort_order": 30
+      "sort_order": 30,
+      "featured": false
     },
     {
       "slug": "pro-face",
       "name": "Pro-face",
       "logo_url": "/img/th/pro-face.png",
-      "sort_order": 31
+      "sort_order": 31,
+      "featured": false
     },
     {
       "slug": "yaskawa",
       "name": "Yaskawa",
       "logo_url": "/img/th/yaskawa.png",
-      "sort_order": 32
+      "sort_order": 32,
+      "featured": false
     },
     {
       "slug": "weintek",
       "name": "Weintek",
       "logo_url": "/img/th/weintek.png",
-      "sort_order": 33
+      "sort_order": 33,
+      "featured": false
     },
     {
       "slug": "wago",
       "name": "WAGO",
       "logo_url": "/img/th/wago.png",
-      "sort_order": 34
+      "sort_order": 34,
+      "featured": false
     },
     {
       "slug": "endress-hauser",
       "name": "Endress+Hauser",
       "logo_url": "/img/th/endress-hauser.png",
-      "sort_order": 35
+      "sort_order": 35,
+      "featured": false
     },
     {
       "slug": "klemsan",
       "name": "Klemsan",
       "logo_url": "/img/th/klemsan.png",
-      "sort_order": 36
+      "sort_order": 36,
+      "featured": false
     },
     {
       "slug": "puls",
       "name": "PULS",
       "logo_url": "/img/th/puls.png",
-      "sort_order": 37
+      "sort_order": 37,
+      "featured": false
     },
     {
       "slug": "bosch-rexroth",
       "name": "Bosch Rexroth",
       "logo_url": "/img/th/bosch-rexroth.png",
-      "sort_order": 38
+      "sort_order": 38,
+      "featured": false
     },
     {
       "slug": "beckhoff",
       "name": "Beckhoff",
       "logo_url": "/img/th/beckhoff.png",
-      "sort_order": 39
+      "sort_order": 39,
+      "featured": false
     },
     {
       "slug": "danfoss",
       "name": "Danfoss",
       "logo_url": "/img/th/danfoss.png",
-      "sort_order": 40
+      "sort_order": 40,
+      "featured": false
     },
     {
       "slug": "fatek",
       "name": "Fatek",
       "logo_url": "/img/th/fatek.png",
-      "sort_order": 41
+      "sort_order": 41,
+      "featured": false
     },
     {
       "slug": "parker",
       "name": "Parker",
       "logo_url": "/img/th/parker.png",
-      "sort_order": 42
+      "sort_order": 42,
+      "featured": false
     },
     {
       "slug": "pilz",
       "name": "Pilz",
       "logo_url": "/img/th/pilz.png",
-      "sort_order": 43
+      "sort_order": 43,
+      "featured": false
     },
     {
       "slug": "panasonic",
       "name": "Panasonic",
       "logo_url": "/img/th/panasonic.png",
-      "sort_order": 44
+      "sort_order": 44,
+      "featured": false
     },
     {
       "slug": "koyo",
       "name": "Koyo",
       "logo_url": "/img/th/koyo.png",
-      "sort_order": 45
+      "sort_order": 45,
+      "featured": false
     },
     {
       "slug": "dinkle",
       "name": "Dinkle",
       "logo_url": "/img/th/dinkle.png",
-      "sort_order": 46
+      "sort_order": 46,
+      "featured": false
     },
     {
       "slug": "hensel",
       "name": "Hensel",
       "logo_url": "/img/th/hensel.png",
-      "sort_order": 47
+      "sort_order": 47,
+      "featured": false
     },
     {
       "slug": "norgren",
       "name": "Norgren",
       "logo_url": "/img/th/norgren.png",
-      "sort_order": 48
+      "sort_order": 48,
+      "featured": false
     },
     {
       "slug": "schmersal",
       "name": "Schmersal",
       "logo_url": "/img/th/schmersal.png",
-      "sort_order": 49
+      "sort_order": 49,
+      "featured": false
     },
     {
       "slug": "azbil",
       "name": "Azbil",
       "logo_url": "/img/th/azbil.png",
-      "sort_order": 50
+      "sort_order": 50,
+      "featured": false
     },
     {
       "slug": "skf",
       "name": "SKF",
       "logo_url": "/img/th/skf.png",
-      "sort_order": 51
+      "sort_order": 51,
+      "featured": false
     },
     {
       "slug": "asahi",
       "name": "Asahi",
       "logo_url": "/img/th/asahi.png",
-      "sort_order": 52
+      "sort_order": 52,
+      "featured": false
     },
     {
       "slug": "nsk",
       "name": "NSK",
       "logo_url": "/img/th/nsk.png",
-      "sort_order": 53
+      "sort_order": 53,
+      "featured": false
     },
     {
       "slug": "ntn",
       "name": "NTN",
       "logo_url": "/img/th/ntn.png",
-      "sort_order": 54
+      "sort_order": 54,
+      "featured": false
     },
     {
       "slug": "rang-dong",
       "name": "Rạng Đông",
       "logo_url": "/img/th/rang-dong.png",
-      "sort_order": 55
+      "sort_order": 55,
+      "featured": false
     },
     {
       "slug": "duhal",
       "name": "Duhal",
       "logo_url": "/img/th/duhal.png",
-      "sort_order": 56
+      "sort_order": 56,
+      "featured": false
     },
     {
       "slug": "philips",
       "name": "Philips",
       "logo_url": "/img/th/philips.png",
-      "sort_order": 57
+      "sort_order": 57,
+      "featured": false
     },
     {
       "slug": "himel",
       "name": "Himel",
       "logo_url": "/img/th/himel.png",
-      "sort_order": 58
+      "sort_order": 58,
+      "featured": false
     },
     {
       "slug": "samwha",
       "name": "Samwha",
       "logo_url": "/img/th/samwha.png",
-      "sort_order": 59
+      "sort_order": 59,
+      "featured": false
     },
     {
       "slug": "nuintek",
       "name": "Nuintek",
       "logo_url": "/img/th/nuintek.png",
-      "sort_order": 60
+      "sort_order": 60,
+      "featured": false
     },
     {
       "slug": "honeywell",
       "name": "Honeywell",
       "logo_url": "/img/th/honeywell.png",
-      "sort_order": 61
+      "sort_order": 61,
+      "featured": false
     },
     {
       "slug": "chint",
       "name": "CHINT",
       "logo_url": null,
-      "sort_order": 62
+      "sort_order": 62,
+      "featured": true
     }
   ],
   "products": [
