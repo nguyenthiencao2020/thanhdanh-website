@@ -39,8 +39,13 @@ export async function resolveMapEmbed(link: string | null | undefined, address?:
   try {
     let current = link;
     for (let hop = 0; hop < 4 && isShortLink(current); hop++) {
-      const res = await fetch(current, { redirect: "manual", next: { revalidate: 86400 } });
-      const next = res.headers.get("location");
+      const res = await fetch(current, {
+        redirect: "manual",
+        headers: { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36", "accept-language": "vi" },
+        next: { revalidate: 86400 },
+      });
+      // Usually a 302; some responses are a page that points on to the map instead.
+      const next = res.headers.get("location") ?? (res.ok ? (await res.text()).match(/https:\/\/www\.google\.[a-z.]+\/maps[^"'\s<>\\]+/)?.[0]?.replace(/&amp;/g, "&") : null);
       if (!next) break;
       current = new URL(next, current).toString();
     }
