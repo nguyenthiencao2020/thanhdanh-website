@@ -31,7 +31,7 @@ export default async function AboutPage() {
   const [settings, fullTree, brands, pairs] = await Promise.all([getSettings(), getCategoryTree(), getBrands(), getProductPairs()]);
   // Only product groups that have products (empty ones are hidden site-wide).
   const categories = nonEmptyTree(fullTree, countByCategory(fullTree, pairs));
-  const brandCount = new Set(pairs.map((p) => p.brand).filter(Boolean)).size || brands.length;
+  const brandCount = brands.length;
   const values = parseValues(settings.core_values);
 
   return (
@@ -143,7 +143,7 @@ export default async function AboutPage() {
           <Reveal delay={120}>
             <dl className="grid grid-cols-2 gap-4">
               {[
-                { n: `${brandCount}+`, l: "Thương hiệu đang cung cấp", icon: "diamond" },
+                { n: `${brandCount}+`, l: "Thương hiệu phân phối", icon: "diamond" },
                 { n: `${getLines().length}`, l: "Dòng hàng", icon: "box" },
                 { n: `${categories.length}`, l: "Nhóm sản phẩm", icon: "cpu" },
                 { n: "24H", l: "Hỗ trợ báo giá nhanh", icon: "clock" },

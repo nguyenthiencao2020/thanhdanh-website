@@ -91,7 +91,7 @@ export default async function HomePage() {
                 </p>
                 <h2 className="mt-1 text-xl font-extrabold text-steel-900 sm:text-2xl">Thương hiệu tiêu biểu</h2>
               </div>
-              <Link href="/thuong-hieu" className="text-sm font-semibold text-steel-600 hover:text-brand-600">Xem tất cả hãng →</Link>
+              <Link href="/thuong-hieu" className="-my-2 inline-block py-2 text-sm font-semibold text-steel-600 hover:text-brand-600">Xem tất cả hãng →</Link>
             </div>
             <ul className="mt-4 grid grid-cols-4 gap-2 sm:mt-5 sm:gap-3 lg:grid-cols-8">
               {shopBrands.map((b) => (
@@ -245,9 +245,9 @@ export default async function HomePage() {
             <Reveal key={g.slug} delay={(i % 4) * 60}>
               <Link
                 href={`/danh-muc-san-pham/${g.slug}`}
-                className="group flex h-full items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3 transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg"
+                className="group flex h-full flex-col items-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 text-center transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg sm:flex-row sm:gap-3 sm:text-left"
               >
-                <span className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-slate-50">
+                <span className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white sm:h-16 sm:w-16">
                   {g.image_url ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={categoryThumb(g.image_url)} alt="" loading="lazy" className="h-full w-full object-contain p-1 transition duration-500 group-hover:scale-105" />

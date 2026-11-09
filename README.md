@@ -26,7 +26,7 @@ Chi tiết từng section: **[SITE-AUDIT.md](SITE-AUDIT.md)** (theo mẫu cấu 
 | `/tim-kiem` | Tìm kiếm sản phẩm + bài viết |
 | `/admin` | Trang quản trị (CMS) – cần đăng nhập |
 
-Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi sửa nội dung trong `/admin`.
+Trang công khai được cache (ISR, 1 giờ — tiết kiệm CPU Vercel gói Hobby) và tự làm mới ngay khi lưu bất kỳ nội dung nào trong `/admin`. Sửa thẳng database bằng SQL thì tối đa 1 giờ mới hiện (hoặc bấm Lưu một mục bất kỳ trong Admin để làm mới ngay).
 
 ## Triển khai lần đầu
 
