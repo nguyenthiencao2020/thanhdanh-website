@@ -97,7 +97,7 @@ export default async function HomePage() {
               {shopBrands.map((b) => (
                 <li key={b.slug}>
                   <Link
-                    href={`/san-pham?thuong-hieu=${b.slug}`}
+                    href={`/thuong-hieu/${b.slug}`}
                     title={b.name}
                     className="group flex h-full flex-col items-center justify-center gap-2 rounded-xl border border-slate-200 px-1.5 py-2.5 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-lg sm:rounded-2xl sm:px-3 sm:py-4"
                   >
@@ -125,7 +125,7 @@ export default async function HomePage() {
               {[...otherBrands, ...otherBrands].map((b, i) => (
                 <Link
                   key={`${b.slug}-${i}`}
-                  href={`/san-pham?thuong-hieu=${b.slug}`}
+                  href={`/thuong-hieu/${b.slug}`}
                   className="flex h-10 w-32 shrink-0 items-center justify-center px-3 transition hover:scale-105"
                   title={b.name}
                   tabIndex={i >= otherBrands.length ? -1 : undefined}
