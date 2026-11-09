@@ -9,7 +9,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { RichText } from "@/components/RichText";
 import { Tabs } from "@/components/Tabs";
 import { getCategories, getProduct, getProducts, getSettings } from "@/lib/data";
-import { phoneDigits } from "@/lib/utils";
+import { phoneDigits, siteUrl } from "@/lib/utils";
 
 type Params = Promise<{ slug: string }>;
 
@@ -50,7 +50,11 @@ export default async function ProductPage({ params }: { params: Params }) {
   const parentCat = cat?.parent_id ? categories.find((c) => c.id === cat.parent_id) : undefined;
 
   const related = product.category
-    ? (await getProducts({ category: product.category.slug, limit: 9 })).filter((p) => p.id !== product.id).slice(0, 8)
+    ? (await getProducts({ category: product.category.slug, limit: 13 }))
+        .filter((p) => p.id !== product.id)
+        // real photos before drawn placeholders (/demo/…)
+        .sort((a, b) => Number(!!b.image_url && !b.image_url.startsWith("/demo/")) - Number(!!a.image_url && !a.image_url.startsWith("/demo/")))
+        .slice(0, 8)
     : [];
   const images = [product.image_url, ...(product.gallery ?? [])].filter((x): x is string => Boolean(x));
   const specs = parseSpecs(product.specs);
@@ -99,8 +103,23 @@ export default async function ProductPage({ params }: { params: Params }) {
     },
   ].filter((t) => t.id === "mo-ta" || (t.id === "thong-so" ? specs.length > 0 : Boolean(product.datasheet_url)));
 
+  // Structured data so search engines can show the product (name, brand, photo, availability).
+  const absolute = (u: string) => (u.startsWith("http") ? u : `${siteUrl}${u}`);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    ...(product.sku && { sku: product.sku, mpn: product.sku }),
+    ...(product.summary && { description: product.summary }),
+    ...(images.length && { image: images.map(absolute) }),
+    ...(product.brand && { brand: { "@type": "Brand", name: product.brand.name } }),
+    ...(product.category && { category: product.category.name }),
+    url: `${siteUrl}/san-pham/${product.slug}`,
+  };
+
   return (
     <div className="bg-gradient-to-b from-slate-50 to-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <div className="container-page py-8">
         <nav className="text-sm text-slate-500" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-brand-600">Trang chủ</Link> /{" "}
