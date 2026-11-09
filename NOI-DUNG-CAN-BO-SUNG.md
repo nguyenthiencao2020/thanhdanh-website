@@ -1,118 +1,116 @@
 # Nội dung cần bổ sung
 
 Danh sách những nội dung trên website hiện đang là **tạm / giả định / còn thiếu**, cần thay bằng thông tin thật.
-Đánh dấu `[x]` khi đã xong.
+Đánh dấu `[x]` khi đã xong. *Cập nhật: 09/11/2026.*
 
-**Mức ưu tiên:** 🔴 cần làm trước khi công khai website · 🟡 nên có sớm · 🟢 bổ sung dần
+**Mức ưu tiên:** 🔴 cần làm sớm · 🟡 nên có · 🟢 bổ sung dần
 
 **Ở đâu sửa:**
-- **Admin**: tự sửa tại `/admin` (sau khi tạo tài khoản quản trị, xem README mục 3), không cần sửa code.
-- **Code**: gửi nội dung cho người phát triển để cập nhật.
+- **Admin**: tự sửa tại `https://www.thietbinhamay-dd.com/admin` — hướng dẫn có ảnh: `/huong-dan-quan-tri.html`.
+- **Supabase**: chạy file SQL trong *SQL Editor*.
+- **Vercel**: *Settings → Environment Variables*, xong bấm *Redeploy*.
+- **Code**: gửi nội dung cho người phát triển.
 
 ---
 
+## 0. Việc kỹ thuật cần làm ngay
+
+| Xong | Ưu tiên | Việc | Ở đâu | Ghi chú |
+|---|---|---|---|---|
+| [ ] | 🔴 | Chạy `supabase/migrations/0009_sua-chu-hoa-mo-ta.sql` | Supabase | Sửa “pLC/cB” → “PLC/CB” trong mô tả 8 sản phẩm (bỏ qua nếu đã chạy) |
+| [ ] | 🔴 | Chạy `supabase/migrations/0010_tim-kiem-khong-dau.sql` | Supabase | Bật tìm kiếm không dấu (“bien tan” → “Biến tần”) |
+| [ ] | 🔴 | Thêm biến `NEXT_PUBLIC_SITE_URL = https://www.thietbinhamay-dd.com` rồi Redeploy | Vercel | Để link chia sẻ Zalo/Facebook, sitemap dùng đúng tên miền |
+| [ ] | 🔴 | Tạo tài khoản admin `phuong.le@thietbinhamay-dd.com` và cấp quyền | Supabase | Xem README mục 3 hoặc hướng dẫn có ảnh |
+| [x] | 🔴 | Chạy `0008_hinh-anh-thuc-te.sql` | Supabase | ✅ Đã chạy: 62 thương hiệu · 123 sản phẩm · 118 ảnh thật · 43 danh mục có ảnh |
+| [x] | 🔴 | Gắn tên miền | Vercel | ✅ `www.thietbinhamay-dd.com` |
+| [ ] | 🟡 | Thêm `CRON_SECRET` (nếu chưa) | Vercel | Bảo vệ cron giữ Supabase không bị tạm dừng |
+
 ## 1. Thông tin công ty — Admin → Cài đặt
 
-| | Ưu tiên | Nội dung | Hiện trạng | Cần bổ sung |
+| Xong | Ưu tiên | Nội dung | Hiện tại | Cần bổ sung |
 |---|---|---|---|---|
-| [x] | 🔴 | **Tên công ty chính thức** | ✅ Đã cập nhật theo giấy chứng nhận ĐKDN: *Công ty TNHH Thương mại Vật tư Nhà máy Đạt Danh* (tiếng Anh: *Dat Danh Factory Supplies Materials Trading Company Limited*) | — |
-| [x] | 🔴 | **Logo có chữ “Đạt Danh”** | ✅ Đã thay bằng `Ref/Đạt Danh_logo_2.png` (header, footer, trang Giới thiệu, admin, favicon, file báo giá Excel) | — |
-| [x] | 🔴 | **Mã số thuế / Số ĐKKD** | ✅ MST 0319753015, đăng ký lần đầu 20/10/2026 — hiển thị ở chân trang | — |
-| [ ] | 🔴 | **Email liên hệ** | Chưa có (đang ẩn) | Email nhận báo giá, ví dụ `sales@...` hoặc Gmail công ty |
-| [ ] | 🟡 | **Giờ làm việc** | Tạm ghi *Thứ 2 – Thứ 7: 7:30 – 17:30* (giả định) | Giờ làm việc thực tế |
-| [ ] | 🟡 | **Bản đồ Google Maps** | Đang tìm theo địa chỉ, có thể chưa ghim đúng vị trí | Google Maps → tìm đúng cửa hàng → *Chia sẻ → Nhúng bản đồ* → copy link trong `src="..."` |
-| [ ] | 🟡 | **Số Zalo** | Đang dùng 0907 646 647 | Xác nhận số Zalo nhận tin của khách |
-| [ ] | 🟡 | **Facebook / Fanpage** | Chưa có | Link fanpage (nếu có) — *cần thêm hiển thị ở chân trang trong Code* |
-| [ ] | 🟡 | **Giới thiệu công ty** | Đoạn văn chung chung, tự viết | Viết lại 2–4 đoạn: năm thành lập, kinh nghiệm, kho hàng/quy mô, khách hàng phục vụ (khu công nghiệp, ngành nghề), thế mạnh, cam kết |
-| [ ] | 🟢 | **Khẩu hiệu** | *Chuyên cung cấp vật tư nhà máy* (lấy từ bảng quảng cáo) | Giữ hoặc đổi |
+| [x] | 🔴 | **Tên công ty chính thức** | ✅ Theo giấy chứng nhận ĐKDN (kèm tên tiếng Anh) | — |
+| [x] | 🔴 | **Logo** | ✅ Logo ngang `Logo_Dat Danh _final_ngang_3.png` ở header; logo `Logo_Dat Danh _final_3.png` ở footer, Giới thiệu, admin, ảnh chia sẻ, file Excel | — |
+| [x] | 🔴 | **Mã số thuế** | ✅ MST 0319753015 ở chân trang | — |
+| [ ] | 🔴 | **Email liên hệ** | Chưa có (đang ẩn) | Email nhận báo giá, ví dụ `sales@thietbinhamay-dd.com` |
+| [ ] | 🟡 | **Giờ làm việc** | Tạm ghi *Thứ 2 – Thứ 7: 7:30 – 17:30* | Giờ làm việc thực tế |
+| [ ] | 🟡 | **Bản đồ Google Maps** | Tìm theo địa chỉ, có thể chưa ghim đúng | Google Maps → *Chia sẻ → Nhúng bản đồ* → copy link trong `src="..."` |
+| [ ] | 🟡 | **Số Zalo** | 0907 646 647 | Xác nhận số Zalo nhận tin |
+| [ ] | 🟡 | **Facebook / Fanpage, Messenger** | Chưa có (đang ẩn) | Link fanpage và `https://m.me/ten-fanpage` |
+| [ ] | 🟡 | **Giới thiệu công ty** | Đoạn văn chung, tự viết | 2–4 đoạn: năm thành lập, kinh nghiệm, kho hàng, khách hàng tiêu biểu, thế mạnh, cam kết |
+| [ ] | 🟡 | **Sứ mệnh, Tầm nhìn, Giá trị cốt lõi** | Bản nháp | Viết lại theo định hướng công ty |
+| [ ] | 🟢 | **Khẩu hiệu** | *Chuyên cung cấp vật tư nhà máy* (hiện trên hero) | Giữ hoặc đổi (mẫu thiết kế ghi “Giải pháp toàn diện về thiết bị công nghiệp”) |
 
 ## 2. Sản phẩm — Admin → Sản phẩm
 
-| | Ưu tiên | Nội dung | Hiện trạng | Cần bổ sung |
+| Xong | Ưu tiên | Nội dung | Hiện tại | Cần bổ sung |
 |---|---|---|---|---|
-| [ ] | 🔴 | **10 sản phẩm mẫu** | Tên, mô tả do mình viết để minh họa; ảnh là hình vẽ minh họa (không phải ảnh thật) | Xóa hoặc sửa thành sản phẩm thật |
-| [ ] | 🔴 | **Danh sách sản phẩm thật** | Chưa có | Mỗi sản phẩm: tên, **mã hàng**, thương hiệu, danh mục, ảnh thật, mô tả ngắn (1 câu), mô tả chi tiết + **thông số kỹ thuật**, giá (để trống = “Liên hệ báo giá”) |
-| [ ] | 🔴 | **Ảnh sản phẩm** | Hình minh họa SVG trong `public/demo/` | Ảnh chụp thật hoặc ảnh từ catalogue hãng (được phép sử dụng). Nên: **nền trắng, tỉ lệ 4:3, tối thiểu 800×600px**, dưới 4MB |
-| [ ] | 🟡 | **Sản phẩm nổi bật** | 7 sản phẩm mẫu đang được đánh dấu | Chọn 4–8 mặt hàng bán chạy để hiện ở trang chủ |
-
-> Mẹo: chưa cần nhập hết kho hàng. Mỗi danh mục 5–10 mã phổ biến là đủ để khách thấy năng lực;
-> khách cần mã khác sẽ gửi yêu cầu báo giá.
+| [x] | 🔴 | **Ảnh sản phẩm thật** | ✅ 118/123 sản phẩm có ảnh thật (từ “Hình ảnh đưa web.xlsx”) | — |
+| [ ] | 🔴 | **Kiểm tra 113 sản phẩm mới** | Tên tự đặt theo ảnh + mã trong file (VD “Contactor Schneider TeSys D LC1D”); mô tả chung; giá “Liên hệ báo giá”; tình trạng “Đặt hàng” | Sửa tên cho đúng mã đang bán; tích **Còn hàng** cho mã có sẵn; xóa mã không kinh doanh |
+| [ ] | 🔴 | **5 sản phẩm mẫu cũ còn ảnh vẽ** | Mitsubishi FR-E800, Omron, Festo, SMC, van bi inox (sau 0010 không còn “nổi bật”) | Thay ảnh thật hoặc xóa |
+| [ ] | 🟡 | **Mã hàng, thông số kỹ thuật, datasheet** | Hầu hết trống (chỉ PLC S7-1200 có bảng thông số) | Nhập dần cho mã bán chạy — giúp khách và Google tìm thấy |
+| [ ] | 🟡 | **Sản phẩm nổi bật** | 8 sản phẩm có ảnh thật được chọn tạm | Chọn 4–8 mặt hàng bán chạy |
+| [ ] | 🟢 | **Ảnh lớn hơn** | Ảnh gốc trong file Excel chỉ ~200–300px | Ảnh ≥ 800×800px, nền trắng, dưới 4MB |
 
 ## 3. Danh mục — Admin → Danh mục
 
-| | Ưu tiên | Nội dung | Hiện trạng | Cần bổ sung |
+| Xong | Ưu tiên | Nội dung | Hiện tại | Cần bổ sung |
 |---|---|---|---|---|
-| [ ] | 🟡 | **5 danh mục** | Theo bảng quảng cáo: Thiết bị điện công nghiệp · Tự động hóa · Khí nén – Thủy lực · Motor – Hộp giảm tốc · Phụ kiện đường ống – Van | Xác nhận, đổi tên hoặc thêm (ví dụ: Cảm biến, Tủ điện, Dụng cụ – Bảo hộ lao động…) |
-| [ ] | 🟡 | **Mô tả danh mục** | Tự viết, liệt kê ví dụ mặt hàng | Liệt kê đúng các loại hàng công ty thực sự kinh doanh |
-| [ ] | 🟢 | **Ảnh danh mục** | Hình minh họa | Ảnh thật đại diện cho mỗi nhóm hàng (tỉ lệ 4:3) |
-
-### 3b. Cây danh mục mới (theo cấu trúc lqe.com.vn)
-
-| | Ưu tiên | Nội dung | Hiện trạng | Cần bổ sung |
-|---|---|---|---|---|
-| [ ] | 🔴 | **17 nhóm, 64 danh mục con** (Admin → Danh mục) | Dựng theo cách tổ chức của LQE, chia theo loại sản phẩm; bỏ nhóm không thuộc ngành (máy lạnh, điện mặt trời, máy phát, cân điện tử, hóa chất) | Xóa danh mục công ty không kinh doanh, thêm danh mục còn thiếu. Danh mục con nên đặt theo **loại hàng**; thương hiệu đã có bộ lọc riêng |
-| [ ] | 🟢 | **Ảnh nhóm danh mục** | 8/17 nhóm có hình minh họa, còn lại hiện icon | Ảnh thật cho từng nhóm (tỉ lệ 4:3) |
+| [x] | 🔴 | **Cây danh mục** | ✅ 17 nhóm, 64 danh mục con (theo lqe.com.vn) | Xác nhận, thêm/bớt nếu cần |
+| [x] | 🟢 | **Ảnh danh mục** | ✅ 43 nhóm/danh mục con có ảnh thật | Thêm cho nhóm còn trống (ATS, Chống sét, Tủ điện, Biến dòng – Đồng hồ đo…) |
+| [ ] | 🔴 | **33 danh mục chưa có sản phẩm** | ACB, RCCB–RCBO, cầu dao cách ly, cầu dao đảo chiều, contactor tụ bù, relay bán dẫn, bộ điều khiển nhiệt độ, ATS (3), biến dòng, đồng hồ Ampe–Vôn, công tơ, cầu chì trung thế, chống sét (3), máng nhựa – thanh ray, busbar, co nhiệt – đầu cos, tủ điện (4), bộ lọc – điều áp, đầu nối – ống hơi, thủy lực, hộp số, quạt hút, van bướm, van một chiều, co – tê – rắc co, mặt bích | Gửi ảnh/danh sách hàng để bổ sung, hoặc xóa danh mục không kinh doanh |
+| [ ] | 🟡 | **Mô tả danh mục** | Tự viết | Liệt kê đúng các loại hàng công ty bán |
 
 ## 4. Thương hiệu — Admin → Thương hiệu
 
-| | Ưu tiên | Nội dung | Hiện trạng | Cần bổ sung |
+| Xong | Ưu tiên | Nội dung | Hiện tại | Cần bổ sung |
 |---|---|---|---|---|
-| [ ] | 🔴 | **Danh sách hãng** | 13 hãng lấy từ bảng quảng cáo | Xác nhận công ty thực sự cung cấp hàng các hãng này; thêm/bớt nếu cần |
-| [ ] | 🟡 | **Logo IDEC** | Đang hiện dạng chữ (logo trong file Excel bị dính khung chọn) | Tải logo IDEC chuẩn (PNG/SVG nền trong suốt) |
-| [ ] | 🟢 | **Logo ifm, Mitsubishi** | ifm hơi nhỏ; Mitsubishi bị lẹm nhẹ chữ C (đã xóa con trỏ chuột trong ảnh gốc) | Thay logo chất lượng tốt hơn |
-| [ ] | 🟢 | **Giấy chứng nhận đại lý** | Chưa có | Nếu là đại lý / nhà phân phối chính thức của hãng nào → gửi giấy chứng nhận để đưa lên website (tăng uy tín) |
+| [x] | 🔴 | **Danh sách hãng** | ✅ 62 hãng (60 logo từ file Excel + Mitsubishi logo cũ; CHINT chưa có logo) | Xác nhận công ty cung cấp hàng các hãng này |
+| [ ] | 🟡 | **Logo IDEC, CHINT** | Đang hiện bằng chữ (logo IDEC trong file dính khung chọn) | Logo PNG/SVG nền trong suốt |
+| [ ] | 🟢 | **Giấy chứng nhận đại lý** | Chưa có | Nếu là đại lý/nhà phân phối chính thức → đưa lên website |
 
-## 5. Nội dung trang chủ & trang Giới thiệu — Code
+## 5. Trang chủ & trang Giới thiệu
 
-Các đoạn chữ sau đang viết sẵn trong code. Gửi nội dung muốn đổi để cập nhật.
-
-| | Ưu tiên | Vị trí | Nội dung hiện tại | Cần xác nhận / bổ sung |
+| Xong | Ưu tiên | Nội dung | Hiện tại | Cần bổ sung |
 |---|---|---|---|---|
-| [ ] | 🔴 | Trang chủ → **“Vì sao chọn chúng tôi”** | Hàng chính hãng · Báo giá nhanh · Giao hàng tận nơi · Tư vấn kỹ thuật | Các cam kết này có đúng không? Có cam kết cụ thể hơn (VD: “báo giá trong 2 giờ”, “giao trong ngày tại TP.HCM”, “bảo hành 12 tháng”)? |
-| [ ] | 🔴 | Trang chủ → **ô số liệu** đầu trang | 13+ Thương hiệu · 5 Nhóm sản phẩm (tự đếm) · Miễn phí Tư vấn chọn mã | Có số liệu thật nổi bật hơn không? VD: số năm kinh nghiệm, số khách hàng/nhà máy đã phục vụ, số mã hàng tồn kho |
-| [ ] | 🟡 | Trang chủ → **“Quy trình 4 bước”** | Gửi yêu cầu → Tư vấn chọn mã → Nhận báo giá → Giao hàng | Đúng quy trình thực tế? Có nhắc bảo hành — xác nhận chính sách bảo hành |
-| [ ] | 🟡 | Trang chủ → **tiêu đề lớn** | “Vật tư & thiết bị cho nhà máy của bạn” | Giữ hoặc đổi |
-| [ ] | 🟡 | Trang chủ, Giới thiệu → **ảnh minh họa** | Hình vẽ minh họa sản phẩm | **Ảnh thật**: mặt tiền cửa hàng, kho hàng, đội ngũ, xe giao hàng, hàng hóa đóng gói. Ảnh thật tăng uy tín hơn nhiều so với hình minh họa |
+| [x] | 🔴 | **Ảnh hero / slider** | ✅ Nền ảnh nhà máy + ảnh sản phẩm thật trên 3 slide | — |
+| [ ] | 🔴 | **“Vì sao chọn chúng tôi”** | Hàng chính hãng · Báo giá nhanh · Giao hàng tận nơi · Tư vấn kỹ thuật | Cam kết cụ thể hơn (VD “báo giá trong 2 giờ”, “giao trong ngày tại TP.HCM”) |
+| [ ] | 🟡 | **Số liệu** | 62+ thương hiệu · 17 nhóm · 64+ danh mục · Miễn phí tư vấn (tự đếm) | Số năm kinh nghiệm, số nhà máy đã phục vụ, số mã hàng tồn kho |
+| [ ] | 🟡 | **Quy trình 4 bước** | Gửi yêu cầu → Tư vấn chọn mã → Nhận báo giá → Giao hàng | Đúng quy trình thực tế? |
+| [ ] | 🟡 | **Ảnh công ty** | Chưa có | Mặt tiền, kho hàng, đội ngũ, xe giao hàng — tăng uy tín hơn ảnh sản phẩm |
 
-## 5b. Nội dung mẫu mới (theo cấu trúc LQE) — Admin
+## 6. Dịch vụ, chính sách, tin tức — Admin
 
-| | Ưu tiên | Nội dung | Hiện trạng | Cần bổ sung |
+| Xong | Ưu tiên | Nội dung | Hiện tại | Cần bổ sung |
 |---|---|---|---|---|
-| [ ] | 🔴 | **Dịch vụ** (Admin → Dịch vụ) | 5 dịch vụ mẫu phù hợp nhà cung cấp vật tư: tư vấn chọn thiết bị, tìm mã tương đương, cung cấp theo dự án, giao hàng, hỗ trợ kỹ thuật | Xác nhận công ty có làm các dịch vụ này; thêm nếu có lắp tủ điện, lập trình PLC, sửa chữa… |
-| [ ] | 🔴 | **4 trang chính sách** (Admin → Trang chính sách) | Bản nháp chung: bảo hành theo hãng, vận chuyển, đổi trả khi giao sai/lỗi NSX, bảo mật thông tin | Điền điều kiện thực tế: thời gian bảo hành, phí ship, thời hạn đổi trả |
-| [ ] | 🔴 | **Ảnh banner trang chủ** (Admin → Banner trang chủ) | 3 slide đang dùng hình vẽ minh họa | 2–3 ảnh chụp thật, ngang, tối thiểu 1920×800px: mặt tiền cửa hàng, kho hàng, hàng hóa, giao hàng. Đây là thứ làm trang chủ giống LQE nhất |
-| [ ] | 🟡 | **Sứ mệnh, Tầm nhìn, Giá trị cốt lõi** (Admin → Cài đặt) | Bản nháp do mình viết | Viết lại theo định hướng của công ty |
-| [ ] | 🟡 | **3 bài tin tức mẫu** (Admin → Tin tức) | Kiến thức kỹ thuật chung: chọn aptomat, cảm biến tiệm cận, xi lanh khí nén | Giữ, sửa hoặc thay bằng bài của công ty; nên đăng đều 2–4 bài/tháng cho SEO |
-| [ ] | 🟡 | **Câu chữ cam kết** | “Tư vấn miễn phí, không ràng buộc” (trang Dịch vụ), “Bảo hành theo hãng” (chi tiết sản phẩm) | Xác nhận đúng chính sách công ty |
-| [ ] | 🟢 | **Thanh thông báo** (Admin → Cài đặt) | “Báo giá nhanh vật tư nhà máy — gọi hotline…” | Đổi nội dung khuyến mãi / thông báo, hoặc để trống để ẩn |
-| [ ] | 🟢 | **Link Messenger** (Admin → Cài đặt) | Chưa có → nút Messenger đang ẩn | Link dạng `https://m.me/ten-fanpage` |
-| [ ] | 🟢 | **Thông số kỹ thuật, datasheet, ảnh phụ** cho từng sản phẩm | Chỉ sản phẩm PLC mẫu có bảng thông số | Nhập khi thêm sản phẩm thật |
+| [ ] | 🔴 | **Dịch vụ** | 5 dịch vụ mẫu | Xác nhận; thêm nếu có lắp tủ điện, lập trình PLC, sửa chữa… |
+| [ ] | 🔴 | **4 trang chính sách** | Bản nháp chung | Điều kiện thực tế: thời gian bảo hành, phí giao hàng, đổi trả, bảo mật |
+| [ ] | 🟡 | **3 bài tin tức mẫu** | Kiến thức kỹ thuật chung | Giữ/sửa/thay; nên đăng 2–4 bài/tháng cho SEO |
+| [ ] | 🟢 | **Thanh thông báo** | “Báo giá nhanh vật tư nhà máy — gọi hotline…” | Đổi nội dung hoặc để trống để ẩn |
 
-## 6. Trang / chức năng nên có thêm
+## 7. Chức năng nên có thêm
 
-| | Ưu tiên | Nội dung | Ghi chú |
+| Xong | Ưu tiên | Nội dung | Ghi chú |
 |---|---|---|---|
-| [ ] | 🔴 | **Thông báo khi có yêu cầu báo giá** | Hiện yêu cầu chỉ lưu trong Supabase (bảng `inquiries`) và trang Admin, **không ai được báo**. Cần chọn kênh nhận: email / Zalo / Telegram → báo người phát triển cài đặt |
-| [ ] | 🟡 | **Chính sách bảo mật thông tin** | Form báo giá thu thập họ tên, SĐT, email → nên có trang chính sách xử lý dữ liệu cá nhân |
-| [ ] | 🟡 | **Chính sách bảo hành, đổi trả, giao hàng, thanh toán** | Cung cấp nội dung từng chính sách |
-| [ ] | 🟢 | **Khách hàng / dự án tiêu biểu** | Logo hoặc tên các nhà máy, công ty đã cung cấp (cần sự đồng ý của khách) |
-| [ ] | 🟢 | **Tin tức / kiến thức kỹ thuật** | Bài viết hướng dẫn chọn thiết bị, tra mã thay thế… giúp khách tìm thấy website trên Google |
+| [ ] | 🔴 | **Thông báo khi có yêu cầu báo giá** | Hiện chỉ lưu trong Admin → *Yêu cầu báo giá*, không ai được báo. Chọn kênh: email / Zalo / Telegram |
+| [ ] | 🟡 | **Nhập sản phẩm hàng loạt từ Excel** | Gửi file Excel (Tên · Mã · Hãng · Danh mục · Mô tả · Giá · Ảnh) → tạo lệnh SQL nhập một lần |
+| [ ] | 🟢 | **Khách hàng / dự án tiêu biểu** | Logo hoặc tên nhà máy đã cung cấp (cần đồng ý của khách) |
 | [ ] | 🟢 | **Catalogue / bảng giá PDF** | File tải về cho khách |
+| [ ] | 🟢 | **Ảnh chia sẻ Facebook/Zalo riêng** | Hiện dùng logo; có thể làm ảnh 1200×630px |
 
-## 7. Tên miền & quảng bá
+## 8. Quảng bá
 
-| | Ưu tiên | Nội dung | Ghi chú |
+| Xong | Ưu tiên | Nội dung | Ghi chú |
 |---|---|---|---|
-| [ ] | 🔴 | **Tên miền riêng** | Hiện dùng `thanhdanh-website.vercel.app`. Mua tên miền (VD `.vn` / `.com.vn`) → gắn trong Vercel → sửa biến `NEXT_PUBLIC_SITE_URL` |
-| [ ] | 🟡 | **Google Business Profile** | Đăng ký doanh nghiệp trên Google Maps để khách tìm thấy cửa hàng |
-| [ ] | 🟡 | **Google Search Console** | Khai báo website + gửi sitemap (`/sitemap.xml`) để Google lập chỉ mục |
-| [ ] | 🟢 | **Biểu tượng tab trình duyệt (favicon)** | Đang tạm là chữ “TD” trên nền xanh. Có thể làm từ logo |
-| [ ] | 🟢 | **Ảnh chia sẻ Facebook/Zalo** | Khi gửi link website, ảnh xem trước đang là logo. Có thể làm ảnh banner riêng (1200×630px) |
+| [x] | 🔴 | **Tên miền riêng** | ✅ `www.thietbinhamay-dd.com` |
+| [ ] | 🟡 | **Google Search Console** | Khai báo website + gửi `https://www.thietbinhamay-dd.com/sitemap.xml` |
+| [ ] | 🟡 | **Google Business Profile** | Đăng ký doanh nghiệp trên Google Maps |
+| [ ] | 🟢 | **PageSpeed Insights** | Đo tốc độ bản thật tại pagespeed.web.dev |
 
 ---
 
 ## Cách gửi nội dung
 
 - **Thông tin chữ**: điền thẳng vào file này (cột “Cần bổ sung”) hoặc gửi file Word/Excel.
-- **Ảnh**: đặt tên file theo mã hàng (VD `6ES7214-1AG40-0XB0.jpg`), gom theo danh mục.
-- **Danh sách sản phẩm nhiều**: dùng Excel với các cột: *Tên · Mã hàng · Thương hiệu · Danh mục · Mô tả ngắn · Thông số · Giá · Tên file ảnh* — có thể nhập hàng loạt vào Supabase thay vì nhập tay từng sản phẩm.
+- **Ảnh**: đặt tên file theo mã hàng (VD `6ES7214-1AG40-0XB0.jpg`), gom theo danh mục; hoặc dán vào Excel như file “Hình ảnh đưa web”.
+- **Danh sách sản phẩm nhiều**: Excel với các cột *Tên · Mã hàng · Thương hiệu · Danh mục · Mô tả ngắn · Thông số · Giá · Tên file ảnh* — nhập hàng loạt thay vì nhập tay.

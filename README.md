@@ -42,8 +42,12 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    - `supabase/migrations/0005_site_structure.sql` (tin tức, dịch vụ, trang chính sách, gallery/thông số sản phẩm)
    - `supabase/migrations/0006_banners.sql` (slider banner trang chủ)
    - `supabase/migrations/0007_category_tree.sql` (danh mục 2 cấp: 17 nhóm, 64 danh mục con)
+   - `supabase/migrations/0008_hinh-anh-thuc-te.sql` (113 sản phẩm có ảnh thật, 62 thương hiệu, ảnh danh mục, slider)
+   - `supabase/migrations/0009_sua-chu-hoa-mo-ta.sql` (sửa chữ “PLC”, “CB” trong mô tả)
+   - `supabase/migrations/0010_tim-kiem-khong-dau.sql` (tìm kiếm có dấu/không dấu; bỏ “nổi bật” cho sản phẩm còn ảnh vẽ)
 
-   > Cài mới: chạy `0001` → `0002` → `0003` → `0004` → `0005` → `0006` → `0007` → `seed.sql`.
+   > Cài mới: chạy `0001` → … → `0010` theo thứ tự, rồi `seed.sql`.
+   > Trang thật đã chạy đến `0008` (đã kiểm tra: 62 thương hiệu / 123 sản phẩm). **Chạy tiếp `0009` và `0010` nếu chưa chạy.**
    > `seed.sql` không bao giờ dừng giữa chừng: bảng/cột nào chưa có sẽ được bỏ qua kèm thông báo
    > *“Bỏ qua dữ liệu mẫu … hãy chạy 000x_… trước”* — chạy file đó rồi chạy lại `seed.sql`.
    > Đã chạy `0001` và `seed.sql` từ trước? Chạy thêm các file migration còn thiếu, **rồi chạy lại `seed.sql`**
@@ -62,8 +66,10 @@ Trang công khai được cache (ISR, 60 giây) và tự làm mới ngay khi s�
    |---|---|
    | `NEXT_PUBLIC_SUPABASE_URL` | Project URL |
    | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Publishable key (hoặc anon public key) |
-   | `NEXT_PUBLIC_SITE_URL` | Domain chính thức, ví dụ `https://thanhdanh.vn` |
-3. Deploy. Gắn tên miền riêng tại *Settings → Domains*.
+   | `NEXT_PUBLIC_SITE_URL` | Domain chính thức: `https://www.thietbinhamay-dd.com` |
+   | `CRON_SECRET` | Chuỗi ngẫu nhiên (bảo vệ cron giữ Supabase hoạt động, xem mục 4) |
+3. Deploy. Gắn tên miền riêng tại *Settings → Domains* (đã gắn `www.thietbinhamay-dd.com`).
+   Chưa đặt `NEXT_PUBLIC_SITE_URL` thì ảnh chia sẻ / sitemap tạm dùng tên miền production của Vercel.
 4. Thêm hoặc sửa biến môi trường sau khi đã deploy (*Settings → Environment Variables*) thì phải
    **Redeploy** (*Deployments → ⋯ → Redeploy*) để có hiệu lực.
 
@@ -78,9 +84,16 @@ Website và form báo giá chạy được mà không cần bước này. Chỉ 
 2. Cấp quyền quản trị (SQL Editor), kết quả phải là `1 row`:
    ```sql
    insert into public.admins (user_id)
-   select id from auth.users where email = 'email-quan-tri@example.com';
+   select id from auth.users where email = 'email-quan-tri@example.com'
+   on conflict (user_id) do nothing;
    ```
-3. Đăng nhập tại `https://<domain>/admin`.
+3. Đăng nhập tại `https://www.thietbinhamay-dd.com/admin`. Nếu không vào được, ô đỏ trên trang đăng nhập ghi rõ lý do
+   (sai mật khẩu / email chưa xác nhận / chưa cấp quyền / trình duyệt chặn cookie).
+4. Kiểm tra ai đang có quyền: `select u.email from public.admins a join auth.users u on u.id = a.user_id;`
+
+**Hướng dẫn có ảnh minh họa:** `https://www.thietbinhamay-dd.com/huong-dan-quan-tri.html`
+(link ẩn, không hiện trên menu, Google không lập chỉ mục; trong admin có link “Hướng dẫn sử dụng ↗”).
+File gốc: `public/huong-dan-quan-tri.html` — gửi qua Zalo/email được, mở bằng trình duyệt.
 
 ### 4. Giữ Supabase không bị tạm dừng (gói miễn phí)
 Supabase gói Free tự **pause** project nếu 7 ngày không có hoạt động. Website đã có sẵn cron:
@@ -116,6 +129,19 @@ Lệnh khác: `npm run build`, `npm run typecheck`, `npm run seed:sql` (tạo l�
 - **Dịch vụ / Trang chính sách**: thêm/sửa/xóa nội dung
 - **Cài đặt**: tên công ty, MST, hotline, Zalo, Messenger, email, địa chỉ, giờ làm việc, bản đồ, giới thiệu, sứ mệnh, tầm nhìn, giá trị cốt lõi, thanh thông báo
 
+## Ảnh lưu ở đâu
+
+| Loại | Nơi lưu | Ghi chú |
+|---|---|---|
+| Ảnh sản phẩm có sẵn | `public/img/sp/` (118 ảnh, 600×600) | Từ file “Hình ảnh đưa web.xlsx” |
+| Logo thương hiệu | `public/img/th/` | 60 logo, đã thu về cỡ hiển thị |
+| Ảnh danh mục | `public/img/dm/` (640×480) + `public/img/dm/nho/` (160×120 cho menu) | 43 nhóm/danh mục con |
+| Slider, Giới thiệu, nền hero | `public/img/banner/` | Nền hero: `hero-nha-may.jpg` (+ bản 900px cho điện thoại) |
+| Logo công ty | `public/logo-dat-danh-ngang-3.png` (header), `public/logo-dat-danh-emblem-3.png` (footer, Giới thiệu, admin, Excel) | Gốc trong `Ref/Logo_Dat Danh _final*_3.png` |
+| Ảnh tải lên trong Admin | Supabase Storage → bucket `media` | Thay ảnh có sẵn của sản phẩm đó |
+
+Database chỉ lưu **đường dẫn** ảnh (`image_url`, `logo_url`).
+
 ## Nội dung cần bổ sung
 
 Website đang dùng một số nội dung tạm (sản phẩm mẫu, ảnh minh họa, cam kết dịch vụ…).
@@ -130,6 +156,7 @@ src/components/      Giao diện dùng chung
 src/lib/data.ts      Truy vấn dữ liệu (Supabase hoặc dữ liệu mặc định)
 src/data/catalog.json Dữ liệu ban đầu
 supabase/            Schema SQL + seed
-public/              Logo công ty, logo thương hiệu, ảnh minh họa (public/demo)
+public/              Logo công ty, ảnh sản phẩm/thương hiệu/danh mục (public/img), ảnh vẽ cũ (public/demo), hướng dẫn quản trị
+tai-lieu/            File Excel báo giá
 Ref/                 Tài liệu tham khảo gốc
 ```
