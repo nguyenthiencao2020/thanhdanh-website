@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { countByBrand, countByCategory, featuredBrands, nonEmptyTree } from "@/lib/catalog";
 import { buildCategoryTree, getBrands, getCategories, getPages, getProductPairs, getSettings } from "@/lib/data";
+import { resolveMapEmbed } from "@/lib/maps";
 import { phoneDigits } from "@/lib/utils";
 
 export const revalidate = 60;
@@ -34,7 +35,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         brands={menuBrands}
       />
       <main className="overflow-x-clip">{children}</main>
-      <Footer settings={settings} categories={tree} pages={pages} />
+      <Footer settings={{ ...settings, map_embed_url: await resolveMapEmbed(settings.map_embed_url, settings.address) }} categories={tree} pages={pages} />
       <FloatingContact phone={settings.phone} zalo={settings.zalo} messenger={settings.messenger_url} />
       <BackToTop />
       <MobileActionBar

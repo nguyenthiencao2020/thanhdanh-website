@@ -4,11 +4,13 @@ import { PageHeader } from "@/components/PageHeader";
 import { QuoteForm } from "@/components/QuoteForm";
 import { getSettings } from "@/lib/data";
 import { phoneDigits } from "@/lib/utils";
+import { resolveMapEmbed } from "@/lib/maps";
 
 export const metadata: Metadata = { title: "Liên hệ – Báo giá" };
 
 export default async function ContactPage() {
   const s = await getSettings();
+  const mapUrl = await resolveMapEmbed(s.map_embed_url, s.address);
   const phones = [s.phone, s.phone2].filter((p): p is string => Boolean(p));
 
   return (
@@ -60,9 +62,9 @@ export default async function ContactPage() {
               )}
             </ul>
           </div>
-          {s.map_embed_url && (
+          {mapUrl && (
             <iframe
-              src={s.map_embed_url}
+              src={mapUrl}
               title="Bản đồ"
               className="h-72 w-full rounded-3xl border-0 shadow-sm"
               loading="lazy"
