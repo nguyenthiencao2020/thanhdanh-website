@@ -436,27 +436,27 @@ begin
       ('cam-bien-quang-sick', 'Cảm biến quang SICK', (select id from public.categories where slug = 'cam-bien-quang'), (select id from public.brands where slug = 'sick'), 'Cảm biến quang thu phát, phản xạ gương và phản xạ khuếch tán.', 'Độ chính xác cao, phù hợp cho môi trường công nghiệp khắc nghiệt.', null, '/img/sp/cam-bien-quang-sick.jpg', false, true, true),
       ('motor-giam-toc', 'Motor giảm tốc công nghiệp', (select id from public.categories where slug = 'motor-giam-toc'), null, 'Motor giảm tốc cốt thẳng, cốt vuông góc nhiều tỉ số truyền.', 'Tư vấn chọn công suất, tỉ số truyền và kiểu lắp đặt theo yêu cầu thực tế.', null, '/img/sp/motor-giam-toc.jpg', true, true, true),
       ('van-bi-inox', 'Van bi inox', (select id from public.categories where slug = 'van-bi'), null, 'Van bi inox nối ren, mặt bích các cỡ.', 'Dùng cho hệ thống nước, khí, hóa chất nhẹ. Cung cấp kèm co, tê, rắc co đồng bộ.', null, '/demo/van-bi-inox.svg', false, true, true),
-      ('plc-siemens-s7-200-smart', 'PLC Siemens S7-200 SMART', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp pLC Siemens S7-200 SMART cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp pLC Siemens S7-200 SMART cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
+      ('plc-siemens-s7-200-smart', 'PLC Siemens S7-200 SMART', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp PLC Siemens S7-200 SMART cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp PLC Siemens S7-200 SMART cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
     
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
     Hình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.', null, '/img/sp/plc-siemens-s7-200-smart.jpg', false, true, false),
-      ('plc-siemens-s7-200', 'PLC Siemens S7-200', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp pLC Siemens S7-200 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp pLC Siemens S7-200 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
+      ('plc-siemens-s7-200', 'PLC Siemens S7-200', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp PLC Siemens S7-200 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp PLC Siemens S7-200 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
     
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
     Hình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.', null, '/img/sp/plc-siemens-s7-200.jpg', false, true, false),
-      ('plc-siemens-s7-300', 'PLC Siemens S7-300', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp pLC Siemens S7-300 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp pLC Siemens S7-300 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
+      ('plc-siemens-s7-300', 'PLC Siemens S7-300', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp PLC Siemens S7-300 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp PLC Siemens S7-300 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
     
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
     Hình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.', null, '/img/sp/plc-siemens-s7-300.jpg', false, true, false),
-      ('plc-siemens-s7-400', 'PLC Siemens S7-400', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp pLC Siemens S7-400 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp pLC Siemens S7-400 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
+      ('plc-siemens-s7-400', 'PLC Siemens S7-400', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp PLC Siemens S7-400 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp PLC Siemens S7-400 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
     
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
     Hình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.', null, '/img/sp/plc-siemens-s7-400.jpg', false, true, false),
-      ('plc-siemens-s7-1500', 'PLC Siemens S7-1500', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp pLC Siemens S7-1500 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp pLC Siemens S7-1500 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
+      ('plc-siemens-s7-1500', 'PLC Siemens S7-1500', (select id from public.categories where slug = 'plc'), (select id from public.brands where slug = 'siemens'), 'Cung cấp PLC Siemens S7-1500 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp PLC Siemens S7-1500 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
     
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
@@ -591,7 +591,7 @@ begin
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
     Hình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.', null, '/img/sp/bo-khoi-dong-tu-siemens-3rt2.jpg', false, true, false),
-      ('cb-bao-ve-dong-co-siemens-3rv', 'CB bảo vệ động cơ Siemens SIRIUS 3RV', (select id from public.categories where slug = 'khoi-dong-tu'), (select id from public.brands where slug = 'siemens'), 'Cung cấp cB bảo vệ động cơ Siemens SIRIUS 3RV cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp cB bảo vệ động cơ Siemens SIRIUS 3RV cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
+      ('cb-bao-ve-dong-co-siemens-3rv', 'CB bảo vệ động cơ Siemens SIRIUS 3RV', (select id from public.categories where slug = 'khoi-dong-tu'), (select id from public.brands where slug = 'siemens'), 'Cung cấp CB bảo vệ động cơ Siemens SIRIUS 3RV cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp CB bảo vệ động cơ Siemens SIRIUS 3RV cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
     
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
@@ -666,7 +666,7 @@ begin
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
     Hình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.', null, '/img/sp/contactor-schneider-tesys-f.jpg', false, true, false),
-      ('cb-bao-ve-dong-co-schneider-gv2', 'CB bảo vệ động cơ Schneider TeSys GV2', (select id from public.categories where slug = 'khoi-dong-tu'), (select id from public.brands where slug = 'schneider-electric'), 'Cung cấp cB bảo vệ động cơ Schneider TeSys GV2 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp cB bảo vệ động cơ Schneider TeSys GV2 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
+      ('cb-bao-ve-dong-co-schneider-gv2', 'CB bảo vệ động cơ Schneider TeSys GV2', (select id from public.categories where slug = 'khoi-dong-tu'), (select id from public.brands where slug = 'schneider-electric'), 'Cung cấp CB bảo vệ động cơ Schneider TeSys GV2 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp CB bảo vệ động cơ Schneider TeSys GV2 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
     
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
@@ -781,7 +781,7 @@ begin
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
     Hình ảnh mang tính minh họa; thông số chi tiết theo từng mã cụ thể.', null, '/img/sp/relay-bao-ve-pha-chint-xj3.jpg', false, true, false),
-      ('cb-bao-ve-dong-co-chint-ns2', 'CB bảo vệ động cơ CHINT NS2', (select id from public.categories where slug = 'khoi-dong-tu'), (select id from public.brands where slug = 'chint'), 'Cung cấp cB bảo vệ động cơ CHINT NS2 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp cB bảo vệ động cơ CHINT NS2 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
+      ('cb-bao-ve-dong-co-chint-ns2', 'CB bảo vệ động cơ CHINT NS2', (select id from public.categories where slug = 'khoi-dong-tu'), (select id from public.brands where slug = 'chint'), 'Cung cấp CB bảo vệ động cơ CHINT NS2 cho nhà máy và tủ điện công nghiệp. Tư vấn chọn mã đúng thông số, báo giá nhanh.', 'Đạt Danh cung cấp CB bảo vệ động cơ CHINT NS2 cho nhà máy, xưởng sản xuất và tủ điện công nghiệp.
     
     Gửi mã hàng (model) hoặc ảnh tem nhãn thiết bị đang dùng để được kiểm tra mã tương đương, thời gian giao hàng và báo giá.
     
