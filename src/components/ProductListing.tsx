@@ -8,7 +8,7 @@ import { BrandLogo } from "./BrandLogo";
 import { CatalogNavProvider, CatalogResults, NavLink } from "./CatalogNav";
 import { CtaBanner } from "./CtaBanner";
 import { Icon } from "./Icon";
-import { PageHeader } from "./PageHeader";
+import { ProductHero } from "./ProductHero";
 import { Pagination } from "./Pagination";
 import { ProductCard } from "./ProductCard";
 
@@ -60,16 +60,26 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
     return s ? `${path}?${s}` : path;
   };
 
-  const title = category ? (brand ? `${category.name} ${brand.name}` : category.name) : brand ? `Sản phẩm ${brand.name}` : params.q ? "Kết quả tìm kiếm" : "Sản phẩm";
+  // Headline: white lead + accented tail, e.g. "Sản phẩm | Siemens", "Contactor | Schneider Electric".
+  const heading = category
+    ? brand
+      ? { lead: category.name, accent: brand.name }
+      : { lead: undefined, accent: category.name }
+    : brand
+      ? { lead: "Sản phẩm", accent: brand.name }
+      : params.q
+        ? { lead: "Kết quả cho", accent: `“${params.q}”` }
+        : { lead: "Sản phẩm", accent: "chính hãng" };
 
   return (
     <>
-      <PageHeader
-        title={title}
+      <ProductHero
+        lead={heading.lead}
+        accent={heading.accent}
         description={
           isLanding
-            ? "Tìm theo mã hàng, chọn hãng hoặc chọn loại hàng — gửi yêu cầu để nhận báo giá nhanh."
-            : category?.description ?? (group && group.slug !== category?.slug ? `Thuộc nhóm ${group.name}.` : null)
+            ? "Thiết bị điện công nghiệp, tự động hóa, cảm biến, nguồn và phụ kiện tủ điện từ các hãng hàng đầu — tìm theo mã hàng hoặc chọn hãng, loại hàng."
+            : category?.description ?? (group && group.slug !== category?.slug ? `Thuộc nhóm ${group.name}.` : brand ? `Thiết bị ${brand.name} chính hãng cho nhà máy — tư vấn chọn mã, báo giá nhanh.` : null)
         }
         crumbs={[
           ...(isLanding ? [] : [{ href: "/san-pham", label: "Sản phẩm" }]),
@@ -79,7 +89,7 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
         ]}
       >
         <SearchBox big={isLanding} defaultValue={params.q} action={basePath} brand={params.brand} />
-      </PageHeader>
+      </ProductHero>
 
       <div className="container-page py-10">
         <CatalogNavProvider>
@@ -162,26 +172,24 @@ export async function ProductListing({ categorySlug, params }: { categorySlug?: 
 /** Search box in the page banner: large on the landing view, compact once something is chosen. */
 function SearchBox({ big, defaultValue, action, brand }: { big: boolean; defaultValue?: string; action: string; brand?: string }) {
   return (
-    <div className={big ? "mt-7 max-w-2xl" : "mt-5 max-w-xl"}>
+    <div className="mt-6 max-w-2xl">
       <Form action={action} className="relative">
         {brand && <input type="hidden" name="thuong-hieu" value={brand} />}
-        <Icon name="search" className={`pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-slate-400 ${big ? "h-5 w-5" : "h-4 w-4"}`} />
+        <Icon name="search" className="pointer-events-none absolute top-1/2 left-5 h-5 w-5 -translate-y-1/2 text-slate-500" />
         <input
           name="q"
           type="search"
           defaultValue={defaultValue}
-          placeholder="Mã hàng hoặc tên sản phẩm…"
+          placeholder="Nhập mã hàng hoặc tên sản phẩm…"
           aria-label="Tìm sản phẩm"
-          className={`w-full rounded-2xl border-0 bg-white pr-28 text-slate-900 shadow-lg ring-1 ring-white/20 placeholder:text-slate-400 focus:ring-2 focus:ring-brand-500 focus:outline-none ${
-            big ? "h-14 pl-12 text-base" : "h-11 pl-11 text-sm"
-          }`}
+          className={`w-full rounded-full border-0 bg-white pr-32 pl-13 text-slate-900 shadow-xl shadow-black/20 placeholder:text-slate-400 focus:ring-2 focus:ring-teal-300 focus:outline-none ${big ? "h-14 text-base" : "h-12 text-sm"}`}
         />
-        <button type="submit" className={`btn-primary absolute top-1/2 right-1.5 -translate-y-1/2 rounded-xl ${big ? "h-11 px-5" : "h-8 px-4 text-sm"}`}>
-          Tìm
+        <button type="submit" className={`btn-primary absolute top-1/2 right-1.5 -translate-y-1/2 rounded-full px-6 ${big ? "h-11" : "h-9 text-sm"}`}>
+          Tìm kiếm
         </button>
       </Form>
       {big && (
-        <p className="mt-3 flex flex-wrap items-center gap-2 text-sm text-steel-100/80">
+        <p className="mt-3 flex flex-wrap items-center gap-2 text-sm text-white/75">
           Ví dụ:
           {SEARCH_EXAMPLES.map((q) => (
             <Link key={q} href={`/san-pham?q=${encodeURIComponent(q)}`} className="rounded-full bg-white/10 px-2.5 py-0.5 text-white hover:bg-white/20">

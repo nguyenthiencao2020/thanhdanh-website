@@ -97,5 +97,5 @@
 **Quay lại:** mốc trước giai đoạn 2 là commit `be5117e75da168545aab3648d5a7e1b692b9c366` trên `main` (PR #30). Cách quay lại như mục 5.
 
 **Tiến độ giai đoạn 2:**
-- [ ] Hero chung trang sản phẩm
-- [ ] QA máy tính / tablet / điện thoại
+- [x] Hero chung trang sản phẩm (`src/components/ProductHero.tsx`; ảnh đã che thêm nút slider giả AI vẽ ở góc phải dưới)
+- [x] QA máy tính / tablet / điện thoại
