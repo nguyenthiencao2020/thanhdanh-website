@@ -35,15 +35,15 @@ Bố cục gọn 7 section (~5,4 màn hình desktop, ~5,6 màn hình mobile; tr�
 
 | # | Section | Mô tả | Loại block | Ghi chú |
 |---|---------|-------|------------|---------|
-| 1 | Hero Slider | 3 slide tự chuyển, CTA + hotline; ảnh minh họa và ô số liệu chỉ hiện trên màn hình lớn | Hero Slider | Admin → Banner trang chủ |
-| 2 | Thương hiệu | Logo 13 hãng có màu, chạy ngang | Logo Carousel | Giữ theo yêu cầu |
-| 3 | Danh mục | 8 nhóm chính cùng một kiểu ô (icon + số danh mục) + “Xem tất cả 17 nhóm”; mobile: 1 hàng trượt ngang | Icon Grid | |
-| 4 | Sản phẩm nổi bật | Một khối duy nhất, tab theo nhóm (Tất cả · Đóng cắt · …); mobile: trượt ngang | Tabs + Product Grid | Thay cho 9 khối “theo danh mục” |
-| 5 | Báo giá nhanh trong 4 bước | Đặt ngay sau sản phẩm: 4 bước đặt hàng + nút báo giá / gọi / Zalo | CTA + Steps | Thay khung CTA cuối trang |
-| 6 | Về chúng tôi + Vì sao chọn | Đoạn giới thiệu + 4 lợi ích | Text + Feature Grid | Nền tối |
+| 1 | Hero Slider | 3 slide tự chuyển, CTA + hotline; ảnh sản phẩm thật và ô số liệu chỉ hiện trên màn hình lớn | Hero Slider | Admin → Banner trang chủ |
+| 2 | Thương hiệu | Logo 62 hãng có màu, chạy ngang chậm (~5 giây/logo), dừng khi rê chuột | Logo Carousel | Giữ theo yêu cầu |
+| 3 | Về chúng tôi + Vì sao chọn | Đoạn giới thiệu, số liệu, ảnh sản phẩm + 4 lợi ích | Text + Feature Grid | Nền tối; đưa lên sau dải logo theo yêu cầu |
+| 4 | Danh mục | 8 nhóm chính, mỗi ô có ảnh sản phẩm + số danh mục, “Xem tất cả 17 nhóm”; mobile: 1 hàng trượt ngang | Image Grid | |
+| 5 | Sản phẩm nổi bật | Một khối duy nhất, tab theo nhóm; sản phẩm có ảnh thật xếp trước; mobile: trượt ngang | Tabs + Product Grid | |
+| 6 | Báo giá nhanh trong 4 bước | 4 bước đặt hàng + nút báo giá / gọi / Zalo | CTA + Steps | |
 | 7 | Tin tức | 3 bài mới; mobile trượt ngang | Blog Grid | Kết thúc trang trước footer |
 
-Luồng đọc: giới thiệu → niềm tin (logo hãng) → tìm hàng (danh mục) → xem sản phẩm → **báo giá** → tìm hiểu công ty → tin tức.
+Luồng đọc: giới thiệu → niềm tin (logo hãng) → công ty là ai → tìm hàng (danh mục) → xem sản phẩm → **báo giá** → tin tức.
 
 **Quy ước giao diện:** màu đỏ chỉ cho nút hành động chính; tiêu đề nhỏ, nhãn, icon dùng xanh thép/xám.
 **Mobile:** thanh cố định dưới đáy *Gọi · Zalo · Báo giá* (thay nút nổi); bộ lọc sản phẩm trong khung “Bộ lọc”;

@@ -80,10 +80,10 @@ export default async function HomePage() {
       {/* Keep this section: the owner asked for the full-colour scrolling brand strip on the home page. */}
       <section className="border-b border-slate-200 bg-white py-6" aria-label="Thương hiệu phân phối">
         <div className="group relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
-          {/* ~3 s per logo keeps the strip at the same calm speed however many brands there are */}
+          {/* ~5 s per logo keeps the strip slow and readable however many brands there are */}
           <div
             className="animate-marquee flex w-max items-center gap-6 group-hover:[animation-play-state:paused]"
-            style={{ animationDuration: `${Math.max(40, brands.length * 3)}s` }}
+            style={{ animationDuration: `${Math.max(60, brands.length * 5)}s` }}
           >
             {[...brands, ...brands].map((b, i) => (
               <Link
@@ -101,98 +101,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ------------------------------------------------------------ 3. Categories */}
-      <section className="container-page py-16">
-        <SectionHeading eyebrow="Danh mục" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel={`Xem tất cả ${tree.length} nhóm →`} />
-        {/* Mobile: one swipeable row · Desktop: 4 × 2 grid — every tile in the same style */}
-        <div className="-mx-4 mt-8 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
-          {tree.slice(0, HOME_GROUPS).map((g, i) => (
-            <Reveal key={g.slug} delay={(i % 4) * 60} className="w-44 shrink-0 snap-start sm:w-auto">
-              <Link
-                href={`/danh-muc-san-pham/${g.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg"
-              >
-                <span className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-slate-100 bg-white">
-                  {g.image_url ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={g.image_url} alt="" loading="lazy" className="h-full w-full object-contain p-2 transition duration-500 group-hover:scale-105" />
-                  ) : (
-                    <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-steel-50 text-steel-600">
-                      <Icon name={g.icon ?? "box"} className="h-7 w-7" />
-                    </span>
-                  )}
-                </span>
-                <span className="flex items-center gap-2 p-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-steel-50 text-steel-600 transition group-hover:bg-steel-900 group-hover:text-white">
-                    <Icon name={g.icon ?? "box"} className="h-4 w-4" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-sm leading-snug font-semibold text-slate-900">{g.name}</span>
-                    <span className="mt-0.5 block text-xs text-slate-500">{g.children.length} danh mục</span>
-                  </span>
-                </span>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-        <div className="mt-6 text-center sm:hidden">
-          <Link href="/san-pham" className="text-sm font-semibold text-steel-600">Xem tất cả {tree.length} nhóm →</Link>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------- 4. Featured (tabs) */}
-      {tabs.length > 0 && (
-        <section className="bg-slate-50 py-16">
-          <div className="container-page">
-            <SectionHeading eyebrow="Sản phẩm" title="Sản phẩm nổi bật" />
-            <Reveal className="mt-8">
-              <ProductTabs all={ordered} tabs={tabs} />
-            </Reveal>
-          </div>
-        </section>
-      )}
-
-      {/* ---------------------------------------------- 5. Quote in 4 steps (CTA) */}
-      {/* Right after the products, where the visitor is most likely to ask for a price. */}
-      <section className="container-page py-16">
-        <Reveal>
-          <div className="grid items-center gap-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 lg:grid-cols-[1fr_1.3fr]">
-            <div>
-              <p className="text-sm font-semibold tracking-wider text-steel-600 uppercase">Báo giá nhanh</p>
-              <h2 className="mt-1 text-3xl font-bold text-balance text-steel-900 sm:text-4xl">Nhận báo giá chỉ với 4 bước</h2>
-              <p className="mt-3 text-slate-600">Gửi danh sách mã hàng hoặc ảnh tem nhãn — chúng tôi tư vấn và báo giá cho bạn.</p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/lien-he" className="btn-primary px-6 py-3 text-base">
-                  Gửi yêu cầu báo giá <Icon name="arrow" className="h-4 w-4" />
-                </Link>
-                {settings.phone && (
-                  <a href={`tel:${phoneDigits(settings.phone)}`} className="btn-outline px-6 py-3 text-base">
-                    <Icon name="phone" className="h-4 w-4" /> {settings.phone}
-                  </a>
-                )}
-                {settings.zalo && (
-                  <a href={`https://zalo.me/${phoneDigits(settings.zalo)}`} target="_blank" rel="noopener noreferrer" className="btn-outline px-6 py-3 text-base">
-                    Chat Zalo
-                  </a>
-                )}
-              </div>
-            </div>
-            <ol className="grid gap-3 sm:grid-cols-2">
-              {steps.map((s, i) => (
-                <li key={s.title} className="flex gap-4 rounded-2xl bg-slate-50 p-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-steel-900 font-extrabold text-white">{i + 1}</span>
-                  <span>
-                    <span className="block font-semibold text-slate-900">{s.title}</span>
-                    <span className="mt-0.5 block text-sm text-slate-500">{s.text}</span>
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ------------------------------------------------------ 6. About (showcase) */}
+      {/* ------------------------------------------------------ 3. About (showcase) */}
       <section className="relative isolate overflow-hidden bg-steel-900 py-16 text-white lg:py-24">
         <div className="bg-blueprint absolute inset-0 -z-10" />
         <div className="absolute top-1/3 -left-40 -z-10 h-[480px] w-[480px] rounded-full bg-steel-500/30 blur-3xl" />
@@ -293,6 +202,97 @@ export default async function HomePage() {
             ))}
           </ul>
         </div>
+      </section>
+
+      {/* ------------------------------------------------------------ 4. Categories */}
+      <section className="container-page py-16">
+        <SectionHeading eyebrow="Danh mục" title="Sản phẩm chúng tôi cung cấp" href="/san-pham" linkLabel={`Xem tất cả ${tree.length} nhóm →`} />
+        {/* Mobile: one swipeable row · Desktop: 4 × 2 grid — every tile in the same style */}
+        <div className="-mx-4 mt-8 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
+          {tree.slice(0, HOME_GROUPS).map((g, i) => (
+            <Reveal key={g.slug} delay={(i % 4) * 60} className="w-44 shrink-0 snap-start sm:w-auto">
+              <Link
+                href={`/danh-muc-san-pham/${g.slug}`}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-lg"
+              >
+                <span className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-slate-100 bg-white">
+                  {g.image_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={g.image_url} alt="" loading="lazy" className="h-full w-full object-contain p-2 transition duration-500 group-hover:scale-105" />
+                  ) : (
+                    <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-steel-50 text-steel-600">
+                      <Icon name={g.icon ?? "box"} className="h-7 w-7" />
+                    </span>
+                  )}
+                </span>
+                <span className="flex items-center gap-2 p-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-steel-50 text-steel-600 transition group-hover:bg-steel-900 group-hover:text-white">
+                    <Icon name={g.icon ?? "box"} className="h-4 w-4" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-sm leading-snug font-semibold text-slate-900">{g.name}</span>
+                    <span className="mt-0.5 block text-xs text-slate-500">{g.children.length} danh mục</span>
+                  </span>
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-6 text-center sm:hidden">
+          <Link href="/san-pham" className="text-sm font-semibold text-steel-600">Xem tất cả {tree.length} nhóm →</Link>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------- 5. Featured (tabs) */}
+      {tabs.length > 0 && (
+        <section className="bg-slate-50 py-16">
+          <div className="container-page">
+            <SectionHeading eyebrow="Sản phẩm" title="Sản phẩm nổi bật" />
+            <Reveal className="mt-8">
+              <ProductTabs all={ordered} tabs={tabs} />
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {/* ---------------------------------------------- 6. Quote in 4 steps (CTA) */}
+      {/* Right after the products, where the visitor is most likely to ask for a price. */}
+      <section className="container-page py-16">
+        <Reveal>
+          <div className="grid items-center gap-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 lg:grid-cols-[1fr_1.3fr]">
+            <div>
+              <p className="text-sm font-semibold tracking-wider text-steel-600 uppercase">Báo giá nhanh</p>
+              <h2 className="mt-1 text-3xl font-bold text-balance text-steel-900 sm:text-4xl">Nhận báo giá chỉ với 4 bước</h2>
+              <p className="mt-3 text-slate-600">Gửi danh sách mã hàng hoặc ảnh tem nhãn — chúng tôi tư vấn và báo giá cho bạn.</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href="/lien-he" className="btn-primary px-6 py-3 text-base">
+                  Gửi yêu cầu báo giá <Icon name="arrow" className="h-4 w-4" />
+                </Link>
+                {settings.phone && (
+                  <a href={`tel:${phoneDigits(settings.phone)}`} className="btn-outline px-6 py-3 text-base">
+                    <Icon name="phone" className="h-4 w-4" /> {settings.phone}
+                  </a>
+                )}
+                {settings.zalo && (
+                  <a href={`https://zalo.me/${phoneDigits(settings.zalo)}`} target="_blank" rel="noopener noreferrer" className="btn-outline px-6 py-3 text-base">
+                    Chat Zalo
+                  </a>
+                )}
+              </div>
+            </div>
+            <ol className="grid gap-3 sm:grid-cols-2">
+              {steps.map((s, i) => (
+                <li key={s.title} className="flex gap-4 rounded-2xl bg-slate-50 p-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-steel-900 font-extrabold text-white">{i + 1}</span>
+                  <span>
+                    <span className="block font-semibold text-slate-900">{s.title}</span>
+                    <span className="mt-0.5 block text-sm text-slate-500">{s.text}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Reveal>
       </section>
 
       {/* ----------------------------------------------------------------- 7. News */}
