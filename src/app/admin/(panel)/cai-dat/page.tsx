@@ -18,7 +18,7 @@ const fields: { name: keyof Settings; label: string; type?: "textarea"; hint?: s
   { name: "messenger_url", label: "Link Messenger", hint: "VD: https://m.me/ten-fanpage — hiện nút Messenger nổi ở góc màn hình" },
   { name: "address", label: "Địa chỉ" },
   { name: "business_hours", label: "Giờ làm việc" },
-  { name: "map_embed_url", label: "Link Google Maps", hint: "Mở đúng địa điểm trên Google Maps → Chia sẻ → Sao chép đường liên kết (https://maps.app.goo.gl/…) rồi dán vào đây" },
+  { name: "map_embed_url", label: "Link Google Maps", hint: "Chính xác nhất: mở đúng địa điểm trên Google Maps (máy tính) → Chia sẻ → Nhúng bản đồ → Sao chép HTML rồi dán cả đoạn <iframe…> vào đây. Hoặc dán link Chia sẻ (https://maps.app.goo.gl/…)." },
   { name: "about", label: "Giới thiệu công ty", type: "textarea" },
   { name: "mission", label: "Sứ mệnh (trang Giới thiệu)", type: "textarea" },
   { name: "vision", label: "Tầm nhìn (trang Giới thiệu)", type: "textarea" },
