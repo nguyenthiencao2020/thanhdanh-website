@@ -18,6 +18,34 @@ type Props = {
 
 const INTERVAL = 6000;
 
+const STAT_ICONS = ["shield", "handshake", "diamond"];
+
+/** Product photo tiles: frosted light-blue glass over the factory backdrop. */
+const GLASS = "overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_30px_60px_-25px_rgba(0,30,90,0.75)]";
+/** Inner fill (not a stacking context) so the white product photos multiply into the tint. */
+const GLASS_FILL = "bg-gradient-to-br from-white via-sky-50 to-sky-200";
+
+/** Colours the end of the headline light blue, splitting after "cho", "từ", "&" or a comma when that leaves 2–5 words. */
+function Title({ text }: { text: string }) {
+  const words = text.trim().split(/\s+/);
+  let cut = -1;
+  for (let i = words.length - 2; i >= 1; i--) {
+    const left = words.length - 1 - i;
+    if (left < 2) continue;
+    if (left > 5) break;
+    if (/^(cho|từ|&|–|-)$/i.test(words[i]) || /,$/.test(words[i])) {
+      cut = i + 1;
+      break;
+    }
+  }
+  if (cut < 0) cut = words.length - Math.max(2, Math.floor(words.length * 0.4));
+  return (
+    <>
+      {words.slice(0, cut).join(" ")} <span className="text-sky-300">{words.slice(cut).join(" ")}</span>
+    </>
+  );
+}
+
 /** Home hero: rotating slides (Admin → Banner trang chủ). Photo slides fill the banner; others show an illustration collage. */
 export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }: Props) {
   const [active, setActive] = useState(0);
@@ -33,7 +61,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
 
   return (
     <section
-      className={`relative isolate overflow-hidden bg-steel-900 text-white ${boxed ? "rounded-3xl" : ""}`}
+      className={`relative isolate overflow-hidden bg-[#012b5d] text-white ${boxed ? "rounded-3xl" : ""}`}
       aria-roledescription="carousel"
       aria-label="Banner"
       onMouseEnter={() => setPaused(true)}
@@ -41,10 +69,14 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div className="bg-blueprint absolute inset-0 -z-10" />
-      <div className="absolute -top-40 -left-40 -z-10 h-[520px] w-[520px] rounded-full bg-steel-500/30 blur-3xl" />
-      <div className="absolute -right-32 -bottom-48 -z-10 h-[480px] w-[480px] rounded-full bg-brand-600/30 blur-3xl" />
-      <Gear teeth={14} className="animate-spin-slow absolute -top-24 -right-24 -z-10 h-96 w-96 text-white/10" />
+      {/* Factory backdrop: deep blue on the left for the text, the production line on the right. */}
+      <picture>
+        <source media="(max-width: 900px)" srcSet="/img/banner/hero-nha-may-900.jpg" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/img/banner/hero-nha-may.jpg" alt="" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-[70%_center]" />
+      </picture>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#012b5d]/85 via-[#012b5d]/45 to-transparent lg:from-[#012b5d]/60 lg:via-transparent" />
+      <Gear teeth={14} className="animate-spin-slow absolute top-1/3 -left-24 -z-10 h-64 w-64 text-white/[0.06]" />
 
       {/* Slides are stacked; the active one fades in. The tallest sets the height. */}
       <div className="grid">
@@ -78,38 +110,48 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
               >
                 <div className={`max-w-2xl transition-all delay-150 duration-700 ${on ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
                   {tagline && (
-                    <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-steel-100 backdrop-blur">
-                      <span className="h-2 w-2 animate-pulse rounded-full bg-green-400" /> {tagline}
+                    <p className="inline-flex items-center gap-2 rounded-full border border-white/40 px-4 py-1.5 text-sm font-semibold text-white">
+                      <Icon name="bolt" className="h-4 w-4 fill-amber-400 text-amber-400" /> {tagline}
                     </p>
                   )}
                   {i === 0 ? (
-                    <h1 className={`mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "lg:text-6xl"}`}>{b.title}</h1>
+                    <h1 className={`mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "lg:text-6xl"}`}><Title text={b.title} /></h1>
                   ) : (
-                    <h2 className={`mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "lg:text-6xl"}`}>{b.title}</h2>
+                    <h2 className={`mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl ${boxed ? "" : "lg:text-6xl"}`}><Title text={b.title} /></h2>
                   )}
-                  <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-brand-500 via-orange-400 to-amber-300" />
-                  {b.subtitle && <p className="mt-6 max-w-xl text-base text-steel-100/90 sm:text-lg">{b.subtitle}</p>}
+                  <div className="mt-5 h-1 w-28 rounded-full bg-brand-600" />
+                  {b.subtitle && <p className="mt-6 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">{b.subtitle}</p>}
                   <div className="mt-8 flex flex-wrap gap-3">
                     {b.cta_url && (
-                      <Link href={b.cta_url} tabIndex={on ? undefined : -1} className="btn-primary px-6 py-3 text-base shadow-lg shadow-brand-600/30">
-                        {b.cta_label || "Xem thêm"} <Icon name="arrow" className="h-4 w-4" />
+                      <Link
+                        href={b.cta_url}
+                        tabIndex={on ? undefined : -1}
+                        className="btn-primary rounded-full py-3 pr-7 pl-3 text-base shadow-lg shadow-brand-900/40"
+                      >
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-brand-600">
+                          <Icon name="arrow" className="h-4 w-4" />
+                        </span>
+                        {b.cta_label || "Xem thêm"}
                       </Link>
                     )}
                     {phone && phoneHref && (
                       <a
                         href={`tel:${phoneHref}`}
                         tabIndex={on ? undefined : -1}
-                        className="btn border border-white/25 bg-white/10 px-6 py-3 text-base text-white backdrop-blur hover:bg-white/20"
+                        className="btn rounded-full border border-white/70 px-7 py-3 text-base text-white hover:bg-white/10"
                       >
                         <Icon name="phone" className="h-4 w-4" /> {phone}
                       </a>
                     )}
                   </div>
-                  <dl className="mt-10 hidden max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-6 sm:grid">
-                    {stats.map((s) => (
-                      <div key={s.label} className="flex flex-col-reverse">
-                        <dt className="mt-1 text-xs text-steel-100/70 sm:text-sm">{s.label}</dt>
-                        <dd className="text-2xl font-extrabold whitespace-nowrap text-white sm:text-3xl">{s.value}</dd>
+                  <dl className="mt-10 hidden max-w-2xl grid-cols-3 sm:grid">
+                    {stats.map((st, k) => (
+                      <div key={st.label} className={`flex items-center gap-3 ${k ? "border-l border-white/40 pl-5 lg:pl-8" : ""}`}>
+                        <Icon name={STAT_ICONS[k] ?? "check"} className="h-9 w-9 shrink-0 text-white" />
+                        <div className="flex flex-col-reverse">
+                          <dt className="text-xs text-white/80 sm:text-sm">{st.label}</dt>
+                          <dd className="text-2xl font-extrabold whitespace-nowrap text-white sm:text-3xl">{st.value}</dd>
+                        </div>
                       </div>
                     ))}
                   </dl>
@@ -121,26 +163,35 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                       on ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
                     }`}
                   >
-                    <div className="animate-float absolute top-6 left-0 w-[72%] overflow-hidden rounded-3xl border border-white/15 bg-white shadow-2xl shadow-black/40">
+                    <div className={`animate-float absolute top-12 left-0 w-[64%] ${GLASS}`}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={collage[0]} alt="" className="aspect-[4/3] w-full object-cover" />
+                      <div className={GLASS_FILL}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={collage[0]} alt="" className="aspect-[4/3] w-full object-contain p-4 mix-blend-multiply" />
+                      </div>
                     </div>
                     {collage[1] && (
                       <div
-                        className="animate-float absolute top-0 right-0 hidden w-[42%] overflow-hidden rounded-2xl border border-white/15 bg-white shadow-2xl shadow-black/40 sm:block"
+                        className={`animate-float absolute top-0 right-0 hidden w-[42%] sm:block ${GLASS}`}
                         style={{ animationDelay: "-2s" }}
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={collage[1]} alt="" className="aspect-[4/3] w-full object-cover" />
+                        <div className={GLASS_FILL}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={collage[1]} alt="" className="aspect-[4/3] w-full object-contain p-3 mix-blend-multiply" />
+                      </div>
                       </div>
                     )}
                     {collage[2] && (
                       <div
-                        className="animate-float absolute right-2 bottom-0 w-[50%] overflow-hidden rounded-2xl border border-white/15 bg-white shadow-2xl shadow-black/40"
+                        className={`animate-float absolute right-4 bottom-0 w-[44%] ${GLASS}`}
                         style={{ animationDelay: "-4s" }}
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={collage[2]} alt="" className="aspect-[4/3] w-full object-cover" />
+                        <div className={GLASS_FILL}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={collage[2]} alt="" className="aspect-[4/3] w-full object-contain p-3 mix-blend-multiply" />
+                      </div>
                       </div>
                     )}
                   </div>
@@ -163,7 +214,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                 aria-current={i === active}
                 className="group/dot flex h-8 items-center px-1"
               >
-                <span className={`block h-2.5 rounded-full transition-all ${i === active ? "w-8 bg-brand-500" : "w-2.5 bg-white/40 group-hover/dot:bg-white/70"}`} />
+                <span className={`block h-2.5 rounded-full transition-all ${i === active ? "w-8 bg-brand-600" : "w-2.5 bg-white/40 group-hover/dot:bg-white/70"}`} />
               </button>
             ))}
           </div>
@@ -171,7 +222,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
             type="button"
             onClick={() => go(active - 1)}
             aria-label="Slide trước"
-            className="absolute top-1/2 left-3 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur transition hover:bg-white/25 xl:flex"
+            className="absolute top-1/2 left-3 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 backdrop-blur transition hover:bg-white/30 xl:flex"
           >
             <Icon name="arrow" className="h-5 w-5 rotate-180" />
           </button>
@@ -179,7 +230,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
             type="button"
             onClick={() => go(active + 1)}
             aria-label="Slide sau"
-            className="absolute top-1/2 right-3 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur transition hover:bg-white/25 xl:flex"
+            className="absolute top-1/2 right-3 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 backdrop-blur transition hover:bg-white/30 xl:flex"
           >
             <Icon name="arrow" className="h-5 w-5" />
           </button>

@@ -18,6 +18,8 @@ const paths: Record<string, string> = {
   close: "M18 6 6 18M6 6l12 12",
   arrow: "M5 12h14M13 5l7 7-7 7",
   check: "M20 6 9 17l-5-5",
+  handshake: "M11 17l2 2a1.5 1.5 0 0 0 2.1-2.1M14 14l2.5 2.5a1.5 1.5 0 0 0 2.1-2.1l-3.4-3.4M3 11l3-3 4 1 2-2a2 2 0 0 1 2.8 0L21 13M3 11l7 7a1.5 1.5 0 0 0 2.1-2.1M9 14l-1.5-1.5M2 9l3-3M22 11l-3-3",
+  diamond: "M6 3h12l4 6-10 12L2 9zM2 9h20M12 21 8 9l4-6 4 6z",
 };
 
 export function Icon({ name, className = "h-5 w-5" }: { name: string; className?: string }) {
