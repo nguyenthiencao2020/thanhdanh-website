@@ -142,6 +142,10 @@ Lệnh khác: `npm run build`, `npm run typecheck`, `npm run seed:sql` (tạo l�
 
 Database chỉ lưu **đường dẫn** ảnh (`image_url`, `logo_url`).
 
+## Kế hoạch đang làm
+
+- **[KE-HOACH-DON-GIAN-SAN-PHAM.md](KE-HOACH-DON-GIAN-SAN-PHAM.md)** — trang Sản phẩm đơn giản, tập trung vào hãng; có mốc commit và cách quay lại bản cũ.
+
 ## Nội dung cần bổ sung
 
 Website đang dùng một số nội dung tạm (sản phẩm mẫu, ảnh minh họa, cam kết dịch vụ…).
