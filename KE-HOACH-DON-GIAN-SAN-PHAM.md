@@ -69,3 +69,33 @@
 - Số liệu trang chủ đổi theo hàng thật: “Nhóm sản phẩm” = nhóm có hàng; ô “Danh mục” → “Sản phẩm”.
 - Bỏ component cũ: `BrandSelect`, `FilterDrawer`, cây danh mục trong `CatalogNav`.
 - Việc của người dùng: chạy `supabase/migrations/0011_hang-chu-luc.sql` để tích/bỏ *Hãng chủ lực* trong Admin (chưa chạy thì web dùng 8 hãng mặc định).
+
+---
+
+## Giai đoạn 2 — Hero chung cho các trang sản phẩm (theo mẫu)
+
+*Lập ngày 09/11/2026, trước khi sửa.*
+
+**Mục tiêu:** thay banner tối đơn giản đầu trang Sản phẩm bằng hero có ảnh, theo mẫu giao diện chủ Đạt Danh gửi.
+
+**Áp dụng cho:** `/san-pham`, `/danh-muc-san-pham/…`, lọc theo hãng (`?thuong-hieu=…`), kết quả tìm kiếm.
+
+**Bố cục hero:**
+1. Nền: `public/img/banner/hero-san-pham.jpg` (ảnh AI tủ PLC + robot do khách gửi; đã che chữ “SIEBKNS” in sai trên tủ; bản 1000px cho điện thoại).
+2. Dòng nhỏ có gạch: “Cung cấp & Phân phối”.
+3. Tiêu đề lớn, phần cuối tô màu nhấn: “Sản phẩm **chính hãng**” / “Sản phẩm **Siemens**” / “**Contactor – Khởi động từ**” / “Kết quả cho **…**”.
+4. Câu mô tả ngắn.
+5. Ô tìm kiếm bo tròn + nút “Tìm kiếm”.
+6. Dải 4 cam kết có icon: Hàng chính hãng · Tư vấn chọn mã · Giao hàng nhanh · Hỗ trợ kỹ thuật.
+
+**Giữ nguyên (khác mẫu, có chủ đích):**
+- Màu đỏ / xanh dương của Đạt Danh; chữ nhấn dùng xanh ngọc nhạt hợp với ảnh. Không đổi cả web sang xanh lá.
+- Logo, hotline 0907 646 647, email thật (mẫu ghi số / email khác).
+- Không ghi “Đại lý chính hãng Siemens” cho tới khi có giấy chứng nhận; không dùng nhãn “Hot Sale” và sắp xếp theo giá (chưa có giá).
+- Phần dưới hero (chọn hãng / loại, hàng nút lọc, danh sách) giữ như giai đoạn 1.
+
+**Quay lại:** mốc trước giai đoạn 2 là commit `be5117e75da168545aab3648d5a7e1b692b9c366` trên `main` (PR #30). Cách quay lại như mục 5.
+
+**Tiến độ giai đoạn 2:**
+- [ ] Hero chung trang sản phẩm
+- [ ] QA máy tính / tablet / điện thoại
