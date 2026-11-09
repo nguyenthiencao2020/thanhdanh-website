@@ -1,6 +1,7 @@
 import Form from "next/form";
 import { getBrandsWithLines } from "@/lib/lines";
 import { Icon } from "./Icon";
+import { KeepScroll } from "./KeepScroll";
 import { LineSidebar } from "./LineSidebar";
 import { ProductHero } from "./ProductHero";
 
@@ -43,12 +44,12 @@ export async function LinesShell({
           <button type="submit" className="btn-primary absolute top-1/2 right-1.5 h-10 -translate-y-1/2 rounded-full px-6">Tìm kiếm</button>
         </Form>
       </ProductHero>
-      <div className="container-page py-8 lg:py-10">
+      <KeepScroll className="container-page py-8 lg:py-10">
         <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[270px_minmax(0,1fr)] lg:gap-8">
           <LineSidebar brands={brands.map((b) => ({ slug: b.brand.slug, name: b.brand.name, lines: b.lines.map((l) => ({ slug: l.slug, name: l.name })) }))} brand={brand} line={line} />
           <div className="min-w-0">{children}</div>
         </div>
-      </div>
+      </KeepScroll>
     </>
   );
 }

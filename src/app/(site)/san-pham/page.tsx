@@ -55,19 +55,19 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
         {brands.map(({ brand, lines }) => (
           <section key={brand.slug} className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
             <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3">
-              <Link href={`/thuong-hieu/${brand.slug}`} className="flex min-w-0 items-center gap-3">
+              <Link scroll={false} href={`/thuong-hieu/${brand.slug}`} className="flex min-w-0 items-center gap-3">
                 <span className="flex h-10 w-28 shrink-0 items-center">
                   {brand.logo_url ? <BrandLogo brand={brand} className="max-h-9" /> : <span className="text-base font-extrabold text-steel-900">{brand.name}</span>}
                 </span>
               </Link>
-              <Link href={`/thuong-hieu/${brand.slug}`} className="shrink-0 text-sm font-semibold text-steel-600 hover:text-brand-600">
+              <Link scroll={false} href={`/thuong-hieu/${brand.slug}`} className="shrink-0 text-sm font-semibold text-steel-600 hover:text-brand-600">
                 {lines.length} dòng hàng →
               </Link>
             </div>
             <ul className="mt-3 grid grid-cols-2 gap-1.5">
               {lines.slice(0, 6).map((l) => (
                 <li key={l.slug}>
-                  <Link href={lineHref(l)} className="flex items-center gap-2.5 rounded-xl px-2 py-1.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-600">
+                  <Link scroll={false} href={lineHref(l)} className="flex items-center gap-2.5 rounded-xl px-2 py-1.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-600">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-slate-200">
                       {l.image_url && (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -80,7 +80,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
               ))}
             </ul>
             {lines.length > 6 && (
-              <Link href={`/thuong-hieu/${brand.slug}`} className="mt-2 inline-block px-2 text-xs font-semibold text-slate-500 hover:text-brand-600">
+              <Link scroll={false} href={`/thuong-hieu/${brand.slug}`} className="mt-2 inline-block px-2 text-xs font-semibold text-slate-500 hover:text-brand-600">
                 + {lines.length - 6} dòng hàng khác
               </Link>
             )}

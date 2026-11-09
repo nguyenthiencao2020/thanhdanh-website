@@ -5,7 +5,7 @@ import { Icon } from "./Icon";
 export function LineCard({ href, name, brandName, series, image }: { href: string; name: string; brandName?: string; series: string[]; image: string | null }) {
   return (
     <Link
-      href={href}
+      scroll={false} href={href}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-steel-500 hover:shadow-xl hover:shadow-steel-900/10"
     >
       <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-white">
