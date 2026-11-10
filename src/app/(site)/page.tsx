@@ -115,7 +115,7 @@ export default async function HomePage() {
         </div>
 
         <div className="container-page mt-6 flex items-center gap-4">
-          <span className="hidden shrink-0 text-xs font-bold tracking-widest text-slate-400 uppercase sm:block">Và các hãng khác</span>
+          <span className="hidden shrink-0 text-xs font-bold tracking-widest text-slate-500 uppercase sm:block">Và các hãng khác</span>
           <div className="group relative min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
             {/* ~5 s per logo keeps the strip slow and readable however many brands there are */}
             <div

@@ -21,7 +21,7 @@ const chip = (active: boolean) =>
   `inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm font-semibold transition ${
     active ? "border-steel-700 bg-steel-700 text-white" : "border-slate-200 bg-white text-slate-700 hover:border-steel-500"
   }`;
-const countBadge = (active: boolean) => `rounded-full px-1.5 text-xs font-bold ${active ? "bg-white/20 text-white" : "bg-slate-100 text-slate-500"}`;
+const countBadge = (active: boolean) => `rounded-full px-1.5 text-xs font-bold ${active ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"}`;
 
 /**
  * Product catalogue for /san-pham and /danh-muc-san-pham/[slug], built so a visitor makes one choice at a time:
@@ -180,9 +180,9 @@ function SearchBox({ big, defaultValue, action, brand }: { big: boolean; default
           name="q"
           type="search"
           defaultValue={defaultValue}
-          placeholder="Nhập mã hàng hoặc tên sản phẩm…"
+          placeholder="Nhập mã hàng…"
           aria-label="Tìm sản phẩm"
-          className={`w-full rounded-full border-0 bg-white pr-32 pl-13 text-slate-900 shadow-xl shadow-black/20 placeholder:text-slate-400 focus:ring-2 focus:ring-teal-300 focus:outline-none ${big ? "h-14 text-base" : "h-12 text-sm"}`}
+          className={`w-full rounded-full border-0 bg-white pr-32 pl-13 text-slate-900 shadow-xl shadow-black/20 placeholder:text-slate-500 focus:ring-2 focus:ring-teal-300 focus:outline-none ${big ? "h-14 text-base" : "h-12 text-sm"}`}
         />
         <button type="submit" className={`btn-primary absolute top-1/2 right-1.5 -translate-y-1/2 rounded-full px-6 ${big ? "h-11" : "h-9 text-sm"}`}>
           Tìm kiếm
@@ -237,7 +237,7 @@ function Landing({ brands, tree, pairs }: { brands: Brand[]; tree: CategoryNode[
             Hãng khác:
             {otherBrands.map((b) => (
               <NavLink key={b.slug} href={`/thuong-hieu/${b.slug}`} className="rounded-full border border-slate-200 bg-white px-3 py-1 font-semibold text-slate-700 hover:border-steel-500" pendingClassName="rounded-full border border-steel-600 bg-steel-700 px-3 py-1 font-semibold text-white">
-                {b.name} <span className="text-slate-400">{byBrand.get(b.slug)}</span>
+                {b.name} <span className="text-slate-500">{byBrand.get(b.slug)}</span>
               </NavLink>
             ))}
           </p>
@@ -352,7 +352,7 @@ function Choices({
       </Link>
       {rows.map((row) => (
         <div key={row.label} className="flex items-start gap-3">
-          <span className="w-12 shrink-0 pt-2 text-xs font-bold tracking-wider text-slate-400 uppercase">{row.label}</span>
+          <span className="w-12 shrink-0 pt-2 text-xs font-bold tracking-wider text-slate-500 uppercase">{row.label}</span>
           <div className="-mr-4 flex min-w-0 flex-1 gap-2 overflow-x-auto pr-4 pb-1 sm:mr-0 sm:flex-wrap sm:pr-0">
             {row.items.map((it) => (
               <NavLink key={it.key} href={it.href} className={`${chip(it.active)} ${it.img ? "py-1 pl-1" : ""}`} pendingClassName={`${chip(true)} ${it.img ? "py-1 pl-1" : ""}`}>

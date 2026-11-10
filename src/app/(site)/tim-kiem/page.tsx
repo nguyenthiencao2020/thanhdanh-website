@@ -35,7 +35,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
             type="search"
             defaultValue={q}
             autoFocus={!q}
-            placeholder="Nhập mã hàng, series, tên sản phẩm hoặc hãng…"
+            placeholder="Nhập mã hàng…"
             className="input h-14 rounded-2xl pr-32 pl-5 text-base shadow-sm"
             aria-label="Từ khóa"
           />
@@ -48,7 +48,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
           <>
             {lines.length > 0 && (
               <section className="mt-12">
-                <h2 className="text-xl font-bold text-steel-900">Dòng hàng <span className="text-slate-400">({lines.length})</span></h2>
+                <h2 className="text-xl font-bold text-steel-900">Dòng hàng <span className="text-slate-500">({lines.length})</span></h2>
                 <div className="mt-5 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
                   {lines.map((l) => (
                     <LineCard key={`${l.brand}-${l.slug}`} href={lineHref(l)} brandName={brandName(l.brand)} name={l.name} series={l.series} image={l.image_url} />
@@ -60,7 +60,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
             {products.total > 0 && (
               <section className="mt-12">
                 <div className="flex items-end justify-between">
-                  <h2 className="text-xl font-bold text-steel-900">Sản phẩm <span className="text-slate-400">({products.total})</span></h2>
+                  <h2 className="text-xl font-bold text-steel-900">Sản phẩm <span className="text-slate-500">({products.total})</span></h2>
                   {products.total > products.items.length && (
                     <Link href={`/san-pham?q=${encodeURIComponent(q)}`} className="text-sm font-semibold text-brand-600 hover:underline">Xem tất cả →</Link>
                   )}
@@ -81,7 +81,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
 
             {posts.items.length > 0 && (
               <section className="mt-12">
-                <h2 className="text-xl font-bold text-steel-900">Bài viết <span className="text-slate-400">({posts.total})</span></h2>
+                <h2 className="text-xl font-bold text-steel-900">Bài viết <span className="text-slate-500">({posts.total})</span></h2>
                 <div className="mt-5 grid gap-5 md:grid-cols-3">
                   {posts.items.map((p) => <PostCard key={p.id} post={p} />)}
                 </div>

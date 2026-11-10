@@ -31,6 +31,12 @@ export const siteUrl = (
 ).replace(/\/$/, "");
 
 /** Small (160×120) version of a bundled category photo for menus and chips; other URLs pass through. */
+/** Small (112px) version of a bundled product photo for icon-sized thumbnails; other URLs pass through. */
+export function productThumb(url: string) {
+  const m = url.match(/^\/img\/sp\/([^/]+)\.(jpg|png|webp)$/);
+  return m ? `/img/sp/nho/${m[1]}.jpg` : url;
+}
+
 export function categoryThumb(url: string) {
   return url.startsWith("/img/dm/") && !url.includes("/nho/") ? url.replace("/img/dm/", "/img/dm/nho/") : url;
 }

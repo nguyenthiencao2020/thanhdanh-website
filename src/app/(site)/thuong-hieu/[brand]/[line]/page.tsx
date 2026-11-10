@@ -8,7 +8,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { QuoteForm } from "@/components/QuoteForm";
 import { getProducts, getSettings } from "@/lib/data";
 import { getBrandsWithLines, lineHref } from "@/lib/lines";
-import { phoneDigits } from "@/lib/utils";
+import { phoneDigits, productThumb } from "@/lib/utils";
 
 type Params = Promise<{ brand: string; line: string }>;
 
@@ -65,7 +65,8 @@ export default async function LinePage({ params }: { params: Params }) {
           </div>
           <div>
             {!generic && b.brand.logo_url && <BrandLogo brand={b.brand} className="max-h-9" />}
-            <h2 className="mt-3 text-2xl font-extrabold text-steel-900 sm:text-3xl">{label}</h2>
+            {/* The brand is already in the page title and the logo above — name the line only. */}
+            <h2 className="mt-3 text-2xl font-extrabold text-steel-900 sm:text-3xl">{!generic && b.brand.logo_url ? l.name : label}</h2>
             <p className="mt-3 leading-relaxed text-slate-600">{l.description}</p>
             <p className="mt-5 text-xs font-bold tracking-wider text-slate-500 uppercase">Series cung cấp</p>
             <ul className="mt-2 flex flex-wrap gap-2">
@@ -92,7 +93,7 @@ export default async function LinePage({ params }: { params: Params }) {
       {products.length > 0 && (
         <section className="mt-6">
           <h2 className="text-lg font-bold text-steel-900">
-            Sản phẩm trong dòng này <span className="font-semibold text-slate-400">({products.length})</span>
+            Sản phẩm trong dòng này <span className="font-semibold text-slate-500">({products.length})</span>
           </h2>
           <div className="mt-3 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
             {products.map((p) => (
@@ -116,7 +117,7 @@ export default async function LinePage({ params }: { params: Params }) {
               <Link key={x.slug} href={lineHref(x)} scroll={false} className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white py-1 pr-4 pl-1 text-sm font-semibold text-slate-700 hover:border-steel-500 hover:text-brand-600">
                 {x.image_url && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={x.image_url} alt="" loading="lazy" className="h-8 w-8 rounded-full bg-white object-contain ring-1 ring-slate-200" />
+                  <img src={productThumb(x.image_url)} alt="" loading="lazy" className="h-8 w-8 rounded-full bg-white object-contain ring-1 ring-slate-200" />
                 )}
                 {x.name}
               </Link>

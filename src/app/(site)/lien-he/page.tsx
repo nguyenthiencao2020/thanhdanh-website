@@ -51,7 +51,7 @@ export default async function ContactPage() {
               )}
               {s.zalo && (
                 <li className="flex gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-steel-500 text-[8px] font-bold text-white">Zalo</span>
+                  <span className="flex h-5 shrink-0 items-center justify-center rounded bg-steel-600 px-1 text-[10px] font-bold text-white">Zalo</span>
                   <a href={`https://zalo.me/${phoneDigits(s.zalo)}`} target="_blank" rel="noopener noreferrer" className="hover:underline">
                     Chat Zalo: {s.zalo}
                   </a>

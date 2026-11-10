@@ -264,7 +264,7 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 
 ---
 
-## Sửa giao diện theo UI review (10/11/2026) — đang làm
+## Sửa giao diện theo UI review (10/11/2026) — đã sửa, chờ duyệt
 
 **Quay lại:** mốc trước khi sửa là commit `602f1b77c381ca00015d3ac8ea4f51dfc1acc19a` trên `main` (PR #52).
 
@@ -281,3 +281,5 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 11. Trang dòng hàng: bớt lặp tên hãng.
 12. Trang Sản phẩm: ảnh nhỏ cho danh sách dòng hàng (giảm dung lượng).
 13. Số trang trí trang Dịch vụ: ẩn với phần mềm đọc màn hình.
+
+**Kết quả kiểm tra sau khi sửa:** kiểm tra tự động (axe, chuẩn WCAG 2 AA) 11 trang × 2 cỡ màn hình: 56 lỗi → **0 lỗi**; chấm slide cách nút gọi 20px (trước đè 24px); Tab đầu tiên là “Bỏ qua tới nội dung”; trang Sản phẩm 1,3 MB → 0,58 MB (118 ảnh nhỏ `public/img/sp/nho/`, 3 MB → 251 KB); 601 trang + 71 trang hãng/dòng không lỗi.

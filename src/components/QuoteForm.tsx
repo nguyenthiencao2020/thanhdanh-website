@@ -118,7 +118,7 @@ export function QuoteForm({ productId, productName, compact, defaultMessage }: P
 
       {/* Nameplate photos */}
       <div className="sm:col-span-2">
-        <p className="label">Ảnh tem nhãn / thiết bị <span className="font-normal text-slate-400">(không bắt buộc, tối đa {MAX_PHOTOS} ảnh)</span></p>
+        <p className="label">Ảnh tem nhãn / thiết bị <span className="font-normal text-slate-500">(không bắt buộc, tối đa {MAX_PHOTOS} ảnh)</span></p>
         <div className="mt-1 flex flex-wrap items-center gap-3">
           {photos.map((p, i) => (
             <div key={p.url} className="relative h-20 w-20 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">

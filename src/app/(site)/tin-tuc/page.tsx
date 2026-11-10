@@ -84,7 +84,7 @@ export default async function NewsPage({ searchParams }: { searchParams: SearchP
                         href={`/tin-tuc?danh-muc=${encodeURIComponent(c.name)}`}
                         className={`flex items-center justify-between rounded-lg px-2 py-2 ${category === c.name ? "bg-brand-50 font-semibold text-brand-600" : "text-slate-700 hover:bg-slate-50"}`}
                       >
-                        {c.name} <span className="rounded-full bg-slate-100 px-2 text-xs text-slate-500">{c.count}</span>
+                        {c.name} <span className="rounded-full bg-slate-100 px-2 text-xs text-slate-600">{c.count}</span>
                       </Link>
                     </li>
                   ))}

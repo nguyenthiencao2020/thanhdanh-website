@@ -51,7 +51,7 @@ export function LineSidebar({ brands, brand, line }: { brands: SidebarBrand[]; b
                   }`}
                 >
                   <span className="truncate">{b.name}</span>
-                  <span className="text-xs font-semibold text-slate-400">{b.lines.length}</span>
+                  <span className="text-xs font-semibold text-slate-600">{b.lines.length}</span>
                 </Link>
                 <button
                   type="button"

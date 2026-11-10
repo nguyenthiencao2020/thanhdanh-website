@@ -17,7 +17,7 @@ export function FloatingContact({ phone, zalo, messenger }: { phone: string | nu
           href={`https://zalo.me/${phoneDigits(zalo)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${base} bg-steel-500 text-xs font-bold`}
+          className={`${base} bg-steel-600 text-xs font-bold`}
           aria-label="Chat Zalo"
         >
           Zalo

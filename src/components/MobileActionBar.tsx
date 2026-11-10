@@ -22,7 +22,7 @@ export function MobileActionBar({ phoneHref, zaloHref }: { phoneHref: string | n
       )}
       {zaloHref && (
         <a href={zaloHref} target="_blank" rel="noopener noreferrer" className={`${item} text-steel-700`}>
-          <span className="flex h-5 items-center rounded bg-steel-500 px-1 text-[9px] font-bold text-white">Zalo</span> Chat Zalo
+          <span className="flex h-5 items-center rounded bg-steel-600 px-1.5 text-[11px] font-bold text-white">Zalo</span> Chat Zalo
         </a>
       )}
       <Link href={quoteHref} className={`${item} m-1.5 rounded-xl bg-brand-600 text-white`}>

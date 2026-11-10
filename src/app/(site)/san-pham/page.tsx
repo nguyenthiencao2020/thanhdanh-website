@@ -6,6 +6,7 @@ import { LineCard } from "@/components/LineCard";
 import { LinesShell } from "@/components/LinesShell";
 import { ProductCard } from "@/components/ProductCard";
 import { QuoteForm } from "@/components/QuoteForm";
+import { productThumb } from "@/lib/utils";
 import { getProductsPage } from "@/lib/data";
 import { getBrandsWithLines, lineHref, linesForSearch } from "@/lib/lines";
 
@@ -40,7 +41,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
       >
         {found.length > 0 && (
           <section>
-            <h2 className="text-lg font-bold text-steel-900">Dòng hàng <span className="font-semibold text-slate-400">({found.length})</span></h2>
+            <h2 className="text-lg font-bold text-steel-900">Dòng hàng <span className="font-semibold text-slate-500">({found.length})</span></h2>
             <div className="mt-3 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
               {found.map((l) => (
                 <LineCard key={`${l.brand}-${l.slug}`} href={lineHref(l)} brandName={name(l.brand)} name={l.name} series={l.series} image={l.image_url} />
@@ -50,7 +51,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
         )}
         {products.total > 0 && (
           <section className={found.length ? "mt-8" : ""}>
-            <h2 className="text-lg font-bold text-steel-900">Sản phẩm <span className="font-semibold text-slate-400">({products.total})</span></h2>
+            <h2 className="text-lg font-bold text-steel-900">Sản phẩm <span className="font-semibold text-slate-500">({products.total})</span></h2>
             <div className="mt-3 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
               {products.items.map((p) => (
                 <ProductCard key={p.id} product={p} hideBadge />
@@ -98,7 +99,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-slate-200">
                       {l.image_url && (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={l.image_url} alt="" loading="lazy" className="h-full w-full object-contain p-0.5" />
+                        <img src={productThumb(l.image_url)} alt="" loading="lazy" className="h-full w-full object-contain p-0.5" />
                       )}
                     </span>
                     <span className="min-w-0 leading-snug">{l.name}</span>
