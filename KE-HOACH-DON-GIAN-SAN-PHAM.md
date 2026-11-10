@@ -287,6 +287,8 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 ### Trang sản phẩm — so với cách làm phổ biến (10/11/2026)
 
 - **Định hướng của Đạt Danh:** web dùng để **giới thiệu sản phẩm là chính**; báo giá / liên hệ là phụ. **Không phải bán hàng trực tuyến** → không làm ô số lượng, giỏ báo giá, nút mua; khách ghi số lượng trong ô ghi chú nếu cần.
+- **Mục tiêu chính (Đạt Danh, 10/11/2026):** đăng web để khách thấy **Đạt Danh có sản phẩm của các hãng** — độ phủ thương hiệu quan trọng hơn chi tiết từng mã.
+  - Mâu thuẫn hiện tại: web đang **ẩn 45/62 hãng chưa có sản phẩm** (theo yêu cầu trước) → khách chỉ thấy 17 hãng. Cần Đạt Danh chọn: giữ ẩn, hay hiện đủ logo các hãng đang cung cấp (hãng chưa có sản phẩm → trang hãng ngắn: logo, giới thiệu, “liên hệ để được báo giá”).
 - Vì vậy ưu tiên **nội dung giới thiệu** (hình ảnh, mô tả, thông số, tài liệu, chứng từ) hơn các tính năng thúc đẩy đặt hàng; nút báo giá giữ ở mức vừa phải.
 - **Đề xuất — tạm ghi lại, chưa làm (10/11/2026):**
 
