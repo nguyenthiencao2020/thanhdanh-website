@@ -94,7 +94,7 @@ Danh sách những nội dung trên website hiện đang là **tạm / giả đ�
 
 | Xong | Ưu tiên | Nội dung | Ghi chú |
 |---|---|---|---|
-| [ ] | 🔴 | **Thông báo khi có yêu cầu báo giá** | Hiện chỉ lưu trong Admin → *Yêu cầu báo giá*, không ai được báo. Chọn kênh: email / Zalo / Telegram |
+| [ ] | 🔴 | **Thông báo khi có yêu cầu báo giá** | Code gửi email đã có (10/11/2026) — nhận về `sales@` + `phuong.le@thietbinhamay-dd.com` | Cài Resend + DNS + biến Vercel theo README mục 5; cho biết tên miền quản lý DNS ở đâu |
 | [ ] | 🟡 | **Nhập sản phẩm hàng loạt từ Excel** | Gửi file Excel (Tên · Mã · Hãng · Danh mục · Mô tả · Giá · Ảnh) → tạo lệnh SQL nhập một lần |
 | [ ] | 🟢 | **Khách hàng / dự án tiêu biểu** | Logo hoặc tên nhà máy đã cung cấp (cần đồng ý của khách) |
 | [ ] | 🟢 | **Catalogue / bảng giá PDF** | File tải về cho khách |

@@ -76,6 +76,7 @@ export function QuoteForm({ productId, productName, compact, defaultMessage }: P
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
+    form.set("page", window.location.pathname + window.location.search);
     form.delete("photos");
     photos.forEach((p, i) => form.append("photos", p.blob, `tem-nhan-${i + 1}.${p.blob.type === "image/png" ? "png" : p.blob.type === "image/webp" ? "webp" : "jpg"}`));
     startTransition(() => action(form));
