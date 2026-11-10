@@ -302,3 +302,18 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
   | 6 | **CO, CQ / giấy ủy quyền hãng** (sản phẩm, trang hãng, Giới thiệu) — chỉ khi có thật | Tin hàng chính hãng | Xác nhận + ảnh giấy tờ | Chờ Đạt Danh |
 
   Thứ tự đề xuất: 1–2 trước (không chờ ai) → 3–4 khi có Excel → 5–6 khi Đạt Danh trả lời.
+
+---
+
+## Cách (B) — hiện đủ các hãng Đạt Danh cung cấp (10/11/2026) — đã duyệt, đưa lên main
+
+**Lý do:** Đạt Danh “cái gì cũng bán” (tìm nguồn theo yêu cầu) → web cần cho thấy độ phủ hơn 60 hãng thay vì chỉ 17 hãng có sản phẩm.
+
+**Quay lại:** mốc trước khi làm là commit `194fb4121f4a04bae503177ec138ba7ae7e26ebb` trên `main` (PR #56).
+
+- Trang **Thương hiệu**: hiện đủ 62 logo — hãng có sản phẩm ghi số dòng hàng; hãng chưa có ghi “Cung cấp theo yêu cầu” + dòng “và nhiều hãng khác theo yêu cầu”.
+- **Trang hãng chưa có sản phẩm** (trước: 404): logo, câu giới thiệu, form báo giá điền sẵn “Báo giá thiết bị [hãng]”, các hãng khác.
+- **Trang chủ**: dải “Và các hãng khác” chạy đủ các hãng.
+- **Sitemap**: thêm trang các hãng mới.
+- Không cần thêm ảnh sản phẩm (dùng logo có sẵn: 60/62 hãng).
+- Kiểm tra: 601 trang không lỗi; sitemap 301 URL đều 200, 0 tiêu đề trùng; axe 0 lỗi trên trang Thương hiệu, trang hãng mới, trang chủ.

@@ -46,8 +46,8 @@ export default async function HomePage() {
   const catCount = countByCategory(tree, pairs);
   const shopBrands = featuredBrands(brands).filter((b) => (brandCount.get(b.slug) ?? 0) > 0);
   const shopGroups = nonEmptyTree(tree, catCount);
-  // Brands without products are hidden (they come back as soon as a product is added).
-  const otherBrands = brands.filter((b) => (brandCount.get(b.slug) ?? 0) > 0 && !shopBrands.some((x) => x.slug === b.slug));
+  // Every other brand Đạt Danh supplies (with or without products on the website yet).
+  const otherBrands = brands.filter((b) => !shopBrands.some((x) => x.slug === b.slug));
 
   // Featured products, with one tab per group that has any (featured first, then newest).
   const groupOf = new Map<string, string>();
