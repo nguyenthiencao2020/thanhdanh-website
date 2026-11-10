@@ -68,7 +68,8 @@ Danh sách những nội dung trên website hiện đang là **tạm / giả đ�
 |---|---|---|---|---|
 | [x] | 🔴 | **Danh sách hãng** | ✅ 62 hãng (60 logo từ file Excel + Mitsubishi logo cũ; CHINT chưa có logo) | Xác nhận công ty cung cấp hàng các hãng này |
 | [ ] | 🟡 | **Logo IDEC, CHINT** | Đang hiện bằng chữ (logo IDEC trong file dính khung chọn) | Logo PNG/SVG nền trong suốt |
-| [ ] | 🟢 | **Giấy chứng nhận đại lý** | Chưa có | Nếu là đại lý/nhà phân phối chính thức → đưa lên website |
+| [ ] | 🟡 | **CO, CQ / giấy ủy quyền hãng** — *đang chờ Đạt Danh trả lời (10/11/2026)* | Chưa có | Nếu có: ảnh/PDF giấy ủy quyền, chứng nhận đại lý; xác nhận có cung cấp CO, CQ → hiện ở trang sản phẩm, trang hãng, Giới thiệu |
+| [ ] | 🟡 | **Catalogue / hướng dẫn PDF** — *đang chờ Đạt Danh trả lời (10/11/2026)* | Chưa có | File PDF theo hãng / dòng hàng → mục “Tài liệu” trên trang sản phẩm |
 
 ## 5. Trang chủ & trang Giới thiệu
 
