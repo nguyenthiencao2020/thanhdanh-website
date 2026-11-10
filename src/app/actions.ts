@@ -7,6 +7,14 @@ export type QuoteState = { ok: boolean; message: string } | null;
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
+const PHOTO_TYPES: Record<string, string> = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp" };
+const MAX_PHOTOS = 3;
+const MAX_PHOTO_BYTES = 3 * 1024 * 1024;
+
+/** Missing column / table (migration not run yet). */
+const isMissingSchema = (error: { code?: string } | null) =>
+  Boolean(error && ["42P01", "42703", "PGRST205", "PGRST204"].includes(error.code ?? ""));
+
 const field = (form: FormData, key: string, max: number) => {
   const v = String(form.get(key) ?? "").trim();
   return v ? v.slice(0, max) : null;
@@ -31,9 +39,36 @@ export async function submitInquiry(_prev: QuoteState, form: FormData): Promise<
     return { ok: false, message: "Hệ thống nhận yêu cầu đang được cài đặt. Vui lòng gọi hotline để được hỗ trợ ngay." };
   }
 
-  const { error } = await createPublicClient()
+  // Nameplate photos (already shrunk in the browser). Private bucket `yeu-cau`, migration 0012.
+  const photos = form
+    .getAll("photos")
+    .filter((f): f is File => f instanceof File && f.size > 0)
+    .slice(0, MAX_PHOTOS);
+  if (photos.some((f) => !PHOTO_TYPES[f.type])) return { ok: false, message: "Chỉ nhận ảnh JPG, PNG hoặc WEBP." };
+  if (photos.some((f) => f.size > MAX_PHOTO_BYTES)) return { ok: false, message: "Ảnh quá lớn (tối đa 3 MB mỗi ảnh)." };
+
+  const supabase = createPublicClient({ cache: false });
+  const month = new Date().toISOString().slice(0, 7);
+  const attachments: string[] = [];
+  for (const photo of photos) {
+    const path = `inbox/${month}/${crypto.randomUUID()}.${PHOTO_TYPES[photo.type]}`;
+    const { error } = await supabase.storage.from("yeu-cau").upload(path, await photo.arrayBuffer(), { contentType: photo.type, upsert: false });
+    if (error) console.error("submitInquiry upload", error.message);
+    else attachments.push(path);
+  }
+  const lost = photos.length - attachments.length;
+  const note = (n: number) => `\n\n[Khách có gửi ${n} ảnh tem nhãn nhưng hệ thống chưa lưu được — liên hệ khách xin ảnh qua Zalo]`;
+  const row = { name, phone, email, company, product_id: productId && UUID.test(productId) ? productId : null };
+
+  let { error } = await supabase
     .from("inquiries")
-    .insert({ name, phone, email, company, message, product_id: productId && UUID.test(productId) ? productId : null });
+    .insert({ ...row, message: lost ? `${message ?? ""}${note(lost)}`.slice(0, 4000) : message, attachments });
+  // Before migration 0012 there is no `attachments` column: keep the text, note the photos.
+  if (error && isMissingSchema(error)) {
+    ({ error } = await supabase
+      .from("inquiries")
+      .insert({ ...row, message: photos.length ? `${message ?? ""}${note(photos.length)}`.slice(0, 4000) : message }));
+  }
 
   if (error) {
     console.error("submitInquiry", error.message);

@@ -58,5 +58,10 @@ export function searchLines(q: string, brandName: (slug: string) => string) {
   return LINES.filter((l) => foldAccents([l.name, l.series.join(" "), brandName(l.brand)].join(" ")).includes(needle));
 }
 
+/** The product line a product belongs to (by product slug), if any. */
+export function lineOfProduct(productSlug: string): ProductLine | undefined {
+  return LINES.find((l) => l.products.includes(productSlug));
+}
+
 export const lineHref = (l: Pick<ProductLine, "brand" | "slug">) => `/thuong-hieu/${l.brand}/${l.slug}`;
 export const brandHref = (slug: string) => `/thuong-hieu/${slug}`;

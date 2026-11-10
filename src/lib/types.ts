@@ -112,6 +112,8 @@ export type Inquiry = {
   company: string | null;
   message: string | null;
   product_id: string | null;
+  /** Nameplate photo paths in the private `yeu-cau` bucket (migration 0012). */
+  attachments?: string[] | null;
   handled: boolean;
   created_at: string;
 };

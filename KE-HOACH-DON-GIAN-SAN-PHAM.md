@@ -192,3 +192,19 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 ### Việc tiếp theo
 - [ ] Dán link bản đồ vào Admin → Cài đặt (xem trên) và xem lại trang Liên hệ.
 - [ ] Đạt Danh chốt `tai-lieu/Dong-hang-theo-hang-NHAP.xlsx` → bước 4b: bảng dòng hàng + Admin “Dòng hàng”, link sản phẩm cũ về dòng hàng, menu header theo hãng → dòng.
+
+---
+
+## Bước 2–3 theo tư vấn (10/11/2026) — đã duyệt, đưa lên main (cần chạy migration 0012)
+
+**Quay lại:** mốc trước khi làm là commit `1d33f80e95fffb8e5c7b08e250acd767add5348d` trên `main` (PR #44).
+
+### Bước 2 — Nối dòng hàng ↔ sản phẩm, tìm không ra vẫn báo giá được
+- Trang dòng hàng: thêm khối **“Sản phẩm trong dòng này”** (thẻ các sản phẩm cũ thuộc dòng) — 123 trang sản phẩm không còn bị tách rời.
+- Trang sản phẩm: thêm link **“Thuộc dòng hàng: Hãng – Dòng →”**.
+- Tìm kiếm `/san-pham?q=`: hiện cả dòng hàng **và** sản phẩm khớp (tên, mã, mô tả). Không có kết quả → hiện ngay **form báo giá điền sẵn mã vừa gõ**.
+
+### Bước 3 — Gửi ảnh tem nhãn trong form báo giá
+- Form báo giá (mọi trang): nút **“Thêm ảnh tem nhãn”**, tối đa 3 ảnh; ảnh được thu nhỏ trên máy khách (~1600px) trước khi gửi.
+- Ảnh lưu ở bucket riêng tư `yeu-cau` (không ai xem được bằng link công khai); Admin → Yêu cầu báo giá hiện ảnh thu nhỏ, bấm xem lớn. Xóa yêu cầu thì xóa luôn ảnh.
+- Cần chạy migration **`0012_anh-tem-nhan.sql`**. Chưa chạy thì form vẫn gửi được chữ như cũ (ghi chú “khách có gửi ảnh nhưng chưa lưu được”).

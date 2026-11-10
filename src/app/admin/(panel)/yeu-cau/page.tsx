@@ -15,6 +15,13 @@ export default async function InquiriesPage() {
     .order("created_at", { ascending: false })
     .limit(200);
   const rows = (data ?? []) as Row[];
+  // Private bucket: short-lived links to the nameplate photos.
+  const paths = rows.flatMap((r) => r.attachments ?? []);
+  const signed = new Map<string, string>();
+  if (paths.length) {
+    const { data: links } = await supabase.storage.from("yeu-cau").createSignedUrls(paths, 3600);
+    for (const l of links ?? []) if (l.path && l.signedUrl) signed.set(l.path, l.signedUrl);
+  }
   const fmt = new Intl.DateTimeFormat("vi-VN", { dateStyle: "short", timeStyle: "short", timeZone: "Asia/Ho_Chi_Minh" });
 
   return (
@@ -45,6 +52,23 @@ export default async function InquiriesPage() {
               </p>
             )}
             {r.message && <p className="mt-2 text-sm whitespace-pre-line text-slate-700">{r.message}</p>}
+            {(r.attachments?.length ?? 0) > 0 && (
+              <div className="mt-3">
+                <p className="text-xs font-semibold text-slate-500 uppercase">Ảnh tem nhãn ({r.attachments!.length})</p>
+                <div className="mt-1.5 flex flex-wrap gap-2">
+                  {r.attachments!.map((p, i) =>
+                    signed.get(p) ? (
+                      <a key={p} href={signed.get(p)} target="_blank" rel="noopener noreferrer" className="block h-24 w-24 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 hover:ring-2 hover:ring-brand-500">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={signed.get(p)} alt={`Ảnh ${i + 1}`} className="h-full w-full object-cover" />
+                      </a>
+                    ) : (
+                      <span key={p} className="flex h-24 w-24 items-center justify-center rounded-lg border border-dashed border-slate-300 text-center text-xs text-slate-400">Ảnh {i + 1} không mở được</span>
+                    ),
+                  )}
+                </div>
+              </div>
+            )}
             <div className="mt-4 flex items-center gap-4">
               <form action={toggleInquiry}>
                 <input type="hidden" name="id" value={r.id} />

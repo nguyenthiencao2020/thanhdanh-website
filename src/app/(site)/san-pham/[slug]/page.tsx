@@ -10,6 +10,7 @@ import { RichText } from "@/components/RichText";
 import { Tabs } from "@/components/Tabs";
 import { getCategories, getProduct, getProducts, getSettings } from "@/lib/data";
 import { phoneDigits, siteUrl } from "@/lib/utils";
+import { lineHref, lineOfProduct } from "@/lib/lines";
 
 type Params = Promise<{ slug: string }>;
 
@@ -46,6 +47,7 @@ export default async function ProductPage({ params }: { params: Params }) {
   const { slug } = await params;
   const [product, settings, categories] = await Promise.all([getProduct(slug), getSettings(), getCategories()]);
   if (!product) notFound();
+  const line = lineOfProduct(product.slug);
   const cat = categories.find((c) => c.slug === product.category?.slug);
   const parentCat = cat?.parent_id ? categories.find((c) => c.id === cat.parent_id) : undefined;
 
@@ -150,6 +152,12 @@ export default async function ProductPage({ params }: { params: Params }) {
               </Link>
             )}
             <h1 className="mt-3 text-2xl font-extrabold tracking-tight text-steel-900 sm:text-3xl">{product.name}</h1>
+            {line && (
+              <Link href={lineHref(line)} className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-steel-600 hover:text-brand-600">
+                Thuộc dòng hàng: {line.brand === "hang-thong-dung" ? line.name : `${product.brand?.name ?? ""} – ${line.name}`}
+                <Icon name="arrow" className="h-4 w-4" />
+              </Link>
+            )}
             <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
               {product.sku && (
                 <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-slate-600">
