@@ -264,7 +264,7 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 
 ---
 
-## Sửa giao diện theo UI review (10/11/2026) — đã sửa, chờ duyệt
+## Sửa giao diện theo UI review (10/11/2026) — đã duyệt, đưa lên main
 
 **Quay lại:** mốc trước khi sửa là commit `602f1b77c381ca00015d3ac8ea4f51dfc1acc19a` trên `main` (PR #52).
 
