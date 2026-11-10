@@ -234,3 +234,30 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 - [ ] Đạt Danh điền `tai-lieu/San-pham-dien-ma-Dat-Danh.xlsx` → em đưa mã lên web (tìm theo mã).
 - [ ] Bước 4b: bảng dòng hàng + Admin “Dòng hàng”, menu header theo hãng → dòng.
 - [ ] Google Search Console + gửi sitemap — **để sau** (anh/chị làm khi tiện).
+
+### QA toàn diện lần 2 + font (10/11/2026)
+
+| PR | Việc | Merge | Mốc trước |
+|---|---|---|---|
+| #49 | Cập nhật .md (nhật ký #45–#48), README thêm migration 0012 | `07a5293` | `f9a01fa` |
+| #51 | Font: bỏ `font-black` (độ đậm 900 không tải → đậm giả, nhòe trên Windows) ở số liệu trang chủ và số thứ tự trang Dịch vụ. (#50 tự đóng do lỗi kết nối khi gộp, thay bằng #51.) | `87d63d1` | `07a5293` |
+
+**Database:** anh/chị xác nhận đã chạy `0012` (Success) trên đúng project.
+
+**QA toàn diện lần 2 (trên bản main `07a5293`):**
+- Quét link không giới hạn: 376 trang duy nhất, 0 link hỏng; 256 URL sitemap đều 200, 0 tiêu đề trùng, 0 trang thiếu mô tả.
+- 17 loại trang × máy tính + điện thoại: 0 lỗi JS, `lang="vi"`, ảnh đều có alt, nút/ô nhập đều có nhãn, link gọi điện / Zalo đúng định dạng; dung lượng 0,2–1 MB (trang Sản phẩm ~1,3 MB do ~50 ảnh dòng hàng thu nhỏ — có thể tối ưu sau).
+- Admin: 14 trang × 2 cỡ màn hình; mọi trang `/admin/*` khi chưa đăng nhập → trang đăng nhập; 17/17 thao tác ghi đều gọi `requireAdmin`.
+- Form báo giá 12/12 tình huống; gửi kèm ảnh → Admin hiện ảnh → xóa yêu cầu xóa luôn ảnh.
+
+**Font trên Windows 10 (anh/chị báo lỗi):**
+- Đã kiểm tra: Be Vietnam Pro có subset tiếng Việt cho cả 5 độ đậm (400–800); dữ liệu không có chữ dựng sẵn (NFD) gây lệch dấu.
+- Đã sửa: độ đậm 900 (PR #51).
+- **Chờ ảnh chụp** chỗ lỗi + tên trang + trình duyệt để xác định nếu vẫn còn.
+
+**Việc tiếp theo:**
+- [ ] Ảnh chụp lỗi font trên Windows 10 (nếu còn).
+- [ ] Thử gửi báo giá kèm ảnh trên web thật → xem trong Admin.
+- [ ] Đạt Danh điền `tai-lieu/San-pham-dien-ma-Dat-Danh.xlsx` → đưa mã lên web.
+- [ ] Bước 4b: dòng hàng quản lý trong Admin.
+- [ ] Google Search Console — để sau.
