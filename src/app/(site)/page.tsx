@@ -209,7 +209,7 @@ export default async function HomePage() {
                   .map((x) => (
                     <div key={x.label} className="relative flex flex-col-reverse text-center">
                       <dt className="mt-0.5 text-xs text-white/80 sm:text-sm">{x.label}</dt>
-                      <dd className="text-3xl font-black sm:text-4xl">
+                      <dd className="text-3xl font-extrabold sm:text-4xl">
                         <CountUp value={x.value} suffix={x.suffix} />
                       </dd>
                     </div>
