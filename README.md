@@ -110,7 +110,12 @@ Supabase gói Free tự **pause** project nếu 7 ngày không có hoạt độn
 Mỗi yêu cầu báo giá (mọi form trên web) được lưu trong Admin **và** gửi email về Đạt Danh: thông tin khách, nội dung, trang khách đang xem, ảnh tem nhãn đính kèm, nút mở Admin. Chưa cài thì web vẫn chạy, chỉ không gửi email.
 
 1. Tạo tài khoản https://resend.com (miễn phí ~3.000 email/tháng).
-2. **Domains → Add domain** → `thietbinhamay-dd.com` → thêm các bản ghi DNS Resend đưa ra (TXT/MX/CNAME) ở nơi quản lý tên miền → chờ **Verified**.
+2. **Domains → Add domain** → `thietbinhamay-dd.com` → thêm các bản ghi DNS Resend đưa ra ở nơi quản lý tên miền → chờ **Verified**.
+   DNS của Đạt Danh ở **Cloudflare**: Cloudflare → `thietbinhamay-dd.com` → **DNS → Records → Add record**, chép đúng từng dòng của Resend:
+   - Ô **Name** chỉ ghi phần trước tên miền (`resend._domainkey`, `send`, `_dmarc`) — Cloudflare tự thêm `.thietbinhamay-dd.com`.
+   - Bản ghi TXT dán nguyên giá trị; bản ghi MX nhớ ô **Priority** (thường `10`).
+   - Nếu có ô Proxy: chọn **DNS only** (mây xám).
+   - **Không sửa / xóa** các bản ghi MX, TXT đang có ở tên miền gốc — đó là của hộp thư công ty đang dùng. Bản ghi của Resend nằm ở `send.` và `resend._domainkey` nên không đụng nhau.
 3. **API Keys → Create** (quyền *Sending access*) → sao chép key `re_…`.
 4. Vercel → Project → Settings → Environment Variables (Production):
 
