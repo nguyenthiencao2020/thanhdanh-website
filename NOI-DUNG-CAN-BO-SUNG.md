@@ -94,7 +94,7 @@ Danh sách những nội dung trên website hiện đang là **tạm / giả đ�
 
 | Xong | Ưu tiên | Nội dung | Ghi chú |
 |---|---|---|---|
-| [ ] | 🔴 | **Thông báo khi có yêu cầu báo giá** | Code gửi email đã lên web (PR #58); Resend đã xác minh `thongbao.thietbinhamay-dd.com` (10/11/2026) | Còn: tạo API key → thêm 4 biến trên Vercel (README mục 5) → Redeploy → gửi thử |
+| [x] | 🔴 | ~~**Thông báo khi có yêu cầu báo giá**~~ | **Đã chạy (10/11/2026):** email từ `baogia@thongbao.thietbinhamay-dd.com` vào hộp thư chính `phuong.le@` | Kiểm tra thêm hộp thư `sales@` |
 | [ ] | 🟡 | **Nhập sản phẩm hàng loạt từ Excel** | Gửi file Excel (Tên · Mã · Hãng · Danh mục · Mô tả · Giá · Ảnh) → tạo lệnh SQL nhập một lần |
 | [ ] | 🟢 | **Khách hàng / dự án tiêu biểu** | Logo hoặc tên nhà máy đã cung cấp (cần đồng ý của khách) |
 | [ ] | 🟢 | **Catalogue / bảng giá PDF** | File tải về cho khách |
