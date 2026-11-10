@@ -286,7 +286,8 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 
 ### Trang sản phẩm — so với cách làm phổ biến (10/11/2026)
 
-- **Quyết định:** web là trang giới thiệu + nhận báo giá, **không phải bán hàng trực tuyến** → không làm ô số lượng / giỏ báo giá; khách ghi số lượng trong ô ghi chú.
+- **Định hướng của Đạt Danh:** web dùng để **giới thiệu sản phẩm là chính**; báo giá / liên hệ là phụ. **Không phải bán hàng trực tuyến** → không làm ô số lượng, giỏ báo giá, nút mua; khách ghi số lượng trong ô ghi chú nếu cần.
+- Vì vậy ưu tiên **nội dung giới thiệu** (hình ảnh, mô tả, thông số, tài liệu, chứng từ) hơn các tính năng thúc đẩy đặt hàng; nút báo giá giữ ở mức vừa phải.
 - **Đề xuất — tạm ghi lại, chưa làm (10/11/2026):**
 
   | # | Việc | Khách được gì | Cần gì | Trạng thái |
