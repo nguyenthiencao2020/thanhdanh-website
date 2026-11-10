@@ -277,7 +277,12 @@ export async function toggleInquiry(form: FormData) {
 
 export async function deleteInquiry(form: FormData) {
   const { supabase } = await requireAdmin();
-  await supabase.from("inquiries").delete().eq("id", String(form.get("id")));
+  const id = String(form.get("id"));
+  // Remove the nameplate photos too (column exists after migration 0012).
+  const { data } = await supabase.from("inquiries").select("attachments").eq("id", id).maybeSingle();
+  const files = (data as { attachments?: string[] | null } | null)?.attachments ?? [];
+  if (files.length) await supabase.storage.from("yeu-cau").remove(files);
+  await supabase.from("inquiries").delete().eq("id", id);
   revalidatePath("/admin", "layout");
 }
 

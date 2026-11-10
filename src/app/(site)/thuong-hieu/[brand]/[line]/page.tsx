@@ -4,8 +4,9 @@ import { notFound } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Icon } from "@/components/Icon";
 import { LinesShell } from "@/components/LinesShell";
+import { ProductCard } from "@/components/ProductCard";
 import { QuoteForm } from "@/components/QuoteForm";
-import { getSettings } from "@/lib/data";
+import { getProducts, getSettings } from "@/lib/data";
 import { getBrandsWithLines, lineHref } from "@/lib/lines";
 import { phoneDigits } from "@/lib/utils";
 
@@ -35,12 +36,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 export default async function LinePage({ params }: { params: Params }) {
   const { brand, line } = await params;
-  const [f, settings] = await Promise.all([find(brand, line), getSettings()]);
+  const [f, settings, allProducts] = await Promise.all([find(brand, line), getSettings(), getProducts()]);
   if (!f) notFound();
   const { b, l } = f;
   const generic = b.brand.slug === "hang-thong-dung";
   const label = generic ? l.name : `${b.brand.name} – ${l.name}`;
   const others = b.lines.filter((x) => x.slug !== l.slug);
+  const bySlug = new Map(allProducts.map((p) => [p.slug, p]));
+  const products = l.products.map((slug) => bySlug.get(slug)).filter((p) => p !== undefined);
 
   return (
     <LinesShell
@@ -85,9 +88,22 @@ export default async function LinePage({ params }: { params: Params }) {
         </div>
       </article>
 
+      {products.length > 0 && (
+        <section className="mt-6">
+          <h2 className="text-lg font-bold text-steel-900">
+            Sản phẩm trong dòng này <span className="font-semibold text-slate-400">({products.length})</span>
+          </h2>
+          <div className="mt-3 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
+            {products.map((p) => (
+              <ProductCard key={p.id} product={p} hideBadge />
+            ))}
+          </div>
+        </section>
+      )}
+
       <section id="bao-gia" className="mt-6 scroll-mt-28 rounded-3xl border border-slate-200 bg-white p-5 sm:p-7">
         <h2 className="text-lg font-bold text-steel-900">Yêu cầu báo giá {label}</h2>
-        <p className="mt-1 text-sm text-slate-500">Ghi mã hàng (model), số lượng hoặc gửi ảnh tem nhãn qua Zalo — chúng tôi phản hồi nhanh trong giờ làm việc.</p>
+        <p className="mt-1 text-sm text-slate-500">Ghi mã hàng (model), số lượng — có thể đính kèm ảnh tem nhãn ngay bên dưới. Chúng tôi phản hồi nhanh trong giờ làm việc.</p>
         <QuoteForm productName={label} compact />
       </section>
 

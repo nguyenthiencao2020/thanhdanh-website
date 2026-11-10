@@ -4,6 +4,9 @@ import { redirect } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
 import { LineCard } from "@/components/LineCard";
 import { LinesShell } from "@/components/LinesShell";
+import { ProductCard } from "@/components/ProductCard";
+import { QuoteForm } from "@/components/QuoteForm";
+import { getProductsPage } from "@/lib/data";
 import { getBrandsWithLines, lineHref, searchLines } from "@/lib/lines";
 
 export const metadata: Metadata = { title: "Sản phẩm" };
@@ -24,22 +27,45 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
   const q = one(sp.q)?.trim();
   if (q) {
     const name = (slug: string) => brands.find((b) => b.brand.slug === slug)?.brand.name ?? "";
-    const found = searchLines(q, name);
+    const [found, products] = [searchLines(q, name), await getProductsPage({ q, pageSize: 24 })];
+    const none = !found.length && !products.total;
     return (
-      <LinesShell q={q} crumbs={[{ href: "/san-pham", label: "Sản phẩm" }, { label: "Tìm kiếm" }]} lead="Kết quả cho" accent={`“${q}”`} description={`${found.length} dòng hàng phù hợp.`}>
-        {found.length ? (
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
-            {found.map((l) => (
-              <LineCard key={`${l.brand}-${l.slug}`} href={lineHref(l)} brandName={name(l.brand)} name={l.name} series={l.series} image={l.image_url} />
-            ))}
-          </div>
-        ) : (
-          <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center">
-            <p className="font-semibold text-slate-700">Chưa thấy “{q}” trên website.</p>
-            <p className="mt-1 text-sm text-slate-500">Chúng tôi cung cấp nhiều mã chưa đăng — gửi mã hàng để được báo giá ngay.</p>
-            <Link href="/lien-he" className="btn-primary mt-5">Gửi mã cần báo giá</Link>
-          </div>
+      <LinesShell
+        q={q}
+        crumbs={[{ href: "/san-pham", label: "Sản phẩm" }, { label: "Tìm kiếm" }]}
+        lead="Kết quả cho"
+        accent={`“${q}”`}
+        description={none ? "Chưa có trên website — gửi mã để được báo giá ngay." : `${found.length} dòng hàng · ${products.total} sản phẩm phù hợp.`}
+      >
+        {found.length > 0 && (
+          <section>
+            <h2 className="text-lg font-bold text-steel-900">Dòng hàng <span className="font-semibold text-slate-400">({found.length})</span></h2>
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
+              {found.map((l) => (
+                <LineCard key={`${l.brand}-${l.slug}`} href={lineHref(l)} brandName={name(l.brand)} name={l.name} series={l.series} image={l.image_url} />
+              ))}
+            </div>
+          </section>
         )}
+        {products.total > 0 && (
+          <section className={found.length ? "mt-8" : ""}>
+            <h2 className="text-lg font-bold text-steel-900">Sản phẩm <span className="font-semibold text-slate-400">({products.total})</span></h2>
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
+              {products.items.map((p) => (
+                <ProductCard key={p.id} product={p} hideBadge />
+              ))}
+            </div>
+          </section>
+        )}
+        <section id="bao-gia" className={`scroll-mt-28 rounded-3xl border bg-white p-5 sm:p-7 ${none ? "border-brand-200 ring-4 ring-brand-50" : "mt-8 border-slate-200"}`}>
+          <h2 className="text-lg font-bold text-steel-900">
+            {none ? <>Chưa thấy “{q}” trên website — gửi mã này để báo giá</> : <>Không thấy đúng mã cần? Gửi yêu cầu báo giá</>}
+          </h2>
+          <p className="mt-1 text-sm text-slate-500">
+            Chúng tôi cung cấp nhiều mã chưa đăng lên web. Ghi số lượng, có thể kèm ảnh tem nhãn — phản hồi nhanh trong giờ làm việc.
+          </p>
+          <QuoteForm compact defaultMessage={`Mã cần báo giá: ${q}\nSố lượng: `} />
+        </section>
       </LinesShell>
     );
   }
