@@ -208,3 +208,29 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 - Form báo giá (mọi trang): nút **“Thêm ảnh tem nhãn”**, tối đa 3 ảnh; ảnh được thu nhỏ trên máy khách (~1600px) trước khi gửi.
 - Ảnh lưu ở bucket riêng tư `yeu-cau` (không ai xem được bằng link công khai); Admin → Yêu cầu báo giá hiện ảnh thu nhỏ, bấm xem lớn. Xóa yêu cầu thì xóa luôn ảnh.
 - Cần chạy migration **`0012_anh-tem-nhan.sql`**. Chưa chạy thì form vẫn gửi được chữ như cũ (ghi chú “khách có gửi ảnh nhưng chưa lưu được”).
+
+### Nhật ký sau bước 2–3 (10/11/2026)
+
+| PR | Việc | Merge | Mốc trước |
+|---|---|---|---|
+| #45 | **Bước 2–3**: dòng hàng ↔ sản phẩm (khối “Sản phẩm trong dòng này”, link “Thuộc dòng hàng”), tìm kiếm có cả dòng + sản phẩm, tìm không ra → form điền sẵn mã; **gửi ảnh tem nhãn** (tối đa 3, thu nhỏ trên máy khách, bucket riêng tư `yeu-cau`), Admin xem/xóa ảnh | `c4a6aaa` | `1d33f80` |
+| #46 | Migration `0012` tự tạo bảng `inquiries` nếu thiếu (khi chạy nhầm project) | `497e59e` | `c4a6aaa` |
+| #47 | **QA logic**: trang hãng không 404 khi có sản phẩm mới ngoài dòng hàng (“Sản phẩm khác của hãng”); form báo giá giữ nội dung khi báo lỗi; ô tìm kiếm đầu trang (`/tim-kiem`) có dòng hàng + form điền sẵn mã; “aptomat” ra dòng MCB/MCCB; bỏ 10 tiêu đề trùng, thêm mô tả cho 34 danh mục | `669b0c1` | `497e59e` |
+| #48 | Bản production luôn dùng tên miền `https://www.thietbinhamay-dd.com` (dự phòng khi thiếu `NEXT_PUBLIC_SITE_URL`) | `f9a01fa` | `669b0c1` |
+
+**Database:** đã chạy `0012_anh-tem-nhan.sql` trên đúng project (Success). **Vercel:** đã thêm `NEXT_PUBLIC_SITE_URL`, sitemap thật ra đúng tên miền.
+
+**QA sau PR #47–#48:**
+- Dữ liệu: 123/123 sản phẩm thuộc đúng 1 dòng hàng, không trùng / thiếu.
+- Form báo giá 12/12 tình huống (SĐT sai giữ nội dung, file không phải ảnh bị từ chối, tối đa 3 ảnh, bỏ ảnh, gửi kèm ảnh ~370 KB, form tìm không ra điền sẵn mã, form sản phẩm gắn `product_id`, chặn bot, mobile không tràn).
+- Hãng mới / sản phẩm mới thêm từ Admin: trang hãng hiện đúng, không lẫn hãng khác.
+- Admin 14 trang × 2 cỡ màn hình; `/admin` chưa đăng nhập → trang đăng nhập.
+- 601 trang công khai + 71 trang hãng/dòng: 0 lỗi; 256 URL sitemap đều 200, 0 tiêu đề trùng, 0 trang thiếu mô tả.
+
+**Giới hạn hiện tại:** danh sách dòng hàng vẫn nằm trong `src/data/product-lines.json` (chưa sửa trong Admin); sản phẩm mới thêm qua Admin hiện ở “Sản phẩm khác của hãng” cho tới bước 4b.
+
+**Việc tiếp theo:**
+- [ ] Anh/chị thử gửi báo giá kèm ảnh trên web thật → xem trong Admin.
+- [ ] Đạt Danh điền `tai-lieu/San-pham-dien-ma-Dat-Danh.xlsx` → em đưa mã lên web (tìm theo mã).
+- [ ] Bước 4b: bảng dòng hàng + Admin “Dòng hàng”, menu header theo hãng → dòng.
+- [ ] Google Search Console + gửi sitemap — **để sau** (anh/chị làm khi tiện).

@@ -46,6 +46,7 @@ Trang công khai được cache (ISR, 1 giờ — tiết kiệm CPU Vercel gói 
    - `supabase/migrations/0009_sua-chu-hoa-mo-ta.sql` (sửa chữ “PLC”, “CB” trong mô tả)
    - `supabase/migrations/0010_tim-kiem-khong-dau.sql` (tìm kiếm có dấu/không dấu; bỏ “nổi bật” cho sản phẩm còn ảnh vẽ)
    - `supabase/migrations/0011_hang-chu-luc.sql` (ô “Thương hiệu tiêu biểu” trong Admin → Thương hiệu; mặc định 8 hãng)
+   - `supabase/migrations/0012_anh-tem-nhan.sql` (khách gửi ảnh tem nhãn kèm yêu cầu báo giá — bucket riêng tư `yeu-cau`, chỉ admin xem)
 
    > Cài mới: chạy `0001` → … → `0011` theo thứ tự, rồi `seed.sql`.
    > Trang thật đã chạy `0008` (đã kiểm tra: 62 thương hiệu / 123 sản phẩm), `0010` và `0011`. Chạy `0009` nếu chưa chạy.
