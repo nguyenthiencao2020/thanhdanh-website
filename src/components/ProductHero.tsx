@@ -63,9 +63,10 @@ export function ProductHero({
           {children}
         </div>
 
-        <ul className="mt-7 grid max-w-3xl grid-cols-2 gap-x-4 gap-y-3 sm:flex sm:flex-wrap sm:items-center sm:gap-0">
+        {/* Phones: hidden (content first). Tablets: 2 × 2. Desktop: one row with dividers. */}
+        <ul className="mt-7 hidden max-w-3xl grid-cols-2 gap-x-6 gap-y-3 sm:grid lg:flex lg:flex-wrap lg:items-center lg:gap-0">
           {PROMISES.map((p, i) => (
-            <li key={p.title} className={`flex items-center gap-2.5 text-sm font-medium text-white/90 ${i ? "sm:border-l sm:border-white/30 sm:pl-5" : ""} sm:pr-5`}>
+            <li key={p.title} className={`flex items-center gap-2.5 text-sm font-medium text-white/90 ${i ? "lg:border-l lg:border-white/30 lg:pl-5" : ""} lg:pr-5`}>
               <Icon name={p.icon} className="h-6 w-6 shrink-0 text-teal-300 sm:h-7 sm:w-7" />
               {p.title}
             </li>

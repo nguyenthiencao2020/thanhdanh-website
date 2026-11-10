@@ -104,7 +104,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                 </>
               )}
               <div
-                className={`grid items-center gap-10 ${boxed ? "px-6 py-12 sm:px-10 lg:py-14" : "container-page py-14 pb-16 lg:py-14 xl:py-16 [@media(min-height:900px)]:lg:py-20"} ${
+                className={`grid items-center gap-10 ${boxed ? "px-6 py-12 sm:px-10 lg:py-14" : "container-page pt-14 pb-28 sm:pb-16 lg:py-14 xl:py-16 [@media(min-height:900px)]:lg:py-20"} ${
                   b.image_url ? "" : boxed ? "xl:grid-cols-[1.1fr_1fr]" : "lg:grid-cols-[1.05fr_1fr]"
                 }`}
               >
@@ -144,17 +144,17 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                       </a>
                     )}
                   </div>
-                  <dl className="mt-8 hidden max-w-xl grid-cols-3 sm:grid">
+                  <div className="mt-8 hidden max-w-xl grid-cols-3 sm:grid">
                     {stats.map((st, k) => (
                       <div key={st.label} className={`flex items-center gap-2.5 xl:gap-3 ${k ? "border-l border-white/40 pl-4 xl:pl-7" : ""}`}>
                         <Icon name={STAT_ICONS[k] ?? "check"} className="h-7 w-7 shrink-0 text-white/90 xl:h-8 xl:w-8" />
                         <div className="flex flex-col-reverse">
-                          <dt className="text-xs whitespace-nowrap text-white/80 xl:text-sm">{st.label}</dt>
-                          <dd className="text-2xl font-extrabold whitespace-nowrap text-white sm:text-3xl">{st.value}</dd>
+                          <p className="text-xs whitespace-nowrap text-white/80 xl:text-sm">{st.label}</p>
+                          <p className="text-2xl font-extrabold whitespace-nowrap text-white sm:text-3xl">{st.value}</p>
                         </div>
                       </div>
                     ))}
-                  </dl>
+                  </div>
                 </div>
 
                 {!b.image_url && collage.length > 0 && (
@@ -204,7 +204,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
 
       {count > 1 && (
         <>
-          <div className="absolute bottom-14 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 sm:bottom-16">
+          <div className="absolute bottom-12 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1 sm:bottom-14">
             {banners.map((b, i) => (
               <button
                 key={b.id}
@@ -212,7 +212,7 @@ export function HeroSlider({ banners, tagline, phone, phoneHref, stats, boxed }:
                 onClick={() => go(i)}
                 aria-label={`Slide ${i + 1}`}
                 aria-current={i === active}
-                className="group/dot flex h-8 items-center px-1"
+                className="group/dot flex h-11 min-w-11 items-center justify-center px-1"
               >
                 <span className={`block h-2.5 rounded-full transition-all ${i === active ? "w-8 bg-brand-600" : "w-2.5 bg-white/40 group-hover/dot:bg-white/70"}`} />
               </button>

@@ -166,7 +166,7 @@ export default async function ProductPage({ params }: { params: Params }) {
               )}
               <span className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 font-semibold ${inStock ? "bg-green-50 text-green-700" : "bg-amber-50 text-amber-700"}`}>
                 <span className={`h-2 w-2 rounded-full ${inStock ? "bg-green-500" : "bg-amber-500"}`} />
-                {inStock ? "Còn hàng" : "Đặt hàng"}
+                {inStock ? "Có sẵn / đặt hàng nhanh" : "Đặt hàng"}
               </span>
             </div>
             <p className="mt-5 text-3xl font-extrabold text-brand-600">{product.price || "Liên hệ báo giá"}</p>

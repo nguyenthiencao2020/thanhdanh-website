@@ -261,3 +261,25 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 - [ ] Đạt Danh điền `tai-lieu/San-pham-dien-ma-Dat-Danh.xlsx` → đưa mã lên web.
 - [ ] Bước 4b: dòng hàng quản lý trong Admin.
 - [ ] Google Search Console — để sau.
+
+---
+
+## Sửa giao diện theo UI review (10/11/2026) — đã duyệt, đưa lên main
+
+**Quay lại:** mốc trước khi sửa là commit `602f1b77c381ca00015d3ac8ea4f51dfc1acc19a` trên `main` (PR #52).
+
+1. Trang chủ điện thoại: chấm chuyển slide đè nút gọi → dời xuống dưới hàng nút.
+2. Chữ xám nhạt (tương phản 2,6:1) → xám đậm hơn một bậc.
+3. Nhãn “Zalo” chữ trắng trên xanh nhạt, 8–9px → xanh đậm hơn, chữ to hơn.
+4. “Còn hàng” hiện ở mọi sản phẩm → đổi thành “Có sẵn / đặt hàng nhanh” (phương án c).
+5. Chữ gợi ý ô tìm kiếm bị cắt trên điện thoại → rút gọn.
+6. Hàng 4 cam kết ở đầu trang sản phẩm: ẩn trên điện thoại.
+7. Tablet: hàng cam kết xếp 2 × 2 tới màn máy tính.
+8. Thêm link “Bỏ qua tới nội dung” cho người dùng bàn phím.
+9. Sửa cấu trúc số liệu hero trang chủ (đọc màn hình).
+10. Chấm chuyển slide: vùng bấm 44px.
+11. Trang dòng hàng: bớt lặp tên hãng.
+12. Trang Sản phẩm: ảnh nhỏ cho danh sách dòng hàng (giảm dung lượng).
+13. Số trang trí trang Dịch vụ: ẩn với phần mềm đọc màn hình.
+
+**Kết quả kiểm tra sau khi sửa:** kiểm tra tự động (axe, chuẩn WCAG 2 AA) 11 trang × 2 cỡ màn hình: 56 lỗi → **0 lỗi**; chấm slide cách nút gọi 20px (trước đè 24px); Tab đầu tiên là “Bỏ qua tới nội dung”; trang Sản phẩm 1,3 MB → 0,58 MB (118 ảnh nhỏ `public/img/sp/nho/`, 3 MB → 251 KB); 601 trang + 71 trang hãng/dòng không lỗi.

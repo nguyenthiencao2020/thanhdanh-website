@@ -132,7 +132,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                         {/* 2. By brand */}
                         <div className="p-5 lg:border-r lg:border-slate-100">
                           <div className="mb-3 flex items-center justify-between px-1">
-                            <p className="text-xs font-bold tracking-widest text-slate-400 uppercase">Chọn theo hãng</p>
+                            <p className="text-xs font-bold tracking-widest text-slate-500 uppercase">Chọn theo hãng</p>
                             <Link href="/thuong-hieu" className="text-xs font-semibold text-steel-600 hover:text-brand-600">Tất cả hãng →</Link>
                           </div>
                           <div className="grid grid-cols-4 gap-2">
@@ -157,7 +157,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                         </div>
                         {/* 3. By product type (only groups with products) */}
                         <div className="p-5">
-                          <p className="mb-3 px-1 text-xs font-bold tracking-widest text-slate-400 uppercase">Hoặc theo loại hàng</p>
+                          <p className="mb-3 px-1 text-xs font-bold tracking-widest text-slate-500 uppercase">Hoặc theo loại hàng</p>
                           <div className="grid grid-cols-2 gap-1">
                             {categories.map((g) => (
                               <Link key={g.slug} href={`/danh-muc-san-pham/${g.slug}`} className="group/cat flex items-center gap-2.5 rounded-xl px-2 py-1.5 transition hover:bg-slate-50">
@@ -170,7 +170,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                                   )}
                                 </span>
                                 <span className="min-w-0 flex-1 truncate text-sm font-semibold text-steel-900 group-hover/cat:text-brand-600">{g.name}</span>
-                                <span className="shrink-0 text-xs text-slate-400">{g.count}</span>
+                                <span className="shrink-0 text-xs text-slate-500">{g.count}</span>
                               </Link>
                             ))}
                           </div>
@@ -243,7 +243,7 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                 {item.dropdown && (
                   <div className="mt-1 mb-2 space-y-3 px-3">
                     <div>
-                      <p className="mb-1.5 text-[11px] font-bold tracking-widest text-slate-400 uppercase">Theo hãng</p>
+                      <p className="mb-1.5 text-[11px] font-bold tracking-widest text-slate-500 uppercase">Theo hãng</p>
                       <div className="flex flex-wrap gap-1.5">
                         {brands.map((b) => (
                           <Link key={b.slug} href={`/thuong-hieu/${b.slug}`} onClick={() => setOpen(false)} className="rounded-full border border-slate-200 px-3 py-1.5 text-sm font-semibold text-slate-700">
@@ -254,10 +254,10 @@ export function Header({ shortName, tagline, announcement, announcementUrl, phon
                       </div>
                     </div>
                     <div>
-                      <p className="mb-1 text-[11px] font-bold tracking-widest text-slate-400 uppercase">Theo loại hàng</p>
+                      <p className="mb-1 text-[11px] font-bold tracking-widest text-slate-500 uppercase">Theo loại hàng</p>
                       {categories.map((g) => (
                         <Link key={g.slug} href={`/danh-muc-san-pham/${g.slug}`} onClick={() => setOpen(false)} className="flex items-center justify-between rounded-md py-1.5 text-sm text-slate-700">
-                          {g.name} <span className="text-xs text-slate-400">{g.count}</span>
+                          {g.name} <span className="text-xs text-slate-500">{g.count}</span>
                         </Link>
                       ))}
                     </div>

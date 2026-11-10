@@ -21,6 +21,13 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
     .map((b) => ({ slug: b.slug, name: b.name, logo_url: b.logo_url, count: brandCount.get(b.slug) ?? 0 }));
   return (
     <>
+      {/* Keyboard users: jump past the top bar and menu. Visible only when focused. */}
+      <a
+        href="#noi-dung"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-semibold focus:text-brand-700 focus:shadow-lg focus:ring-2 focus:ring-brand-600"
+      >
+        Bỏ qua tới nội dung
+      </a>
       <Header
         shortName={settings.short_name}
         tagline={settings.tagline}
@@ -34,7 +41,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         categories={tree.map((g) => ({ ...g, count: catCount.get(g.slug) ?? 0 }))}
         brands={menuBrands}
       />
-      <main className="overflow-x-clip">{children}</main>
+      <main id="noi-dung" tabIndex={-1} className="overflow-x-clip outline-none">{children}</main>
       <Footer settings={{ ...settings, map_embed_url: await resolveMapEmbed(settings.map_embed_url, settings.address) }} categories={tree} pages={pages} />
       <FloatingContact phone={settings.phone} zalo={settings.zalo} messenger={settings.messenger_url} />
       <BackToTop />

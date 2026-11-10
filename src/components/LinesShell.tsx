@@ -37,9 +37,9 @@ export async function LinesShell({
             name="q"
             type="search"
             defaultValue={q}
-            placeholder="Nhập mã hàng, series hoặc tên sản phẩm…"
+            placeholder="Nhập mã hàng…"
             aria-label="Tìm sản phẩm"
-            className="h-13 w-full rounded-full border-0 bg-white pr-32 pl-13 text-slate-900 shadow-xl shadow-black/20 placeholder:text-slate-400 focus:ring-2 focus:ring-teal-300 focus:outline-none"
+            className="h-13 w-full rounded-full border-0 bg-white pr-32 pl-13 text-slate-900 shadow-xl shadow-black/20 placeholder:text-slate-500 focus:ring-2 focus:ring-teal-300 focus:outline-none"
           />
           <button type="submit" className="btn-primary absolute top-1/2 right-1.5 h-10 -translate-y-1/2 rounded-full px-6">Tìm kiếm</button>
         </Form>
