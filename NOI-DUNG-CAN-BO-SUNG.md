@@ -20,7 +20,7 @@ Danh sách những nội dung trên website hiện đang là **tạm / giả đ�
 | [ ] | 🔴 | Chạy `supabase/migrations/0009_sua-chu-hoa-mo-ta.sql` | Supabase | Sửa “pLC/cB” → “PLC/CB” trong mô tả 8 sản phẩm (bỏ qua nếu đã chạy) |
 | [x] | 🔴 | Chạy `supabase/migrations/0010_tim-kiem-khong-dau.sql` | Supabase | ✅ Đã chạy — tìm kiếm không dấu (“bien tan” → “Biến tần”) |
 | [x] | 🔴 | Chạy `supabase/migrations/0011_hang-chu-luc.sql` | Supabase | ✅ Đã chạy — chọn *Thương hiệu tiêu biểu* trong Admin → Thương hiệu (hiện ở khung logo trang chủ, trang Sản phẩm, menu) |
-| [ ] | 🔴 | Thêm biến `NEXT_PUBLIC_SITE_URL = https://www.thietbinhamay-dd.com` rồi Redeploy | Vercel | Để link chia sẻ Zalo/Facebook, sitemap dùng đúng tên miền |
+| [x] | 🔴 | ~~Thêm biến `NEXT_PUBLIC_SITE_URL = https://www.thietbinhamay-dd.com` rồi Redeploy~~ (đã làm 10/11/2026) | Vercel | Để link chia sẻ Zalo/Facebook, sitemap dùng đúng tên miền |
 | [ ] | 🔴 | Tạo tài khoản admin `phuong.le@thietbinhamay-dd.com` và cấp quyền | Supabase | Xem README mục 3 hoặc hướng dẫn có ảnh |
 | [x] | 🔴 | Chạy `0008_hinh-anh-thuc-te.sql` | Supabase | ✅ Đã chạy: 62 thương hiệu · 123 sản phẩm · 118 ảnh thật · 43 danh mục có ảnh |
 | [x] | 🔴 | Gắn tên miền | Vercel | ✅ `www.thietbinhamay-dd.com` |
