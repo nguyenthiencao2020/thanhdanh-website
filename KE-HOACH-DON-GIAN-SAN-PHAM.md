@@ -305,7 +305,7 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 
 ---
 
-## Cách (B) — hiện đủ các hãng Đạt Danh cung cấp (10/11/2026) — bản mẫu xong, chờ duyệt
+## Cách (B) — hiện đủ các hãng Đạt Danh cung cấp (10/11/2026) — đã duyệt, đưa lên main
 
 **Lý do:** Đạt Danh “cái gì cũng bán” (tìm nguồn theo yêu cầu) → web cần cho thấy độ phủ hơn 60 hãng thay vì chỉ 17 hãng có sản phẩm.
 
