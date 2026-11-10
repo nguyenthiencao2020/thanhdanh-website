@@ -283,3 +283,9 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 13. Số trang trí trang Dịch vụ: ẩn với phần mềm đọc màn hình.
 
 **Kết quả kiểm tra sau khi sửa:** kiểm tra tự động (axe, chuẩn WCAG 2 AA) 11 trang × 2 cỡ màn hình: 56 lỗi → **0 lỗi**; chấm slide cách nút gọi 20px (trước đè 24px); Tab đầu tiên là “Bỏ qua tới nội dung”; trang Sản phẩm 1,3 MB → 0,58 MB (118 ảnh nhỏ `public/img/sp/nho/`, 3 MB → 251 KB); 601 trang + 71 trang hãng/dòng không lỗi.
+
+### Trang sản phẩm — so với cách làm phổ biến (10/11/2026)
+
+- **Quyết định:** web là trang giới thiệu + nhận báo giá, **không phải bán hàng trực tuyến** → không làm ô số lượng / giỏ báo giá; khách ghi số lượng trong ô ghi chú.
+- **Đề xuất (chưa làm):** (1) bảng “Các mã trong series” với nút “Báo giá mã này”; (2) hiện mã đặt hàng dưới tên; (3) 3–5 dòng thông số nhanh; (4) mục “Tài liệu” PDF; (5) “Phụ kiện thường dùng kèm”; (6) CO, CQ / giấy ủy quyền hãng nếu có.
+- Mục 1–3 chờ file Excel mã sản phẩm; mục 4 và 6 chờ Đạt Danh trả lời (xem `NOI-DUNG-CAN-BO-SUNG.md`).
