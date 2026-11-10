@@ -63,5 +63,15 @@ export function lineOfProduct(productSlug: string): ProductLine | undefined {
   return LINES.find((l) => l.products.includes(productSlug));
 }
 
+/** Lines matching the search, plus the lines of the products the search found (e.g. "aptomat" → MCB, MCCB). */
+export function linesForSearch(q: string, brandName: (slug: string) => string, productSlugs: string[]) {
+  const found = searchLines(q, brandName);
+  for (const slug of productSlugs) {
+    const l = lineOfProduct(slug);
+    if (l && !found.includes(l)) found.push(l);
+  }
+  return found;
+}
+
 export const lineHref = (l: Pick<ProductLine, "brand" | "slug">) => `/thuong-hieu/${l.brand}/${l.slug}`;
 export const brandHref = (slug: string) => `/thuong-hieu/${slug}`;

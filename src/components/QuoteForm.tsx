@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useId, useRef, useState } from "react";
+import { startTransition, useActionState, useEffect, useId, useRef, useState } from "react";
 import { submitInquiry, type QuoteState } from "@/app/actions";
 import { Icon } from "./Icon";
 
@@ -71,16 +71,20 @@ export function QuoteForm({ productId, productName, compact, defaultMessage }: P
     });
   }
 
-  function submit(form: FormData) {
+  // Submitted via onSubmit (not the form `action` prop) so React does not clear what the visitor
+  // typed when the server answers with an error (e.g. a mistyped phone number).
+  function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
     form.delete("photos");
     photos.forEach((p, i) => form.append("photos", p.blob, `tem-nhan-${i + 1}.${p.blob.type === "image/png" ? "png" : p.blob.type === "image/webp" ? "webp" : "jpg"}`));
-    action(form);
+    startTransition(() => action(form));
   }
 
   const message = defaultMessage ?? (productName ? `Báo giá: ${productName}\nSố lượng: ` : undefined);
 
   return (
-    <form action={submit} className="mt-4 grid gap-4 sm:grid-cols-2">
+    <form onSubmit={submit} className="mt-4 grid gap-4 sm:grid-cols-2">
       {productId && <input type="hidden" name="product_id" value={productId} />}
       <div className="hidden" aria-hidden="true">
         <label>

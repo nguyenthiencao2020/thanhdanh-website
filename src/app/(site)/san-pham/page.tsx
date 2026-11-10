@@ -7,7 +7,7 @@ import { LinesShell } from "@/components/LinesShell";
 import { ProductCard } from "@/components/ProductCard";
 import { QuoteForm } from "@/components/QuoteForm";
 import { getProductsPage } from "@/lib/data";
-import { getBrandsWithLines, lineHref, searchLines } from "@/lib/lines";
+import { getBrandsWithLines, lineHref, linesForSearch } from "@/lib/lines";
 
 export const metadata: Metadata = { title: "Sản phẩm" };
 
@@ -22,12 +22,13 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
   if (category) redirect(`/danh-muc-san-pham/${encodeURIComponent(category)}`);
   const brandParam = one(sp["thuong-hieu"]);
   const brands = await getBrandsWithLines();
-  if (brandParam && brands.some((b) => b.brand.slug === brandParam)) redirect(`/thuong-hieu/${brandParam}`);
+  if (brandParam && /^[a-z0-9-]+$/.test(brandParam)) redirect(`/thuong-hieu/${brandParam}`);
 
   const q = one(sp.q)?.trim();
   if (q) {
     const name = (slug: string) => brands.find((b) => b.brand.slug === slug)?.brand.name ?? "";
-    const [found, products] = [searchLines(q, name), await getProductsPage({ q, pageSize: 24 })];
+    const products = await getProductsPage({ q, pageSize: 24 });
+    const found = linesForSearch(q, name, products.items.map((p) => p.slug));
     const none = !found.length && !products.total;
     return (
       <LinesShell
