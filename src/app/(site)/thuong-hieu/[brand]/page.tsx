@@ -17,8 +17,8 @@ export async function generateStaticParams() {
 
 /**
  * A brand's product lines, plus its products that are not in any line yet (e.g. added in Admin
- * after the line list was made). Brands with nothing on the website yet still get a short page:
- * Đạt Danh supplies them on request.
+ * after the line list was made). Brands with nothing listed yet still get a short page (Đạt Danh
+ * supplies every brand it lists).
  */
 async function load(slug: string) {
   const [withLines, brands] = await Promise.all([getBrandsWithLines(), getBrands()]);
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!d) return {};
   const names = [...d.lines.map((l) => l.name), ...d.extra.map((p) => p.name)].slice(0, 12);
   if (!names.length) {
-    return { title: `Thiết bị ${d.brand.name}`, description: `Đạt Danh cung cấp thiết bị ${d.brand.name} chính hãng theo yêu cầu cho nhà máy — gửi mã hàng hoặc ảnh tem nhãn để được báo giá nhanh.` };
+    return { title: `Thiết bị ${d.brand.name}`, description: `Đạt Danh cung cấp thiết bị ${d.brand.name} chính hãng cho nhà máy và tủ điện — luôn sẵn sàng tư vấn đúng mã, báo giá nhanh.` };
   }
   return { title: `Sản phẩm ${d.brand.name}`, description: `Thiết bị ${d.brand.name}: ${names.join(", ")}. Tư vấn chọn mã, báo giá nhanh.` };
 }
@@ -58,7 +58,7 @@ export default async function BrandLinesPage({ params }: { params: Params }) {
         crumbs={[{ href: "/thuong-hieu", label: "Thương hiệu" }, { label: b.name }]}
         lead="Thiết bị"
         accent={b.name}
-        description="Cung cấp theo yêu cầu — gửi mã hàng hoặc ảnh tem nhãn để được báo giá."
+        description="Luôn sẵn sàng cung cấp — gửi mã hàng hoặc ảnh tem nhãn để được tư vấn và báo giá nhanh."
       >
         <article className="rounded-3xl border border-slate-200 bg-white p-5 sm:p-7">
           <div className="grid items-center gap-6 sm:grid-cols-[200px_minmax(0,1fr)]">
@@ -68,7 +68,7 @@ export default async function BrandLinesPage({ params }: { params: Params }) {
             <div>
               <h2 className="text-2xl font-extrabold text-steel-900">Thiết bị {b.name} chính hãng</h2>
               <p className="mt-2 leading-relaxed text-slate-600">
-                Đạt Danh cung cấp thiết bị {b.name} cho nhà máy và tủ điện công nghiệp theo yêu cầu. Các mã {b.name} chưa được đăng lên website — gửi mã hàng, ảnh tem nhãn hoặc mô tả thiết bị, chúng tôi tìm nguồn, tư vấn mã phù hợp và báo giá nhanh.
+                Đạt Danh cung cấp thiết bị {b.name} chính hãng cho nhà máy và tủ điện công nghiệp. Gửi mã hàng, ảnh tem nhãn hoặc mô tả thiết bị — đội ngũ kỹ thuật luôn sẵn sàng tư vấn đúng mã và báo giá nhanh cho bạn.
               </p>
             </div>
           </div>

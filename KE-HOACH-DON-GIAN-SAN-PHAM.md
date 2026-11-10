@@ -311,7 +311,7 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 
 **Quay lại:** mốc trước khi làm là commit `194fb4121f4a04bae503177ec138ba7ae7e26ebb` trên `main` (PR #56).
 
-- Trang **Thương hiệu**: hiện đủ 62 logo — hãng có sản phẩm ghi số dòng hàng; hãng chưa có ghi “Cung cấp theo yêu cầu” + dòng “và nhiều hãng khác theo yêu cầu”.
+- Trang **Thương hiệu**: hiện đủ 62 logo — hãng có sản phẩm ghi số dòng hàng; hãng chưa có ghi “Sẵn sàng cung cấp” + dòng “Và nhiều hãng khác”. (Đổi chữ 10/11: bỏ “tìm nguồn”, “theo yêu cầu”, “chưa đăng lên web” → “luôn sẵn sàng”.)
 - **Trang hãng chưa có sản phẩm** (trước: 404): logo, câu giới thiệu, form báo giá điền sẵn “Báo giá thiết bị [hãng]”, các hãng khác.
 - **Trang chủ**: dải “Và các hãng khác” chạy đủ các hãng.
 - **Sitemap**: thêm trang các hãng mới.
