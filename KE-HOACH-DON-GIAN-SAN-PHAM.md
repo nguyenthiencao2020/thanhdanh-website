@@ -305,7 +305,7 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 
 ---
 
-## Cách (B) — hiện đủ các hãng Đạt Danh cung cấp (10/11/2026) — đang làm bản mẫu
+## Cách (B) — hiện đủ các hãng Đạt Danh cung cấp (10/11/2026) — bản mẫu xong, chờ duyệt
 
 **Lý do:** Đạt Danh “cái gì cũng bán” (tìm nguồn theo yêu cầu) → web cần cho thấy độ phủ hơn 60 hãng thay vì chỉ 17 hãng có sản phẩm.
 
@@ -316,3 +316,4 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 - **Trang chủ**: dải “Và các hãng khác” chạy đủ các hãng.
 - **Sitemap**: thêm trang các hãng mới.
 - Không cần thêm ảnh sản phẩm (dùng logo có sẵn: 60/62 hãng).
+- Kiểm tra: 601 trang không lỗi; sitemap 301 URL đều 200, 0 tiêu đề trùng; axe 0 lỗi trên trang Thương hiệu, trang hãng mới, trang chủ.
