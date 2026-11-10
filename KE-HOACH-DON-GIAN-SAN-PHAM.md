@@ -195,7 +195,7 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 
 ---
 
-## Bước 2–3 theo tư vấn (10/11/2026) — đang làm, chờ duyệt
+## Bước 2–3 theo tư vấn (10/11/2026) — đã duyệt, đưa lên main (cần chạy migration 0012)
 
 **Quay lại:** mốc trước khi làm là commit `1d33f80e95fffb8e5c7b08e250acd767add5348d` trên `main` (PR #44).
 
