@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!category) return {};
   return {
     title: category.name,
-    description: category.description ?? undefined,
+    description: category.description || `${category.name} chính hãng cho nhà máy — tư vấn chọn mã, báo giá nhanh tại Đạt Danh.`,
     openGraph: category.image_url ? { images: [category.image_url] } : undefined,
   };
 }

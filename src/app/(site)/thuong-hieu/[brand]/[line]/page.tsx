@@ -28,7 +28,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!f) return {};
   const brandName = f.b.brand.slug === "hang-thong-dung" ? "" : ` ${f.b.brand.name}`;
   return {
-    title: `${f.l.name}${brandName}`,
+    // "– series & báo giá" keeps the title distinct from the product / category page of the same name.
+    title: `${f.l.name}${brandName} – series & báo giá`,
     description: `${f.l.name}${brandName}: ${f.l.series.join(", ")}. Báo giá nhanh.`,
     openGraph: f.l.image_url ? { images: [f.l.image_url] } : undefined,
   };
