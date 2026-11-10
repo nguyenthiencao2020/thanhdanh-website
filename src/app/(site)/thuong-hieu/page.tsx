@@ -7,7 +7,7 @@ import { getBrandsWithLines } from "@/lib/lines";
 
 export const metadata: Metadata = {
   title: "Thương hiệu",
-  description: "Đạt Danh cung cấp thiết bị điện, tự động hóa và vật tư nhà máy của hơn 60 thương hiệu — có sẵn trên website hoặc tìm nguồn theo yêu cầu.",
+  description: "Đạt Danh cung cấp thiết bị điện, tự động hóa và vật tư nhà máy của hơn 60 thương hiệu — luôn sẵn sàng tư vấn và báo giá nhanh.",
 };
 
 export default async function BrandsPage() {
@@ -25,7 +25,7 @@ export default async function BrandsPage() {
     <>
       <PageHeader
         title="Thương hiệu phân phối"
-        description={`Đạt Danh cung cấp thiết bị của ${brands.length}+ thương hiệu. Hãng chưa có sản phẩm trên website vẫn cung cấp theo yêu cầu — gửi mã hàng hoặc ảnh tem nhãn để được báo giá.`}
+        description={`Đạt Danh cung cấp thiết bị của ${brands.length}+ thương hiệu. Gửi mã hàng hoặc ảnh tem nhãn — chúng tôi luôn sẵn sàng tư vấn đúng mã và báo giá nhanh.`}
         crumbs={[{ label: "Thương hiệu" }]}
       />
       <div className="container-page py-10">
@@ -43,7 +43,7 @@ export default async function BrandsPage() {
                   </div>
                   <span className="text-sm font-semibold text-slate-700 group-hover:text-brand-600">{b.name}</span>
                   <span className={`-mt-2 text-xs ${n ? "font-semibold text-steel-600" : "text-slate-500"}`}>
-                    {n ? `${n} dòng hàng` : "Cung cấp theo yêu cầu"}
+                    {n ? `${n} dòng hàng` : "Sẵn sàng cung cấp"}
                   </span>
                 </Link>
               </li>
@@ -51,8 +51,8 @@ export default async function BrandsPage() {
           })}
         </ul>
         <div className="mt-10 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center">
-          <p className="font-semibold text-slate-800">Và nhiều hãng khác theo yêu cầu</p>
-          <p className="mt-1 text-sm text-slate-600">Không thấy hãng bạn cần? Gửi mã hàng hoặc ảnh tem nhãn — Đạt Danh tìm nguồn và báo giá cho bạn.</p>
+          <p className="font-semibold text-slate-800">Và nhiều hãng khác</p>
+          <p className="mt-1 text-sm text-slate-600">Không thấy hãng bạn cần? Gửi mã hàng hoặc ảnh tem nhãn — Đạt Danh luôn sẵn sàng tư vấn và báo giá cho bạn.</p>
           <Link href="/lien-he" className="btn-primary mt-4">Gửi yêu cầu báo giá</Link>
         </div>
       </div>

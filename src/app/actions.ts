@@ -1,6 +1,7 @@
 "use server";
 
 import { isSupabaseConfigured } from "@/lib/supabase/config";
+import { sendInquiryMail } from "@/lib/mail";
 import { createPublicClient } from "@/lib/supabase/server";
 
 export type QuoteState = { ok: boolean; message: string } | null;
@@ -47,12 +48,15 @@ export async function submitInquiry(_prev: QuoteState, form: FormData): Promise<
   if (photos.some((f) => !PHOTO_TYPES[f.type])) return { ok: false, message: "Chỉ nhận ảnh JPG, PNG hoặc WEBP." };
   if (photos.some((f) => f.size > MAX_PHOTO_BYTES)) return { ok: false, message: "Ảnh quá lớn (tối đa 3 MB mỗi ảnh)." };
 
+  const page = field(form, "page", 300);
+  const photoData = await Promise.all(photos.map(async (p, i) => ({ filename: `tem-nhan-${i + 1}.${PHOTO_TYPES[p.type]}`, content: await p.arrayBuffer() })));
+
   const supabase = createPublicClient({ cache: false });
   const month = new Date().toISOString().slice(0, 7);
   const attachments: string[] = [];
   for (const photo of photos) {
     const path = `inbox/${month}/${crypto.randomUUID()}.${PHOTO_TYPES[photo.type]}`;
-    const { error } = await supabase.storage.from("yeu-cau").upload(path, await photo.arrayBuffer(), { contentType: photo.type, upsert: false });
+    const { error } = await supabase.storage.from("yeu-cau").upload(path, photoData[photos.indexOf(photo)].content, { contentType: photo.type, upsert: false });
     if (error) console.error("submitInquiry upload", error.message);
     else attachments.push(path);
   }
@@ -74,5 +78,6 @@ export async function submitInquiry(_prev: QuoteState, form: FormData): Promise<
     console.error("submitInquiry", error.message);
     return { ok: false, message: "Không gửi được yêu cầu. Vui lòng thử lại hoặc gọi hotline." };
   }
+  await sendInquiryMail({ name, phone, email, company, message, page, photos: photoData });
   return { ok: true, message: "Cảm ơn bạn! Chúng tôi đã nhận yêu cầu và sẽ liên hệ lại sớm." };
 }

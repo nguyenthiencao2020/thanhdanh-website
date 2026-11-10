@@ -105,6 +105,29 @@ Supabase gói Free tự **pause** project nếu 7 ngày không có hoạt độn
 - Nên thêm biến môi trường `CRON_SECRET` (chuỗi ngẫu nhiên dài) trên Vercel rồi Redeploy, để người ngoài không gọi được route này.
 - Kiểm tra: Vercel → *Settings → Cron Jobs* → **Run** → xem *Logs*, kết quả `{"ok":true,...}` là được.
 
+### 5. Email thông báo khi khách gửi báo giá (Resend)
+
+Mỗi yêu cầu báo giá (mọi form trên web) được lưu trong Admin **và** gửi email về Đạt Danh: thông tin khách, nội dung, trang khách đang xem, ảnh tem nhãn đính kèm, nút mở Admin. Chưa cài thì web vẫn chạy, chỉ không gửi email.
+
+1. Tạo tài khoản https://resend.com (miễn phí ~3.000 email/tháng).
+2. **Domains → Add domain** → `thietbinhamay-dd.com` → thêm các bản ghi DNS Resend đưa ra ở nơi quản lý tên miền → chờ **Verified**.
+   DNS của Đạt Danh ở **Cloudflare**: Cloudflare → `thietbinhamay-dd.com` → **DNS → Records → Add record**, chép đúng từng dòng của Resend:
+   - Ô **Name** chỉ ghi phần trước tên miền (`resend._domainkey`, `send`, `_dmarc`) — Cloudflare tự thêm `.thietbinhamay-dd.com`.
+   - Bản ghi TXT dán nguyên giá trị; bản ghi MX nhớ ô **Priority** (thường `10`).
+   - Nếu có ô Proxy: chọn **DNS only** (mây xám).
+   - **Không sửa / xóa** các bản ghi MX, TXT đang có ở tên miền gốc — đó là của hộp thư công ty đang dùng. Bản ghi của Resend nằm ở `send.` và `resend._domainkey` nên không đụng nhau.
+3. **API Keys → Create** (quyền *Sending access*) → sao chép key `re_…`.
+4. Vercel → Project → Settings → Environment Variables (Production):
+
+   | Biến | Giá trị |
+   |---|---|
+   | `RESEND_API_KEY` | `re_…` |
+   | `INQUIRY_EMAIL_TO` | `sales@thietbinhamay-dd.com, phuong.le@thietbinhamay-dd.com` |
+   | `INQUIRY_EMAIL_FROM` *(tuỳ chọn)* | `Website Đạt Danh <web@thietbinhamay-dd.com>` (mặc định) |
+   | `INQUIRY_AUTOREPLY` *(tuỳ chọn)* | `1` = gửi khách email xác nhận nếu khách ghi email |
+
+5. **Redeploy** → gửi thử 1 yêu cầu báo giá trên web → kiểm tra hộp thư (cả thư rác lần đầu).
+
 ## File báo giá Excel
 
 `tai-lieu/Bao-gia-Dat-Danh.xlsx` — mẫu báo giá (sheet *Báo giá*, *Bảng giá*, *Danh mục*, *Hướng dẫn*):

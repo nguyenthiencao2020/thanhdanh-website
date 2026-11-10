@@ -64,7 +64,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Sea
             {none ? <>Chưa thấy “{q}” trên website — gửi mã này để báo giá</> : <>Không thấy đúng mã cần? Gửi yêu cầu báo giá</>}
           </h2>
           <p className="mt-1 text-sm text-slate-500">
-            Chúng tôi cung cấp nhiều mã chưa đăng lên web. Ghi số lượng, có thể kèm ảnh tem nhãn — phản hồi nhanh trong giờ làm việc.
+            Đạt Danh luôn sẵn sàng cung cấp cả những mã chưa có trên website. Ghi số lượng, có thể kèm ảnh tem nhãn — phản hồi nhanh trong giờ làm việc.
           </p>
           <QuoteForm compact defaultMessage={`Mã cần báo giá: ${q}\nSố lượng: `} />
         </section>
