@@ -286,6 +286,17 @@ Mỗi dòng: việc đã làm · PR · **mốc quay lại** (commit `main` ngay 
 
 ### Trang sản phẩm — so với cách làm phổ biến (10/11/2026)
 
-- **Quyết định:** web là trang giới thiệu + nhận báo giá, **không phải bán hàng trực tuyến** → không làm ô số lượng / giỏ báo giá; khách ghi số lượng trong ô ghi chú.
-- **Đề xuất (chưa làm):** (1) bảng “Các mã trong series” với nút “Báo giá mã này”; (2) hiện mã đặt hàng dưới tên; (3) 3–5 dòng thông số nhanh; (4) mục “Tài liệu” PDF; (5) “Phụ kiện thường dùng kèm”; (6) CO, CQ / giấy ủy quyền hãng nếu có.
-- Mục 1–3 chờ file Excel mã sản phẩm; mục 4 và 6 chờ Đạt Danh trả lời (xem `NOI-DUNG-CAN-BO-SUNG.md`).
+- **Định hướng của Đạt Danh:** web dùng để **giới thiệu sản phẩm là chính**; báo giá / liên hệ là phụ. **Không phải bán hàng trực tuyến** → không làm ô số lượng, giỏ báo giá, nút mua; khách ghi số lượng trong ô ghi chú nếu cần.
+- Vì vậy ưu tiên **nội dung giới thiệu** (hình ảnh, mô tả, thông số, tài liệu, chứng từ) hơn các tính năng thúc đẩy đặt hàng; nút báo giá giữ ở mức vừa phải.
+- **Đề xuất — tạm ghi lại, chưa làm (10/11/2026):**
+
+  | # | Việc | Khách được gì | Cần gì | Trạng thái |
+  |---|---|---|---|---|
+  | 1 | Gợi ý **“Thường dùng kèm”** (PLC → module mở rộng, nguồn, HMI cùng hãng) | Báo giá cả bộ một lần | Dùng dòng hàng hiện có; Đạt Danh xem lại gợi ý | Làm được ngay |
+  | 2 | Khối **“Cần hỗ trợ chọn mã?”** cạnh form (gửi ảnh tem nhãn / mã cũ → tìm mã tương đương, nút Zalo) | Không biết mã vẫn hỏi được | Không cần | Làm được ngay |
+  | 3 | Bảng **“Các mã trong series”** + nút “Báo giá mã này” (điền sẵn mã vào form — nút liên hệ, không phải nút mua) | Chọn đúng mã ngay trên trang | File Excel mã sản phẩm | Chờ Excel |
+  | 4 | **Mã đặt hàng** dưới tên + **3–5 thông số nhanh** | Kỹ sư biết ngay đúng hàng | Cột mã + thông số (mã bán chạy) | Chờ Excel |
+  | 5 | Mục **“Tài liệu”** tải PDF (thêm ô tải file trong Admin) | Có catalogue / hướng dẫn | File PDF | Chờ Đạt Danh |
+  | 6 | **CO, CQ / giấy ủy quyền hãng** (sản phẩm, trang hãng, Giới thiệu) — chỉ khi có thật | Tin hàng chính hãng | Xác nhận + ảnh giấy tờ | Chờ Đạt Danh |
+
+  Thứ tự đề xuất: 1–2 trước (không chờ ai) → 3–4 khi có Excel → 5–6 khi Đạt Danh trả lời.
