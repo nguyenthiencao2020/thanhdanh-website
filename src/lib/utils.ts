@@ -15,13 +15,18 @@ export function phoneDigits(phone: string) {
   return phone.replace(/[^\d+]/g, "");
 }
 
+/** The company's own domain — used for production builds on Vercel. */
+export const PRODUCTION_DOMAIN = "https://www.thietbinhamay-dd.com";
+
 /**
- * Public address of the site (share images, sitemap, robots). NEXT_PUBLIC_SITE_URL wins; on Vercel
- * the production domain is used when it is not set, so shared links never point at localhost.
+ * Public address of the site (canonical links, share images, sitemap, robots).
+ * NEXT_PUBLIC_SITE_URL wins; otherwise production builds on Vercel use the company domain
+ * (VERCEL_PROJECT_PRODUCTION_URL can be the *.vercel.app name), previews their own Vercel URL.
  */
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "") ||
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+  (process.env.VERCEL_ENV === "production" ? PRODUCTION_DOMAIN : "") ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
   "http://localhost:3000"
 ).replace(/\/$/, "");
 
