@@ -3,6 +3,29 @@
 -- ai cũng tải lên được (chỉ vào thư mục inbox/, chỉ ảnh, tối đa 3 MB), chỉ admin xem / xóa được.
 -- Chạy được nhiều lần.
 
+-- Bảng yêu cầu báo giá (có trong 0001; tạo lại nếu database còn thiếu)
+create table if not exists public.inquiries (
+  id uuid primary key default gen_random_uuid(),
+  name text not null check (char_length(name) between 1 and 120),
+  phone text not null check (char_length(phone) between 6 and 30),
+  email text check (email is null or char_length(email) <= 200),
+  company text check (company is null or char_length(company) <= 200),
+  message text check (message is null or char_length(message) <= 4000),
+  product_id uuid references public.products (id) on delete set null,
+  handled boolean not null default false,
+  created_at timestamptz not null default now()
+);
+alter table public.inquiries enable row level security;
+grant insert on public.inquiries to anon, authenticated;
+grant select, update, delete on public.inquiries to authenticated;
+
+drop policy if exists "inquiries admin read" on public.inquiries;
+create policy "inquiries admin read" on public.inquiries for select using (public.is_admin());
+drop policy if exists "inquiries admin update" on public.inquiries;
+create policy "inquiries admin update" on public.inquiries for update using (public.is_admin()) with check (public.is_admin());
+drop policy if exists "inquiries admin delete" on public.inquiries;
+create policy "inquiries admin delete" on public.inquiries for delete using (public.is_admin());
+
 alter table public.inquiries add column if not exists attachments text[] not null default '{}';
 
 alter table public.inquiries drop constraint if exists inquiries_attachments_check;
